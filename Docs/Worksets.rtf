@@ -1,0 +1,31 @@
+Worksets
+
+
+SceneManagement
+Ein SceneManager ist quasi der Manager für die Game State Machine, regelt also das Wechseln zwischen Sichten oder „Szenen“. Zum Beispiele ist das Introbild oder das Titelmenü eine eigene Szene. Das Schiffsmenü wäre eine eigene Szene oder das Spiel an sich eine eigene Szene.
+
+
+EntityManagement
+Ein EntityManager steuert das Aktualisieren und Rendern aller instanzierten Entitäten, die momentan in einer Session existieren. Er sorgt für das korrekte Erstellen neuer Entitäten und das zerstören nicht mehr benötigter Entitäten.
+
+
+ParticleManagement
+Ein ParticleManager verwaltet existierende Partikel und sorgt für eine korrekte Erstellung Neuer bzw. das Zerstören nicht mehr benötigter Partikel.
+
+
+SessionManagement
+Der SessionManager verwaltet eine Spielersession, also die erhaltenen Punkte, die Statistik, Schwierigkeitsgrad, Spawnzeiten und Spawnanzahl und stößt das Spawnen neuer Entitäten beim EntityManager an.
+
+
+TemplateManagement
+Der TemplateManager ist für das Laden von Entitäten Blaupausen zuständig. Alle Entitäten (Schiffe, Bewaffnung, Items, Asteroiden) werden als Templates in XML Dateien beschrieben. Diese Templates werden dann geladen und zum Erstellen neuer Objekte verwendet.
+
+
+SoundManagement
+Der SoundManager ist für das Abspielen von Soundeffekten und Musik zuständig.
+
+
+InputManagement
+Der InputManager reagiert auf Tastatur- und Controllerinput.
+
+

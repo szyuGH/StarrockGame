@@ -1,6 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FarseerPhysics.Dynamics;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using StarrockGame.InputManagement;
+using StarrockGame.SceneManagement;
+using StarrockGame.SceneManagement.Scenes;
+using System.Collections.Generic;
+using System;
 
 namespace StarrockGame
 {
@@ -11,7 +17,8 @@ namespace StarrockGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        SpriteFont font;
+        
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -26,7 +33,8 @@ namespace StarrockGame
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            Input.Initialize();
+            
 
             base.Initialize();
         }
@@ -37,9 +45,10 @@ namespace StarrockGame
         /// </summary>
         protected override void LoadContent()
         {
+            SceneManager.Initialize<SceneIntro>(this);
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+            font = Content.Load<SpriteFont>("GameFont");
             // TODO: use this.Content to load your game content here
         }
 
@@ -59,10 +68,11 @@ namespace StarrockGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            Input.Update();
+            SceneManager.Update(elapsed);
+            
 
-            // TODO: Add your update logic here
 
             base.Update(gameTime);
         }
@@ -73,11 +83,16 @@ namespace StarrockGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
+            //GraphicsDevice.Clear(Color.CornflowerBlue);
+            SceneManager.Render();
 
             base.Draw(gameTime);
+        }
+
+        protected override void OnExiting(object sender, EventArgs args)
+        {
+            SceneManager.Dispose();
+            base.OnExiting(sender, args);
         }
     }
 }

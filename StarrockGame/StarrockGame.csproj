@@ -39,9 +39,22 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AI\IBehavior.cs" />
+    <Compile Include="AI\PlayerController.cs" />
+    <Compile Include="Entities\Entity.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="InputManagement\ControllerInput.cs" />
+    <Compile Include="InputManagement\IInputDevice.cs" />
+    <Compile Include="InputManagement\Input.cs" />
+    <Compile Include="InputManagement\KeyboardInput.cs" />
+    <Compile Include="InputManagement\KeyboardInputType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SceneManagement\Scene.cs" />
+    <Compile Include="SceneManagement\SceneManager.cs" />
+    <Compile Include="SceneManagement\SceneState.cs" />
+    <Compile Include="SceneManagement\Scenes\SceneTest.cs" />
+    <Compile Include="SceneManagement\Scenes\SceneIntro.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FarseerPhysics MonoGame">

@@ -7,6 +7,8 @@ using StarrockGame.SceneManagement;
 using StarrockGame.SceneManagement.Scenes;
 using System.Collections.Generic;
 using System;
+using StarrockGame.Entities;
+using FarseerPhysics.Collision.Shapes;
 
 namespace StarrockGame
 {
@@ -34,7 +36,11 @@ namespace StarrockGame
         protected override void Initialize()
         {
             Input.Initialize();
-            
+            World world = new World(new Vector2(0f, 0f));
+            Spaceship ship = new Spaceship("TexturEinfuegen", world, 200, 200, 50,10,10);
+            CircleShape circleShape = new CircleShape(0.5f, 1);
+            Fixture fixture = ship.body.CreateFixture(circleShape, 0.5f);
+            world.Step(0.0333333f);
 
             base.Initialize();
         }

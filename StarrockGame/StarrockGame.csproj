@@ -41,7 +41,9 @@
   <ItemGroup>
     <Compile Include="AI\IBehavior.cs" />
     <Compile Include="AI\PlayerController.cs" />
+    <Compile Include="Entities\Asteroide.cs" />
     <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\Spaceship.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="InputManagement\ControllerInput.cs" />
     <Compile Include="InputManagement\IInputDevice.cs" />

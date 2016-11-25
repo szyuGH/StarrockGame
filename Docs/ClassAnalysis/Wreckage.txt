@@ -1,0 +1,5 @@
+Attributes:
+- Structure
+- Energy
+- Fuel
+- Blueprint[]

@@ -1,0 +1,22 @@
+Attributes:
+- Shield
+- Energy
+- Fuel
+- Module[]
+- Weapon[]
+- IsScavenging
+- IsReplenishingShield
+- ScavengeSuccess (static event)
+- ScavengeCanceled (static event)
+
+
+Methods:
+- FirePrimary
+- FireSecondary
+- ConsumeFuel
+- Scavenge
+- StopScavenging
+- UpdateScavenging
+- UpdateReplenishingShield
+- OnScavangeSuccess
+- OnScavengeCanceled

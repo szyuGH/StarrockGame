@@ -1,0 +1,22 @@
+Attributes:
+- Body (has Position, Rotation, Velocity, Center, Mass and everything for Collision and Movement)
+- Texture
+- Dictionary<EmitDirection (enum), ParticleEmitters>
+- Template (Holds data like Rewards [points, credits], TextureName, DefaultEquipment, Mass, MaxModuleCount inside a serialized XML File)
+- Controller (AI)
+- Structure
+- Created (static event)
+- Destroyed (static event)
+
+Methods:
+- Initialize
+- Update
+- Render
+- Accelerate
+- Decelerate
+- RotateLeft
+- RotateRight
+- ApplyDamage
+- Destroy
+- OnCreated
+- OnDestroyed

@@ -15,7 +15,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Graphics.PackedVector;
 #endregion
 
-namespace SceneManagerTest.Particles
+namespace StarrockGame.Particles
 {
     /// <summary>
     /// The main component in charge of displaying particles.
@@ -410,23 +410,26 @@ namespace SceneManagerTest.Particles
                     {
                         // If the active particles are all in one consecutive range,
                         // we can draw them all in a single call.
-                        device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0,
-                                                     firstActiveParticle * 4, (firstFreeParticle - firstActiveParticle) * 4,
-                                                     firstActiveParticle * 6, (firstFreeParticle - firstActiveParticle) * 2);
+                        //device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0,
+                        //                             firstActiveParticle * 4, (firstFreeParticle - firstActiveParticle) * 4,
+                        //                             firstActiveParticle * 6, (firstFreeParticle - firstActiveParticle) * 2);
+                        device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0, firstActiveParticle * 6, (firstFreeParticle - firstActiveParticle) * 2);
                     }
                     else
                     {
                         // If the active particle range wraps past the end of the queue
                         // back to the start, we must split them over two draw calls.
-                        device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0,
-                                                     firstActiveParticle * 4, (settings.MaxParticles - firstActiveParticle) * 4,
-                                                     firstActiveParticle * 6, (settings.MaxParticles - firstActiveParticle) * 2);
+                        //device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0,
+                        //                             firstActiveParticle * 4, (settings.MaxParticles - firstActiveParticle) * 4,
+                        //                             firstActiveParticle * 6, (settings.MaxParticles - firstActiveParticle) * 2);
+                        device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0, firstActiveParticle * 6, (settings.MaxParticles - firstActiveParticle) * 2);
 
                         if (firstFreeParticle > 0)
                         {
-                            device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0,
-                                                         0, firstFreeParticle * 4,
-                                                         0, firstFreeParticle * 2);
+                            //device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0,
+                            //                             0, firstFreeParticle * 4,
+                            //                             0, firstFreeParticle * 2);
+                            device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0, 0, firstFreeParticle * 2);
                         }
                     }
                 }
@@ -498,7 +501,7 @@ namespace SceneManagerTest.Particles
         /// <summary>
         /// Adds a new particle to the system.
         /// </summary>
-        public void AddParticle(Vector3 position, Vector3 velocity)
+        public void AddParticle(Vector2 position, Vector2 velocity)
         {
             // Figure out where in the circular queue to allocate the new particle.
             int nextFreeParticle = firstFreeParticle + 1;
@@ -514,7 +517,7 @@ namespace SceneManagerTest.Particles
             // this particle system wants to be affected by it.
             velocity *= settings.EmitterVelocitySensitivity;
 
-            Vector3 normVel = velocity;
+            Vector2 normVel = velocity;
             float velVal = normVel.Length(); 
             // Add some random distortion to velocity
             float dirDistortion = MathHelper.Lerp(settings.MinDistortion,
@@ -524,7 +527,7 @@ namespace SceneManagerTest.Particles
             realDir += dirDistortion;
 
 
-            velocity = new Vector3((float)Math.Cos(realDir), (float)Math.Sin(realDir), 0) * velVal;
+            velocity = new Vector2((float)Math.Cos(realDir), (float)Math.Sin(realDir)) * velVal;
 
 
 
@@ -538,8 +541,8 @@ namespace SceneManagerTest.Particles
             // Fill in the particle vertex structure.
             for (int i = 0; i < 4; i++)
             {
-                particles[firstFreeParticle * 4 + i].Position = position;
-                particles[firstFreeParticle * 4 + i].Velocity = velocity;
+                particles[firstFreeParticle * 4 + i].Position = new Vector3(position, 0);
+                particles[firstFreeParticle * 4 + i].Velocity = new Vector3(velocity, 0);
                 particles[firstFreeParticle * 4 + i].Random = randomValues;
                 particles[firstFreeParticle * 4 + i].Time = currentTime;
             }

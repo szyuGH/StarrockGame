@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 #endregion
 
-namespace SceneManagerTest.Particles
+namespace StarrockGame.Particles
 {
     /// <summary>
     /// Settings class describes all the tweakable options used
@@ -28,7 +28,7 @@ namespace SceneManagerTest.Particles
         // Maximum number of particles that can be displayed at one time.
         public int MaxParticles = 100;
 
-
+        
         // How long these particles will last.
         public TimeSpan Duration = TimeSpan.FromSeconds(1);
 
@@ -53,7 +53,7 @@ namespace SceneManagerTest.Particles
         // Direction and strength of the gravity effect. Note that this can point in any
         // direction, not just down! The fire effect points it upward to make the flames
         // rise, and the smoke plume points it sideways to simulate wind.
-        public Vector3 Gravity = Vector3.Zero;
+        public Vector2 Gravity = Vector2.Zero;
 
 
         // Controls how the particle velocity will change over their lifetime. If set

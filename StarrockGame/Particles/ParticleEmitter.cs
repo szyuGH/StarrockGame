@@ -10,9 +10,11 @@
 #region Using Statements
 using System;
 using Microsoft.Xna.Framework;
+using FarseerPhysics.Dynamics;
+using FarseerPhysics;
 #endregion
 
-namespace SceneManagerTest.Particles
+namespace StarrockGame.Particles
 {
     /// <summary>
     /// Helper for objects that want to leave particles behind them as they
@@ -41,8 +43,14 @@ namespace SceneManagerTest.Particles
 
         ParticleSystem particleSystem;
         float timeBetweenParticles;
-        Vector3 previousPosition;
+        Vector2 previousPosition;
         float timeLeftOver;
+
+        Body body;
+        float relativeAngle;
+        float propulsionPower;
+
+        public bool Emitting { get; set; }
 
         #endregion
 
@@ -51,13 +59,15 @@ namespace SceneManagerTest.Particles
         /// Constructs a new particle emitter object.
         /// </summary>
         public ParticleEmitter(ParticleSystem particleSystem,
-                               float particlesPerSecond, Vector3 initialPosition)
+                               float particlesPerSecond, Body body, float relativeAngle, float propulsionPower)
         {
             this.particleSystem = particleSystem;
+            this.body = body;
+            this.relativeAngle = relativeAngle;
+            this.propulsionPower = propulsionPower;
 
             timeBetweenParticles = 1.0f / particlesPerSecond;
-            
-            previousPosition = initialPosition;
+            Emitting = true;
         }
 
 
@@ -65,7 +75,7 @@ namespace SceneManagerTest.Particles
         /// Updates the emitter, creating the appropriate number of particles
         /// in the appropriate positions.
         /// </summary>
-        public void Update(GameTime gameTime, Vector3 newPosition)
+        public void Update(GameTime gameTime)
         {
             if (gameTime == null)
                 throw new ArgumentNullException("gameTime");
@@ -75,8 +85,6 @@ namespace SceneManagerTest.Particles
 
             if (elapsedTime > 0)
             {
-                // Work out how fast we are moving.
-                Vector3 velocity = (newPosition - previousPosition) / elapsedTime;
 
                 // If we had any time left over that we didn't use during the
                 // previous update, add that to the current elapsed time.
@@ -85,28 +93,25 @@ namespace SceneManagerTest.Particles
                 // Counter for looping over the time interval.
                 float currentTime = -timeLeftOver;
 
-                // Create particles as long as we have a big enough time interval.
-                while (timeToSpend > timeBetweenParticles)
+
+                if (Emitting)
                 {
-                    currentTime += timeBetweenParticles;
-                    timeToSpend -= timeBetweenParticles;
+                    float bodyRot = body.Rotation + MathHelper.ToRadians(relativeAngle);
+                    Vector2 velocity = new Vector2((float)Math.Cos(bodyRot), (float)Math.Sin(bodyRot));
 
-                    // Work out the optimal position for this particle. This will produce
-                    // evenly spaced particles regardless of the object speed, particle
-                    // creation frequency, or game update rate.
-                    float mu = currentTime / elapsedTime;
+                    // Create particles as long as we have a big enough time interval.
+                    while (timeToSpend > timeBetweenParticles)
+                    {
+                        currentTime += timeBetweenParticles;
+                        timeToSpend -= timeBetweenParticles;
 
-                    Vector3 position = Vector3.Lerp(previousPosition, newPosition, mu);
-
-                    // Create the particle.
-                    particleSystem.AddParticle(position, velocity);
+                        // Create the particle.
+                        particleSystem.AddParticle(ConvertUnits.ToSimUnits(body.Position), velocity * propulsionPower);
+                    }
                 }
-
                 // Store any time we didn't use, so it can be part of the next update.
                 timeLeftOver = timeToSpend;
             }
-
-            previousPosition = newPosition;
         }
     }
 }

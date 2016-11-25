@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 #endregion
 
-namespace SceneManagerTest.Particles
+namespace StarrockGame.Particles
 {
     /// <summary>
     /// Custom particle system for creating a giant plume of long lasting smoke.
@@ -38,7 +38,7 @@ namespace SceneManagerTest.Particles
             settings.MaxDistortion = (float)Math.PI / 90;
 
             // Create a wind effect by tilting the gravity vector sideways.
-            settings.Gravity = new Vector3(0, 0, 0);
+            settings.Gravity = new Vector2(0, 0);
 
             settings.EndVelocity = 0.75f;
 

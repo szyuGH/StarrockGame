@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Graphics.PackedVector;
 #endregion
 
-namespace SceneManagerTest.Particles
+namespace StarrockGame.Particles
 {
     /// <summary>
     /// Custom vertex structure for drawing particles.
@@ -28,7 +28,7 @@ namespace SceneManagerTest.Particles
 
         // Stores the starting velocity of the particle.
         public Vector3 Velocity;
-
+        
         // Four random values, used to make each particle look slightly different.
         public Color Random;
 

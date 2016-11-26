@@ -123,6 +123,11 @@ namespace StarrockGame.InputManagement
             }
         }
 
+        public string InputTypeName(KeyboardInputType type)
+        {
+            return controllerMapping[type].ToString();
+        }
+
         private static Dictionary<KeyboardInputType, Buttons> controllerMapping = new Dictionary<KeyboardInputType, Buttons>()
         {
             { KeyboardInputType.Accelerate, Buttons.RightTrigger },
@@ -136,10 +141,10 @@ namespace StarrockGame.InputManagement
             { KeyboardInputType.ShowStats, Buttons.Back },
             { KeyboardInputType.Menu, Buttons.Start },
 
-            { KeyboardInputType.MenuUp,     Buttons.LeftThumbstickUp },
-            { KeyboardInputType.MenuDown,   Buttons.LeftThumbstickDown},
-            { KeyboardInputType.MenuLeft,   Buttons.LeftThumbstickLeft },
-            { KeyboardInputType.MenuRight,  Buttons.LeftThumbstickRight },
+            { KeyboardInputType.MenuUp,     Buttons.DPadUp },
+            { KeyboardInputType.MenuDown,   Buttons.DPadDown},
+            { KeyboardInputType.MenuLeft,   Buttons.DPadLeft},
+            { KeyboardInputType.MenuRight,  Buttons.DPadRight},
             { KeyboardInputType.MenuSelect, Buttons.A },
             { KeyboardInputType.MenuCancel, Buttons.B },
         };

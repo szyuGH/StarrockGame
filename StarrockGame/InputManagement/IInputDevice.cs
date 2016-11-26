@@ -29,5 +29,7 @@ namespace StarrockGame.InputManagement
         bool MenuRight();
         bool MenuSelect();
         bool MenuCancel();
+
+        string InputTypeName(KeyboardInputType type);
     }
 }

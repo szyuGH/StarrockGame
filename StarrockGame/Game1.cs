@@ -24,6 +24,9 @@ namespace StarrockGame
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = 1920;
+            graphics.PreferredBackBufferHeight = 1080;
+            graphics.IsFullScreen = false;
             Content.RootDirectory = "Content";
         }
 

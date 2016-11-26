@@ -17,16 +17,30 @@ namespace StarrockGame.GUI
             set
             {
                 _caption = value;
-                center = Menu.Font.MeasureString(_caption) * .5f;
+                CalculateCenter();
+            }
+        }
+
+        private int _alignment;
+        public int Alignment
+        {
+            get { return _alignment; }
+            set
+            {
+                _alignment = value;
+                CalculateCenter();
             }
         }
 
         private Vector2 center;
 
-        public Label(Menu menu, string caption, Vector2 position, float size, Color color)
+        public Func<string> CaptionMonitor;
+
+        public Label(Menu menu, string caption, Vector2 position, float size, Color color, int alignment = 1)
             :base(menu, position, size, color)
         {
             Caption = caption;
+            Alignment = alignment;
         }
 
 
@@ -36,7 +50,18 @@ namespace StarrockGame.GUI
 
         public override void Render(SpriteBatch batch)
         {
+            if (CaptionMonitor != null)
+            {
+                Caption = CaptionMonitor();
+            }
             batch.DrawString(Menu.Font, Caption, Position, Color, 0, center, Size, SpriteEffects.None, 1);
+        }
+
+
+        private void CalculateCenter()
+        {
+            Vector2 measure = Menu.Font.MeasureString(_caption);
+            center = new Vector2((Alignment * .5f) * measure.X, measure.Y);
         }
     }
 }

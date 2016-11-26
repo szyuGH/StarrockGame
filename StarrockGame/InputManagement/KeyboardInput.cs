@@ -116,6 +116,11 @@ namespace StarrockGame.InputManagement
                 return 0;
         }
 
+        public string InputTypeName(KeyboardInputType type)
+        {
+            return keyboardMapping[type].ToString();
+        }
+
         private static Dictionary<KeyboardInputType, Keys> keyboardMapping = new Dictionary<KeyboardInputType, Keys>()
         {
             { KeyboardInputType.Accelerate, Keys.W },
@@ -129,11 +134,11 @@ namespace StarrockGame.InputManagement
             { KeyboardInputType.ShowStats, Keys.LeftAlt },
             { KeyboardInputType.Menu, Keys.Escape },
 
-            { KeyboardInputType.MenuUp, Keys.W },
-            { KeyboardInputType.MenuDown, Keys.S},
-            { KeyboardInputType.MenuLeft, Keys.A },
-            { KeyboardInputType.MenuRight, Keys.D },
-            { KeyboardInputType.MenuSelect, Keys.Space },
+            { KeyboardInputType.MenuUp, Keys.Up },
+            { KeyboardInputType.MenuDown, Keys.Down},
+            { KeyboardInputType.MenuLeft, Keys.Left },
+            { KeyboardInputType.MenuRight, Keys.Right },
+            { KeyboardInputType.MenuSelect, Keys.Enter },
             { KeyboardInputType.MenuCancel, Keys.Escape },
         };
     }

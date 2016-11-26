@@ -1,0 +1,14 @@
+Attributes:
+- ModulType		:String
+- PurchasePrice :int
+- Effect 		:double
+
+Methods:
+- Purchase
+- Sell
+- Apply
+- Remove
+
+
+
+

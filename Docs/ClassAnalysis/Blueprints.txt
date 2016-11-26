@@ -1,0 +1,9 @@
+Attributes:
+- BlueprintType :String
+- PurchasePrice :int
+- Rarity		:int
+
+Methods:
+- Activate
+- Sell
+- Purchase

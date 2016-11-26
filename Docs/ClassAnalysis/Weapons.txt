@@ -1,0 +1,11 @@
+Attributes:
+- WeaponType 	:String
+- PurchasePrice :int
+- EnergyCost	:int
+- Damage 		:int
+
+Methods:
+- Purchase
+- Sell
+- Apply
+- Remove

@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Graphics.PackedVector;
+using StarrockGame.Caching;
 #endregion
 
 namespace StarrockGame.Particles
@@ -228,7 +229,7 @@ namespace StarrockGame.Particles
         /// </summary>
         void LoadParticleEffect()
         {
-            Effect effect = content.Load<Effect>("Effects/ParticleEffect");
+            Effect effect = Cache.LoadEffect("ParticleEffect");
 
             // If we have several particle systems, the content manager will return
             // a single shared effect instance to them all. But we want to preconfigure
@@ -264,7 +265,7 @@ namespace StarrockGame.Particles
                 new Vector2(settings.MinEndSize, settings.MaxEndSize));
 
             // Load the particle texture, and set it onto the effect.
-            Texture2D texture = content.Load<Texture2D>(settings.TextureName);
+            Texture2D texture = Cache.LoadParticle(settings.TextureName);
 
             parameters["Texture"].SetValue(texture);
         }

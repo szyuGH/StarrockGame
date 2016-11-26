@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System;
 using StarrockGame.Entities;
 using FarseerPhysics.Collision.Shapes;
+using StarrockGame.Caching;
 
 namespace StarrockGame
 {
@@ -58,6 +59,7 @@ namespace StarrockGame
         /// </summary>
         protected override void LoadContent()
         {
+            Cache.Initialize(Content, null, new StarrockCacheLoader());
             SceneManager.Initialize<SceneIntro>(this);
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -103,6 +105,7 @@ namespace StarrockGame
 
         protected override void OnExiting(object sender, EventArgs args)
         {
+            Cache.Dispose();
             SceneManager.Dispose();
             base.OnExiting(sender, args);
         }

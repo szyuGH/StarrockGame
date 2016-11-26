@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using StarrockGame.Caching;
 using StarrockGame.GUI;
 using StarrockGame.InputManagement;
 using System;
@@ -41,8 +42,8 @@ namespace StarrockGame.SceneManagement.Scenes
 
         public SceneLeaderboard(Game1 game) : base(game)
         {
-            SpriteFont tableFont = Content.Load<SpriteFont>("Fonts/TableFont");
-            SpriteFont menuFont = Content.Load<SpriteFont>("Fonts/MenuFont");
+            SpriteFont tableFont = Cache.LoadFont("TableFont");
+            SpriteFont menuFont = Cache.LoadFont("MenuFont");
 
             // setup table
             table = new Table(tableFont, new Rectangle(10, 10, 500, 20));
@@ -54,8 +55,8 @@ namespace StarrockGame.SceneManagement.Scenes
                 .AddColumn("Score", 130);
             table.Data = RetrieveLeaderboard();
 
-            int cx = (1920 - table.Bounding.Width) / 2;
-            int cy = (1080 - table.RealHeight) / 2;
+            int cx = (Device.Viewport.Width - table.Bounding.Width) / 2;
+            int cy = (Device.Viewport.Height - table.RealHeight) / 2;
             table.Move(cx,cy);
 
 

@@ -61,6 +61,13 @@
   <ItemGroup>
     <Compile Include="AI\IBehavior.cs" />
     <Compile Include="AI\PlayerController.cs" />
+    <Compile Include="Audio\GameSound.cs" />
+    <Compile Include="Audio\StarrockSound.cs" />
+    <Compile Include="Audio\Sound.cs" />
+    <Compile Include="Caching\Cache.cs" />
+    <Compile Include="Caching\DefaultContentLocator.cs" />
+    <Compile Include="Caching\ICacheLoader.cs" />
+    <Compile Include="Caching\StarrockCacheLoader.cs" />
     <Compile Include="Entities\Asteroide.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\Spaceship.cs" />

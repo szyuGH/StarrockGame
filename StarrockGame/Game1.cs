@@ -35,12 +35,16 @@ namespace StarrockGame
         /// </summary>
         protected override void Initialize()
         {
+            Player.Get();
             Input.Initialize();
-            World world = new World(new Vector2(0f, 0f));
-            Spaceship ship = new Spaceship("TexturEinfuegen", world, 200, 200, 50,10,10);
-            CircleShape circleShape = new CircleShape(0.5f, 1);
-            Fixture fixture = ship.body.CreateFixture(circleShape, 0.5f);
-            world.Step(0.0333333f);
+
+            //DrawableGameComponent
+
+            //World world = new World(new Vector2(0f, 0f));
+            //Spaceship ship = new Spaceship("TexturEinfuegen", world, 200, 200, 50,10,10);
+            //CircleShape circleShape = new CircleShape(0.5f, 1);
+            //Fixture fixture = ship.body.CreateFixture(circleShape, 0.5f);
+            //world.Step(0.0333333f);
 
             base.Initialize();
         }
@@ -54,7 +58,6 @@ namespace StarrockGame
             SceneManager.Initialize<SceneIntro>(this);
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            font = Content.Load<SpriteFont>("GameFont");
             // TODO: use this.Content to load your game content here
         }
 
@@ -90,7 +93,7 @@ namespace StarrockGame
         protected override void Draw(GameTime gameTime)
         {
             //GraphicsDevice.Clear(Color.CornflowerBlue);
-            SceneManager.Render();
+            SceneManager.Render(gameTime);
 
             base.Draw(gameTime);
         }

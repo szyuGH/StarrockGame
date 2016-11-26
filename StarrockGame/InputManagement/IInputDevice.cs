@@ -17,7 +17,7 @@ namespace StarrockGame.InputManagement
 
         bool FirePrimary();
         bool FireSecondary();
-        bool RecoveringShield();
+        bool ReplenishingShield();
         bool Scavenging();
 
         bool ShowingStats();

@@ -48,9 +48,9 @@ namespace StarrockGame.InputManagement
             return IsKeyDown(KeyboardInputType.SecondaryWeapon);
         }
 
-        public bool RecoveringShield()
+        public bool ReplenishingShield()
         {
-            return IsKeyDown(KeyboardInputType.RecoverShield);
+            return IsKeyDown(KeyboardInputType.ReplenishShield);
         }
 
         public bool Scavenging()
@@ -124,7 +124,7 @@ namespace StarrockGame.InputManagement
             { KeyboardInputType.TurnRight, Keys.D },
             { KeyboardInputType.PrimaryWeapon, Keys.J },
             { KeyboardInputType.SecondaryWeapon, Keys.L },
-            { KeyboardInputType.RecoverShield, Keys.K },
+            { KeyboardInputType.ReplenishShield, Keys.K },
             { KeyboardInputType.Scavenge, Keys.Space },
             { KeyboardInputType.ShowStats, Keys.LeftAlt },
             { KeyboardInputType.Menu, Keys.Escape },

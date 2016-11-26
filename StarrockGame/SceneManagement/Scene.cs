@@ -11,6 +11,8 @@ namespace StarrockGame.SceneManagement
 {
     public abstract class Scene
     {
+        protected virtual Color ClearColor { get { return Color.Black; } }
+
         public SceneState State;
         protected float FadeSpeed = 0.75f; // in seconds
         protected float FadeProgress = 0f; // set this to a negative value to stay in "black screen" for a short time until fadein starts
@@ -65,14 +67,18 @@ namespace StarrockGame.SceneManagement
             }
         }
 
-        public abstract void Render();
 
-        public virtual void RenderFade()
+        public virtual void Render(GameTime gameTime)
+        {
+            Device.Clear(ClearColor);
+        }
+
+        public virtual void RenderFade(GameTime gameTime)
         {
             RenderTarget2D rt = new RenderTarget2D(Device, Device.Viewport.Width, Device.Viewport.Height);
             Device.SetRenderTarget(rt);
             Device.Clear(Color.Transparent);
-            Render();
+            Render(gameTime);
             Device.SetRenderTarget(null);
 
             SpriteBatch.Begin();

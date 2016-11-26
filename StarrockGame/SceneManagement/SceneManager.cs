@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -66,12 +67,12 @@ namespace StarrockGame.SceneManagement
         /// <summary>
         /// Render the current scene
         /// </summary>
-        public static void Render()
+        public static void Render(GameTime gameTime)
         {
             if (currentScene.State == SceneState.FadingIn || currentScene.State == SceneState.FadingOut)
-                currentScene.RenderFade();
+                currentScene.RenderFade(gameTime);
             else
-                currentScene.Render();
+                currentScene.Render(gameTime);
         }
 
         /// <summary>
@@ -115,9 +116,11 @@ namespace StarrockGame.SceneManagement
         /// </summary>
         public static void Return()
         {
-            nextScene = sceneStack.Pop();
-            if (nextScene != null)
+            if (sceneStack.Count > 0)
+            {
+                nextScene = sceneStack.Pop();
                 currentScene.State = SceneState.FadingOut;
+            }
         }
 
         /// <summary>

@@ -43,7 +43,6 @@ namespace StarrockGame.Particles
 
         ParticleSystem particleSystem;
         float timeBetweenParticles;
-        Vector2 previousPosition;
         float timeLeftOver;
 
         Body body;

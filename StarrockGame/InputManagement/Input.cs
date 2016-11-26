@@ -39,6 +39,16 @@ namespace StarrockGame.InputManagement
                 {
                     Device = new KeyboardInput();
                     ControllerDisconnectedEvent?.Invoke(null, null);
+                } else if (Keyboard.GetState().GetPressedKeys().Length > 0)
+                {
+                    Device = new KeyboardInput();
+                }
+
+            } else if (typeof(KeyboardInput).Equals(Device.GetType()))
+            {
+                if (GamePad.GetState(0).IsButtonDown(Buttons.BigButton))
+                {
+                    Device = new ControllerInput();
                 }
             }
         }

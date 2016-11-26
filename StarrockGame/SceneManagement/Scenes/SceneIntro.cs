@@ -12,6 +12,13 @@ namespace StarrockGame.SceneManagement.Scenes
     public class SceneIntro : Scene
     {
         const float INTRO_TIME = 2;
+        protected override Color ClearColor
+        {
+            get
+            {
+                return Color.CornflowerBlue;
+            }
+        }
 
         private Texture2D logo;
         private float timer;
@@ -28,14 +35,14 @@ namespace StarrockGame.SceneManagement.Scenes
 
             if (timer >= INTRO_TIME || Input.Device.MenuSelect())
             {
-                SceneManager.Set<SceneTest>();
+                SceneManager.Set<SceneTitle>();
             }
         }
         
 
-        public override void Render()
+        public override void Render(GameTime gameTime)
         {
-            Device.Clear(Color.CornflowerBlue);
+            base.Render(gameTime);
             SpriteBatch.Begin();
             Vector2 screenCenter = new Vector2(Device.Viewport.Width, Device.Viewport.Height) * .5f;
             Vector2 logoCenter = new Vector2(logo.Width, logo.Height) * .5f;

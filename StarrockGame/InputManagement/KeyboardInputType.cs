@@ -14,7 +14,7 @@ namespace StarrockGame.InputManagement
         TurnRight,
         PrimaryWeapon,
         SecondaryWeapon,
-        RecoverShield,
+        ReplenishShield,
         Scavenge,
         ShowStats,
         Menu,

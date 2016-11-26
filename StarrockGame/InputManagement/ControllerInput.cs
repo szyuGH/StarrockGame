@@ -47,9 +47,9 @@ namespace StarrockGame.InputManagement
             return IsKeyDown(KeyboardInputType.SecondaryWeapon);
         }
 
-        public bool RecoveringShield()
+        public bool ReplenishingShield()
         {
-            return IsKeyDown(KeyboardInputType.RecoverShield);
+            return IsKeyDown(KeyboardInputType.ReplenishShield);
         }
 
         public bool Scavenging()
@@ -115,6 +115,9 @@ namespace StarrockGame.InputManagement
                     return gpState.Triggers.Right;
                 case Buttons.LeftTrigger:
                     return gpState.Triggers.Left;
+                case Buttons.LeftThumbstickLeft:
+                case Buttons.LeftThumbstickRight:
+                    return gpState.ThumbSticks.Left.X;
                 default:
                     return IsKeyDown(type) ? 1 : 0;
             }
@@ -124,12 +127,21 @@ namespace StarrockGame.InputManagement
         {
             { KeyboardInputType.Accelerate, Buttons.RightTrigger },
             { KeyboardInputType.Decelerate, Buttons.LeftTrigger },
-            { KeyboardInputType.PrimaryWeapon, Buttons.RightShoulder },
-            { KeyboardInputType.SecondaryWeapon, Buttons.LeftShoulder },
-            { KeyboardInputType.RecoverShield, Buttons.B },
+            { KeyboardInputType.TurnLeft, Buttons.LeftThumbstickLeft },
+            { KeyboardInputType.TurnRight, Buttons.LeftThumbstickRight },
+            { KeyboardInputType.PrimaryWeapon, Buttons.X },
+            { KeyboardInputType.SecondaryWeapon, Buttons.Y },
+            { KeyboardInputType.ReplenishShield, Buttons.B },
             { KeyboardInputType.Scavenge, Buttons.A },
             { KeyboardInputType.ShowStats, Buttons.Back },
-            { KeyboardInputType.Menu, Buttons.Start }
+            { KeyboardInputType.Menu, Buttons.Start },
+
+            { KeyboardInputType.MenuUp,     Buttons.LeftThumbstickUp },
+            { KeyboardInputType.MenuDown,   Buttons.LeftThumbstickDown},
+            { KeyboardInputType.MenuLeft,   Buttons.LeftThumbstickLeft },
+            { KeyboardInputType.MenuRight,  Buttons.LeftThumbstickRight },
+            { KeyboardInputType.MenuSelect, Buttons.A },
+            { KeyboardInputType.MenuCancel, Buttons.B },
         };
     }
 }

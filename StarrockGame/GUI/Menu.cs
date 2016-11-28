@@ -22,6 +22,7 @@ namespace StarrockGame.GUI
             Font = font;
             Elements = new List<GUIElement>();
             SelectedIndex = -1;
+            cancel = onCancel;
         }
 
         public virtual void Update(float elapsed)
@@ -57,7 +58,11 @@ namespace StarrockGame.GUI
 
         public void SelectNext()
         {
-            if (Elements.Count > 1)
+            if (SelectedIndex == -1)
+            {
+                SelectedIndex = 0;
+            }
+            else if (Elements.Count > 1)
             {
                 SelectedIndex += 1;
                 if (SelectedIndex == Elements.Count)
@@ -70,7 +75,11 @@ namespace StarrockGame.GUI
 
         public void SelectPrevious()
         {
-            if (Elements.Count > 1)
+            if (SelectedIndex == -1)
+            {
+                SelectedIndex = Elements.Count - 1;
+            }
+            else if (Elements.Count > 1)
             {
                 SelectedIndex -= 1;
                 if (SelectedIndex == -1)

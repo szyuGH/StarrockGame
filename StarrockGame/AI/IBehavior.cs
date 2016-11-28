@@ -9,6 +9,6 @@ namespace StarrockGame.AI
 {
     public interface IBehavior
     {
-        void Act(Entity entity);
+        void Act(Entity entity, float elapsed);
     }
 }

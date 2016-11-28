@@ -20,7 +20,6 @@ namespace StarrockGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        SpriteFont font;
         
         public Game1()
         {

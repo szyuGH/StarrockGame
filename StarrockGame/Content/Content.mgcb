@@ -25,12 +25,6 @@
 /processorParam:TextureFormat=Color
 /build:Graphics\logo.png
 
-#begin Effects/ParticleEffect.fx
-/importer:EffectImporter
-/processor:EffectProcessor
-/processorParam:DebugMode=Auto
-/build:Effects/ParticleEffect.fx
-
 #begin Fonts/MenuFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -60,4 +54,10 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Graphics/Particles/Particle.png
+
+#begin Effects/ParticleEffect.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Effects/ParticleEffect.fx
 

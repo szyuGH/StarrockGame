@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace StarrockGame.Entities
 {
-    class Asteroide : Entity
+    class Asteroid
     {
-        private Asteroide(Texture2D texture, World world, float x, float y, float mass) : base (texture, world, x, y, mass)
+        private Asteroid(Texture2D texture, World world, float x, float y, float mass)
         {
 
         }

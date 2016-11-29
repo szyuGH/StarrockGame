@@ -68,6 +68,7 @@
     <Compile Include="Caching\DefaultContentLocator.cs" />
     <Compile Include="Caching\ICacheLoader.cs" />
     <Compile Include="Caching\StarrockCacheLoader.cs" />
+    <Compile Include="Content\XmlManager.cs" />
     <Compile Include="Entities\Asteroide.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\MovementType.cs" />

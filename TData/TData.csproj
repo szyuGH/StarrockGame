@@ -46,8 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TemplateData\AsteroidTemplateData.cs" />
+    <Compile Include="TemplateData\EngineData.cs" />
     <Compile Include="TemplateData\EntityTemplateData.cs" />
+    <Compile Include="TemplateData\ModuleEffectData.cs" />
+    <Compile Include="TemplateData\ModuleTemplateData.cs" />
     <Compile Include="TemplateData\SpaceshipTemplateData.cs" />
+    <Compile Include="TemplateData\WeaponTeamplateData.cs" />
     <Compile Include="TestData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

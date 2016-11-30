@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿    using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +12,10 @@ namespace TData.TemplateData
     {
         public Byte Direction;
         public Vector2 LocalPosition;
-        public String ParticleColorMin;
-        public String ParticleColorMax;
         public float PropulsionPower;
         public float FuelCostPerSecond;
+        public Color MinColor;
+        public Color MaxColor;
 
     }
 }

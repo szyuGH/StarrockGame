@@ -9,9 +9,17 @@ namespace TData.TemplateData
     [Serializable]
     public class SpaceshipTemplateData : EntityTemplateData
     {
-        public EngineData [] Engines;
-        public float ShieldCapacity;
-        public float Energy;
         public float Fuel;
+        public float Energy;
+        public float ShieldCapacity;
+        public float ScavengePower;
+        public float ShieldReplenishCostPerSecond;
+        public float EnergyRecoveryPerSecond;
+        public float ShieldRecoveryPerSecond;
+        public float FuelRecoveryperSecond;
+        public int ModuleCount;
+        public String[] WeaponList;
+        public EngineData[] Engines;
+
     }
 }

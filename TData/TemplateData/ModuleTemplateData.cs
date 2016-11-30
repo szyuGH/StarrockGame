@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace TData.TemplateData
 {
     [Serializable]
-    public class AsteroidTemplateData : EntityTemplateData
+    public class ModuleTemplateData
     {
-        public float MinSpeed;
-        public float MaxSpeed;
-        
+        public String Name;
+        public ModuleEffectData[] ModuleEffect;
+        public float Price;
     }
 }

@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 namespace TData.TemplateData
 {
     [Serializable]
-    public class AsteroidTemplateData : EntityTemplateData
+    public struct ModuleEffectData
     {
-        public float MinSpeed;
-        public float MaxSpeed;
+        public int BuffType;
+        public float Buff;
+        public int DebuffType;
+        public float Debuff;
         
     }
 }

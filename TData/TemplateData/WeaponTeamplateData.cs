@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 namespace TData.TemplateData
 {
     [Serializable]
-    public class AsteroidTemplateData : EntityTemplateData
+    public class WeaponTeamplateData
     {
-        public float MinSpeed;
-        public float MaxSpeed;
-        
+        public String Name;
+        public int WeaponType;
+        public float EnergyCost;
+        public float Damage; 
     }
 }

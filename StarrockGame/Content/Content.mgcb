@@ -67,3 +67,23 @@
 /processor:PassThroughProcessor
 /build:Data/Test.xml
 
+#begin Data/Spaceship.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Spaceship.xml
+
+#begin Data/Module.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Module.xml
+
+#begin Data/Weapon.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Weapon.xml
+
+#begin Data/Asteroid.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Asteroid.xml
+

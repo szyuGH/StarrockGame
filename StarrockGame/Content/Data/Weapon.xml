@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="Object">
+    <Name>BlasterCannon</Name>
+    <WeaponType>Laser</WeaponType>
+    <EnergyCost>5.0</EnergyCost>
+    <Damage>10.0</Damage>
+  </Asset>
+</XnaContent>

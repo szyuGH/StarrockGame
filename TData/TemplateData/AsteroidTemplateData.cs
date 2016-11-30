@@ -9,5 +9,7 @@ namespace TData.TemplateData
     [Serializable]
     public class AsteroidTemplateData : EntityTemplateData
     {
+        public float Size;
+
     }
 }

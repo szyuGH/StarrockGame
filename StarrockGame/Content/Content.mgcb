@@ -10,6 +10,7 @@
 
 #-------------------------------- References --------------------------------#
 
+/reference:..\..\TData\bin\Debug\TData.dll
 
 #---------------------------------- Content ---------------------------------#
 
@@ -60,4 +61,9 @@
 /processor:EffectProcessor
 /processorParam:DebugMode=Auto
 /build:Effects/ParticleEffect.fx
+
+#begin Data/Test.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Test.xml
 

@@ -10,5 +10,12 @@ namespace StarrockGame.Templating
     public class Template
     {
         public Texture2D Texture;
+
+
+
+        public static Template FromData()
+        {
+            return null;
+        }
     }
 }

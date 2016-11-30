@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.SpaceshipTemplateData">
-    <Fuel>200</Fuel>
-    <Energy>250</Energy>
-    <ShieldCapacity>100</ShieldCapacity>
+    <Fuel>200.0</Fuel>
+    <Energy>250.0</Energy>
+    <ShieldCapacity>100.0</ShieldCapacity>
     <ScavengePower>10</ScavengePower>
     <ShieldReplenishCostPerSecond>5</ShieldReplenishCostPerSecond>
     <EnergyRecoveryPerSecond>0</EnergyRecoveryPerSecond>
@@ -13,5 +13,11 @@
     <PrimaryWeapon>Laser</PrimaryWeapon>
     <SecondaryWeapon>Mines</SecondaryWeapon>
     <Engines>[]</Engines>
+    <EntityName></EntityName>
+    <TextureName></TextureName>
+    <Structure>300.0</Structure>
+    <Mass>600.0</Mass>
+    <Size>1.0</Size>
+    <Inertia>0.0</Inertia>
   </Asset>
 </XnaContent>

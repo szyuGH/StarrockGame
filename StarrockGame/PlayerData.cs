@@ -1,9 +1,9 @@
-﻿using StarrockGame.Templating;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TData.TemplateData;
 
 namespace StarrockGame
 {
@@ -12,6 +12,6 @@ namespace StarrockGame
     {
         public int Credits;
         public string PlayerName;
-        public Template[] UnlockedTemplates;
+        public TemplateData[] UnlockedTemplates;
     }
 }

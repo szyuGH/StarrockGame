@@ -62,28 +62,35 @@
 /processorParam:DebugMode=Auto
 /build:Effects/ParticleEffect.fx
 
-#begin Data/Test.xml
-/importer:XmlImporter
-/processor:PassThroughProcessor
-/build:Data/Test.xml
+#begin Graphics/TestShip.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Graphics/TestShip.png
 
-#begin Data/Spaceship.xml
+#begin Data/Templates/Asteroid.xml
 /importer:XmlImporter
 /processor:PassThroughProcessor
-/build:Data/Spaceship.xml
+/build:Data/Templates/Asteroid.xml
 
-#begin Data/Module.xml
+#begin Data/Templates/Module.xml
 /importer:XmlImporter
 /processor:PassThroughProcessor
-/build:Data/Module.xml
+/build:Data/Templates/Module.xml
 
-#begin Data/Weapon.xml
+#begin Data/Templates/Spaceship.xml
 /importer:XmlImporter
 /processor:PassThroughProcessor
-/build:Data/Weapon.xml
+/build:Data/Templates/Spaceship.xml
 
-#begin Data/Asteroid.xml
+#begin Data/Templates/Weapon.xml
 /importer:XmlImporter
 /processor:PassThroughProcessor
-/build:Data/Asteroid.xml
+/build:Data/Templates/Weapon.xml
 

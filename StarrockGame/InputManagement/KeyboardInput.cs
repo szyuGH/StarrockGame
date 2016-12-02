@@ -28,14 +28,9 @@ namespace StarrockGame.InputManagement
             return LerpInput(KeyboardInputType.Decelerate);
         }
 
-        public float RotationLeft()
+        public float Rotation()
         {
-            return LerpInput(KeyboardInputType.TurnLeft);
-        }
-
-        public float RotationRight()
-        {
-            return LerpInput(KeyboardInputType.TurnRight);
+            return LerpInput(KeyboardInputType.TurnRight) - LerpInput(KeyboardInputType.TurnLeft);
         }
 
         public bool FirePrimary()

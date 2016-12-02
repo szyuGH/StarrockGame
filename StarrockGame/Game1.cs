@@ -80,7 +80,7 @@ namespace StarrockGame
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             Input.Update();
-            SceneManager.Update(elapsed);
+            SceneManager.Update(gameTime);
             
 
 

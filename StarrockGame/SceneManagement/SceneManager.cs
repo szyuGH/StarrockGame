@@ -32,8 +32,8 @@ namespace StarrockGame.SceneManagement
         /// <summary>
         /// Update the current scene and handle transitions
         /// </summary>
-        /// <param name="elapsed"></param>
-        public static void Update(float elapsed)
+        /// <param name="gameTime"></param>
+        public static void Update(GameTime gameTime)
         {
             // if there is no current scene, the game cannot run and will be exited
             if (currentScene != null)
@@ -42,10 +42,10 @@ namespace StarrockGame.SceneManagement
                 switch (currentScene.State)
                 {
                     case SceneState.FadingIn:
-                        currentScene.UpdateFade(elapsed);
+                        currentScene.UpdateFade(gameTime);
                         break;
                     case SceneState.FadingOut:
-                        currentScene.UpdateFade(elapsed);
+                        currentScene.UpdateFade(gameTime);
                         // if fadeout is complete, set the next scene
                         if (currentScene.State == SceneState.Closed)
                         {
@@ -55,7 +55,7 @@ namespace StarrockGame.SceneManagement
                         }
                         break;
                     default:
-                        currentScene.Update(elapsed);
+                        currentScene.Update(gameTime);
                         break;
                 }
             } else

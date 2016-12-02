@@ -16,12 +16,12 @@ namespace StarrockGame.AI
         {
             float acceleration = Input.Device.Acceleration();
             float deceleration = Input.Device.Deceleration();
-            float rotationLeft = Input.Device.RotationLeft();
-            float rotationRight = Input.Device.RotationRight();
+            float rotation = Input.Device.Rotation();
             
 
             entity.Accelerate(acceleration);
             entity.Decelerate(deceleration);
+            entity.Rotate(rotation);
             // check rotation
         }
     }

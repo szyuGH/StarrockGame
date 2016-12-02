@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="TData.TemplateData.ModuleTemplateData">
+    <Name>Fuelbooster</Name>
+    <ModuleEffects>
+		<Item>
+			<BuffType>1</BuffType>
+			<Buff>2.0</Buff>
+			<DebuffType>0</DebuffType>
+			<Debuff>0</Debuff>
+		</Item>
+	</ModuleEffects>
+    <Price>10</Price>
+  </Asset>
+</XnaContent>

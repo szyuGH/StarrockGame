@@ -12,8 +12,7 @@ namespace StarrockGame.InputManagement
 
         float Acceleration();
         float Deceleration();
-        float RotationLeft();
-        float RotationRight();
+        float Rotation();
 
         bool FirePrimary();
         bool FireSecondary();

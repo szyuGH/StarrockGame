@@ -18,8 +18,7 @@ namespace StarrockGame.SceneManagement.Scenes
 
         float acceleration;
         float deceleration;
-        float rotationLeft;
-        float rotationRight;
+        float rotation;
 
         bool firingPrimary;
         bool firingSecondary;
@@ -42,15 +41,14 @@ namespace StarrockGame.SceneManagement.Scenes
             
         }
 
-        public override void Update(float elapsed)
+        public override void Update(GameTime gameTime)
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                 SceneManager.Return();
 
             acceleration = Input.Device.Acceleration();
             deceleration = Input.Device.Deceleration();
-            rotationLeft = Input.Device.RotationLeft();
-            rotationRight = Input.Device.RotationRight();
+            rotation = Input.Device.Rotation();
             firingPrimary = Input.Device.FirePrimary();
             firingSecondary = Input.Device.FireSecondary();
             replenishingShield = Input.Device.ReplenishingShield();
@@ -65,7 +63,7 @@ namespace StarrockGame.SceneManagement.Scenes
             if (Input.Device.MenuSelect()) menuSelectTimer = TIMER_INTERVAL;
             if (Input.Device.MenuCancel()) menuCancelTimer = TIMER_INTERVAL;
 
-            UpdateTimers(elapsed);
+            UpdateTimers(gameTime);
         }
 
         private void UpdateTimers(float elapsed)
@@ -93,7 +91,7 @@ namespace StarrockGame.SceneManagement.Scenes
 
             SpriteBatch.DrawString(font, string.Format("Acceleration: {0}", acceleration), new Vector2(10, 10), Color.White);
             SpriteBatch.DrawString(font, string.Format("Deceleration: {0}", deceleration), new Vector2(10, 30), Color.White);
-            SpriteBatch.DrawString(font, string.Format("Rotation Left: {0}", rotationLeft), new Vector2(10, 50), Color.White);
+            SpriteBatch.DrawString(font, string.Format("Rotation Left: {0}", rotation), new Vector2(10, 50), Color.White);
             SpriteBatch.DrawString(font, string.Format("Rotation Right: {0}", rotationRight), new Vector2(10, 70), Color.White);
                                                       
             SpriteBatch.DrawString(font, string.Format("Firing Primary: {0}", firingPrimary), new Vector2(10, 90), Color.White);

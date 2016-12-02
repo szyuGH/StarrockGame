@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TData.TemplateData
 {
     [Serializable]
-    public class WeaponTeamplateData
+    public class WeaponTemplateData
     {
         public String Name;
         public int WeaponType;

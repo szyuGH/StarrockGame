@@ -9,13 +9,13 @@ using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
 using FarseerPhysics.Collision;
 using Microsoft.Xna.Framework;
-using StarrockGame.Templating;
 using FarseerPhysics.Common;
 using FarseerPhysics.Common.PolygonManipulation;
 using FarseerPhysics.Common.Decomposition;
 using FarseerPhysics.Dynamics.Contacts;
 using StarrockGame.Caching;
 using StarrockGame.AI;
+using TData.TemplateData;
 
 namespace StarrockGame.Entities
 {
@@ -32,7 +32,8 @@ namespace StarrockGame.Entities
 
         public IBehavior Controller { get; private set; }
 
-        protected Template Template { get; private set; }
+        protected EntityTemplateData Template { get; private set; }
+        protected Texture2D Graphic { get; private set; }
         protected Vector2 Center { get; private set; }
         protected float Scale { get; private set; }
 
@@ -43,32 +44,38 @@ namespace StarrockGame.Entities
         public Entity(World world, string type)
         {
             Type = type;
-            Template = Cache.LoadTemplate<Template>(Type);
+            Template = LoadTemplate(type);
+            Graphic = Cache.LoadGraphic(Template.TextureName);
             CreateBody(world);
         }
+
+        protected abstract EntityTemplateData LoadTemplate(string type);
 
         public virtual void Initialize<T>(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity=0)
             where T : IBehavior
         {
+            Controller = Activator.CreateInstance<T>();
+
             Body.Position = ConvertUnits.ToSimUnits(position);
             Body.Rotation = rotation;
             Body.LinearVelocity = initialVelocity;
             Body.AngularVelocity = initialAngularVelocity;
-            //Body.Mass = Template.Mass;
-
+            Body.Mass = Template.Mass;
+            
             // Structure = Template.Structure;
         }
 
         private void CreateBody(World world)
         {
+
             //Create an array to hold the data from the texture
-            uint[] data = new uint[Template.Texture.Width * Template.Texture.Height];
+            uint[] data = new uint[Graphic.Width * Graphic.Height];
 
             //Transfer the texture data to the array
-            Template.Texture.GetData(data);
+            Graphic.GetData(data);
 
             //Find the vertices that makes up the outline of the shape in the texture
-            Vertices textureVertices = PolygonTools.CreatePolygon(data, Template.Texture.Width, false);
+            Vertices textureVertices = PolygonTools.CreatePolygon(data, Graphic.Width, false);
 
             //The tool return vertices as they were found in the texture.
             //We need to find the real center (centroid) of the vertices for 2 reasons:
@@ -99,18 +106,20 @@ namespace StarrockGame.Entities
             //Create a single body with multiple fixtures
             Body = BodyFactory.CreateCompoundPolygon(world, list, 1f, BodyType.Dynamic);
             Body.BodyType = BodyType.Dynamic;
+            Body.AngularDamping = 10;
+            Body.LinearDamping = 10;
 
             Body.OnCollision += Body_OnCollision;
         }
 
-        public virtual void Update(float elapsed)
+        public virtual void Update(GameTime gameTime)
         {
-            Controller?.Act(this, elapsed);
+            Controller?.Act(this, gameTime);
         }
 
         public virtual void Render(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(Template.Texture,
+            spriteBatch.Draw(Graphic,
                 ConvertUnits.ToDisplayUnits(Body.Position),
                 null,
                 Color.White,
@@ -123,22 +132,17 @@ namespace StarrockGame.Entities
 
         public virtual void Accelerate(float val)
         {
-            Body.ApplyForce(Direction * val);
+            Body.ApplyForce(Direction * val, Body.WorldCenter);
         }
 
         public virtual void Decelerate(float val)
         {
-
+            Body.ApplyForce(-Direction * val, Body.WorldCenter);
         }
 
-        public virtual void RotateLeft(float val)
+        public virtual void Rotate(float val)
         {
-
-        }
-
-        public virtual void RotateRight(float val)
-        {
-
+            Body.ApplyTorque(val);
         }
 
         public virtual void ApplyDamage()

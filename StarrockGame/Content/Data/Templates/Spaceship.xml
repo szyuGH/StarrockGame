@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="TData.TemplateData.SpaceshipTemplateData">
+    <EntityName>TestName</EntityName>
+    <TextureName>TestShip</TextureName>
+    <Structure>300.0</Structure>
+    <Mass>100.0</Mass>
+    <Size>1.0</Size>
+    <Inertia>0.0</Inertia>
+	<Fuel>200.0</Fuel>
+    <Energy>250.0</Energy>
+    <ShieldCapacity>100.0</ShieldCapacity>
+    <ScavengePower>10</ScavengePower>
+    <ShieldReplenishCostPerSecond>5</ShieldReplenishCostPerSecond>
+    <EnergyRecoveryPerSecond>0</EnergyRecoveryPerSecond>
+    <ShieldRecoveryPerSecond>0</ShieldRecoveryPerSecond>
+    <FuelRecoveryperSecond>0</FuelRecoveryperSecond>
+    <ModuleCount>3</ModuleCount>
+    <PrimaryWeapon>Laser</PrimaryWeapon>
+    <SecondaryWeapon>Mines</SecondaryWeapon>
+    <Engines>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 0</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<MinColor>FFAABBCC</MinColor>
+			<MaxColor>FF0000FF</MaxColor>
+		</Item>
+	</Engines>
+  </Asset>
+</XnaContent>

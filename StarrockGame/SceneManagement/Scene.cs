@@ -33,22 +33,23 @@ namespace StarrockGame.SceneManagement
         }
 
 
-        public abstract void Update(float elapsed);
+        public abstract void Update(GameTime gameTime);
 
-        public virtual void UpdateFade(float elapsed)
+        public virtual void UpdateFade(GameTime gameTime)
         {
             switch (State)
             {
                 case SceneState.FadingIn:
-                    DefaultUpdateFadeIn(elapsed);
+                    DefaultUpdateFadeIn(gameTime);
                     break;
                 case SceneState.FadingOut:
-                    DefaultUpdateFadeOut(elapsed);
+                    DefaultUpdateFadeOut(gameTime);
                     break;
             }
         }
-        private void DefaultUpdateFadeIn(float elapsed)
+        private void DefaultUpdateFadeIn(GameTime gameTime)
         {
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             FadeProgress += elapsed;
             if (FadeProgress >= FadeSpeed)
             {
@@ -57,8 +58,9 @@ namespace StarrockGame.SceneManagement
             }
         }
 
-        private void DefaultUpdateFadeOut(float elapsed)
+        private void DefaultUpdateFadeOut(GameTime gameTime)
         {
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             FadeProgress -= elapsed;
             if (FadeProgress <= 0)
             {

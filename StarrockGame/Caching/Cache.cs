@@ -37,6 +37,11 @@ namespace StarrockGame.Caching
             return content.Load<T>(path);
         }
 
+        public static Texture2D LoadGraphic(string name)
+        {
+            return content.Load<Texture2D>(string.Format("{0}/{1}", locator.GraphicContent, name));
+        }
+
         public static Texture2D LoadParticle(string name)
         {
             return content.Load<Texture2D>(string.Format("{0}/{1}", locator.ParticleContent, name));

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="TData.TemplateData.AsteroidTemplateData">
+	<EntityName>TestAsteroid</EntityName>
+    <TextureName>TestTex</TextureName>
+    <Structure>300.0</Structure>
+    <Mass>600.0</Mass>
+    <Size>1.0</Size>
+    <Inertia>0.0</Inertia>
+    <MinSpeed>0</MinSpeed>
+    <MaxSpeed>100</MaxSpeed>
+  </Asset>
+</XnaContent>

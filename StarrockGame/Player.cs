@@ -1,11 +1,11 @@
-﻿using StarrockGame.Templating;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using TData.TemplateData;
 
 namespace StarrockGame
 {
@@ -20,7 +20,7 @@ namespace StarrockGame
             set { _credits = value; }
         }
 
-        private List<Template> templates;
+        private List<TemplateData> templates;
 
         public string Name { get; private set; }
 
@@ -60,7 +60,7 @@ namespace StarrockGame
 
                 this.Credits = data.Credits;
                 this.Name = data.PlayerName;
-                this.templates = new List<Template>(data.UnlockedTemplates);
+                this.templates = new List<TemplateData>(data.UnlockedTemplates);
             }
         }
 
@@ -78,9 +78,9 @@ namespace StarrockGame
             }
         }
 
-        public void UnlockTemplates(params Template[] templates)
+        public void UnlockTemplates(params TemplateData[] templates)
         {
-            foreach (Template template in templates)
+            foreach (TemplateData template in templates)
             {
                 if (!this.templates.Contains(template))
                 {

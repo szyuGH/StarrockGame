@@ -24,192 +24,24 @@
 			<LocalPosition>-50 0</LocalPosition>
 			<PropulsionPower>100</PropulsionPower>
 			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
 		</Item>
 		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
+			<Direction>2</Direction>
+			<LocalPosition>50 0</LocalPosition>
 			<PropulsionPower>100</PropulsionPower>
 			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
 		</Item>
 		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
+			<Direction>4</Direction>
+			<LocalPosition>0 -20</LocalPosition>
+			<PropulsionPower>10</PropulsionPower>
 			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
 		</Item>
 		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
+			<Direction>8</Direction>
+			<LocalPosition>0 20</LocalPosition>
+			<PropulsionPower>10</PropulsionPower>
 			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
-		</Item>
-		<Item>
-			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
-			<MinColor>FFAABBCC</MinColor>
-			<MaxColor>FF0000FF</MaxColor>
 		</Item>
 	</Engines>
   </Asset>

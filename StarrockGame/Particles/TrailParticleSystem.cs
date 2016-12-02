@@ -52,7 +52,7 @@ namespace StarrockGame.Particles
             settings.MaxEndSize = 0;
 
             settings.MinColor = Color.GreenYellow;
-            settings.MaxColor = Color.Transparent;
+            settings.MaxColor = Color.Red;
         }
     }
 }

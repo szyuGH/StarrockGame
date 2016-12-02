@@ -86,6 +86,7 @@
     <Compile Include="InputManagement\KeyboardInput.cs" />
     <Compile Include="InputManagement\KeyboardInputType.cs" />
     <Compile Include="Particles\ParticleEmitter.cs" />
+    <Compile Include="Particles\ParticleManager.cs" />
     <Compile Include="Particles\ParticleSettings.cs" />
     <Compile Include="Particles\ParticleSystem.cs" />
     <Compile Include="Particles\ParticleVertex.cs" />

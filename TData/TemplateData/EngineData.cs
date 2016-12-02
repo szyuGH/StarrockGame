@@ -14,8 +14,6 @@ namespace TData.TemplateData
         public Vector2 LocalPosition;
         public float PropulsionPower;
         public float FuelCostPerSecond;
-        public Color MinColor;
-        public Color MaxColor;
 
     }
 }

@@ -53,27 +53,48 @@ namespace StarrockGame.Entities
         {
             base.Update(gameTime);
 
+            foreach (Engine engine in Engines.Values.SelectMany(e => e).ToList())
+            {
+                engine.Update(gameTime);
+            }
             //Update Modules, Weapons and Engines
         }
 
         public override void Accelerate(float val)
         {
-            base.Accelerate(val * Engines[MovementType.Forward].Sum(e => e.PropulsionPower));
+            float prop = Engines[MovementType.Forward].Sum(e => e.PropulsionPower);
+            base.Accelerate(val * prop);
+            if (val != 0)
+                foreach (Engine engine in Engines[MovementType.Forward])
+                    engine.Emitting = true;
         }
 
         public override void Decelerate(float val)
         {
-            base.Decelerate(val * Engines[MovementType.Brake].Sum(e => e.PropulsionPower));
+            float prop = Engines[MovementType.Brake].Sum(e => e.PropulsionPower);
+            base.Decelerate(val * prop);
+            if (val != 0)
+                foreach (Engine engine in Engines[MovementType.Brake])
+                    engine.Emitting = true;
         }
 
         public override void Rotate(float val)
         {
             float mul = 1;
             if (val > 0)
+            {
                 mul = Engines[MovementType.RotateRight].Sum(e => e.PropulsionPower);
-            else
+                foreach (Engine engine in Engines[MovementType.RotateRight])
+                    engine.Emitting = true;
+            }
+            else if (val < 0)
+            {
                 mul = Engines[MovementType.RotateLeft].Sum(e => e.PropulsionPower);
+                foreach (Engine engine in Engines[MovementType.RotateLeft])
+                    engine.Emitting = true;
+            }
             base.Rotate(val * mul);
+
         }
     }
 }

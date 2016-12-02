@@ -15,20 +15,20 @@ namespace StarrockGame.Entities
         public MovementType Direction { get; private set; }
         public float PropulsionPower { get; private set; }
         public float FuelPerSeconds { get; private set; }
-        public Color MinColor { get; private set; }
-        public Color MaxColor { get; private set; }
+
+        public bool Emitting { get { return emitter.Emitting; } set { emitter.Emitting = value; } }
 
         private ParticleEmitter emitter;
 
-        public Engine(Body body, MovementType dir, float power, float fps, Color min, Color max)
+
+        public Engine(Body body, MovementType dir, float power, float fps)
         {
             Direction = dir;
             PropulsionPower = power;
             FuelPerSeconds = fps;
-            MinColor = min;
-            MaxColor = max;
 
-            emitter = new ParticleEmitter(null, 10, body, 180, fps);
+            emitter = new ParticleEmitter(ParticleManager.Get.GetSystem<TrailParticleSystem>(), 10, body, 180, power);
+            emitter.ResetEmittingState = true;
         }
 
         public void Update(GameTime gameTime)
@@ -47,7 +47,7 @@ namespace StarrockGame.Entities
             foreach (EngineData data in engines)
             {
                 res[(MovementType)data.Direction].Add(
-                    new Engine(body, (MovementType)data.Direction, data.PropulsionPower, data.FuelCostPerSecond, data.MinColor, data.MaxColor));
+                    new Engine(body, (MovementType)data.Direction, data.PropulsionPower, data.FuelCostPerSecond));
             }
             return res;
         }

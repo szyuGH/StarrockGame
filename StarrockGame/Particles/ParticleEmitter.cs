@@ -48,8 +48,12 @@ namespace StarrockGame.Particles
         Body body;
         float relativeAngle;
         float propulsionPower;
+        
 
         public bool Emitting { get; set; }
+        public bool ResetEmittingState = false;
+
+
 
         #endregion
 
@@ -66,7 +70,6 @@ namespace StarrockGame.Particles
             this.propulsionPower = propulsionPower;
 
             timeBetweenParticles = 1.0f / particlesPerSecond;
-            Emitting = true;
         }
 
 
@@ -107,6 +110,9 @@ namespace StarrockGame.Particles
                         // Create the particle.
                         particleSystem.AddParticle(ConvertUnits.ToSimUnits(body.Position), velocity * propulsionPower);
                     }
+
+                    if (ResetEmittingState)
+                        Emitting = false;
                 }
                 // Store any time we didn't use, so it can be part of the next update.
                 timeLeftOver = timeToSpend;

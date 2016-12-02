@@ -66,8 +66,9 @@ namespace StarrockGame.SceneManagement.Scenes
             UpdateTimers(gameTime);
         }
 
-        private void UpdateTimers(float elapsed)
+        private void UpdateTimers(GameTime gameTime)
         {
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (openMenuTimer > 0)
                 openMenuTimer -= elapsed;
             if (menuUpTimer > 0)
@@ -91,8 +92,7 @@ namespace StarrockGame.SceneManagement.Scenes
 
             SpriteBatch.DrawString(font, string.Format("Acceleration: {0}", acceleration), new Vector2(10, 10), Color.White);
             SpriteBatch.DrawString(font, string.Format("Deceleration: {0}", deceleration), new Vector2(10, 30), Color.White);
-            SpriteBatch.DrawString(font, string.Format("Rotation Left: {0}", rotation), new Vector2(10, 50), Color.White);
-            SpriteBatch.DrawString(font, string.Format("Rotation Right: {0}", rotationRight), new Vector2(10, 70), Color.White);
+            SpriteBatch.DrawString(font, string.Format("Rotation: {0}", rotation), new Vector2(10, 50), Color.White);
                                                       
             SpriteBatch.DrawString(font, string.Format("Firing Primary: {0}", firingPrimary), new Vector2(10, 90), Color.White);
             SpriteBatch.DrawString(font, string.Format("Firing Secondary: {0}", firingSecondary), new Vector2(10, 110), Color.White);

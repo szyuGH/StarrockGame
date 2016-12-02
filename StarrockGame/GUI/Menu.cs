@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using StarrockGame.InputManagement;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace StarrockGame.GUI
             cancel = onCancel;
         }
 
-        public virtual void Update(float elapsed)
+        public virtual void Update(GameTime gameTime)
         {
             if (Input.Device.MenuDown())
             {
@@ -44,7 +45,7 @@ namespace StarrockGame.GUI
 
             for (int i=0;i<Elements.Count;i++)
             {
-                Elements[i].Update(elapsed, i == SelectedIndex);
+                Elements[i].Update(gameTime, i == SelectedIndex);
             }
         }
 

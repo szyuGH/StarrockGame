@@ -44,7 +44,7 @@ namespace StarrockGame.GUI
         }
 
 
-        public override void Update(float elapsed, bool selected)
+        public override void Update(GameTime gameTime, bool selected)
         {
         }
 

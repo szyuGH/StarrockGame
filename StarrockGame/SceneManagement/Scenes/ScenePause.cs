@@ -13,7 +13,7 @@ namespace StarrockGame.SceneManagement.Scenes
         {
         }
 
-        public override void Update(float elapsed)
+        public override void Update(GameTime gameTime)
         {
             throw new NotImplementedException();
         }

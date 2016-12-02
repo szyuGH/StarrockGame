@@ -1,4 +1,5 @@
-﻿using StarrockGame.Entities;
+﻿using Microsoft.Xna.Framework;
+using StarrockGame.Entities;
 using StarrockGame.InputManagement;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace StarrockGame.AI
     {
 
 
-        public void Act(Entity entity, float elapsed)
+        public void Act(Entity entity, GameTime gameTime)
         {
             float acceleration = Input.Device.Acceleration();
             float deceleration = Input.Device.Deceleration();

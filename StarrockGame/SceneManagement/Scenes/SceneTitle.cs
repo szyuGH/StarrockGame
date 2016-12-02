@@ -31,9 +31,9 @@ namespace StarrockGame.SceneManagement.Scenes
             new ButtonLabel(menu, "Exit",           screenCenter + new Vector2(0, 3 * font.LineSpacing), size, Color.White, OnExit);
         }
 
-        public override void Update(float elapsed)
+        public override void Update(GameTime gameTime)
         {
-            menu.Update(elapsed);
+            menu.Update(gameTime);
         }
 
         public override void Render(GameTime gameTime)

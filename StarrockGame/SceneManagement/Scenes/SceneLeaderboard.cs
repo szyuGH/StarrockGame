@@ -69,7 +69,7 @@ namespace StarrockGame.SceneManagement.Scenes
             returnLabel.CaptionMonitor = () => { return ReturnText; };
         }
 
-        public override void Update(float elapsed)
+        public override void Update(GameTime gameTime)
         {
             if (retrieveTimer <= 0)
             {

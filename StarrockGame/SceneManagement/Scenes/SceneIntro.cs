@@ -29,9 +29,9 @@ namespace StarrockGame.SceneManagement.Scenes
             timer = 0;
         }
 
-        public override void Update(float elapsed)
+        public override void Update(GameTime gameTime)
         {
-            timer += elapsed;
+            timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             if (timer >= INTRO_TIME || Input.Device.MenuSelect())
             {

@@ -40,9 +40,9 @@ namespace StarrockGame.GUI
         }
         
 
-        public override void Update(float elapsed, bool isSelected)
+        public override void Update(GameTime gameTime, bool isSelected)
         {
-
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             IsSelected = isSelected;
             if (isSelected)
             {

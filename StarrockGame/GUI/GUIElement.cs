@@ -29,7 +29,7 @@ namespace StarrockGame.GUI
             Menu -= this;
         }
 
-        public abstract void Update(float elapsed, bool selected);
+        public abstract void Update(GameTime gameTime, bool selected);
         public abstract void Render(SpriteBatch batch);
     }
 }

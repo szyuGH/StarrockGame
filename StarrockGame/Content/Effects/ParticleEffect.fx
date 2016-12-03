@@ -93,7 +93,7 @@ float4 ComputeParticlePosition(float3 position, float3 velocity,
 	position += normalize(velocity) * velocityIntegral * Duration;
 
 	// Apply the camera view and projection transforms.
-	return mul(mul(float4(position, 1), View), Projection);
+	return mul(mul(float4(position.x, position.y, position.z, 1), View), Projection);
 }
 
 

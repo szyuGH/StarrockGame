@@ -4,7 +4,7 @@
     <EntityName>TestName</EntityName>
     <TextureName>TestShip</TextureName>
     <Structure>300.0</Structure>
-    <Mass>100.0</Mass>
+    <Mass>20.0</Mass>
     <Size>1.0</Size>
     <Inertia>0.0</Inertia>
 	<Fuel>200.0</Fuel>
@@ -21,27 +21,38 @@
     <Engines>
 		<Item>
 			<Direction>1</Direction>
-			<LocalPosition>-50 0</LocalPosition>
+			<LocalPosition>-50 -7</LocalPosition>
 			<PropulsionPower>100</PropulsionPower>
 			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<ParticlesPerSecond>100</ParticlesPerSecond>
+		</Item>
+		<Item>
+			<Direction>1</Direction>
+			<LocalPosition>-50 7</LocalPosition>
+			<PropulsionPower>100</PropulsionPower>
+			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<ParticlesPerSecond>100</ParticlesPerSecond>
 		</Item>
 		<Item>
 			<Direction>2</Direction>
-			<LocalPosition>50 0</LocalPosition>
+			<LocalPosition>45 0</LocalPosition>
 			<PropulsionPower>100</PropulsionPower>
 			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<ParticlesPerSecond>100</ParticlesPerSecond>
 		</Item>
 		<Item>
 			<Direction>4</Direction>
-			<LocalPosition>0 -20</LocalPosition>
-			<PropulsionPower>10</PropulsionPower>
+			<LocalPosition>-45 -17</LocalPosition>
+			<PropulsionPower>1</PropulsionPower>
 			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<ParticlesPerSecond>100</ParticlesPerSecond>
 		</Item>
 		<Item>
 			<Direction>8</Direction>
-			<LocalPosition>0 20</LocalPosition>
-			<PropulsionPower>10</PropulsionPower>
+			<LocalPosition>-45 17</LocalPosition>
+			<PropulsionPower>1</PropulsionPower>
 			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<ParticlesPerSecond>100</ParticlesPerSecond>
 		</Item>
 	</Engines>
   </Asset>

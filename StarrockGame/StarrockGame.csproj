@@ -60,6 +60,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AI\IBehavior.cs" />
+    <Compile Include="AI\NoController.cs" />
     <Compile Include="AI\PlayerController.cs" />
     <Compile Include="Audio\GameSound.cs" />
     <Compile Include="Audio\StarrockSound.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Caching\DefaultContentLocator.cs" />
     <Compile Include="Caching\ICacheLoader.cs" />
     <Compile Include="Caching\StarrockCacheLoader.cs" />
+    <Compile Include="Camera2D.cs" />
     <Compile Include="Entities\Asteroide.cs" />
     <Compile Include="Entities\Engine.cs" />
     <Compile Include="Entities\Entity.cs" />
@@ -85,6 +87,7 @@
     <Compile Include="InputManagement\Input.cs" />
     <Compile Include="InputManagement\KeyboardInput.cs" />
     <Compile Include="InputManagement\KeyboardInputType.cs" />
+    <Compile Include="ParticleSystems\ParticleEmitter.cs" />
     <Compile Include="ParticleSystems\TrailParticleSystem.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerData.cs" />

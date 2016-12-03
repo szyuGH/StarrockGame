@@ -51,7 +51,7 @@ namespace StarrockGame.Entities
 
         protected abstract EntityTemplateData LoadTemplate(string type);
 
-        public virtual void Initialize<T>(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity=0)
+        public virtual void Initialize<T>(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
             where T : IBehavior
         {
             Controller = Activator.CreateInstance<T>();
@@ -61,9 +61,10 @@ namespace StarrockGame.Entities
             Body.LinearVelocity = initialVelocity;
             Body.AngularVelocity = initialAngularVelocity;
             Body.Mass = Template.Mass;
-            
+
             // Structure = Template.Structure;
         }
+        
 
         private void CreateBody(World world)
         {

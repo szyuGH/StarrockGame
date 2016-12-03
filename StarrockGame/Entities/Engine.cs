@@ -1,5 +1,7 @@
 ﻿using FarseerPhysics.Dynamics;
+using GPart;
 using Microsoft.Xna.Framework;
+using StarrockGame.ParticleSystems;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,25 +16,51 @@ namespace StarrockGame.Entities
         public MovementType Direction { get; private set; }
         public float PropulsionPower { get; private set; }
         public float FuelPerSeconds { get; private set; }
+        public Vector2 LocalPosition { get; private set; }
 
-        //public bool Emitting { get { return emitter.Emitting; } set { emitter.Emitting = value; } }
+        public bool Emitting { get { return emitter.Emitting; } set { emitter.Emitting = value; } }
 
-        //private ParticleEmitter emitter;
+        private ParticleEmitter emitter;
 
 
-        public Engine(Body body, MovementType dir, float power, float fps)
+        public Engine(Body body, Vector2 localPos, MovementType dir, float power, float fps, float pps)
         {
             Direction = dir;
             PropulsionPower = power;
             FuelPerSeconds = fps;
+            LocalPosition = localPos;
 
-            //emitter = new ParticleEmitter(ParticleManager.Get.GetSystem<TrailParticleSystem>(), 10, body, 180, power);
-            //emitter.ResetEmittingState = true;
+            emitter = new ParticleEmitter(Particles.Get<TrailParticleSystem>(), pps, body, LocalPosition, GetRelativeAngle(dir), power * EmittingFactor(dir));
+            emitter.ResetEmittingState = true;
         }
 
         public void Update(GameTime gameTime)
         {
-            //emitter.Update(gameTime);
+            emitter.Update(gameTime);
+        }
+
+        private float GetRelativeAngle(MovementType dir)
+        {
+            switch (dir)
+            {
+                case MovementType.Forward: return (float)Math.PI;
+                case MovementType.Brake: return 0;
+                case MovementType.RotateLeft: return (float)Math.PI * .5f;
+                case MovementType.RotateRight: return -(float)Math.PI * .5f;
+            }
+            return 0;
+        }
+
+        private float EmittingFactor(MovementType dir)
+        {
+            switch (dir)
+            {
+                case MovementType.Forward: return 1;
+                case MovementType.Brake: return 1;
+                case MovementType.RotateLeft:
+                case MovementType.RotateRight: return 1;
+            }
+            return 0;
         }
 
         internal static Dictionary<MovementType, List<Engine>> FromTemplate(Body body, EngineData[] engines)
@@ -46,7 +74,7 @@ namespace StarrockGame.Entities
             foreach (EngineData data in engines)
             {
                 res[(MovementType)data.Direction].Add(
-                    new Engine(body, (MovementType)data.Direction, data.PropulsionPower, data.FuelCostPerSecond));
+                    new Engine(body, data.LocalPosition, (MovementType)data.Direction, data.PropulsionPower, data.FuelCostPerSecond, data.ParticlesPerSecond));
             }
             return res;
         }

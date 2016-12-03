@@ -21,7 +21,7 @@ namespace StarrockGame.ParticleSystems
             settings.TextureName = "Graphics/Particles/Particle";
             settings.EffectName = "Effects/ParticleEffect";
 
-            settings.MaxParticles = 1000;
+            settings.MaxParticles = 3000;
 
             settings.Duration = TimeSpan.FromSeconds(3);
 
@@ -29,18 +29,18 @@ namespace StarrockGame.ParticleSystems
 
             settings.EmitterVelocitySensitivity = 0.1f;
 
-            settings.MinDirectionDistortion = -(float)Math.PI * 0.025f;
-            settings.MaxDirectionDistortion = (float)Math.PI * 0.025f;
+            settings.MinDirectionDistortion = -(float)Math.PI * 0.01f;
+            settings.MaxDirectionDistortion = (float)Math.PI * 0.01f;
 
 
             settings.MinColor = Color.CadetBlue;// new Color(64, 96, 128, 255);
-            settings.MaxColor = Color.White; //new Color(255, 255, 255, 128);
+            settings.MaxColor = Color.DodgerBlue; //new Color(255, 255, 255, 128);
 
             settings.MinRotateSpeed = -4;
             settings.MaxRotateSpeed = 4;
 
-            settings.MinStartSize = 50;
-            settings.MaxStartSize = 80;
+            settings.MinStartSize = 25;
+            settings.MaxStartSize = 30;
 
             settings.MinEndSize = 0;
             settings.MaxEndSize = 0;

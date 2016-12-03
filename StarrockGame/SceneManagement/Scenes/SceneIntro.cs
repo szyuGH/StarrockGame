@@ -12,13 +12,13 @@ namespace StarrockGame.SceneManagement.Scenes
     public class SceneIntro : Scene
     {
         const float INTRO_TIME = 2;
-        protected override Color ClearColor
-        {
-            get
-            {
-                return Color.CornflowerBlue;
-            }
-        }
+        //protected override Color ClearColor
+        //{
+        //    get
+        //    {
+        //        return Color.CornflowerBlue;
+        //    }
+        //}
 
         private Texture2D logo;
         private float timer;

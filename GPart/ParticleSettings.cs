@@ -1,34 +1,24 @@
-#region File Description
-//-----------------------------------------------------------------------------
-// ParticleSettings.cs
-//
-// Microsoft XNA Community Game Platform
-// Copyright (C) Microsoft Corporation. All rights reserved.
-//-----------------------------------------------------------------------------
-#endregion
-
-#region Using Statements
-using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-#endregion
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace StarrockGame.Particles
+namespace GPart
 {
-    /// <summary>
-    /// Settings class describes all the tweakable options used
-    /// to control the appearance of a particle system.
-    /// </summary>
     public class ParticleSettings
     {
         // Name of the texture used by this particle system.
         public string TextureName = null;
+        public string EffectName = null;
 
 
         // Maximum number of particles that can be displayed at one time.
         public int MaxParticles = 100;
 
-        
+
         // How long these particles will last.
         public TimeSpan Duration = TimeSpan.FromSeconds(1);
 
@@ -45,15 +35,12 @@ namespace StarrockGame.Particles
         public float EmitterVelocitySensitivity = 1;
 
 
-        // Range of radians the velocity direction can distort
-        public float MinDistortion = 0;
-        public float MaxDistortion = 0;
-
-
-        // Direction and strength of the gravity effect. Note that this can point in any
-        // direction, not just down! The fire effect points it upward to make the flames
-        // rise, and the smoke plume points it sideways to simulate wind.
-        public Vector2 Gravity = Vector2.Zero;
+        // Range of values controlling how much X and Z axis velocity to give each
+        // particle. Values for individual particles are randomly chosen from somewhere
+        // between these limits.
+        public float MinDirectionDistortion = 0;
+        public float MaxDirectionDistortion = 0;
+        
 
 
         // Controls how the particle velocity will change over their lifetime. If set

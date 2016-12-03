@@ -1,6 +1,5 @@
 ﻿using FarseerPhysics.Dynamics;
 using Microsoft.Xna.Framework;
-using StarrockGame.Particles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +15,9 @@ namespace StarrockGame.Entities
         public float PropulsionPower { get; private set; }
         public float FuelPerSeconds { get; private set; }
 
-        public bool Emitting { get { return emitter.Emitting; } set { emitter.Emitting = value; } }
+        //public bool Emitting { get { return emitter.Emitting; } set { emitter.Emitting = value; } }
 
-        private ParticleEmitter emitter;
+        //private ParticleEmitter emitter;
 
 
         public Engine(Body body, MovementType dir, float power, float fps)
@@ -27,13 +26,13 @@ namespace StarrockGame.Entities
             PropulsionPower = power;
             FuelPerSeconds = fps;
 
-            emitter = new ParticleEmitter(ParticleManager.Get.GetSystem<TrailParticleSystem>(), 10, body, 180, power);
-            emitter.ResetEmittingState = true;
+            //emitter = new ParticleEmitter(ParticleManager.Get.GetSystem<TrailParticleSystem>(), 10, body, 180, power);
+            //emitter.ResetEmittingState = true;
         }
 
         public void Update(GameTime gameTime)
         {
-            emitter.Update(gameTime);
+            //emitter.Update(gameTime);
         }
 
         internal static Dictionary<MovementType, List<Engine>> FromTemplate(Body body, EngineData[] engines)

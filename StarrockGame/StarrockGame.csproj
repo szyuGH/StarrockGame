@@ -85,12 +85,7 @@
     <Compile Include="InputManagement\Input.cs" />
     <Compile Include="InputManagement\KeyboardInput.cs" />
     <Compile Include="InputManagement\KeyboardInputType.cs" />
-    <Compile Include="Particles\ParticleEmitter.cs" />
-    <Compile Include="Particles\ParticleManager.cs" />
-    <Compile Include="Particles\ParticleSettings.cs" />
-    <Compile Include="Particles\ParticleSystem.cs" />
-    <Compile Include="Particles\ParticleVertex.cs" />
-    <Compile Include="Particles\TrailParticleSystem.cs" />
+    <Compile Include="ParticleSystems\TrailParticleSystem.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerData.cs" />
     <Compile Include="Program.cs" />
@@ -128,6 +123,10 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GPart\GPart.csproj">
+      <Project>{5948c8ad-d770-43f3-a23f-efc3058f5e0c}</Project>
+      <Name>GPart</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TData\TData.csproj">
       <Project>{cfcb38b0-74ca-478f-be18-cc185079c91f}</Project>
       <Name>TData</Name>

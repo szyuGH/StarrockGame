@@ -10,7 +10,8 @@ using System;
 using StarrockGame.Entities;
 using FarseerPhysics.Collision.Shapes;
 using StarrockGame.Caching;
-using StarrockGame.Particles;
+using GPart;
+using StarrockGame.ParticleSystems;
 
 namespace StarrockGame
 {
@@ -21,8 +22,6 @@ namespace StarrockGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
-        TrailParticleSystem ps;
 
         public Game1()
         {
@@ -41,11 +40,10 @@ namespace StarrockGame
         /// </summary>
         protected override void Initialize()
         {
-            //Player.Get();
-            //Input.Initialize();
+            Player.Get();
+            Input.Initialize();
             Cache.Initialize(Content, null, new StarrockCacheLoader());
-            //ParticleManager.Get.AddSystem<TrailParticleSystem>(this);
-
+            Particles.Add<TrailParticleSystem>(this);
 
             base.Initialize();
         }
@@ -56,14 +54,12 @@ namespace StarrockGame
         /// </summary>
         protected override void LoadContent()
         {
-            
-            //SceneManager.Initialize<SceneIntro>(this);
+
+            SceneManager.Initialize<SceneIntro>(this);
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             // TODO: use this.Content to load your game content here
-
-            ps = new TrailParticleSystem(this, Content);
-            ps.Initialize();
+            
         }
 
         /// <summary>
@@ -83,10 +79,8 @@ namespace StarrockGame
         protected override void Update(GameTime gameTime)
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            //Input.Update();
-            //SceneManager.Update(gameTime);
-            ps.Update(gameTime);
-            ps.AddParticle(new Vector2(0, 0), new Vector2(0, 0));
+            Input.Update();
+            SceneManager.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -98,36 +92,16 @@ namespace StarrockGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            //SceneManager.Render(gameTime);
-            float aspectRatio = (float)GraphicsDevice.Viewport.Width /
-                                (float)GraphicsDevice.Viewport.Height;
-            float cameraArc = -5;
-            float cameraRotation = 0;
-            float cameraDistance = 200;
-
-
-
-            Matrix view = Matrix.CreateTranslation(0, -25, 0) *
-                          Matrix.CreateRotationY(MathHelper.ToRadians(cameraRotation)) *
-                          Matrix.CreateRotationX(MathHelper.ToRadians(cameraArc)) *
-                          Matrix.CreateLookAt(new Vector3(0, 0, -cameraDistance),
-                                              new Vector3(0, 0, 0), Vector3.Up);
-
-            Matrix projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4,
-                                                                    aspectRatio,
-                                                                    1, 10000);
-            ps.SetCamera(view, projection);
-
-
-            ps.Draw(gameTime);
+            SceneManager.Render(gameTime);
+            
 
             base.Draw(gameTime);
         }
 
         protected override void OnExiting(object sender, EventArgs args)
         {
-            //Cache.Dispose();
-            //SceneManager.Dispose();
+            Cache.Dispose();
+            SceneManager.Dispose();
             base.OnExiting(sender, args);
         }
     }

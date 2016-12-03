@@ -1,26 +1,13 @@
-#region File Description
-//-----------------------------------------------------------------------------
-// ParticleSystem.cs
-//
-// Microsoft XNA Community Game Platform
-// Copyright (C) Microsoft Corporation. All rights reserved.
-//-----------------------------------------------------------------------------
-#endregion
+﻿
 
-#region Using Statements
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Graphics.PackedVector;
-using StarrockGame.Caching;
-#endregion
+using System;
 
-namespace StarrockGame.Particles
+namespace GPart
 {
-    /// <summary>
-    /// The main component in charge of displaying particles.
-    /// </summary>
     public abstract class ParticleSystem : DrawableGameComponent
     {
         #region Fields
@@ -176,10 +163,10 @@ namespace StarrockGame.Particles
 
             for (int i = 0; i < settings.MaxParticles; i++)
             {
-                particles[i * 4 + 0].Corner = new Short2(-1, -1);
-                particles[i * 4 + 1].Corner = new Short2(1, -1);
-                particles[i * 4 + 2].Corner = new Short2(1, 1);
-                particles[i * 4 + 3].Corner = new Short2(-1, 1);
+                particles[i * 4 + 0].Corner = new Vector2(-1, -1);
+                particles[i * 4 + 1].Corner = new Vector2(1, -1);
+                particles[i * 4 + 2].Corner = new Vector2(1, 1);
+                particles[i * 4 + 3].Corner = new Vector2(-1, 1);
             }
 
             base.Initialize();
@@ -229,14 +216,14 @@ namespace StarrockGame.Particles
         /// </summary>
         void LoadParticleEffect()
         {
-            Effect effect = Cache.LoadEffect("ParticleEffect");
+            Effect effect = content.Load<Effect>(settings.EffectName);
 
             // If we have several particle systems, the content manager will return
             // a single shared effect instance to them all. But we want to preconfigure
             // the effect with parameters that are specific to this particular
             // particle system. By cloning the effect, we prevent one particle system
             // from stomping over the parameter settings of another.
-            
+
             particleEffect = effect.Clone();
 
             EffectParameterCollection parameters = particleEffect.Parameters;
@@ -250,22 +237,21 @@ namespace StarrockGame.Particles
             // Set the values of parameters that do not change.
             parameters["Duration"].SetValue((float)settings.Duration.TotalSeconds);
             parameters["DurationRandomness"].SetValue(settings.DurationRandomness);
-            parameters["Gravity"].SetValue(settings.Gravity);
             parameters["EndVelocity"].SetValue(settings.EndVelocity);
             parameters["MinColor"].SetValue(settings.MinColor.ToVector4());
             parameters["MaxColor"].SetValue(settings.MaxColor.ToVector4());
 
             parameters["RotateSpeed"].SetValue(
                 new Vector2(settings.MinRotateSpeed, settings.MaxRotateSpeed));
-            
+
             parameters["StartSize"].SetValue(
                 new Vector2(settings.MinStartSize, settings.MaxStartSize));
-            
+
             parameters["EndSize"].SetValue(
                 new Vector2(settings.MinEndSize, settings.MaxEndSize));
 
             // Load the particle texture, and set it onto the effect.
-            Texture2D texture = Cache.LoadParticle(settings.TextureName);
+            Texture2D texture = content.Load<Texture2D>(settings.TextureName);
 
             parameters["Texture"].SetValue(texture);
         }
@@ -363,7 +349,7 @@ namespace StarrockGame.Particles
             }
         }
 
-        
+
         /// <summary>
         /// Draws the particle system.
         /// </summary>
@@ -411,25 +397,16 @@ namespace StarrockGame.Particles
                     {
                         // If the active particles are all in one consecutive range,
                         // we can draw them all in a single call.
-                        //device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0,
-                        //                             firstActiveParticle * 4, (firstFreeParticle - firstActiveParticle) * 4,
-                        //                             firstActiveParticle * 6, (firstFreeParticle - firstActiveParticle) * 2);
                         device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0, firstActiveParticle * 6, (firstFreeParticle - firstActiveParticle) * 2);
                     }
                     else
                     {
                         // If the active particle range wraps past the end of the queue
                         // back to the start, we must split them over two draw calls.
-                        //device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0,
-                        //                             firstActiveParticle * 4, (settings.MaxParticles - firstActiveParticle) * 4,
-                        //                             firstActiveParticle * 6, (settings.MaxParticles - firstActiveParticle) * 2);
                         device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0, firstActiveParticle * 6, (settings.MaxParticles - firstActiveParticle) * 2);
 
                         if (firstFreeParticle > 0)
                         {
-                            //device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0,
-                            //                             0, firstFreeParticle * 4,
-                            //                             0, firstFreeParticle * 2);
                             device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0, 0, firstFreeParticle * 2);
                         }
                     }
@@ -518,18 +495,30 @@ namespace StarrockGame.Particles
             // this particle system wants to be affected by it.
             velocity *= settings.EmitterVelocitySensitivity;
 
-            Vector2 normVel = velocity;
-            float velVal = normVel.Length(); 
-            // Add some random distortion to velocity
-            float dirDistortion = MathHelper.Lerp(settings.MinDistortion,
-                                          settings.MaxDistortion,
-                                          (float)random.NextDouble());
-            float realDir = (float)Math.Atan2(velocity.Y, velocity.X);
-            realDir += dirDistortion;
+            //// Add in some random amount of horizontal velocity.
+            //float horizontalVelocity = MathHelper.Lerp(settings.MinHorizontalVelocity,
+            //                                           settings.MaxHorizontalVelocity,
+            //                                           (float)random.NextDouble());
+
+            //double horizontalAngle = random.NextDouble() * MathHelper.TwoPi;
+
+            //velocity.X += horizontalVelocity * (float)Math.Cos(horizontalAngle);
+            //velocity.Z += horizontalVelocity * (float)Math.Sin(horizontalAngle);
+
+            //// Add in some random amount of vertical velocity.
+            //velocity.Y += MathHelper.Lerp(settings.MinVerticalVelocity,
+            //                              settings.MaxVerticalVelocity,
+            //                              (float)random.NextDouble());
 
 
-            velocity = new Vector2((float)Math.Cos(realDir), (float)Math.Sin(realDir)) * velVal;
 
+
+            // Add some distortion to direction
+            float distortionAngle = MathHelper.Lerp(settings.MinDirectionDistortion, settings.MaxDirectionDistortion, (float)random.NextDouble());
+            float velVal = velocity.Length();
+            float velAngle = (float)Math.Atan2(velocity.Y, velocity.X);
+            velAngle += distortionAngle;
+            velocity = new Vector2((float)Math.Cos(velAngle), (float)Math.Sin(velAngle)) * velVal;
 
 
             // Choose four random control values. These will be used by the vertex

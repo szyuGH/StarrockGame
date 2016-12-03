@@ -64,18 +64,18 @@ namespace StarrockGame.Entities
         {
             float prop = Engines[MovementType.Forward].Sum(e => e.PropulsionPower);
             base.Accelerate(val * prop);
-            if (val != 0)
-                foreach (Engine engine in Engines[MovementType.Forward])
-                    engine.Emitting = true;
+            //if (val != 0)
+            //    foreach (Engine engine in Engines[MovementType.Forward])
+            //        engine.Emitting = true;
         }
 
         public override void Decelerate(float val)
         {
             float prop = Engines[MovementType.Brake].Sum(e => e.PropulsionPower);
             base.Decelerate(val * prop);
-            if (val != 0)
-                foreach (Engine engine in Engines[MovementType.Brake])
-                    engine.Emitting = true;
+            //if (val != 0)
+            //    foreach (Engine engine in Engines[MovementType.Brake])
+            //        engine.Emitting = true;
         }
 
         public override void Rotate(float val)
@@ -84,14 +84,14 @@ namespace StarrockGame.Entities
             if (val > 0)
             {
                 mul = Engines[MovementType.RotateRight].Sum(e => e.PropulsionPower);
-                foreach (Engine engine in Engines[MovementType.RotateRight])
-                    engine.Emitting = true;
+                //foreach (Engine engine in Engines[MovementType.RotateRight])
+                //    engine.Emitting = true;
             }
             else if (val < 0)
             {
                 mul = Engines[MovementType.RotateLeft].Sum(e => e.PropulsionPower);
-                foreach (Engine engine in Engines[MovementType.RotateLeft])
-                    engine.Emitting = true;
+                //foreach (Engine engine in Engines[MovementType.RotateLeft])
+                //    engine.Emitting = true;
             }
             base.Rotate(val * mul);
 

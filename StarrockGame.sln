@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarrockGame", "StarrockGam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TData", "TData\TData.csproj", "{CFCB38B0-74CA-478F-BE18-CC185079C91F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPart", "GPart\GPart.csproj", "{5948C8AD-D770-43F3-A23F-EFC3058F5E0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,18 @@ Global
 		{CFCB38B0-74CA-478F-BE18-CC185079C91F}.Release|x64.Build.0 = Release|Any CPU
 		{CFCB38B0-74CA-478F-BE18-CC185079C91F}.Release|x86.ActiveCfg = Release|Any CPU
 		{CFCB38B0-74CA-478F-BE18-CC185079C91F}.Release|x86.Build.0 = Release|Any CPU
+		{5948C8AD-D770-43F3-A23F-EFC3058F5E0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5948C8AD-D770-43F3-A23F-EFC3058F5E0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5948C8AD-D770-43F3-A23F-EFC3058F5E0C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5948C8AD-D770-43F3-A23F-EFC3058F5E0C}.Debug|x64.Build.0 = Debug|Any CPU
+		{5948C8AD-D770-43F3-A23F-EFC3058F5E0C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5948C8AD-D770-43F3-A23F-EFC3058F5E0C}.Debug|x86.Build.0 = Debug|Any CPU
+		{5948C8AD-D770-43F3-A23F-EFC3058F5E0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5948C8AD-D770-43F3-A23F-EFC3058F5E0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5948C8AD-D770-43F3-A23F-EFC3058F5E0C}.Release|x64.ActiveCfg = Release|Any CPU
+		{5948C8AD-D770-43F3-A23F-EFC3058F5E0C}.Release|x64.Build.0 = Release|Any CPU
+		{5948C8AD-D770-43F3-A23F-EFC3058F5E0C}.Release|x86.ActiveCfg = Release|Any CPU
+		{5948C8AD-D770-43F3-A23F-EFC3058F5E0C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StarrockGame.GUI
 {
-    public unsafe class Gauge
+    public class Gauge
     {
         private Texture2D renderTex;
 

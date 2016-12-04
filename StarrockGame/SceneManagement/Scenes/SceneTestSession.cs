@@ -23,7 +23,7 @@ namespace StarrockGame.SceneManagement.Scenes
         Gauge gauge;
         
 
-        unsafe public SceneTestSession(Game1 game) : base(game)
+        public SceneTestSession(Game1 game) : base(game)
         {
             EntityManager.Clear();
             ship = EntityManager.Add<Spaceship, PlayerController>("Spaceship", new Vector2(200, 200), 0, Vector2.Zero);

@@ -24,7 +24,10 @@ namespace StarrockGame.Entities
         public string Type { get; private set; }
 
         public Body Body { get; private set; }
-        public float Structure { get; private set; }
+
+        private float _structure;
+        public float Structure  { get { return _structure; }  set { _structure = value; } }
+
         public bool IsAlive { get { return Structure > 0; } }
         public Vector2 Direction {
             get { return new Vector2((float)Math.Cos(Body.Rotation), (float)Math.Sin(Body.Rotation)); }
@@ -62,7 +65,7 @@ namespace StarrockGame.Entities
             Body.AngularVelocity = initialAngularVelocity;
             Body.Mass = Template.Mass;
 
-            // Structure = Template.Structure;
+            Structure = Template.Structure;
         }
         
 

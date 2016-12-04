@@ -47,6 +47,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -75,8 +76,10 @@
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\MovementType.cs" />
     <Compile Include="Entities\Spaceship.cs" />
+    <Compile Include="EntityManager.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GUI\ButtonLabel.cs" />
+    <Compile Include="GUI\Gauge.cs" />
     <Compile Include="GUI\GUIElement.cs" />
     <Compile Include="GUI\ISelectable.cs" />
     <Compile Include="GUI\Label.cs" />

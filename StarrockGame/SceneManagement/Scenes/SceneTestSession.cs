@@ -12,36 +12,40 @@ using StarrockGame.ParticleSystems;
 using Microsoft.Xna.Framework.Graphics;
 using StarrockGame.Caching;
 using FarseerPhysics;
+using StarrockGame.GUI;
 
 namespace StarrockGame.SceneManagement.Scenes
 {
     public class SceneTestSession : Scene
     {
         Spaceship ship, ship2;
-        World world;
         Camera2D cam;
+        Gauge gauge;
+        
 
-        public SceneTestSession(Game1 game) : base(game)
+        unsafe public SceneTestSession(Game1 game) : base(game)
         {
-            world = new World(Vector2.Zero);
-            ship = new Spaceship(world, "Spaceship");
-            ship.Initialize<PlayerController>(new Vector2(200, 200), 0, Vector2.Zero);
-
-            ship2 = new Spaceship(world, "Spaceship");
-            ship2.Initialize<NoController>(new Vector2(400, 300), 0, Vector2.Zero);
+            EntityManager.Clear();
+            ship = EntityManager.Add<Spaceship, PlayerController>("Spaceship", new Vector2(200, 200), 0, Vector2.Zero);
+            ship2 = EntityManager.Add<Spaceship, NoController>("Spaceship", new Vector2(400, 300), 10, Vector2.Zero);
+            
 
             cam = new Camera2D(Device);
             cam.TrackingBody = ship.Body;
             cam.Update();
+            gauge = new Gauge(100, new Rectangle(10, 30, 150, 24), Color.Red);
+            
         }
 
         public override void Update(GameTime gameTime)
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            world.Step(Math.Min(elapsed, (1f / 60f)));
-            ship.Update(gameTime);
-            ship2.Update(gameTime);
+            
+            EntityManager.Update(gameTime);
             cam.Update();
+
+            ship.Structure -= 0.25f;
+            gauge.Value = ship.Structure;
 
             Particles.Emit<TrailParticleSystem>(new Vector2(400, 400), new Vector2(0, 500));
         }
@@ -51,13 +55,12 @@ namespace StarrockGame.SceneManagement.Scenes
             base.Render(gameTime);
 
             SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, cam.Translation);
-            ship.Render(SpriteBatch, gameTime);
-            ship2.Render(SpriteBatch, gameTime);
+            EntityManager.Render(SpriteBatch, gameTime);
             SpriteBatch.End();
 
             SpriteBatch.Begin();
             SpriteBatch.DrawString(Cache.LoadFont("GameFont"), string.Format("Position: {0}", ConvertUnits.ToDisplayUnits(ship.Body.Position)), new Vector2(10), Color.White);
-
+            gauge.Render(SpriteBatch);
             SpriteBatch.End();
 
             Particles.SetCamera(cam.Translation, cam.Projection);

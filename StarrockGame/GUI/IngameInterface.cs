@@ -28,7 +28,7 @@ namespace StarrockGame.GUI
             energyGauge = new Gauge(shipTemplate.Energy, new Rectangle(300, 10, 200, 25), Color.Green);
             fuelGauge = new Gauge(shipTemplate.Fuel, new Rectangle(600, 10, 200, 25), Color.Yellow);
             shieldGauge = new Gauge(shipTemplate.ShieldCapacity, new Rectangle(900, 10, 200, 25), Color.Blue);
-
+            radar = new Radar(0);
         }
 
         public void Update()

@@ -53,6 +53,7 @@
     <Compile Include="TemplateData\SpaceshipTemplateData.cs" />
     <Compile Include="TemplateData\TemplateData.cs" />
     <Compile Include="TemplateData\WeaponTemplateData.cs" />
+    <Compile Include="TemplateData\WreckageTemplateData.cs" />
     <Compile Include="TestData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

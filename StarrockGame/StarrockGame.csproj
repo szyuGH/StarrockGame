@@ -76,6 +76,7 @@
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\MovementType.cs" />
     <Compile Include="Entities\Spaceship.cs" />
+    <Compile Include="Entities\Wreckage.cs" />
     <Compile Include="EntityManager.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GUI\ButtonLabel.cs" />

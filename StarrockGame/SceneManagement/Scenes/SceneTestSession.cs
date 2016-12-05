@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +19,7 @@ namespace StarrockGame.SceneManagement.Scenes
     {
         Spaceship ship, ship2;
         Camera2D cam;
-        Gauge gauge;
+        IngameInterface ingameInterface;
         
 
         public SceneTestSession(Game1 game) : base(game)
@@ -33,7 +32,8 @@ namespace StarrockGame.SceneManagement.Scenes
             cam = new Camera2D(Device);
             cam.TrackingBody = ship.Body;
             cam.Update();
-            gauge = new Gauge(100, new Rectangle(10, 30, 150, 24), Color.Red);
+
+            ingameInterface = new IngameInterface(ship);
             
         }
 
@@ -43,9 +43,7 @@ namespace StarrockGame.SceneManagement.Scenes
             
             EntityManager.Update(gameTime);
             cam.Update();
-
-            ship.Structure -= 0.25f;
-            gauge.Value = ship.Structure;
+            ingameInterface.Update();
 
             Particles.Emit<TrailParticleSystem>(new Vector2(400, 400), new Vector2(0, 500));
         }
@@ -60,7 +58,7 @@ namespace StarrockGame.SceneManagement.Scenes
 
             SpriteBatch.Begin();
             SpriteBatch.DrawString(Cache.LoadFont("GameFont"), string.Format("Position: {0}", ConvertUnits.ToDisplayUnits(ship.Body.Position)), new Vector2(10), Color.White);
-            gauge.Render(SpriteBatch);
+            ingameInterface.Render(SpriteBatch);
             SpriteBatch.End();
 
             Particles.SetCamera(cam.Translation, cam.Projection);

@@ -81,9 +81,11 @@
     <Compile Include="GUI\ButtonLabel.cs" />
     <Compile Include="GUI\Gauge.cs" />
     <Compile Include="GUI\GUIElement.cs" />
+    <Compile Include="GUI\IngameInterface.cs" />
     <Compile Include="GUI\ISelectable.cs" />
     <Compile Include="GUI\Label.cs" />
     <Compile Include="GUI\Menu.cs" />
+    <Compile Include="GUI\SpriteB.cs" />
     <Compile Include="GUI\Table.cs" />
     <Compile Include="InputManagement\ControllerInput.cs" />
     <Compile Include="InputManagement\IInputDevice.cs" />

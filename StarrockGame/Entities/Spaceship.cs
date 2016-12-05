@@ -11,7 +11,7 @@ using TData.TemplateData;
 
 namespace StarrockGame.Entities
 {
-    class Spaceship : Entity
+    public class Spaceship : Entity
     {
         private SpaceshipTemplateData ShipTemplate { get { return Template as SpaceshipTemplateData; } }
 

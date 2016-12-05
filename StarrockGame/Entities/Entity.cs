@@ -35,7 +35,7 @@ namespace StarrockGame.Entities
 
         public IBehavior Controller { get; private set; }
 
-        protected EntityTemplateData Template { get; private set; }
+        public EntityTemplateData Template { get; private set; }
         protected Texture2D Graphic { get; private set; }
         protected Vector2 Center { get; private set; }
         protected float Scale { get; private set; }
@@ -110,8 +110,9 @@ namespace StarrockGame.Entities
             //Create a single body with multiple fixtures
             Body = BodyFactory.CreateCompoundPolygon(world, list, 1f, BodyType.Dynamic);
             Body.BodyType = BodyType.Dynamic;
-            Body.AngularDamping = 10;
-            Body.LinearDamping = 10;
+            Body.AngularDamping = 2;
+            Body.LinearDamping = 2;
+            Body.Restitution = 0.2F;
 
             Body.OnCollision += Body_OnCollision;
         }

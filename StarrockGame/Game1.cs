@@ -27,10 +27,7 @@ namespace StarrockGame
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1920;
-            graphics.PreferredBackBufferHeight = 1080;
-            graphics.IsFullScreen = false;
+            graphics = new StarrockGraphicsDeviceManager(this, true);
             Content.RootDirectory = "Content";
         }
 
@@ -56,7 +53,6 @@ namespace StarrockGame
         /// </summary>
         protected override void LoadContent()
         {
-
             SceneManager.Initialize<SceneIntro>(this);
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);

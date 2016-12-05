@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using StarrockGame.Caching;
 using Microsoft.Xna.Framework;
 using TData.TemplateData;
+using StarrockGame.AI;
 
 namespace StarrockGame.Entities
 {
@@ -93,6 +94,12 @@ namespace StarrockGame.Entities
             }
             base.Rotate(val * mul);
 
+        }
+
+        //Returns true if the ship is controlled by a player
+        public bool IsPlayer()
+        {
+            return  (this.Controller.GetType()==typeof(PlayerController));
         }
     }
 }

@@ -18,7 +18,7 @@ namespace StarrockGame.GUI
         private Gauge energyGauge;
         private Gauge fuelGauge;
         private Gauge shieldGauge;
-        private IEnumerable livingShips;
+        private Radar radar;
 
         public IngameInterface(Spaceship entity)
         {
@@ -28,8 +28,7 @@ namespace StarrockGame.GUI
             energyGauge = new Gauge(shipTemplate.Energy, new Rectangle(300, 10, 200, 25), Color.Green);
             fuelGauge = new Gauge(shipTemplate.Fuel, new Rectangle(600, 10, 200, 25), Color.Yellow);
             shieldGauge = new Gauge(shipTemplate.ShieldCapacity, new Rectangle(900, 10, 200, 25), Color.Blue);
-            //TODO: Anzeige für livingShips, anzeige eingrenzen
-            livingShips = EntityManager.GetAllLiving();
+
         }
 
         public void Update()
@@ -37,8 +36,7 @@ namespace StarrockGame.GUI
             structureGauge.Value    = Ship.Structure;
             energyGauge.Value       = Ship.Energy;
             fuelGauge.Value         = Ship.Fuel;
-            shieldGauge.Value       = Ship.ShieldCapacity;
-            livingShips             = EntityManager.GetAllLiving();
+            shieldGauge.Value = Ship.ShieldCapacity;
         }
 
         public void Render(SpriteBatch sprite)

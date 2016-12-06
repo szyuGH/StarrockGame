@@ -113,6 +113,7 @@ namespace StarrockGame.Entities
             Body.AngularDamping = 2;
             Body.LinearDamping = 2;
             Body.Restitution = 0.2F;
+            Body.Inertia = 10;
 
             Body.OnCollision += Body_OnCollision;
         }

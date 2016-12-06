@@ -11,7 +11,7 @@ namespace StarrockGame.GUI
 {
     public class Radar
     {
-        private IEnumerable livingThings;
+        public IEnumerable LivingThings;
         private Texture2D renderTex;
         public Color BorderColor = Color.White;
         public Color Color { get; private set; }
@@ -21,7 +21,7 @@ namespace StarrockGame.GUI
         public Radar(int difficulty)
         {
             //TODO: Display Entities in range, specific color for entity
-            livingThings = EntityManager.GetAllLiving();
+            LivingThings = EntityManager.GetAllLiving();
         }
 
         public void Draw(SpriteBatch batch)
@@ -33,7 +33,7 @@ namespace StarrockGame.GUI
 
             batch.Draw(renderTex, bgBounding, BorderColor); // Background
             batch.Draw(renderTex, fgBounding, Color); // Foreground
-            foreach (Entity entity in livingThings)
+            foreach (Entity entity in LivingThings)
             {
                 if (entity.GetType() == typeof(Asteroid))
                 {

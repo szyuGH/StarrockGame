@@ -43,14 +43,14 @@
 		<Item>
 			<Direction>4</Direction>
 			<LocalPosition>-45 -17</LocalPosition>
-			<PropulsionPower>0.35</PropulsionPower>
+			<PropulsionPower>35</PropulsionPower>
 			<FuelCostPerSecond>0</FuelCostPerSecond>
 			<ParticlesPerSecond>100</ParticlesPerSecond>
 		</Item>
 		<Item>
 			<Direction>8</Direction>
 			<LocalPosition>-45 17</LocalPosition>
-			<PropulsionPower>0.35</PropulsionPower>
+			<PropulsionPower>35</PropulsionPower>
 			<FuelCostPerSecond>0</FuelCostPerSecond>
 			<ParticlesPerSecond>100</ParticlesPerSecond>
 		</Item>

@@ -37,6 +37,7 @@ namespace StarrockGame.GUI
             energyGauge.Value       = Ship.Energy;
             fuelGauge.Value         = Ship.Fuel;
             shieldGauge.Value = Ship.ShieldCapacity;
+            radar.LivingThings = EntityManager.GetAllLiving();
         }
 
         public void Render(SpriteBatch sprite)
@@ -45,6 +46,7 @@ namespace StarrockGame.GUI
             energyGauge.Render(sprite);
             fuelGauge.Render(sprite);
             shieldGauge.Render(sprite);
+           // radar.Draw(sprite);
 
         }
     }

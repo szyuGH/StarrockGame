@@ -16,16 +16,23 @@ namespace StarrockGame.GUI
         public Color BorderColor = Color.White;
         public Color Color { get; private set; }
         public Rectangle Bounding { get; private set; }
-        
+        public int Difficulty { get; private set; }
+
 
         public Radar(int difficulty)
         {
+            Difficulty = difficulty;
             //TODO: Display Entities in range, specific color for entity
             LivingThings = EntityManager.GetAllLiving();
         }
 
-        public void Draw(SpriteBatch batch)
+        public void Render(SpriteBatch batch)
         {
+            if (renderTex == null)
+            {
+                renderTex = new Texture2D(batch.GraphicsDevice, 1, 1);
+                renderTex.SetData(new Color[] { Color.White });
+            }
             int width = 200;
             int BorderStrength = 4;
             Rectangle bgBounding = new Rectangle(Bounding.X, Bounding.Y, width, Bounding.Height);

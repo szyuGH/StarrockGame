@@ -46,7 +46,7 @@ namespace StarrockGame.GUI
             energyGauge.Render(sprite);
             fuelGauge.Render(sprite);
             shieldGauge.Render(sprite);
-           // radar.Draw(sprite);
+            radar.Render(sprite);
 
         }
     }

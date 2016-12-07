@@ -20,7 +20,7 @@ namespace StarrockGame.SceneManagement.Scenes
         public override void Initialize()
         {
             SpriteFont font = Cache.LoadFont("MenuFont");
-            menu = new Menu(font, null);
+            menu = new Menu(font, () => { SceneManager.Return(); });
             float size = 1;
 
             DisplayModeCollection dmc = Game.Graphics.GetSupportedResolutions();
@@ -35,9 +35,10 @@ namespace StarrockGame.SceneManagement.Scenes
                     () =>
                     {
                         Game.Graphics.SetResolution(menu.SelectedIndex);
-                        SceneManager.Return();
+                        Initialize();
                     });
             }
+            new ButtonLabel(menu, "Back", screenCenter + new Vector2(0, dmc.Count() * font.LineSpacing), size, Color.White, () => { SceneManager.Return(); });
         }
 
         public override void Update(GameTime gameTime)

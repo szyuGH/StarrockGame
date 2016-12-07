@@ -22,18 +22,27 @@ namespace StarrockGame.GUI
 
         private SessionDifficulty difficulty;
 
-        public IngameInterface(Spaceship entity, SessionDifficulty difficulty=SessionDifficulty.Easy)
+        public IngameInterface(GraphicsDevice device, Spaceship entity, SessionDifficulty difficulty=SessionDifficulty.Easy)
         {
             Ship = entity;
             this.difficulty = difficulty;
             SpaceshipTemplateData shipTemplate = Ship.Template as SpaceshipTemplateData;
-            structureGauge = new Gauge(shipTemplate.Structure, new Rectangle(10, 10, 200, 25), Color.Red);
-            energyGauge = new Gauge(shipTemplate.Energy, new Rectangle(300, 10, 200, 25), Color.Green);
-            fuelGauge = new Gauge(shipTemplate.Fuel, new Rectangle(600, 10, 200, 25), Color.Yellow);
-            shieldGauge = new Gauge(shipTemplate.ShieldCapacity, new Rectangle(900, 10, 200, 25), Color.Blue);
+
+
+            const int X_OFFSET = 20;
+            const int Y_OFFSET = 20;
+            int realGaugeWidth = (device.Viewport.Width-5*X_OFFSET) / (4);
+            const int GAUGE_HEIGHT = 12;
+            const int RADAR_SIZE = 150;
+            
+
+            structureGauge = new Gauge(shipTemplate.Structure,      new Rectangle(X_OFFSET + (X_OFFSET + realGaugeWidth) * 0, Y_OFFSET,  realGaugeWidth, GAUGE_HEIGHT), Color.Red);
+            energyGauge = new Gauge(shipTemplate.Energy,            new Rectangle(X_OFFSET + (X_OFFSET + realGaugeWidth) * 1, Y_OFFSET, realGaugeWidth, GAUGE_HEIGHT), Color.Green);
+            fuelGauge = new Gauge(shipTemplate.Fuel,                new Rectangle(X_OFFSET + (X_OFFSET + realGaugeWidth) * 2, Y_OFFSET, realGaugeWidth, GAUGE_HEIGHT), Color.Yellow);
+            shieldGauge = new Gauge(shipTemplate.ShieldCapacity,    new Rectangle(X_OFFSET + (X_OFFSET + realGaugeWidth) * 3, Y_OFFSET, realGaugeWidth, GAUGE_HEIGHT), Color.Blue);
 
             if (difficulty != SessionDifficulty.Lost)
-                radar = new Radar(entity, 0, new Rectangle(20,350,150,150));
+                radar = new Radar(entity, 0, new Rectangle(X_OFFSET,device.Viewport.Height - RADAR_SIZE - Y_OFFSET,RADAR_SIZE,RADAR_SIZE));
         }
 
         public void Update()

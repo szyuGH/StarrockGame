@@ -38,7 +38,7 @@ namespace StarrockGame.SceneManagement.Scenes
             cam.TrackingBody = ship.Body;
             cam.Update();
 
-            ingameInterface = new IngameInterface(ship);
+            ingameInterface = new IngameInterface(Game.GraphicsDevice, ship);
         }
 
         public override void Update(GameTime gameTime)
@@ -61,7 +61,6 @@ namespace StarrockGame.SceneManagement.Scenes
             SpriteBatch.End();
 
             SpriteBatch.Begin();
-            SpriteBatch.DrawString(Cache.LoadFont("GameFont"), string.Format("Position: {0}", ConvertUnits.ToDisplayUnits(ship.Body.Position)), new Vector2(10), Color.White);
             ingameInterface.Render(SpriteBatch);
             SpriteBatch.End();
 

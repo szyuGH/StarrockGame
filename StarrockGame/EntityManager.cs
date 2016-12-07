@@ -15,7 +15,7 @@ namespace StarrockGame
     {
         private static List<Entity> entities = new List<Entity>();
         public static readonly World World = new World(Vector2.Zero);
-
+        public static Entity PlayerShip { get; private set; }
 
         public static void Update(GameTime gameTime)
         {
@@ -46,6 +46,8 @@ namespace StarrockGame
                 entities.Add(entity);
             }
             entity.Initialize<B>(pos, rot, initialVelocity, initialAngularVelocity);
+            if (typeof(B) == typeof(PlayerController))
+                PlayerShip = entity;
             return entity as T;
         }
 

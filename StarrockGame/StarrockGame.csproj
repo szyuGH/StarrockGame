@@ -7,7 +7,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0E32C139-1252-4649-A409-AE1489A56282}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>StarrockGame</RootNamespace>
     <AssemblyName>StarrockGame</AssemblyName>
@@ -59,7 +59,11 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AI\HomingController.cs" />
     <Compile Include="AI\IBehavior.cs" />
     <Compile Include="AI\NoController.cs" />
     <Compile Include="AI\PlayerController.cs" />

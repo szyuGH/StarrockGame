@@ -22,6 +22,7 @@ namespace StarrockGame.SceneManagement.Scenes
         Wreckage wreckage;
         Camera2D cam;
         IngameInterface ingameInterface;
+        GameBorder border;
         
 
         public SceneTestSession(Game1 game) : base(game)
@@ -41,6 +42,9 @@ namespace StarrockGame.SceneManagement.Scenes
             cam.Update();
 
             ingameInterface = new IngameInterface(Game.GraphicsDevice, ship);
+
+            Line.Initialize(Device);
+            border = new GameBorder(EntityManager.World, Device, 8000, 3000);
         }
 
         public override void Update(GameTime gameTime)
@@ -57,6 +61,8 @@ namespace StarrockGame.SceneManagement.Scenes
         public override void Render(GameTime gameTime)
         {
             base.Render(gameTime);
+
+            border.Render(SpriteBatch, gameTime, cam);
 
             SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, cam.Translation);
             EntityManager.Render(SpriteBatch, gameTime);

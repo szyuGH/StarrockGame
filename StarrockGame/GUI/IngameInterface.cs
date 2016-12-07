@@ -52,7 +52,7 @@ namespace StarrockGame.GUI
             fuelGauge.Value         = Ship.Fuel;
             shieldGauge.Value = Ship.ShieldCapacity;
             if (difficulty != SessionDifficulty.Lost)
-                radar.LivingThings = EntityManager.GetAllLiving();
+                radar.LivingThings = EntityManager.GetAllEntities(Ship, Ship.RadarRange);
         }
 
         public void Render(SpriteBatch sprite)

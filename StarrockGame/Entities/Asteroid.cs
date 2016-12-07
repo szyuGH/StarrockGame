@@ -23,14 +23,24 @@ namespace StarrockGame.Entities
         public override void Initialize<T>(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
         {
             float velocityMultiplier = MathHelper.Lerp((Template as AsteroidTemplateData).MinSpeed, (Template as AsteroidTemplateData).MaxSpeed, (float)Program.Random.NextDouble());
-            base.Initialize<T>(position, rotation, 
-                initialVelocity * velocityMultiplier, 
+            base.Initialize<T>(position, rotation,
+                initialVelocity * velocityMultiplier,
                 initialAngularVelocity);
         }
 
         protected override EntityTemplateData LoadTemplate(string type)
         {
             return Cache.LoadTemplate<AsteroidTemplateData>(type);
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+
+            if (Vector2.DistanceSquared(EntityManager.Border.Center, Body.Position) > EntityManager.Border.Width * 1.5f)
+            {
+                Destroy();
+            }
         }
     }
 }

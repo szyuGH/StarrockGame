@@ -7,7 +7,7 @@
     <Mass>600.0</Mass>
     <Size>1.0</Size>
     <Inertia>0.0</Inertia>
-    <MinSpeed>1</MinSpeed>
-    <MaxSpeed>10</MaxSpeed>
+    <MinSpeed>0.7</MinSpeed>
+    <MaxSpeed>4</MaxSpeed>
   </Asset>
 </XnaContent>

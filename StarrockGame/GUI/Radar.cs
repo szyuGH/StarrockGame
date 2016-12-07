@@ -12,7 +12,7 @@ namespace StarrockGame.GUI
 {
     public class Radar
     {
-        const int DOT_SIZE = 2;
+        const int DOT_SIZE = 3;
 
         private Texture2D shape;
 
@@ -31,7 +31,7 @@ namespace StarrockGame.GUI
             shape = Cache.LoadGraphic("RadarShape");
             Difficulty = difficulty;
             Bounding = bounding;
-            LivingThings = EntityManager.GetAllLiving();
+            LivingThings = EntityManager.GetAllEntities(player, player.RadarRange);
         }
 
         public void Render(SpriteBatch batch)

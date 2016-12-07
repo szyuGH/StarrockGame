@@ -16,6 +16,7 @@ namespace StarrockGame
         private static List<Entity> entities = new List<Entity>();
         public static readonly World World = new World(Vector2.Zero);
         public static Entity PlayerShip { get; private set; }
+        public static GameBorder Border;
 
         public static void Update(GameTime gameTime)
         {
@@ -57,9 +58,12 @@ namespace StarrockGame
             World.Clear();
         }
 
-        public static List<Entity> GetAllLiving()
+        public static List<Entity> GetAllEntities(Entity enquirer, float range=-1)
         {
-            return entities.Where(e => e.IsAlive).ToList();
+            if (range == -1)
+                return entities.Where(e => e.IsAlive).ToList();
+            else
+                return entities.Where(e => e.IsAlive && Vector2.DistanceSquared(enquirer.Body.Position, e.Body.Position) <= range * range).ToList();
         }
     }
 }

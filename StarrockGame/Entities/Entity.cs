@@ -59,11 +59,13 @@ namespace StarrockGame.Entities
         {
             Controller = Activator.CreateInstance<T>();
 
+            Body.Enabled = true;
             Body.Position = ConvertUnits.ToSimUnits(position);
             Body.Rotation = rotation;
             Body.LinearVelocity = initialVelocity;
             Body.AngularVelocity = initialAngularVelocity;
             Body.Mass = Template.Mass;
+            
 
             Structure = Template.Structure;
         }
@@ -117,6 +119,7 @@ namespace StarrockGame.Entities
             Body.UserData = this;
 
             Body.OnCollision += Body_OnCollision;
+            Body.Enabled = false;
         }
 
         public virtual void Update(GameTime gameTime)
@@ -159,7 +162,8 @@ namespace StarrockGame.Entities
 
         public virtual void Destroy()
         {
-
+            Structure = 0;
+            Body.Enabled = false;
         }
 
         protected virtual bool Body_OnCollision(Fixture fixtureA, Fixture fixtureB, Contact contact)

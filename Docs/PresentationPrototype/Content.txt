@@ -1,0 +1,6 @@
+Collision -> Farseer
+Movement -> Farseer
+Particles -> GPU Based through HLSL
+Calculations (Structure, FuelCap, EnergyCap, ShieldCap)
+Engines -> relative position will be calculated based on ships rotation
+AI -> Classified Controllers

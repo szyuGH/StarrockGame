@@ -106,6 +106,14 @@
 /processorParam:TextureFormat=Color
 /build:Graphics/RadarShape.png
 
+<<<<<<< HEAD
+#begin Data/Templates/Wreckage.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/Wreckage.xml
+
+#begin Graphics/TestShipWreckage.png
+=======
 #begin Graphics/ancus.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -155,6 +163,7 @@
 /build:Graphics/Havoc.png
 
 #begin Graphics/Hunter.png
+>>>>>>> origin/development
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -164,17 +173,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Graphics/Hunter.png
-
-#begin Graphics/TestShipWreckage.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:Graphics/TestShipWreckage.png
+=======
+/build:Graphics/Hunter.png
+>>>>>>> origin/development
 

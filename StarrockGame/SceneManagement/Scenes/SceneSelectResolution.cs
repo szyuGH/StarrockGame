@@ -21,11 +21,11 @@ namespace StarrockGame.SceneManagement.Scenes
         {
             SpriteFont font = Cache.LoadFont("MenuFont");
             menu = new Menu(font, null);
-
-            Vector2 screenCenter = new Vector2(Device.Viewport.Width, 24) * .5f;
             float size = 1;
 
             DisplayModeCollection dmc = Game.Graphics.GetSupportedResolutions();
+            Vector2 screenCenter = new Vector2(Device.Viewport.Width, (Device.Viewport.Height - font.LineSpacing * dmc.Count())) * .5f;
+
             for (int i = 0; i < dmc.Count(); i++)
             {
                 DisplayMode dm = dmc.ElementAt(i);
@@ -36,7 +36,6 @@ namespace StarrockGame.SceneManagement.Scenes
                     {
                         Game.Graphics.SetResolution(menu.SelectedIndex);
                         SceneManager.Return();
-                        SceneManager.NextScene.Initialize();
                     });
             }
         }

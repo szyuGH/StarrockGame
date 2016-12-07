@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StarrockGame.SceneManagement
 {
-    public abstract class Scene
+    public abstract class Scene : IDisposable
     {
         protected virtual Color ClearColor { get { return Color.Black; } }
 
@@ -22,6 +22,8 @@ namespace StarrockGame.SceneManagement
         protected GraphicsDevice Device;
         protected Game1 Game;
 
+        private bool disposed;
+
         public Scene(Game1 game)
         {
             Game = game;
@@ -32,10 +34,16 @@ namespace StarrockGame.SceneManagement
         }
         ~Scene()
         {
-
+            if (!disposed)
+            {
+                Dispose();
+            }
         }
 
         public abstract void Initialize();
+        public virtual void Dispose() {
+            disposed = true;
+        }
 
         public abstract void Update(GameTime gameTime);
 
@@ -44,9 +52,11 @@ namespace StarrockGame.SceneManagement
             switch (State)
             {
                 case SceneState.FadingIn:
+                    //State = SceneState.Open;
                     DefaultUpdateFadeIn(gameTime);
                     break;
                 case SceneState.FadingOut:
+                    //State = SceneState.Closed;
                     DefaultUpdateFadeOut(gameTime);
                     break;
             }
@@ -79,17 +89,17 @@ namespace StarrockGame.SceneManagement
             Device.Clear(ClearColor);
         }
 
+        
         public virtual void RenderFade(GameTime gameTime)
-        {
-            RenderTarget2D rt = new RenderTarget2D(Device, Device.Viewport.Width, Device.Viewport.Height);
-            Device.SetRenderTarget(rt);
+        { 
+            Device.SetRenderTarget(SceneManager.SceneRenderTarget);
             Device.Clear(Color.Transparent);
             Render(gameTime);
             Device.SetRenderTarget(null);
 
             SpriteBatch.Begin();
             int a = (int)(255 * (FadeProgress / FadeSpeed));
-            SpriteBatch.Draw(rt, new Vector2(0, 0), new Color(a, a, a, a));
+            SpriteBatch.Draw(SceneManager.SceneRenderTarget, new Vector2(0, 0), new Color(a, a, a, a));
             SpriteBatch.End();
         }
     }

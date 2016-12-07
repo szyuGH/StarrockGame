@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using StarrockGame.SceneManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,7 @@ namespace StarrockGame
             this.PreferredBackBufferWidth = res.Width;
             this.PreferredBackBufferHeight = res.Height;
             this.ApplyChanges();
+            SceneManager.SceneRenderTarget = new RenderTarget2D(GraphicsDevice, res.Width, res.Height);
         }
 
         public DisplayModeCollection GetSupportedResolutions()

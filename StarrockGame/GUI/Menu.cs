@@ -26,6 +26,11 @@ namespace StarrockGame.GUI
             cancel = onCancel;
         }
 
+        public void Dispose()
+        {
+            Elements.Clear();
+        }
+
         public virtual void Update(GameTime gameTime)
         {
             if (Input.Device.MenuDown())

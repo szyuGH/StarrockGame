@@ -26,6 +26,12 @@ namespace StarrockGame.SceneManagement.Scenes
             timer = 0;
         }
 
+        public override void Dispose()
+        {
+            base.Dispose();
+            logo.Dispose();
+        }
+
         public override void Update(GameTime gameTime)
         {
             timer += (float)gameTime.ElapsedGameTime.TotalSeconds;

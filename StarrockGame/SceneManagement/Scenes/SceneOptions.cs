@@ -34,6 +34,13 @@ namespace StarrockGame.SceneManagement.Scenes
             new ButtonLabel(menu, "Back", screenCenter + new Vector2(0, 2 * font.LineSpacing), size, Color.White, () => { SceneManager.Return(); });
         }
 
+        public override void Dispose()
+        {
+            base.Dispose();
+            menu.Dispose();
+            menu = null;
+        }
+
         public override void Update(GameTime gameTime)
         {
             menu.Update(gameTime);

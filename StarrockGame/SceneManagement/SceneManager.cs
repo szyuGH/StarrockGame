@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,15 @@ namespace StarrockGame.SceneManagement
         private static Game1 game;
         private static Stack<Scene> sceneStack;
         private static Scene currentScene;
-        public static Scene NextScene { get; private set; }
+        public static Scene NextScene { get; private set;}
+        public static RenderTarget2D SceneRenderTarget;
+
+        private static bool returning;
 
         public static void Initialize<T>(Game1 g) where T : Scene
         {
             game = g;
+            SceneRenderTarget = new RenderTarget2D(g.GraphicsDevice, g.GraphicsDevice.Viewport.Width, g.GraphicsDevice.Viewport.Height);
             sceneStack = new Stack<Scene>();
             Call<T>();
         }
@@ -49,9 +54,15 @@ namespace StarrockGame.SceneManagement
                         // if fadeout is complete, set the next scene
                         if (currentScene.State == SceneState.Closed)
                         {
+                            if (returning)
+                            {
+                                currentScene.Dispose();
+                                currentScene = null;
+                            }
                             currentScene = NextScene;
                             currentScene.State = SceneState.FadingIn;
                             NextScene = null;
+                            returning = false;
                         }
                         break;
                     default:
@@ -120,6 +131,8 @@ namespace StarrockGame.SceneManagement
             {
                 NextScene = sceneStack.Pop();
                 currentScene.State = SceneState.FadingOut;
+                NextScene.Initialize();
+                returning = true;
             }
         }
 

@@ -20,14 +20,14 @@ namespace StarrockGame
     /// </summary>
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
+        public StarrockGraphicsDeviceManager Graphics { get; private set; }
         SpriteBatch spriteBatch;
 
         
 
         public Game1()
         {
-            graphics = new StarrockGraphicsDeviceManager(this, false);
+            Graphics = new StarrockGraphicsDeviceManager(this, false);
             Content.RootDirectory = "Content";
         }
 

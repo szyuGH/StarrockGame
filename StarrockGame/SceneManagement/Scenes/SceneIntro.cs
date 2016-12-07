@@ -18,6 +18,10 @@ namespace StarrockGame.SceneManagement.Scenes
 
         public SceneIntro(Game1 game) : base(game)
         {
+        }
+
+        public override void Initialize()
+        {
             logo = Content.Load<Texture2D>("Graphics/logo");
             timer = 0;
         }

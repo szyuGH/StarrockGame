@@ -24,7 +24,8 @@ namespace StarrockGame
 
         public void SetResolution(int resolutionId)
         {
-            DisplayMode res = GetSupportedResolutions().ElementAt(resolutionId);
+            DisplayModeCollection dmc = GetSupportedResolutions();
+            DisplayMode res = dmc.ElementAt(resolutionId);
             this.PreferredBackBufferWidth = res.Width;
             this.PreferredBackBufferHeight = res.Height;
             this.ApplyChanges();

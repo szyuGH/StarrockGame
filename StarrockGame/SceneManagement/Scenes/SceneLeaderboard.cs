@@ -42,6 +42,11 @@ namespace StarrockGame.SceneManagement.Scenes
 
         public SceneLeaderboard(Game1 game) : base(game)
         {
+            
+        }
+
+        public override void Initialize()
+        {
             SpriteFont tableFont = Cache.LoadFont("TableFont");
             SpriteFont menuFont = Cache.LoadFont("MenuFont");
 
@@ -57,13 +62,13 @@ namespace StarrockGame.SceneManagement.Scenes
 
             int cx = (Device.Viewport.Width - table.Bounding.Width) / 2;
             int cy = (Device.Viewport.Height - table.RealHeight) / 2;
-            table.Move(cx,cy);
+            table.Move(cx, cy);
 
 
             menu = new Menu(menuFont, () => { SceneManager.Return(); });
-            returnLabel = new Label(menu, 
-                ReturnText, 
-                new Vector2(100, table.Bounding.Y + table.RealHeight + 80), 
+            returnLabel = new Label(menu,
+                ReturnText,
+                new Vector2(100, table.Bounding.Y + table.RealHeight + 80),
                 1,
                 Color.White, 0);
             returnLabel.CaptionMonitor = () => { return ReturnText; };

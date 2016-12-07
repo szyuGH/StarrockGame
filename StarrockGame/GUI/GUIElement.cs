@@ -14,6 +14,7 @@ namespace StarrockGame.GUI
         public float Size { get; private set; }
         public Color Color { get; private set; }
         public Menu Menu { get; private set; }
+        public object Tag;
 
         public GUIElement(Menu menu, Vector2 position, float size, Color color)
         {

@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Graphics;
 using StarrockGame.Caching;
 using FarseerPhysics;
 using StarrockGame.GUI;
+using System;
 
 namespace StarrockGame.SceneManagement.Scenes
 {
@@ -23,18 +24,21 @@ namespace StarrockGame.SceneManagement.Scenes
         
 
         public SceneTestSession(Game1 game) : base(game)
+        {            
+        }
+
+        public override void Initialize()
         {
             EntityManager.Clear();
             ship = EntityManager.Add<Spaceship, PlayerController>("Spaceship", new Vector2(200, 200), 0, Vector2.Zero);
             ship2 = EntityManager.Add<Spaceship, NoController>("Spaceship", new Vector2(400, 300), 10, Vector2.Zero);
-            
+
 
             cam = new Camera2D(Device);
             cam.TrackingBody = ship.Body;
             cam.Update();
 
             ingameInterface = new IngameInterface(ship);
-            
         }
 
         public override void Update(GameTime gameTime)

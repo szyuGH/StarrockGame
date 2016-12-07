@@ -16,6 +16,11 @@ namespace StarrockGame.SceneManagement.Scenes
 
         public SceneTitle(Game1 game) : base(game)
         {
+            
+        }
+
+        public override void Initialize()
+        {
             SpriteFont font = Cache.LoadFont("MenuFont");
             menu = new Menu(font, null);
 
@@ -26,9 +31,10 @@ namespace StarrockGame.SceneManagement.Scenes
             new ButtonLabel(menu, "Test Session", screenCenter + new Vector2(0, -1 * font.LineSpacing), size, Color.White, () => { SceneManager.Call<SceneTestSession>(); });
 
             new ButtonLabel(menu, "New Session", screenCenter + new Vector2(0, 0 * font.LineSpacing), size, Color.White, OnNewSession);
-            new ButtonLabel(menu, "Leaderboard",    screenCenter + new Vector2(0, 1 * font.LineSpacing), size, Color.White, OnLeaderboard);
-            new ButtonLabel(menu, "Controls",       screenCenter + new Vector2(0, 2 * font.LineSpacing), size, Color.White, OnControls);
-            new ButtonLabel(menu, "Exit",           screenCenter + new Vector2(0, 3 * font.LineSpacing), size, Color.White, OnExit);
+            new ButtonLabel(menu, "Leaderboard", screenCenter + new Vector2(0, 1 * font.LineSpacing), size, Color.White, OnLeaderboard);
+            new ButtonLabel(menu, "Controls", screenCenter + new Vector2(0, 2 * font.LineSpacing), size, Color.White, OnControls);
+            new ButtonLabel(menu, "Options", screenCenter + new Vector2(0, 3 * font.LineSpacing), size, Color.White, OnOptions);
+            new ButtonLabel(menu, "Exit", screenCenter + new Vector2(0, 4 * font.LineSpacing), size, Color.White, OnExit);
         }
 
         public override void Update(GameTime gameTime)
@@ -58,6 +64,11 @@ namespace StarrockGame.SceneManagement.Scenes
         private void OnControls()
         {
             SceneManager.Call<SceneControls>();
+        }
+
+        private void OnOptions()
+        {
+            SceneManager.Call<SceneOptions>();
         }
 
         private void OnExit()

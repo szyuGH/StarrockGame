@@ -20,18 +20,22 @@ namespace StarrockGame.SceneManagement
         protected SpriteBatch SpriteBatch;
         protected ContentManager Content;
         protected GraphicsDevice Device;
+        protected Game1 Game;
 
         public Scene(Game1 game)
         {
+            Game = game;
             Content = game.Content;
             Device = game.GraphicsDevice;
             SpriteBatch = new SpriteBatch(Device);
+            Initialize();
         }
         ~Scene()
         {
 
         }
 
+        public abstract void Initialize();
 
         public abstract void Update(GameTime gameTime);
 

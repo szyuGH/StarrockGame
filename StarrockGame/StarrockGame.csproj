@@ -79,6 +79,9 @@
     <Compile Include="Entities\Wreckage.cs" />
     <Compile Include="EntityManager.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="SceneManagement\Scenes\SceneOptions.cs" />
+    <Compile Include="SceneManagement\Scenes\SceneSelectResolution.cs" />
+    <Compile Include="SessionDifficulty.cs" />
     <Compile Include="GUI\ButtonLabel.cs" />
     <Compile Include="GUI\Gauge.cs" />
     <Compile Include="GUI\GUIElement.cs" />

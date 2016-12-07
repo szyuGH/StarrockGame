@@ -97,7 +97,6 @@ namespace StarrockGame.GUI
             SelectedIndex = -1;
         }
 
-
         public static Menu operator +(Menu menu, GUIElement element)
         {
             menu.Elements.Add(element);

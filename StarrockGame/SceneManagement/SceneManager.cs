@@ -12,7 +12,7 @@ namespace StarrockGame.SceneManagement
         private static Game1 game;
         private static Stack<Scene> sceneStack;
         private static Scene currentScene;
-        private static Scene nextScene;
+        public static Scene NextScene { get; private set; }
 
         public static void Initialize<T>(Game1 g) where T : Scene
         {
@@ -26,7 +26,7 @@ namespace StarrockGame.SceneManagement
             sceneStack.Clear();
             sceneStack = null;
             currentScene = null;
-            nextScene = null;
+            NextScene = null;
         }
 
         /// <summary>
@@ -49,9 +49,9 @@ namespace StarrockGame.SceneManagement
                         // if fadeout is complete, set the next scene
                         if (currentScene.State == SceneState.Closed)
                         {
-                            currentScene = nextScene;
+                            currentScene = NextScene;
                             currentScene.State = SceneState.FadingIn;
-                            nextScene = null;
+                            NextScene = null;
                         }
                         break;
                     default:
@@ -85,7 +85,7 @@ namespace StarrockGame.SceneManagement
             {
                 sceneStack.Push(currentScene);
                 currentScene.State = SceneState.FadingOut;
-                nextScene = (Scene)Activator.CreateInstance(typeof(T), game);
+                NextScene = (Scene)Activator.CreateInstance(typeof(T), game);
             }
             else
             {
@@ -103,7 +103,7 @@ namespace StarrockGame.SceneManagement
             if (currentScene != null)
             {
                 currentScene.State = SceneState.FadingOut;
-                nextScene = (Scene)Activator.CreateInstance(typeof(T), game);
+                NextScene = (Scene)Activator.CreateInstance(typeof(T), game);
             } else
             {
                 currentScene = (Scene)Activator.CreateInstance(typeof(T), game);
@@ -118,7 +118,7 @@ namespace StarrockGame.SceneManagement
         {
             if (sceneStack.Count > 0)
             {
-                nextScene = sceneStack.Pop();
+                NextScene = sceneStack.Pop();
                 currentScene.State = SceneState.FadingOut;
             }
         }

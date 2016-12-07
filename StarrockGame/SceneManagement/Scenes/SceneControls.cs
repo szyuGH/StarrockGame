@@ -37,8 +37,11 @@ namespace StarrockGame.SceneManagement.Scenes
 
         public SceneControls(Game1 game) : base(game)
         {
+        }
+
+        public override void Initialize()
+        {
             font = Content.Load<SpriteFont>("Fonts/MenuFont");
-            
         }
 
         public override void Update(GameTime gameTime)

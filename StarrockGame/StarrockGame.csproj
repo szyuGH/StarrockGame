@@ -71,13 +71,14 @@
     <Compile Include="Caching\ICacheLoader.cs" />
     <Compile Include="Caching\StarrockCacheLoader.cs" />
     <Compile Include="Camera2D.cs" />
-    <Compile Include="Entities\Asteroide.cs" />
+    <Compile Include="Entities\Asteroid.cs" />
     <Compile Include="Entities\Engine.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\MovementType.cs" />
     <Compile Include="Entities\Spaceship.cs" />
     <Compile Include="Entities\Wreckage.cs" />
     <Compile Include="EntityManager.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameBorder.cs" />
     <Compile Include="Line.cs" />

@@ -11,6 +11,7 @@ namespace StarrockGame
     /// </summary>
     public static class Program
     {
+        public static Random Random = new Random(DateTime.Now.GetHashCode());
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

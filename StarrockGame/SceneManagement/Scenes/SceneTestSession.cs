@@ -19,6 +19,7 @@ namespace StarrockGame.SceneManagement.Scenes
     public class SceneTestSession : Scene
     {
         Spaceship ship, ship2;
+        Asteroid asteroid;
         Wreckage wreckage;
         Camera2D cam;
         IngameInterface ingameInterface;
@@ -35,7 +36,7 @@ namespace StarrockGame.SceneManagement.Scenes
             ship = EntityManager.Add<Spaceship, PlayerController>("Spaceship", new Vector2(200, 200), 0, Vector2.Zero);
             ship2 = EntityManager.Add<Spaceship, NoController>("Spaceship", new Vector2(400, 300), 10, Vector2.Zero);
             wreckage = EntityManager.Add<Wreckage, NoController>("Wreckage",new Vector2(400, 200), 0, Vector2.Zero);
-
+            asteroid = EntityManager.Add<Asteroid, NoController>("Asteroid", new Vector2(300, 500), 0, MathHelper.ToRadians(-90f).ToVector2()*1, 1);
 
             cam = new Camera2D(Device);
             cam.TrackingBody = ship.Body;

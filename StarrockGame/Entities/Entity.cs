@@ -164,7 +164,11 @@ namespace StarrockGame.Entities
 
         protected virtual bool Body_OnCollision(Fixture fixtureA, Fixture fixtureB, Contact contact)
         {
-
+            if (fixtureA.Body.UserData is GameBorder && !((fixtureB.Body.UserData as Entity).Controller is PlayerController) 
+                || fixtureB.Body.UserData is GameBorder && !((fixtureA.Body.UserData as Entity).Controller is PlayerController))
+            {
+                return false;
+            }
 
             return true;
         }

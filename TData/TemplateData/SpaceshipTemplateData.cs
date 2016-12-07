@@ -21,6 +21,6 @@ namespace TData.TemplateData
         public String PrimaryWeapon;
         public String SecondaryWeapon;
         public EngineData[] Engines;
-
+        public float RadarRange;
     }
 }

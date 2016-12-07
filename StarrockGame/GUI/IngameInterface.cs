@@ -20,15 +20,20 @@ namespace StarrockGame.GUI
         private Gauge shieldGauge;
         private Radar radar;
 
-        public IngameInterface(Spaceship entity)
+        private SessionDifficulty difficulty;
+
+        public IngameInterface(Spaceship entity, SessionDifficulty difficulty=SessionDifficulty.Easy)
         {
             Ship = entity;
+            this.difficulty = difficulty;
             SpaceshipTemplateData shipTemplate = Ship.Template as SpaceshipTemplateData;
             structureGauge = new Gauge(shipTemplate.Structure, new Rectangle(10, 10, 200, 25), Color.Red);
             energyGauge = new Gauge(shipTemplate.Energy, new Rectangle(300, 10, 200, 25), Color.Green);
             fuelGauge = new Gauge(shipTemplate.Fuel, new Rectangle(600, 10, 200, 25), Color.Yellow);
             shieldGauge = new Gauge(shipTemplate.ShieldCapacity, new Rectangle(900, 10, 200, 25), Color.Blue);
-            radar = new Radar(0, new Rectangle(20,750,50,150));
+
+            if (difficulty != SessionDifficulty.Lost)
+                radar = new Radar(entity, 0, new Rectangle(20,350,150,150));
         }
 
         public void Update()
@@ -37,7 +42,8 @@ namespace StarrockGame.GUI
             energyGauge.Value       = Ship.Energy;
             fuelGauge.Value         = Ship.Fuel;
             shieldGauge.Value = Ship.ShieldCapacity;
-            radar.LivingThings = EntityManager.GetAllLiving();
+            if (difficulty != SessionDifficulty.Lost)
+                radar.LivingThings = EntityManager.GetAllLiving();
         }
 
         public void Render(SpriteBatch sprite)
@@ -46,7 +52,8 @@ namespace StarrockGame.GUI
             energyGauge.Render(sprite);
             fuelGauge.Render(sprite);
             shieldGauge.Render(sprite);
-            radar.Render(sprite);
+            if (difficulty != SessionDifficulty.Lost)
+                radar.Render(sprite);
 
         }
     }

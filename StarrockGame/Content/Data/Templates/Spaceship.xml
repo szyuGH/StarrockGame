@@ -55,5 +55,6 @@
 			<ParticlesPerSecond>100</ParticlesPerSecond>
 		</Item>
 	</Engines>
+	<RadarRange>50</RadarRange>
   </Asset>
 </XnaContent>

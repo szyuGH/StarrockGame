@@ -19,6 +19,7 @@ namespace StarrockGame.Entities
         public float ShieldCapacity { get; private set; }
         public float Energy { get; private set; }
         public float Fuel { get; private set; }
+        public float RadarRange { get; private set; }
 
         //public Module[] Modules { get; private set; }
         //public Weapon[] Weapons { get; private set; }
@@ -41,6 +42,7 @@ namespace StarrockGame.Entities
             ShieldCapacity = ShipTemplate.ShieldCapacity;
             Energy = ShipTemplate.Energy;
             Fuel = ShipTemplate.Fuel;
+            RadarRange = ShipTemplate.RadarRange;
 
             //Modules = new Module[Template.ModuleCount]; // only array initialization, because the actual modules come from the preperation
             //Weapons = Weapon.FromTemplate(ShipTemplate.Weapons);

@@ -55,9 +55,9 @@ namespace StarrockGame
             World.Clear();
         }
 
-        public static IEnumerable<Entity> GetAllLiving()
+        public static List<Entity> GetAllLiving()
         {
-            return entities.Where(e => e.IsAlive);
+            return entities.Where(e => e.IsAlive).ToList();
         }
     }
 }

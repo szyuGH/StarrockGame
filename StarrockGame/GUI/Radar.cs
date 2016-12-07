@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using StarrockGame.Caching;
 using StarrockGame.Entities;
 using System;
 using System.Collections;
@@ -11,19 +12,25 @@ namespace StarrockGame.GUI
 {
     public class Radar
     {
-        public IEnumerable LivingThings;
+        const int DOT_SIZE = 2;
+
+        private Texture2D shape;
+
+        public List<Entity> LivingThings;
         private Texture2D renderTex;
         public Color BorderColor = Color.White;
         public Color Color { get; private set; }
         public Rectangle Bounding { get; private set; }
-        public int Difficulty { get; private set; }
+        public SessionDifficulty Difficulty { get; private set; }
+        public Spaceship PlayerShip { get; private set; }
 
 
-        public Radar(int difficulty, Rectangle bounding)
+        public Radar(Spaceship player, SessionDifficulty difficulty, Rectangle bounding)
         {
+            PlayerShip = player;
+            shape = Cache.LoadGraphic("RadarShape");
             Difficulty = difficulty;
             Bounding = bounding;
-            //TODO: Display Entities in range, specific color for entity
             LivingThings = EntityManager.GetAllLiving();
         }
 
@@ -31,38 +38,55 @@ namespace StarrockGame.GUI
         {
             if (renderTex == null)
             {
-                renderTex = new Texture2D(batch.GraphicsDevice, 1, 1);
-                renderTex.SetData(new Color[] { Color.Gray });
+                renderTex = new Texture2D(batch.GraphicsDevice, DOT_SIZE, DOT_SIZE);
+                Color[] dotColors = new Color[DOT_SIZE * DOT_SIZE];
+                for (int i = 0; i < dotColors.Length; i++)
+                    dotColors[i] = Color.White;
+                renderTex.SetData(dotColors);
             }
-            int width = 200;
-            int BorderStrength = 4;
-            Rectangle bgBounding = new Rectangle(Bounding.X, Bounding.Y, width, Bounding.Height);
-            Rectangle fgBounding = new Rectangle(Bounding.X + BorderStrength, Bounding.Y + BorderStrength, width - BorderStrength, Bounding.Height - BorderStrength);
+            
+            batch.Draw(shape, 
+                Bounding,
+                Color.White * .5f);
 
-            batch.Draw(renderTex, bgBounding, BorderColor); // Background
-            batch.Draw(renderTex, fgBounding, Color); // Foreground
+
+            Vector2 radarCenter = new Vector2(Bounding.Center.X, Bounding.Center.Y);
             foreach (Entity entity in LivingThings)
             {
-                if (entity.GetType() == typeof(Asteroid))
+                float distanceToPlayer = Vector2.DistanceSquared(entity.Body.Position, PlayerShip.Body.Position);
+                if (distanceToPlayer <= PlayerShip.RadarRange)
                 {
-                    //Grey
-                }
-                if (entity.GetType() == typeof(Spaceship))
-                {
-                    if ((entity as Spaceship).IsPlayer())
+                    Vector2 relativePosition = entity.Body.Position - PlayerShip.Body.Position;
+                    relativePosition.Normalize();
+                    relativePosition = relativePosition * (distanceToPlayer / PlayerShip.RadarRange) * (Bounding.Width * .5f);
+
+                    if (Difficulty == SessionDifficulty.Easy && entity.GetType() == typeof(Asteroid))
                     {
-                        //Green
+                        DrawRadarDot(batch, radarCenter + relativePosition, Color.Gray * .5f);
                     }
-                    else
+                    else if (entity.GetType() == typeof(Spaceship))
                     {
-                        //Red
+                        if ((entity as Spaceship).IsPlayer())
+                        {
+                            DrawRadarDot(batch, radarCenter, Color.Green * .5f);
+                        }
+                        else if (Difficulty == SessionDifficulty.Easy || Difficulty == SessionDifficulty.Medium)
+                        {
+                            DrawRadarDot(batch, radarCenter + relativePosition, Color.Red * .5f);
+                        }
                     }
-                }
-                if (entity.GetType() == typeof(Wreckage))
-                {
-                    //Yellow
+                    else if (entity.GetType() == typeof(Wreckage))
+                    {
+                        DrawRadarDot(batch, radarCenter + relativePosition, Color.Yellow * .5f);
+                    }
                 }
             }
+        }
+
+        private void DrawRadarDot(SpriteBatch batch, Vector2 pos, Color color)
+        {
+            batch.Draw(renderTex, pos, null, color,
+                0, new Vector2(renderTex.Width * .5f, renderTex.Height * .5f), 1, SpriteEffects.None, 1);
         }
     }
 }

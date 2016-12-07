@@ -19,9 +19,10 @@ namespace StarrockGame.GUI
         public int Difficulty { get; private set; }
 
 
-        public Radar(int difficulty)
+        public Radar(int difficulty, Rectangle bounding)
         {
             Difficulty = difficulty;
+            Bounding = bounding;
             //TODO: Display Entities in range, specific color for entity
             LivingThings = EntityManager.GetAllLiving();
         }
@@ -31,7 +32,7 @@ namespace StarrockGame.GUI
             if (renderTex == null)
             {
                 renderTex = new Texture2D(batch.GraphicsDevice, 1, 1);
-                renderTex.SetData(new Color[] { Color.White });
+                renderTex.SetData(new Color[] { Color.Gray });
             }
             int width = 200;
             int BorderStrength = 4;

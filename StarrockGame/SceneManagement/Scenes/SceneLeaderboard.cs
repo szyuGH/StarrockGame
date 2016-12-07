@@ -1,10 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MySql.Data.MySqlClient;
 using StarrockGame.Caching;
 using StarrockGame.GUI;
 using StarrockGame.InputManagement;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,28 +15,24 @@ namespace StarrockGame.SceneManagement.Scenes
 {
     public class SceneLeaderboard : Scene
     {
-        const float RETRIEVE_INTERVAL = 10;
+        const float RETRIEVE_INTERVAL = 10; // in seconds
 
-        Dictionary<string, string>[] MOCK_LEADERBOARD = new Dictionary<string, string>[]
-        {
-            new Dictionary<string, string>(){ { "Rank", "1" }, { "Name", "Szyu" } , { "Ship", "Omega Destroyer" }, { "Difficulty", "Lost" }, { "Time", "04:20:30" }, { "Score", "9000" }, },
-            new Dictionary<string, string>(){ { "Rank", "2" }, { "Name", "Szyu2" }, { "Ship", "Omega Destroyer" }, { "Difficulty", "Lost" }, { "Time", "02:40:10" }, { "Score", "4000" }, },
-            new Dictionary<string, string>(){ { "Rank", "3" }, { "Name", "Szyu3" }, { "Ship", "Omega Destroyer" }, { "Difficulty", "Lost" }, { "Time", "01:20:30" }, { "Score", "3500" }, },
-            new Dictionary<string, string>(){ { "Rank", "4" }, { "Name", "Szyu4" }, { "Ship", "Omega Destroyer" }, { "Difficulty", "Lost" }, { "Time", "01:10:50" }, { "Score", "3000" }, },
-            new Dictionary<string, string>(){ { "Rank", "5" }, { "Name", "Szyu5" }, { "Ship", "Omega Destroyer" }, { "Difficulty", "Lost" }, { "Time", "00:50:30" }, { "Score", "1500" }, },
-            new Dictionary<string, string>(){ { "Rank", "6" }, { "Name", "Szyu6" }, { "Ship", "Omega Destroyer" }, { "Difficulty", "Lost" }, { "Time", "00:45:20" }, { "Score", "1480" }, },
-            new Dictionary<string, string>(){ { "Rank", "7" }, { "Name", "Szyu7" }, { "Ship", "Omega Destroyer" }, { "Difficulty", "Lost" }, { "Time", "00:45:10" }, { "Score", "1480" }, },
-            new Dictionary<string, string>(){ { "Rank", "8" }, { "Name", "Szyu8" }, { "Ship", "Omega Destroyer" }, { "Difficulty", "Lost" }, { "Time", "00:20:44" }, { "Score", "20" }, },
-            new Dictionary<string, string>(){ { "Rank", "9" }, { "Name", "Szyu9" }, { "Ship", "Omega Destroyer" }, { "Difficulty", "Lost" }, { "Time", "00:00:30" }, { "Score", "5" }, },
-        };
         
         Table table;
         Menu menu;
         Label returnLabel;
+        Label changeDiffLabel;
+
+        private SessionDifficulty currentDifficulty = SessionDifficulty.Easy;
 
         string ReturnText
         {
             get { return string.Format("Press \"{0}\" to return to the title screen.", Input.Device.InputTypeName(KeyboardInputType.MenuCancel)); }
+        }
+        string ChangeDifficultyText
+        {
+            get { return string.Format("Press \"{0}\" and \"{1}\" to changed difficulty.", 
+                Input.Device.InputTypeName(KeyboardInputType.MenuLeft), Input.Device.InputTypeName(KeyboardInputType.MenuRight)); }
         }
 
         float retrieveTimer = RETRIEVE_INTERVAL;
@@ -58,7 +56,7 @@ namespace StarrockGame.SceneManagement.Scenes
                 .AddColumn("Difficulty", 160)
                 .AddColumn("Time", 130)
                 .AddColumn("Score", 130);
-            table.Data = RetrieveLeaderboard();
+            table.Data = RetrieveLeaderboard(currentDifficulty);
 
             int cx = (Device.Viewport.Width - table.Bounding.Width) / 2;
             int cy = (Device.Viewport.Height - table.RealHeight) / 2;
@@ -72,16 +70,17 @@ namespace StarrockGame.SceneManagement.Scenes
                 1,
                 Color.White, 0);
             returnLabel.CaptionMonitor = () => { return ReturnText; };
+
+            changeDiffLabel = new Label(menu,
+                ChangeDifficultyText,
+                new Vector2(100, table.Bounding.Y + table.RealHeight + 80 + menuFont.LineSpacing),
+                1,
+                Color.White, 0);
+            changeDiffLabel.CaptionMonitor = () => { return ChangeDifficultyText; };
         }
 
         public override void Update(GameTime gameTime)
         {
-            if (retrieveTimer <= 0)
-            {
-                table.Data = RetrieveLeaderboard();
-                retrieveTimer = RETRIEVE_INTERVAL;
-            }
-
             if (Input.Device.MenuCancel())
             {
                 SceneManager.Return();
@@ -90,22 +89,77 @@ namespace StarrockGame.SceneManagement.Scenes
                 table.ScrollUp();
             else if (Input.Device.MenuDown())
                 table.ScrollDown();
-            
+            else if (Input.Device.MenuLeft())
+            {
+                if (currentDifficulty == SessionDifficulty.Easy)
+                    currentDifficulty = SessionDifficulty.Lost;
+                else
+                    currentDifficulty--;
+                retrieveTimer = 0;
+            }
+            else if (Input.Device.MenuRight())
+            {
+                if (currentDifficulty == SessionDifficulty.Lost)
+                    currentDifficulty = SessionDifficulty.Easy;
+                else
+                    currentDifficulty++;
+                retrieveTimer = 0;
+            }
+
+            if (retrieveTimer <= 0)
+            {
+                table.Data = RetrieveLeaderboard(currentDifficulty);
+                retrieveTimer = RETRIEVE_INTERVAL;
+            }
         }
 
         public override void Render(GameTime gameTime)
         {
             base.Render(gameTime);
-
+            
             SpriteBatch.Begin();
             table.Render(SpriteBatch);
             menu.Render(SpriteBatch);
             SpriteBatch.End();
         }
 
-        private List<Dictionary<string, string>> RetrieveLeaderboard()
+        private List<Dictionary<string, string>> RetrieveLeaderboard(SessionDifficulty difficulty)
         {
-            return MOCK_LEADERBOARD.ToList();
+            List<Dictionary<string, string>> result = new List<Dictionary<string, string>>();
+
+            string connectionString = string.Format("SERVER={0};DATABASE={1};UID={2};PASSWORD={3};",
+                "sql7.freesqldatabase.com",
+                "sql7148244",
+                "sql7148244",
+                "ImvNHhy7Ld");
+            MySqlConnection connection = new MySqlConnection(connectionString);
+
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = string.Format("SELECT * FROM leaderboard where difficulty={0} order by score desc, time desc", (int)difficulty);
+            MySqlDataReader Reader;
+            connection.Open();
+            Reader = command.ExecuteReader();
+            int rank = 1;
+            while (Reader.Read())
+            {
+                string playerName = Reader.GetString(0);
+                string shipName = Reader.GetString(1);
+                long durationInMS = Reader.GetInt64(3);
+                int score = Reader.GetInt32(4);
+
+                result.Add(new Dictionary<string, string>() {
+                    { "Rank", rank.ToString() },
+                    { "Name", playerName },
+                    { "Ship", shipName },
+                    { "Difficulty", (difficulty).ToString() },
+                    { "Time", string.Format("{0:hh\\:mm\\:ss}",TimeSpan.FromMilliseconds(durationInMS)) },
+                    { "Score", score.ToString() },
+
+                });
+                rank++;
+            }
+            connection.Close();
+            return result;
         }
     }
 }

@@ -19,6 +19,7 @@ namespace StarrockGame.SceneManagement.Scenes
     public class SceneTestSession : Scene
     {
         Spaceship ship, ship2;
+        Wreckage wreckage;
         Camera2D cam;
         IngameInterface ingameInterface;
         
@@ -32,6 +33,7 @@ namespace StarrockGame.SceneManagement.Scenes
             EntityManager.Clear();
             ship = EntityManager.Add<Spaceship, PlayerController>("Spaceship", new Vector2(200, 200), 0, Vector2.Zero);
             ship2 = EntityManager.Add<Spaceship, NoController>("Spaceship", new Vector2(400, 300), 10, Vector2.Zero);
+            wreckage = EntityManager.Add<Wreckage, NoController>("Wreckage",new Vector2(400, 200), 0, Vector2.Zero);
 
 
             cam = new Camera2D(Device);

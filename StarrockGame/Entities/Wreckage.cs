@@ -12,7 +12,8 @@ namespace StarrockGame.Entities
     {
         public Wreckage(World world, string type) :base(world, type)
         {
-
+            DrawOrder = 0;
+            Body.CollisionCategories = Category.None;
         }
 
         protected override EntityTemplateData LoadTemplate(string type)

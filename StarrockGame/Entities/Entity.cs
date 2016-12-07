@@ -40,7 +40,7 @@ namespace StarrockGame.Entities
         protected Vector2 Center { get; private set; }
         protected float Scale { get; private set; }
 
-
+        protected float DrawOrder = 1;
 
 
 
@@ -114,6 +114,7 @@ namespace StarrockGame.Entities
             Body.LinearDamping = 2;
             Body.Restitution = 0.2F;
             Body.Inertia = 10;
+            Body.UserData = this;
 
             Body.OnCollision += Body_OnCollision;
         }
@@ -133,7 +134,7 @@ namespace StarrockGame.Entities
                 Center,
                 Scale,
                 SpriteEffects.None,
-                0);
+                DrawOrder);
         }
 
         public virtual void Accelerate(float val)

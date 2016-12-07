@@ -64,7 +64,7 @@ namespace StarrockGame.SceneManagement.Scenes
 
             border.Render(SpriteBatch, gameTime, cam);
 
-            SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, cam.Translation);
+            SpriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, null, null, null, null, cam.Translation);
             EntityManager.Render(SpriteBatch, gameTime);
             SpriteBatch.End();
 

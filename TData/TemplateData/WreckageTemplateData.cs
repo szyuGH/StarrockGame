@@ -8,10 +8,12 @@ namespace TData.TemplateData
     [Serializable]
     public class WreckageTemplateData : EntityTemplateData
     {
-        public float minFuel;
-        public float maxFuel;
-        public float minEnergy;
-        public float maxEnergy;
+        public float MinFuel;
+        public float MaxFuel;
+        public float MinEnergy;
+        public float MaxEnergy;
+        public float MinStructure;
+        public float MaxStructure;
         //public Blueprint blueprint;
     }
 }

@@ -9,17 +9,45 @@ using StarrockGame.Caching;
 using Microsoft.Xna.Framework;
 using TData.TemplateData;
 using StarrockGame.AI;
+using FarseerPhysics;
 
 namespace StarrockGame.Entities
 {
     public class Spaceship : Entity
     {
-        private SpaceshipTemplateData ShipTemplate { get { return Template as SpaceshipTemplateData; } }
+        private SpaceshipTemplateData shipTemplate { get { return Template as SpaceshipTemplateData; } }
+        
 
-        public float ShieldCapacity { get; private set; }
-        public float Energy { get; private set; }
-        public float Fuel { get; private set; }
+        private float _shieldCapacity;
+        public float ShieldCapacity
+        {
+            get { return _shieldCapacity; }
+            set { _shieldCapacity = MathHelper.Clamp(value, 0, (Template as SpaceshipTemplateData).ShieldCapacity); }
+        }
+
+        private float _energy;
+        public float Energy
+        {
+            get { return _energy; }
+            set { _energy = MathHelper.Clamp(value, 0, (Template as SpaceshipTemplateData).Energy); }
+        }
+
+        private float _fuel;
+        public float Fuel
+        {
+            get { return _fuel; }
+            set { _fuel = MathHelper.Clamp(value, 0, (Template as SpaceshipTemplateData).Fuel); }
+        }
+
         public float RadarRange { get; private set; }
+
+        public bool IsPlayer
+        {
+            get { return (this.Controller.GetType() == typeof(PlayerController)); }
+        }
+
+        public Scavenging Scavenging;
+        public bool ReplenishingShield;
 
         //public Module[] Modules { get; private set; }
         //public Weapon[] Weapons { get; private set; }
@@ -28,7 +56,7 @@ namespace StarrockGame.Entities
         public Spaceship(World world, string type)
             :base(world, type)
         {
-
+            Scavenging = new Scavenging(1f, OnScavengeSuccess); // TODO: add scavenge range to ship
         }
 
         protected override EntityTemplateData LoadTemplate(string type)
@@ -39,26 +67,50 @@ namespace StarrockGame.Entities
         public override void Initialize<T>(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
         {
             base.Initialize<T>(position, rotation, initialVelocity, initialAngularVelocity);
-            ShieldCapacity = ShipTemplate.ShieldCapacity;
-            Energy = ShipTemplate.Energy;
-            Fuel = ShipTemplate.Fuel;
-            RadarRange = ShipTemplate.RadarRange;
+            ShieldCapacity = shipTemplate.ShieldCapacity;
+            Energy = shipTemplate.Energy;
+            Fuel = shipTemplate.Fuel;
+            RadarRange = shipTemplate.RadarRange;
+            Scavenging.Reset();
+            ShieldCapacity = 10;
 
             //Modules = new Module[Template.ModuleCount]; // only array initialization, because the actual modules come from the preperation
             //Weapons = Weapon.FromTemplate(ShipTemplate.Weapons);
-            Engines = Engine.FromTemplate(Body, ShipTemplate.Engines);
+            Engines = Engine.FromTemplate(Body, shipTemplate.Engines);
         }
 
 
         public override void Update(GameTime gameTime)
         {
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             base.Update(gameTime);
+            
+            
 
             foreach (Engine engine in Engines.Values.SelectMany(e => e).ToList())
             {
                 engine.Update(gameTime);
             }
             //Update Modules, Weapons and Engines
+
+            Scavenging.Update(gameTime);
+            UpdatePerSecond(elapsed);
+            if (ReplenishingShield && ShieldCapacity < shipTemplate.ShieldCapacity)
+            {
+                float cost = shipTemplate.ShieldReplenishCostPerSecond * elapsed;
+                if (Energy >= cost)
+                {
+                    Energy -= cost;
+                    ShieldCapacity += shipTemplate.ShieldReplenishValuePerSecond * elapsed;
+                }
+            }
+        }
+
+        private void UpdatePerSecond(float elapsed)
+        {
+            Energy += shipTemplate.EnergyRecoveryPerSecond * elapsed;
+            ShieldCapacity += shipTemplate.ShieldRecoveryPerSecond * elapsed;
+            Fuel += shipTemplate.FuelRecoveryperSecond * elapsed;
         }
 
         public override void Accelerate(float val)
@@ -97,11 +149,45 @@ namespace StarrockGame.Entities
             base.Rotate(val * mul);
 
         }
-
-        //Returns true if the ship is controlled by a player
-        public bool IsPlayer()
+        
+        public void Scavenge(bool active)
         {
-            return  (this.Controller.GetType()==typeof(PlayerController));
+            if (active)
+            {
+                if (!Scavenging.Active)
+                {
+                    List<Entity> wreckages = EntityManager.GetAllEntities(this, Scavenging.Range).Where(e => e is Wreckage).ToList();
+                    if (wreckages.Count > 1)
+                    {
+                        wreckages.Sort((e1, e2) => (int)Vector2.DistanceSquared(e1.Body.Position, e2.Body.Position));
+                        Scavenging.Target = wreckages.First() as Wreckage;
+                    }
+                    else
+                    {
+                        Scavenging.Target = wreckages.FirstOrDefault() as Wreckage;
+                    }
+                }
+                else
+                {
+                    if (Vector2.DistanceSquared(Body.Position, Scavenging.Target.Body.Position) > Scavenging.Range + Scavenging.Range)
+                    {
+                        Scavenging.Reset();
+                    }
+                }
+            } 
+            else if (!active && Scavenging.Active)
+            {
+                Scavenging.Reset();
+            }
+        }
+
+        private void OnScavengeSuccess()
+        {
+            Energy += Scavenging.Target.GainEnergy;
+            Fuel += Scavenging.Target.GainFuel;
+            Structure += Scavenging.Target.GainStructure;
+            Scavenging.Target.Destroy();
+            Scavenging.Reset();
         }
     }
 }

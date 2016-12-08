@@ -26,7 +26,11 @@ namespace StarrockGame.Entities
         public Body Body { get; private set; }
 
         private float _structure;
-        public float Structure  { get { return _structure; }  set { _structure = value; } }
+        public float Structure
+        {
+            get { return _structure; }
+            set { _structure = MathHelper.Clamp(value, 0, Template.Structure); }
+        }
 
         public bool IsAlive { get { return Structure > 0; } }
         public Vector2 Direction {
@@ -37,7 +41,7 @@ namespace StarrockGame.Entities
 
         public EntityTemplateData Template { get; private set; }
         protected Texture2D Graphic { get; private set; }
-        protected Vector2 Center { get; private set; }
+        protected Vector2 Center { get; set; }
         protected float Scale { get; private set; }
 
         protected float DrawOrder = 1;
@@ -65,7 +69,7 @@ namespace StarrockGame.Entities
             Body.LinearVelocity = initialVelocity;
             Body.AngularVelocity = initialAngularVelocity;
             Body.Mass = Template.Mass;
-            
+            Body.Restitution = 0.5f;
 
             Structure = Template.Structure;
         }

@@ -78,6 +78,9 @@ namespace StarrockGame.SceneManagement.Scenes
             SpriteBatch.Begin();
             ingameInterface.Render(SpriteBatch);
             SpriteBatch.DrawString(Cache.LoadFont("MenuFont"), EntityManager.GetAllEntities(null, -1).Count.ToString(), new Vector2(10, 50), Color.White);
+            
+            SpriteBatch.DrawString(Cache.LoadFont("MenuFont"), Vector2.DistanceSquared(ship.Body.Position, wreckage.Body.Position).ToString(), new Vector2(10, 70), Color.White);
+            
             SpriteBatch.End();
 
             Particles.SetCamera(cam.Translation, cam.Projection);

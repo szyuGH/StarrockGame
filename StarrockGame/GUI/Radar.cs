@@ -66,7 +66,7 @@ namespace StarrockGame.GUI
                     }
                     else if (entity.GetType() == typeof(Spaceship))
                     {
-                        if ((entity as Spaceship).IsPlayer())
+                        if ((entity as Spaceship).IsPlayer)
                         {
                             DrawRadarDot(batch, radarCenter, Color.Green * .5f);
                         }

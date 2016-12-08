@@ -7,9 +7,11 @@
     <Mass>20.0</Mass>
     <Size>1.0</Size>
     <Inertia>0.0</Inertia>
-  <minFuel>5</minFuel>
-    <maxFuel>100</maxFuel>
-    <minEnergy>5</minEnergy>
-    <maxEnergy>100</maxEnergy>
+	<MinFuel>5</MinFuel>
+    <MaxFuel>100</MaxFuel>
+    <MinEnergy>5</MinEnergy>
+    <MaxEnergy>100</MaxEnergy>
+	<MinStructure>5</MinStructure>
+    <MaxStructure>100</MaxStructure>
   </Asset>
 </XnaContent>

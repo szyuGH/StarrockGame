@@ -23,7 +23,10 @@ namespace StarrockGame.AI
             entity.Accelerate(acceleration);
             entity.Decelerate(deceleration);
             entity.Rotate(rotation);
-            // check rotation
+
+
+            (entity as Spaceship).Scavenge(Input.Device.Scavenging());
+            (entity as Spaceship).ReplenishingShield = Input.Device.ReplenishingShield();
         }
     }
 }

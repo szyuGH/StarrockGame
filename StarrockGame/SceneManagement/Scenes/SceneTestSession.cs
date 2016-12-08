@@ -34,8 +34,8 @@ namespace StarrockGame.SceneManagement.Scenes
         {
             EntityManager.Clear();
             ship = EntityManager.Add<Spaceship, PlayerController>("Spaceship", new Vector2(200, 200), (float)Math.PI * -.5f, Vector2.Zero);
-            ship2 = EntityManager.Add<Spaceship, HomingController>("Spaceship", new Vector2(400, 100), (float)Math.PI*.5f, Vector2.Zero);
-            wreckage = EntityManager.Add<Wreckage, NoController>("Wreckage",new Vector2(400, 200), 0, Vector2.Zero);
+            ship2 = EntityManager.Add<Spaceship, HaulerController>("Spaceship", new Vector2(400, 100), (float)Math.PI*.5f, Vector2.Zero);
+            wreckage = EntityManager.Add<Wreckage, NoController>("Wreckage",new Vector2(100, 300), 0, Vector2.Zero);
             asteroid = EntityManager.Add<Asteroid, NoController>("Asteroid", new Vector2(300, 500), 0, MathHelper.ToRadians(-90f).ToVector2()*1, 1);
 
             cam = new Camera2D(Device);

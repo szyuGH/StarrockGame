@@ -31,15 +31,22 @@ namespace StarrockGame.Entities
             Target = null;
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(Spaceship ship, GameTime gameTime)
         {
             if (Active)
             {
-                progressTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (progressTimer >= Target.ScavengeTime)
+                if (Vector2.DistanceSquared(ship.Body.Position, Target.Body.Position) > Range * Range)
                 {
-                    progressTimer = Target.ScavengeTime;
-                    onSuccessAction?.Invoke();
+                    Reset();
+                }
+                else
+                {
+                    progressTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (progressTimer >= Target.ScavengeTime)
+                    {
+                        progressTimer = Target.ScavengeTime;
+                        onSuccessAction?.Invoke();
+                    }
                 }
             }
         }

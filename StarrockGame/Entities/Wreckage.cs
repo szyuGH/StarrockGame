@@ -32,7 +32,7 @@ namespace StarrockGame.Entities
         {
             base.Initialize<T>(position, rotation, initialVelocity, initialAngularVelocity);
             // TODO: calculate scavenge time based on resources
-            float time = 2;
+            float time = 5;
             this.ScavengeTime = time;
 
             WreckageTemplateData wtd = Template as WreckageTemplateData;

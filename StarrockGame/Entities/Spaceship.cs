@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework;
 using TData.TemplateData;
 using StarrockGame.AI;
 using FarseerPhysics;
+using StarrockGame.GUI;
 
 namespace StarrockGame.Entities
 {
@@ -93,7 +94,7 @@ namespace StarrockGame.Entities
             }
             //Update Modules, Weapons and Engines
 
-            Scavenging.Update(gameTime);
+            Scavenging.Update(this, gameTime);
             UpdatePerSecond(elapsed);
             if (ReplenishingShield && ShieldCapacity < shipTemplate.ShieldCapacity)
             {
@@ -112,6 +113,7 @@ namespace StarrockGame.Entities
             ShieldCapacity += shipTemplate.ShieldRecoveryPerSecond * elapsed;
             Fuel += shipTemplate.FuelRecoveryperSecond * elapsed;
         }
+
 
         public override void Accelerate(float val)
         {
@@ -165,13 +167,6 @@ namespace StarrockGame.Entities
                     else
                     {
                         Scavenging.Target = wreckages.FirstOrDefault() as Wreckage;
-                    }
-                }
-                else
-                {
-                    if (Vector2.DistanceSquared(Body.Position, Scavenging.Target.Body.Position) > Scavenging.Range + Scavenging.Range)
-                    {
-                        Scavenging.Reset();
                     }
                 }
             } 

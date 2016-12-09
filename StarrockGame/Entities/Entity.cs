@@ -104,7 +104,7 @@ namespace StarrockGame.Entities
             List<Vertices> list = Triangulate.ConvexPartition(textureVertices, TriangulationAlgorithm.Bayazit);
 
             //Adjust the scale of the object for WP7's lower resolution
-            Scale = 1f;
+            Scale = Template.Size;
 
             //scale the vertices from graphics space to sim space
             Vector2 vertScale = new Vector2(ConvertUnits.ToSimUnits(1)) * Scale;

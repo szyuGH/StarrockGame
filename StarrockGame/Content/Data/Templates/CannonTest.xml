@@ -6,7 +6,7 @@
 	<TextureName>CannonTest</TextureName>
 	<Structure>1</Structure>
 	<Mass>1</Mass>
-	<Size>1</Size>
+	<Size>0.25</Size>
 	<Inertia>0</Inertia>
     <WeaponType>0</WeaponType>
     <EnergyCost>5.0</EnergyCost>

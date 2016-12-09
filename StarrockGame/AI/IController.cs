@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StarrockGame.AI
 {
-    public interface IBehavior
+    public interface IController
     {
         void Act(Entity entity, GameTime gameTime);
     }

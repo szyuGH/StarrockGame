@@ -17,28 +17,28 @@ namespace StarrockGame.Entities
 {
     public class Spaceship : Entity
     {
-        private SpaceshipTemplateData shipTemplate { get { return Template as SpaceshipTemplateData; } }
+        private SpaceshipTemplate shipTemplate { get { return Template as SpaceshipTemplate; } }
         
 
         private float _shieldCapacity;
         public float ShieldCapacity
         {
             get { return _shieldCapacity; }
-            set { _shieldCapacity = MathHelper.Clamp(value, 0, (Template as SpaceshipTemplateData).ShieldCapacity); }
+            set { _shieldCapacity = MathHelper.Clamp(value, 0, (Template as SpaceshipTemplate).ShieldCapacity); }
         }
 
         private float _energy;
         public float Energy
         {
             get { return _energy; }
-            set { _energy = MathHelper.Clamp(value, 0, (Template as SpaceshipTemplateData).Energy); }
+            set { _energy = MathHelper.Clamp(value, 0, (Template as SpaceshipTemplate).Energy); }
         }
 
         private float _fuel;
         public float Fuel
         {
             get { return _fuel; }
-            set { _fuel = MathHelper.Clamp(value, 0, (Template as SpaceshipTemplateData).Fuel); }
+            set { _fuel = MathHelper.Clamp(value, 0, (Template as SpaceshipTemplate).Fuel); }
         }
 
         public float RadarRange { get; private set; }
@@ -62,9 +62,9 @@ namespace StarrockGame.Entities
             Scavenging = new Scavenging(1f, OnScavengeSuccess); // TODO: add scavenge range to ship
         }
 
-        protected override EntityTemplateData LoadTemplate(string type)
+        protected override EntityTemplate LoadTemplate(string type)
         {
-            return Cache.LoadTemplate<SpaceshipTemplateData>(type);
+            return Cache.LoadTemplate<SpaceshipTemplate>(type);
         }
 
         public override void Initialize<T>(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)

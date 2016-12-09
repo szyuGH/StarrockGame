@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TData.TemplateData
 {
     [Serializable]
-    public abstract class TemplateData
+    public abstract class AbstractTemplate
     {
         public string Name;
         public string File; // the same as the file the xml is in
@@ -15,8 +15,8 @@ namespace TData.TemplateData
 
         public override bool Equals(object obj)
         {
-            if (obj is TemplateData)
-                return Name.Equals((obj as TemplateData).Name);
+            if (obj is AbstractTemplate)
+                return Name.Equals((obj as AbstractTemplate).Name);
             return base.Equals(obj);
         }
 

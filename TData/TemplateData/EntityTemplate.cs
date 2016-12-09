@@ -9,7 +9,7 @@ namespace TData.TemplateData
 {
     [Serializable]
     //Contains all Attributes. Is filled with data from XMl-Files
-    public class EntityTemplateData : TemplateData
+    public class EntityTemplate : AbstractTemplate
     {
         //Name for the Picture
         public String TextureName;        

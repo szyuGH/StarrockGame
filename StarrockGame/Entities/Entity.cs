@@ -37,9 +37,9 @@ namespace StarrockGame.Entities
             get { return new Vector2((float)Math.Cos(Body.Rotation), (float)Math.Sin(Body.Rotation)); }
         }
 
-        public IBehavior Controller { get; private set; }
+        public IController Controller { get; private set; }
 
-        public EntityTemplateData Template { get; private set; }
+        public EntityTemplate Template { get; private set; }
         protected Texture2D Graphic { get; private set; }
         protected Vector2 Center { get; set; }
         protected float Scale { get; private set; }
@@ -56,10 +56,10 @@ namespace StarrockGame.Entities
             CreateBody(world);
         }
 
-        protected abstract EntityTemplateData LoadTemplate(string type);
+        protected abstract EntityTemplate LoadTemplate(string type);
 
         public virtual void Initialize<T>(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
-            where T : IBehavior
+            where T : IController
         {
             Controller = Activator.CreateInstance<T>();
 

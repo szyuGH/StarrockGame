@@ -40,7 +40,7 @@ namespace StarrockGame
 
         public static T Add<T, B>(string type, Vector2 pos, float rot, Vector2 initialVelocity, float initialAngularVelocity = 0)
             where T : Entity
-            where B : IBehavior
+            where B : IController
         {
 
             Entity entity = entities.Find(e => e is T && e.IsAlive == false);

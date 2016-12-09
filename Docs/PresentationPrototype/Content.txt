@@ -19,6 +19,7 @@ Locally attached objects like engines should turn with the entity
 Particles (Emitters as example for a locally attached object) are rendered and updated by the gpu with HLSL
 Usually particle systems tend to update the particles on the cpu
 -> cpu time is not wasted on particle updates (many particles)
+-> 3d rendering transformed to 2d
 
 AI is handled by controllers
 An entity is given one controller when initialized

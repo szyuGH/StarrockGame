@@ -45,18 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TemplateData\AsteroidTemplateData.cs" />
+    <Compile Include="TemplateData\AsteroidTemplate.cs" />
     <Compile Include="TemplateData\EngineData.cs" />
-    <Compile Include="TemplateData\EntityTemplateData.cs" />
-    <Compile Include="TemplateData\LaserBulletTemplateData.cs" />
+    <Compile Include="TemplateData\EntityTemplate.cs" />
+    <Compile Include="TemplateData\LaserBulletTemplate.cs" />
     <Compile Include="TemplateData\ModuleEffectData.cs" />
-    <Compile Include="TemplateData\ModuleTemplateData.cs" />
-    <Compile Include="TemplateData\SpaceshipTemplateData.cs" />
-    <Compile Include="TemplateData\TemplateData.cs" />
+    <Compile Include="TemplateData\ModuleTemplate.cs" />
+    <Compile Include="TemplateData\SpaceshipTemplate.cs" />
+    <Compile Include="TemplateData\AbstractTemplate.cs" />
     <Compile Include="TemplateData\WeaponBaseData.cs" />
-    <Compile Include="TemplateData\WeaponTemplateData.cs" />
-    <Compile Include="TemplateData\WreckageTemplateData.cs" />
-    <Compile Include="TestData.cs" />
+    <Compile Include="TemplateData\WeaponTemplate.cs" />
+    <Compile Include="TemplateData\WreckageTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

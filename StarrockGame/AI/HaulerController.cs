@@ -8,7 +8,7 @@ using StarrockGame.Entities;
 
 namespace StarrockGame.AI
 {
-    public class HaulerController : IBehavior
+    public class HaulerController : IController
     {
         private Wreckage target;
 

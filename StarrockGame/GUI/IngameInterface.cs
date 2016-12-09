@@ -27,7 +27,7 @@ namespace StarrockGame.GUI
         {
             Ship = entity;
             this.difficulty = difficulty;
-            SpaceshipTemplateData shipTemplate = Ship.Template as SpaceshipTemplateData;
+            SpaceshipTemplate shipTemplate = Ship.Template as SpaceshipTemplate;
 
 
             const int X_OFFSET = 20;

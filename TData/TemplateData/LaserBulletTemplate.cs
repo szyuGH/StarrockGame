@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 namespace TData.TemplateData
 {
     [Serializable]
-    public class AsteroidTemplateData : EntityTemplateData
+    public class LaserBulletTemplate : WeaponTemplate
     {
-        public float MinSpeed;
-        public float MaxSpeed;
-        
+        public float Velocity;
     }
 }

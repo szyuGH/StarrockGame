@@ -21,7 +21,7 @@ namespace StarrockGame
             set { _credits = value; }
         }
 
-        private List<TemplateData> templates;
+        private List<AbstractTemplate> templates;
 
         public string Name { get; private set; }
 
@@ -42,7 +42,7 @@ namespace StarrockGame
         {
             this.Credits = 0;
             this.Name = Environment.UserName;
-            this.templates = new List<TemplateData>();
+            this.templates = new List<AbstractTemplate>();
             UnlockTemplates("Spaceship"); 
         }
 
@@ -61,7 +61,7 @@ namespace StarrockGame
 
                 this.Credits = data.Credits;
                 this.Name = data.PlayerName;
-                this.templates = new List<TemplateData>(data.UnlockedTemplates.Select(s => Cache.LoadTemplate<TemplateData>(s)));
+                this.templates = new List<AbstractTemplate>(data.UnlockedTemplates.Select(s => Cache.LoadTemplate<AbstractTemplate>(s)));
             }
         }
 
@@ -87,7 +87,7 @@ namespace StarrockGame
         {
             foreach (string template in templates)
             {
-                TemplateData data = Cache.LoadTemplate<TemplateData>(template);
+                AbstractTemplate data = Cache.LoadTemplate<AbstractTemplate>(template);
                 if (!this.templates.Contains(data))
                 {
                     this.templates.Add(data);

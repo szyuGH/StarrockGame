@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 namespace TData.TemplateData
 {
     [Serializable]
-    public class LaserBulletTemplateData : WeaponTemplateData
+    public class WeaponTemplate : EntityTemplate
     {
-        public float Velocity;
+        public int WeaponType;
+        public float EnergyCost;
+        public float Damage;
+        public float Cooldown;
     }
 }

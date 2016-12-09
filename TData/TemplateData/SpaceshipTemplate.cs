@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TData.TemplateData
 {
     [Serializable]
-    public class SpaceshipTemplateData : EntityTemplateData
+    public class SpaceshipTemplate : EntityTemplate
     {
         public float Fuel;
         public float Energy;

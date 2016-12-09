@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StarrockGame.AI
 {
-    public class PlayerController : IBehavior
+    public class PlayerController : IController
     {
 
 

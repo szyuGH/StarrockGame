@@ -23,9 +23,9 @@ namespace StarrockGame.Entities
             Center = new Vector2(Graphic.Width * .5f, Graphic.Height * .5f);
         }
 
-        protected override EntityTemplateData LoadTemplate(string type)
+        protected override EntityTemplate LoadTemplate(string type)
         {
-            return Cache.LoadTemplate<WreckageTemplateData>(type);
+            return Cache.LoadTemplate<WreckageTemplate>(type);
         }
 
         public override void Initialize<T>(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
@@ -35,7 +35,7 @@ namespace StarrockGame.Entities
             float time = 5;
             this.ScavengeTime = time;
 
-            WreckageTemplateData wtd = Template as WreckageTemplateData;
+            WreckageTemplate wtd = Template as WreckageTemplate;
             GainEnergy = MathHelper.Lerp(wtd.MinEnergy, wtd.MaxEnergy, (float)Program.Random.NextDouble());
             GainFuel = MathHelper.Lerp(wtd.MinFuel, wtd.MaxFuel, (float)Program.Random.NextDouble());
             GainStructure = MathHelper.Lerp(wtd.MinStructure, wtd.MaxStructure, (float)Program.Random.NextDouble());

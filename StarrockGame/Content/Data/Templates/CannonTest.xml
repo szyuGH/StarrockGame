@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
-  <Asset Type="TData.TemplateData.LaserBulletTemplateData">
+  <Asset Type="TData.TemplateData.LaserBulletTemplate">
     <Name>BlasterCannon</Name>
 	<File>CannonTest</File>
 	<TextureName>CannonTest</TextureName>

@@ -22,15 +22,15 @@ namespace StarrockGame.Entities
 
         public override void Initialize<T>(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
         {
-            float velocityMultiplier = MathHelper.Lerp((Template as AsteroidTemplateData).MinSpeed, (Template as AsteroidTemplateData).MaxSpeed, (float)Program.Random.NextDouble());
+            float velocityMultiplier = MathHelper.Lerp((Template as AsteroidTemplate).MinSpeed, (Template as AsteroidTemplate).MaxSpeed, (float)Program.Random.NextDouble());
             base.Initialize<T>(position, rotation,
                 initialVelocity * velocityMultiplier,
                 initialAngularVelocity);
         }
 
-        protected override EntityTemplateData LoadTemplate(string type)
+        protected override EntityTemplate LoadTemplate(string type)
         {
-            return Cache.LoadTemplate<AsteroidTemplateData>(type);
+            return Cache.LoadTemplate<AsteroidTemplate>(type);
         }
 
         public override void Update(GameTime gameTime)

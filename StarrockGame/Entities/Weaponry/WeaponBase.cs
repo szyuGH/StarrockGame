@@ -19,7 +19,7 @@ namespace StarrockGame.Entities.Weaponry
 
         protected Body Body { get; private set; }
         protected WeaponBaseData BaseTemplate { get; private set; }
-        protected WeaponTemplateData WeaponTemplate { get; private set; }
+        protected WeaponTemplate WeaponTemplate { get; private set; }
 
         public bool CanShoot { get { return cooldown <= 0; } }
 
@@ -41,7 +41,7 @@ namespace StarrockGame.Entities.Weaponry
             }
         }
 
-        public WeaponBase(Body body, WeaponBaseData baseTemplate, WeaponTemplateData weaponTemplate, Vector2 localPosition, float localAngle)
+        public WeaponBase(Body body, WeaponBaseData baseTemplate, WeaponTemplate weaponTemplate, Vector2 localPosition, float localAngle)
         {
             this.Body = body;
             this.BaseTemplate = baseTemplate;
@@ -73,7 +73,7 @@ namespace StarrockGame.Entities.Weaponry
         internal static WeaponBase[] FromTemplate(Body body, WeaponBaseData data)
         {
             // preload weapon template to define type
-            WeaponTemplateData wt = Cache.LoadTemplate<WeaponTemplateData>(data.WeaponType);
+            WeaponTemplate wt = Cache.LoadTemplate<WeaponTemplate>(data.WeaponType);
 
             WeaponBase[] bases = new WeaponBase[data.Bases.Length];
             for (int i = 0; i < bases.Length; i++)

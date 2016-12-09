@@ -8,7 +8,7 @@ using StarrockGame.Entities;
 
 namespace StarrockGame.AI
 {
-    public class HomingController : IBehavior
+    public class HomingController : IController
     {
         public void Act(Entity entity, GameTime gameTime)
         {

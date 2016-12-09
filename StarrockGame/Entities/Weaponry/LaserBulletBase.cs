@@ -12,7 +12,7 @@ namespace StarrockGame.Entities.Weaponry
 {
     public class LaserBulletBase : WeaponBase
     {
-        public LaserBulletBase(Body body, WeaponBaseData baseTemplate, WeaponTemplateData weaponTemplate, Vector2 localPosition, float localAngle) 
+        public LaserBulletBase(Body body, WeaponBaseData baseTemplate, WeaponTemplate weaponTemplate, Vector2 localPosition, float localAngle) 
             : base(body, baseTemplate, weaponTemplate, localPosition, localAngle)
         {
             Body.IsBullet = true;

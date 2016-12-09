@@ -6,7 +6,7 @@ using System.Text;
 namespace TData.TemplateData
 {
     [Serializable]
-    public class WreckageTemplateData : EntityTemplateData
+    public class WreckageTemplate : EntityTemplate
     {
         public float MinFuel;
         public float MaxFuel;

@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
-  <Asset Type="TData.TemplateData.ModuleTemplateData">
+  <Asset Type="TData.TemplateData.ModuleTemplate">
     <Name>Fuelbooster</Name>
+	<File>Module</File>
     <ModuleEffects>
 		<Item>
 			<BuffType>1</BuffType>

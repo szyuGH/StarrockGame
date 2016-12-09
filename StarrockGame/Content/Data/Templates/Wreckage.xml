@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
-  <Asset Type="TData.TemplateData.WreckageTemplateData">
+  <Asset Type="TData.TemplateData.WreckageTemplate">
     <Name>TestWreckage</Name>
 	<File>Wreckage</File>
     <TextureName>TestShipWreckage</TextureName>

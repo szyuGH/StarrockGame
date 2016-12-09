@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.WreckageTemplateData">
-    <EntityName>TestWreckage</EntityName>
+    <Name>TestWreckage</Name>
     <TextureName>TestShipWreckage</TextureName>
     <Structure>40.0</Structure>
     <Mass>20.0</Mass>

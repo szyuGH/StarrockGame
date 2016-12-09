@@ -48,10 +48,12 @@
     <Compile Include="TemplateData\AsteroidTemplateData.cs" />
     <Compile Include="TemplateData\EngineData.cs" />
     <Compile Include="TemplateData\EntityTemplateData.cs" />
+    <Compile Include="TemplateData\LaserBulletTemplateData.cs" />
     <Compile Include="TemplateData\ModuleEffectData.cs" />
     <Compile Include="TemplateData\ModuleTemplateData.cs" />
     <Compile Include="TemplateData\SpaceshipTemplateData.cs" />
     <Compile Include="TemplateData\TemplateData.cs" />
+    <Compile Include="TemplateData\WeaponBaseData.cs" />
     <Compile Include="TemplateData\WeaponTemplateData.cs" />
     <Compile Include="TemplateData\WreckageTemplateData.cs" />
     <Compile Include="TestData.cs" />

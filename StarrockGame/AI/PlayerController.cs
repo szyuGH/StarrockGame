@@ -27,6 +27,11 @@ namespace StarrockGame.AI
 
             (entity as Spaceship).Scavenge(Input.Device.Scavenging());
             (entity as Spaceship).ReplenishingShield = Input.Device.ReplenishingShield();
+
+            if (Input.Device.FirePrimary())
+            {
+                (entity as Spaceship).FirePrimary();
+            }
         }
     }
 }

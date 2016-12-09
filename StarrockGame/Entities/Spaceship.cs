@@ -11,6 +11,7 @@ using TData.TemplateData;
 using StarrockGame.AI;
 using FarseerPhysics;
 using StarrockGame.GUI;
+using StarrockGame.Entities.Weaponry;
 
 namespace StarrockGame.Entities
 {
@@ -51,7 +52,7 @@ namespace StarrockGame.Entities
         public bool ReplenishingShield;
 
         //public Module[] Modules { get; private set; }
-        //public Weapon[] Weapons { get; private set; }
+        public WeaponBase[] PrimaryWeapons { get; private set; }
         public Dictionary<MovementType, List<Engine>> Engines { get; private set; } // will be used to emit particles based on the moving direction
 
         public Spaceship(World world, string type)
@@ -76,7 +77,8 @@ namespace StarrockGame.Entities
             ShieldCapacity = 10;
 
             //Modules = new Module[Template.ModuleCount]; // only array initialization, because the actual modules come from the preperation
-            //Weapons = Weapon.FromTemplate(ShipTemplate.Weapons);
+            PrimaryWeapons = WeaponBase.FromTemplate(Body, shipTemplate.PrimaryWeaponBases);
+
             Engines = Engine.FromTemplate(Body, shipTemplate.Engines);
         }
 
@@ -173,6 +175,14 @@ namespace StarrockGame.Entities
             else if (!active && Scavenging.Active)
             {
                 Scavenging.Reset();
+            }
+        }
+
+        public void FirePrimary()
+        {
+            foreach (WeaponBase pwb in PrimaryWeapons)
+            {
+                pwb.Fire();
             }
         }
 

@@ -19,9 +19,8 @@ namespace TData.TemplateData
         public float ShieldRecoveryPerSecond;
         public float FuelRecoveryperSecond;
         public int ModuleCount;
-        public String PrimaryWeapon;
-        public String SecondaryWeapon;
         public EngineData[] Engines;
+        public WeaponBaseData PrimaryWeaponBases;
         public float RadarRange;
     }
 }

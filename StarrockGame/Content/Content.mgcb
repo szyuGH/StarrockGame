@@ -89,11 +89,6 @@
 /processor:PassThroughProcessor
 /build:Data/Templates/Spaceship.xml
 
-#begin Data/Templates/Weapon.xml
-/importer:XmlImporter
-/processor:PassThroughProcessor
-/build:Data/Templates/Weapon.xml
-
 #begin Graphics/RadarShape.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -206,4 +201,21 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Graphics/Asteroid2.png
+
+#begin Data/Templates/CannonTest.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/CannonTest.xml
+
+#begin Graphics/CannonTest.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Graphics/CannonTest.png
 

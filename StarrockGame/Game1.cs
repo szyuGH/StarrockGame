@@ -39,10 +39,10 @@ namespace StarrockGame
         /// </summary>
         protected override void Initialize()
         {
-            Player.Get();
             Input.Initialize();
             Cache.Initialize(Content, null, new StarrockCacheLoader());
             Particles.Add<TrailParticleSystem>(this);
+            Player.Get();
 
             base.Initialize();
         }

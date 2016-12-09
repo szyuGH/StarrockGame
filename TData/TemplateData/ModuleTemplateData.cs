@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 namespace TData.TemplateData
 {
     [Serializable]
-    public class ModuleTemplateData
+    public class ModuleTemplateData : TemplateData
     {
-        public String Name;
         public ModuleEffectData[] ModuleEffects;
         public float Price;
     }

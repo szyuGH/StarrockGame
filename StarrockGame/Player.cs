@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StarrockGame.Caching;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -41,8 +42,8 @@ namespace StarrockGame
         {
             this.Credits = 0;
             this.Name = Environment.UserName;
-            // TODO: unlock default ship template for new player
-            //UnlockTemplates(); 
+            this.templates = new List<TemplateData>();
+            UnlockTemplates("Spaceship"); 
         }
 
         private void Load()
@@ -60,7 +61,7 @@ namespace StarrockGame
 
                 this.Credits = data.Credits;
                 this.Name = data.PlayerName;
-                this.templates = new List<TemplateData>(data.UnlockedTemplates);
+                this.templates = new List<TemplateData>(data.UnlockedTemplates.Select(s => Cache.LoadTemplate<TemplateData>(s)));
             }
         }
 
@@ -69,7 +70,7 @@ namespace StarrockGame
             PlayerData data = new PlayerData();
             data.Credits = Credits;
             data.PlayerName = Name;
-            data.UnlockedTemplates = templates.ToArray();
+            data.UnlockedTemplates = templates.Select(t => t.Name).ToArray();
 
             BinaryFormatter formatter = new BinaryFormatter();
             using (FileStream fs = new FileStream(filePath, FileMode.Create))
@@ -78,13 +79,14 @@ namespace StarrockGame
             }
         }
 
-        public void UnlockTemplates(params TemplateData[] templates)
+        public void UnlockTemplates(params string[] templates)
         {
-            foreach (TemplateData template in templates)
+            foreach (string template in templates)
             {
-                if (!this.templates.Contains(template))
+                TemplateData data = Cache.LoadTemplate<TemplateData>(template);
+                if (!this.templates.Contains(data))
                 {
-                    this.templates.Add(template);
+                    this.templates.Add(data);
                 }
             }
             Save();

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.SpaceshipTemplateData">
-    <EntityName>TestName</EntityName>
+    <Name>TestName</Name>
     <TextureName>TestShip</TextureName>
     <Structure>300.0</Structure>
     <Mass>20.0</Mass>
@@ -17,8 +17,6 @@
     <ShieldRecoveryPerSecond>0</ShieldRecoveryPerSecond>
     <FuelRecoveryperSecond>0</FuelRecoveryperSecond>
     <ModuleCount>3</ModuleCount>
-    <PrimaryWeapon>Laser</PrimaryWeapon>
-    <SecondaryWeapon>Mines</SecondaryWeapon>
     <Engines>
 		<Item>
 			<Direction>1</Direction>
@@ -56,6 +54,19 @@
 			<ParticlesPerSecond>100</ParticlesPerSecond>
 		</Item>
 	</Engines>
+	<PrimaryWeaponBases>
+		<WeaponType>CannonTest</WeaponType>
+		<Bases>
+			<Item>
+				<LocalPosition>20 -30</LocalPosition>
+				<LocalAngle>0</LocalAngle>
+			</Item>
+			<Item>
+				<LocalPosition>20 -30</LocalPosition>
+				<LocalAngle>0</LocalAngle>
+			</Item>
+		</Bases>
+	</PrimaryWeaponBases>
 	<RadarRange>50</RadarRange>
   </Asset>
 </XnaContent>

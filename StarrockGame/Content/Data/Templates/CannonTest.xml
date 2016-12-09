@@ -2,6 +2,7 @@
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.WeaponTemplateData">
     <Name>BlasterCannon</Name>
+	<TextureName>CannonTest</TextureName>
     <WeaponType>0</WeaponType>
     <EnergyCost>5.0</EnergyCost>
     <Damage>10.0</Damage>

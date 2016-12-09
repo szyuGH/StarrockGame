@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace TData.TemplateData
 {
-    public interface TemplateData
+    [Serializable]
+    public abstract class TemplateData
     {
+        public string Name;
+
+
+        public override bool Equals(object obj)
+        {
+            if (obj is TemplateData)
+                return Name.Equals((obj as TemplateData).Name);
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

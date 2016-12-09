@@ -79,9 +79,14 @@
     <Compile Include="Entities\Asteroid.cs" />
     <Compile Include="Entities\Engine.cs" />
     <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\LaserBullet.cs" />
     <Compile Include="Entities\MovementType.cs" />
     <Compile Include="Entities\Scavenging.cs" />
     <Compile Include="Entities\Spaceship.cs" />
+    <Compile Include="Entities\Weaponry\LaserBulletBase.cs" />
+    <Compile Include="Entities\Weaponry\WeaponBase.cs" />
+    <Compile Include="Entities\Weaponry\WeaponTransform.cs" />
+    <Compile Include="Entities\Weaponry\WeaponType.cs" />
     <Compile Include="Entities\Wreckage.cs" />
     <Compile Include="EntityManager.cs" />
     <Compile Include="Extensions.cs" />

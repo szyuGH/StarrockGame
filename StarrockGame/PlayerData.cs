@@ -12,6 +12,6 @@ namespace StarrockGame
     {
         public int Credits;
         public string PlayerName;
-        public TemplateData[] UnlockedTemplates;
+        public string[] UnlockedTemplates; // names of template
     }
 }

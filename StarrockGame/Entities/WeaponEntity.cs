@@ -39,7 +39,9 @@ namespace StarrockGame.Entities
 
             if (other.Equals(EmitterBody)) return false;
             else if (other.UserData is WeaponEntity && (other.UserData as WeaponEntity).EmitterBody.Equals(EmitterBody)) return false;
-            return base.Body_OnCollision(fixtureA, fixtureB, contact);
+
+            Structure = 0;
+            return true;
         }
     }
 }

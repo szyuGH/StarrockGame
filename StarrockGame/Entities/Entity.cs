@@ -128,7 +128,13 @@ namespace StarrockGame.Entities
 
         public virtual void Update(GameTime gameTime)
         {
+            if (Structure <= 0)
+            {
+                Destroy();
+                return;
+            }
             Controller?.Act(this, gameTime);
+            
         }
 
         public virtual void Render(SpriteBatch spriteBatch, GameTime gameTime)

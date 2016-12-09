@@ -83,6 +83,7 @@
     <Compile Include="Entities\MovementType.cs" />
     <Compile Include="Entities\Scavenging.cs" />
     <Compile Include="Entities\Spaceship.cs" />
+    <Compile Include="Entities\WeaponEntity.cs" />
     <Compile Include="Entities\Weaponry\LaserBulletBase.cs" />
     <Compile Include="Entities\Weaponry\WeaponBase.cs" />
     <Compile Include="Entities\Weaponry\WeaponTransform.cs" />

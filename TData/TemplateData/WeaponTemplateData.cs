@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace TData.TemplateData
 {
     [Serializable]
-    public class WeaponTemplateData : TemplateData
+    public class WeaponTemplateData : EntityTemplateData
     {
-        public string TextureName;
         public int WeaponType;
         public float EnergyCost;
-        public float Damage; 
+        public float Damage;
+        public float Cooldown;
     }
 }

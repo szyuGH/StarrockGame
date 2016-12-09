@@ -10,6 +10,7 @@ namespace TData.TemplateData
     public abstract class TemplateData
     {
         public string Name;
+        public string File; // the same as the file the xml is in
 
 
         public override bool Equals(object obj)

@@ -21,9 +21,12 @@ namespace StarrockGame
         public static void Update(GameTime gameTime)
         {
             World.Step(Math.Min((float)gameTime.ElapsedGameTime.TotalSeconds, (1f / 60f)));
-            foreach (Entity e in entities.Where(e => e.IsAlive))
+            for (int i = 0; i < entities.Count; i++)
             {
-                e.Update(gameTime);
+                if (entities[i].IsAlive)
+                {
+                    entities[i].Update(gameTime);
+                }
             }
         }
 

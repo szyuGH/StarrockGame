@@ -15,9 +15,13 @@ namespace StarrockGame.Entities.Weaponry
     {
         private Vector2 localPosition;
         private float localAngle;
+        private float cooldown;
 
         protected Body Body { get; private set; }
-        protected WeaponTemplateData Template { get; private set; }
+        protected WeaponBaseData BaseTemplate { get; private set; }
+        protected WeaponTemplateData WeaponTemplate { get; private set; }
+
+        public bool CanShoot { get { return cooldown <= 0; } }
 
         /// <summary>
         /// Returns a vector4. X and Y represent the position, Z and W represent the direction
@@ -37,28 +41,45 @@ namespace StarrockGame.Entities.Weaponry
             }
         }
 
-        public WeaponBase(Body body, string wName, Vector2 localPosition, float localAngle)
+        public WeaponBase(Body body, WeaponBaseData baseTemplate, WeaponTemplateData weaponTemplate, Vector2 localPosition, float localAngle)
         {
             this.Body = body;
-            this.Template = Cache.LoadTemplate<WeaponTemplateData>(wName);
+            this.BaseTemplate = baseTemplate;
+            this.WeaponTemplate = weaponTemplate;
             this.localPosition = localPosition;
             this.localAngle = localAngle;
         }
 
-        public abstract void Fire();
+        public void Update(GameTime gameTime)
+        {
+            if (cooldown > 0)
+            {
+                cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+        }
+
+        public void Fire()
+        {
+            if (CanShoot)
+            {
+                DoFire();
+                cooldown = WeaponTemplate.Cooldown;
+            }
+        }
+        protected abstract void DoFire();
 
 
 
         internal static WeaponBase[] FromTemplate(Body body, WeaponBaseData data)
         {
             // preload weapon template to define type
-            WeaponTemplateData wt = Cache.Load<WeaponTemplateData>(data.WeaponType);
+            WeaponTemplateData wt = Cache.LoadTemplate<WeaponTemplateData>(data.WeaponType);
 
             WeaponBase[] bases = new WeaponBase[data.Bases.Length];
             for (int i = 0; i < bases.Length; i++)
             {
                 bases[i] = (WeaponBase)Activator.CreateInstance(SelectWeaponClass((WeaponType)wt.WeaponType),
-                    body, data.WeaponType, data.Bases[i].LocalPosition, data.Bases[i].LocalAngle);
+                    body, data, wt, data.Bases[i].LocalPosition, data.Bases[i].LocalAngle);
             }
             return bases;
         }

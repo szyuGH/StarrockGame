@@ -2,6 +2,7 @@
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.WreckageTemplateData">
     <Name>TestWreckage</Name>
+	<File>Wreckage</File>
     <TextureName>TestShipWreckage</TextureName>
     <Structure>40.0</Structure>
     <Mass>20.0</Mass>

@@ -2,6 +2,7 @@
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.AsteroidTemplateData">
 	<Name>TestAsteroid</Name>
+	<File>Asteroid</File>
     <TextureName>Asteroid1</TextureName>
     <Structure>300.0</Structure>
     <Mass>600.0</Mass>

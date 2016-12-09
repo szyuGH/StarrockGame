@@ -70,7 +70,11 @@ namespace StarrockGame
             PlayerData data = new PlayerData();
             data.Credits = Credits;
             data.PlayerName = Name;
-            data.UnlockedTemplates = templates.Select(t => t.Name).ToArray();
+            data.UnlockedTemplates = templates.Select(t => t.File).ToArray();
+
+            FileInfo fi = new FileInfo(filePath);
+            DirectoryInfo di = fi.Directory;
+            if (!di.Exists) di.Create();
 
             BinaryFormatter formatter = new BinaryFormatter();
             using (FileStream fs = new FileStream(filePath, FileMode.Create))

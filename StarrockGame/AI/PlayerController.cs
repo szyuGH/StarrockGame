@@ -32,6 +32,10 @@ namespace StarrockGame.AI
             {
                 (entity as Spaceship).FirePrimary();
             }
+            if (Input.Device.FireSecondary())
+            {
+                (entity as Spaceship).FireSecondary();
+            }
         }
     }
 }

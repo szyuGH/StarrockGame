@@ -21,6 +21,7 @@ namespace TData.TemplateData
         public int ModuleCount;
         public EngineData[] Engines;
         public WeaponBaseData PrimaryWeaponBases;
+        public WeaponBaseData SecondaryWeaponBases;
         public float RadarRange;
     }
 }

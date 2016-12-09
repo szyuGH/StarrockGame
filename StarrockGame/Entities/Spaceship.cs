@@ -53,6 +53,7 @@ namespace StarrockGame.Entities
 
         //public Module[] Modules { get; private set; }
         public WeaponBase[] PrimaryWeapons { get; private set; }
+        public WeaponBase[] SecondaryWeapons { get; private set; }
         public Dictionary<MovementType, List<Engine>> Engines { get; private set; } // will be used to emit particles based on the moving direction
 
         public Spaceship(World world, string type)
@@ -78,6 +79,7 @@ namespace StarrockGame.Entities
 
             //Modules = new Module[Template.ModuleCount]; // only array initialization, because the actual modules come from the preperation
             PrimaryWeapons = WeaponBase.FromTemplate(Body, shipTemplate.PrimaryWeaponBases);
+            SecondaryWeapons = WeaponBase.FromTemplate(Body, shipTemplate.SecondaryWeaponBases);
 
             Engines = Engine.FromTemplate(Body, shipTemplate.Engines);
         }
@@ -94,6 +96,8 @@ namespace StarrockGame.Entities
             {
                 engine.Update(gameTime);
             }
+            foreach (WeaponBase pwb in PrimaryWeapons) pwb.Update(gameTime);
+            foreach (WeaponBase swb in SecondaryWeapons) swb.Update(gameTime);
             //Update Modules, Weapons and Engines
 
             Scavenging.Update(this, gameTime);
@@ -183,6 +187,14 @@ namespace StarrockGame.Entities
             foreach (WeaponBase pwb in PrimaryWeapons)
             {
                 pwb.Fire();
+            }
+        }
+
+        public void FireSecondary()
+        {
+            foreach (WeaponBase swb in SecondaryWeapons)
+            {
+                swb.Fire();
             }
         }
 

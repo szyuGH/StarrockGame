@@ -150,19 +150,19 @@ namespace StarrockGame.Entities
                 DrawOrder);
         }
 
-        public virtual void Accelerate(float val)
+        public virtual void Accelerate(float val, float elapsed)
         {
-            Body.ApplyForce(Direction * val, Body.WorldCenter);
+            Body.ApplyForce(Direction * val * elapsed * 50, Body.WorldCenter);
         }
 
-        public virtual void Decelerate(float val)
+        public virtual void Decelerate(float val, float elapsed)
         {
-            Body.ApplyForce(-Direction * val, Body.WorldCenter);
+            Body.ApplyForce(-Direction * val * elapsed * 50, Body.WorldCenter);
         }
 
-        public virtual void Rotate(float val)
+        public virtual void Rotate(float val,float elapsed)
         {
-            Body.ApplyTorque(val);
+            Body.ApplyTorque(val * elapsed * 50);
         }
 
         public virtual void ApplyDamage()

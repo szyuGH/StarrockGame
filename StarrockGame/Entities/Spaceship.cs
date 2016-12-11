@@ -18,7 +18,7 @@ namespace StarrockGame.Entities
     public class Spaceship : Entity
     {
         private SpaceshipTemplate shipTemplate { get { return Template as SpaceshipTemplate; } }
-
+        private Dictionary<MovementType, float> fuelCostPerSecond;
 
         private float _shieldCapacity;
         public float ShieldCapacity
@@ -82,6 +82,10 @@ namespace StarrockGame.Entities
             SecondaryWeapons = WeaponBase.FromTemplate(Body, shipTemplate.SecondaryWeaponBases);
 
             Engines = Engine.FromTemplate(Body, shipTemplate.Engines);
+            fuelCostPerSecond[MovementType.Forward] = Engines[MovementType.Forward].Sum(e => e.FuelPerSeconds);
+            fuelCostPerSecond[MovementType.Brake] = Engines[MovementType.Brake].Sum(e => e.FuelPerSeconds);
+            fuelCostPerSecond[MovementType.RotateLeft] = Engines[MovementType.RotateLeft].Sum(e => e.FuelPerSeconds);
+            fuelCostPerSecond[MovementType.RotateRight] = Engines[MovementType.RotateRight].Sum(e => e.FuelPerSeconds);
         }
 
 
@@ -121,57 +125,60 @@ namespace StarrockGame.Entities
         }
 
 
-        public override void Accelerate(float val)
-        { 
-            float prop = Engines[MovementType.Forward].Sum(e => e.PropulsionPower);
-            base.Accelerate(val * prop);
-            if (val != 0)
-                foreach (Engine engine in Engines[MovementType.Forward])
-                {
-                    engine.Emitting = true;
-                    Fuel -= engine.FuelPerSeconds;
-                }
-                   
+        public override void Accelerate(float val, float elapsed)
+        {
+            if (Fuel >= fuelCostPerSecond[MovementType.Forward] * elapsed)
+            {
+                float prop = Engines[MovementType.Forward].Sum(e => e.PropulsionPower);
+                base.Accelerate(val * prop, elapsed);
+                if (val != 0)
+                    foreach (Engine engine in Engines[MovementType.Forward])
+                    {
+                        engine.Emitting = true;
+                        Fuel -= engine.FuelPerSeconds * elapsed;
+                    }
+            }
         }
 
-        public override void Decelerate(float val)
+        public override void Decelerate(float val, float elapsed)
         {
-            float prop = Engines[MovementType.Brake].Sum(e => e.PropulsionPower);
-            base.Decelerate(val * prop);
-            if (val != 0)
-                foreach (Engine engine in Engines[MovementType.Brake])
-                {
-                    engine.Emitting = true;
-                    Fuel -= engine.FuelPerSeconds;
-                }
-
+            if (Fuel >= fuelCostPerSecond[MovementType.Brake])
+            {
+                float prop = Engines[MovementType.Brake].Sum(e => e.PropulsionPower);
+                base.Decelerate(val * prop, elapsed);
+                if (val != 0)
+                    foreach (Engine engine in Engines[MovementType.Brake])
+                    {
+                        engine.Emitting = true;
+                        Fuel -= engine.FuelPerSeconds * elapsed;
+                    }
+            }
         }
 
-        public override void Rotate(float val)
+        public override void Rotate(float val, float elapsed)
         {
-            float mul = 1;
-            if (val > 0)
+            float mul = 0;
+            if (val > 0 && Fuel >= fuelCostPerSecond[MovementType.RotateRight])
             {
                 mul = Engines[MovementType.RotateRight].Sum(e => e.PropulsionPower);
                 foreach (Engine engine in Engines[MovementType.RotateRight])
                 {
                     engine.Emitting = true;
-                    Fuel -= engine.FuelPerSeconds;
+                    Fuel -= engine.FuelPerSeconds * elapsed;
                 }
 
             }
-            else if (val < 0)
+            else if (val < 0 && Fuel >= fuelCostPerSecond[MovementType.RotateLeft])
             {
                 mul = Engines[MovementType.RotateLeft].Sum(e => e.PropulsionPower);
                 foreach (Engine engine in Engines[MovementType.RotateLeft])
                 {
                     engine.Emitting = true;
-                    Fuel -= engine.FuelPerSeconds;
+                    Fuel -= engine.FuelPerSeconds * elapsed;
                 }
 
             }
-            base.Rotate(val * mul);
-
+            base.Rotate(val * mul, elapsed);
         }
         
         public void Scavenge(bool active)

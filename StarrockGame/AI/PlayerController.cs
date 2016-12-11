@@ -15,14 +15,15 @@ namespace StarrockGame.AI
 
         public void Act(Entity entity, GameTime gameTime)
         {
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             float acceleration = Input.Device.Acceleration();
             float deceleration = Input.Device.Deceleration();
             float rotation = Input.Device.Rotation();
             
 
-            entity.Accelerate(acceleration);
-            entity.Decelerate(deceleration);
-            entity.Rotate(rotation);
+            entity.Accelerate(acceleration, elapsed);
+            entity.Decelerate(deceleration, elapsed);
+            entity.Rotate(rotation, elapsed);
 
 
             (entity as Spaceship).Scavenge(Input.Device.Scavenging());

@@ -12,6 +12,7 @@ namespace StarrockGame.AI
     {
         public void Act(Entity entity, GameTime gameTime)
         {
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             Entity target = EntityManager.PlayerShip;
             /*
              if entity must rotate > 135°, stop acceleration and focus on turning
@@ -55,18 +56,18 @@ namespace StarrockGame.AI
             if (Math.Abs(rotDif) > MathHelper.ToRadians(35))
             {
                 if (Vector2.DistanceSquared(target.Body.Position, entity.Body.Position) < 4)
-                    entity.Accelerate(1f);
+                    entity.Accelerate(1f, elapsed);
                 else
-                    entity.Accelerate(0.35f);
+                    entity.Accelerate(0.35f, elapsed);
             }
             else if (Math.Abs(rotDif) > MathHelper.ToRadians(10))
-                entity.Accelerate(0.75f);
+                entity.Accelerate(0.75f, elapsed);
             else
-                entity.Accelerate(1);
+                entity.Accelerate(1, elapsed);
             if (rotDif < 0)
-                entity.Rotate(Math.Max(rotDif, -1));
+                entity.Rotate(Math.Max(rotDif, -1), elapsed);
             else if (rotDif > 0)
-                entity.Rotate(Math.Min(rotDif, 1));
+                entity.Rotate(Math.Min(rotDif, 1), elapsed);
             
         }
     }

@@ -15,6 +15,7 @@ namespace StarrockGame.AI
         public void Act(Entity entity, GameTime gameTime)
         {
             Spaceship ship = entity as Spaceship;
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             if (target == null)
             {
@@ -47,18 +48,18 @@ namespace StarrockGame.AI
                     if (Math.Abs(rotDif) > MathHelper.ToRadians(35))
                     {
                         if (Vector2.DistanceSquared(target.Body.Position, entity.Body.Position) < 4)
-                            entity.Accelerate(velMultiplier);
+                            entity.Accelerate(velMultiplier, elapsed);
                         else
-                            entity.Accelerate(0.35f * velMultiplier);
+                            entity.Accelerate(0.35f * velMultiplier, elapsed);
                     }
                     else if (Math.Abs(rotDif) > MathHelper.ToRadians(10))
-                        entity.Accelerate(0.75f * velMultiplier);
+                        entity.Accelerate(0.75f * velMultiplier, elapsed);
                     else
-                        entity.Accelerate(velMultiplier);
+                        entity.Accelerate(velMultiplier, elapsed);
                     if (rotDif < 0)
-                        entity.Rotate(Math.Max(rotDif, -1));
+                        entity.Rotate(Math.Max(rotDif, -1), elapsed);
                     else if (rotDif > 0)
-                        entity.Rotate(Math.Min(rotDif, 1));
+                        entity.Rotate(Math.Min(rotDif, 1), elapsed);
                 }
             }
 

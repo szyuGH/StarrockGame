@@ -26,7 +26,6 @@ namespace StarrockGame.Entities.Weaponry
                 LaserBullet lb = EntityManager.Add<LaserBullet, NoController>(BaseTemplate.WeaponType, transform.Position, transform.Angle, transform.Direction);
                 lb.EmitterBody = Body;
             }
-            // TODO: add internal cooldown
         }
     }
 }

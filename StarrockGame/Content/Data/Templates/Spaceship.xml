@@ -8,7 +8,7 @@
     <Mass>20.0</Mass>
     <Size>1.0</Size>
     <Inertia>0.0</Inertia>
-	<Fuel>200.0</Fuel>
+	<Fuel>2000.0</Fuel>
     <Energy>250.0</Energy>
     <ShieldCapacity>100.0</ShieldCapacity>
     <ScavengePower>10</ScavengePower>
@@ -23,35 +23,35 @@
 			<Direction>1</Direction>
 			<LocalPosition>-50 -7</LocalPosition>
 			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<FuelCostPerSecond>1</FuelCostPerSecond>
 			<ParticlesPerSecond>100</ParticlesPerSecond>
 		</Item>
 		<Item>
 			<Direction>1</Direction>
 			<LocalPosition>-50 7</LocalPosition>
 			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<FuelCostPerSecond>1</FuelCostPerSecond>
 			<ParticlesPerSecond>100</ParticlesPerSecond>
 		</Item>
 		<Item>
 			<Direction>2</Direction>
 			<LocalPosition>45 0</LocalPosition>
 			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<FuelCostPerSecond>1</FuelCostPerSecond>
 			<ParticlesPerSecond>100</ParticlesPerSecond>
 		</Item>
 		<Item>
 			<Direction>4</Direction>
 			<LocalPosition>-45 -17</LocalPosition>
 			<PropulsionPower>35</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<FuelCostPerSecond>0.5</FuelCostPerSecond>
 			<ParticlesPerSecond>100</ParticlesPerSecond>
 		</Item>
 		<Item>
 			<Direction>8</Direction>
 			<LocalPosition>-45 17</LocalPosition>
 			<PropulsionPower>35</PropulsionPower>
-			<FuelCostPerSecond>0</FuelCostPerSecond>
+			<FuelCostPerSecond>0.5</FuelCostPerSecond>
 			<ParticlesPerSecond>100</ParticlesPerSecond>
 		</Item>
 	</Engines>

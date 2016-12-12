@@ -12,6 +12,7 @@
     <Energy>250.0</Energy>
     <ShieldCapacity>100.0</ShieldCapacity>
     <ScavengePower>10</ScavengePower>
+	<ScavengeRange>140</ScavengeRange>
     <ShieldReplenishCostPerSecond>5</ShieldReplenishCostPerSecond>
 	<ShieldReplenishValuePerSecond>5</ShieldReplenishValuePerSecond>
     <EnergyRecoveryPerSecond>0</EnergyRecoveryPerSecond>

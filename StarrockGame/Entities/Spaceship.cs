@@ -59,7 +59,7 @@ namespace StarrockGame.Entities
         public Spaceship(World world, string type)
             :base(world, type)
         {
-            Scavenging = new Scavenging(1f, OnScavengeSuccess); // TODO: add scavenge range to ship
+            Scavenging = new Scavenging(this, ConvertUnits.ToSimUnits(shipTemplate.ScavengeRange), OnScavengeSuccess);
             fuelCostPerSecond = new Dictionary<MovementType, float>();
         }
 
@@ -105,7 +105,7 @@ namespace StarrockGame.Entities
             foreach (WeaponBase swb in SecondaryWeapons) swb.Update(gameTime);
             //Update Modules, Weapons and Engines
 
-            Scavenging.Update(this, gameTime);
+            Scavenging.Update(gameTime);
             UpdatePerSecond(elapsed);
             if (ReplenishingShield && ShieldCapacity < shipTemplate.ShieldCapacity)
             {
@@ -123,6 +123,12 @@ namespace StarrockGame.Entities
             Energy += shipTemplate.EnergyRecoveryPerSecond * elapsed;
             ShieldCapacity += shipTemplate.ShieldRecoveryPerSecond * elapsed;
             Fuel += shipTemplate.FuelRecoveryperSecond * elapsed;
+        }
+
+        public override void Render(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            base.Render(spriteBatch, gameTime);
+            Scavenging.Render(spriteBatch, gameTime);
         }
 
 

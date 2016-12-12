@@ -68,6 +68,7 @@
     <Compile Include="AI\IController.cs" />
     <Compile Include="AI\NoController.cs" />
     <Compile Include="AI\PlayerController.cs" />
+    <Compile Include="AnimatedTexture.cs" />
     <Compile Include="Audio\GameSound.cs" />
     <Compile Include="Audio\StarrockSound.cs" />
     <Compile Include="Audio\Sound.cs" />

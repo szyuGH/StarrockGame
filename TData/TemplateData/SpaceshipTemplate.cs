@@ -13,6 +13,7 @@ namespace TData.TemplateData
         public float Energy;
         public float ShieldCapacity;
         public float ScavengePower;
+        public float ScavengeRange;
         public float ShieldReplenishCostPerSecond;
         public float ShieldReplenishValuePerSecond;
         public float EnergyRecoveryPerSecond;

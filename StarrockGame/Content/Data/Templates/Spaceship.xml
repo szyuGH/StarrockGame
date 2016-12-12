@@ -8,7 +8,7 @@
     <Mass>20.0</Mass>
     <Size>1.0</Size>
     <Inertia>0.0</Inertia>
-	<Fuel>2000.0</Fuel>
+	<Fuel>200.0</Fuel>
     <Energy>250.0</Energy>
     <ShieldCapacity>100.0</ShieldCapacity>
     <ScavengePower>10</ScavengePower>

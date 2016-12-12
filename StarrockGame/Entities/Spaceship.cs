@@ -60,6 +60,7 @@ namespace StarrockGame.Entities
             :base(world, type)
         {
             Scavenging = new Scavenging(1f, OnScavengeSuccess); // TODO: add scavenge range to ship
+            fuelCostPerSecond = new Dictionary<MovementType, float>();
         }
 
         protected override EntityTemplate LoadTemplate(string type)

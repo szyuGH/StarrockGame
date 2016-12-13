@@ -82,6 +82,8 @@
     <Compile Include="Entities\Engine.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\LaserBullet.cs" />
+    <Compile Include="Entities\Module.cs" />
+    <Compile Include="Entities\ModuleEffectType.cs" />
     <Compile Include="Entities\MovementType.cs" />
     <Compile Include="Entities\Scavenging.cs" />
     <Compile Include="Entities\Spaceship.cs" />
@@ -95,7 +97,10 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameBorder.cs" />
+    <Compile Include="GUI\MatrixMenu.cs" />
+    <Compile Include="GUI\MenuElements\ButtonImage.cs" />
     <Compile Include="Line.cs" />
+    <Compile Include="SceneManagement\Scenes\SceneBuyModules.cs" />
     <Compile Include="SceneManagement\Scenes\SceneOptions.cs" />
     <Compile Include="SceneManagement\Scenes\SceneSelectResolution.cs" />
     <Compile Include="SessionDifficulty.cs" />
@@ -130,6 +135,7 @@
     <Compile Include="SceneManagement\Scenes\SceneIntro.cs" />
     <Compile Include="SceneManagement\Scenes\SceneTestSession.cs" />
     <Compile Include="SceneManagement\Scenes\SceneTitle.cs" />
+    <Compile Include="SessionManager.cs" />
     <Compile Include="StarrockGraphicsDeviceManager.cs" />
   </ItemGroup>
   <ItemGroup>

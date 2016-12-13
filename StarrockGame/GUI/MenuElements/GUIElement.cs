@@ -15,6 +15,7 @@ namespace StarrockGame.GUI
         public Color Color { get; private set; }
         public Menu Menu { get; private set; }
         public object Tag;
+        public bool Active;
 
         public GUIElement(Menu menu, Vector2 position, float size, Color color)
         {
@@ -24,6 +25,7 @@ namespace StarrockGame.GUI
             Position = position;
             Size = size;
             Color = color;
+            Active = true;
         }
         ~GUIElement()
         {

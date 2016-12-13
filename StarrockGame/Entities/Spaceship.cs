@@ -51,7 +51,7 @@ namespace StarrockGame.Entities
         public Scavenging Scavenging;
         public bool ReplenishingShield;
 
-        //public Module[] Modules { get; private set; }
+        public Module[] Modules { get; private set; }
         public WeaponBase[] PrimaryWeapons { get; private set; }
         public WeaponBase[] SecondaryWeapons { get; private set; }
         public Dictionary<MovementType, List<Engine>> Engines { get; private set; } // will be used to emit particles based on the moving direction
@@ -76,9 +76,7 @@ namespace StarrockGame.Entities
             Fuel = shipTemplate.Fuel;
             RadarRange = shipTemplate.RadarRange;
             Scavenging.Reset();
-            ShieldCapacity = 10;
-
-            //Modules = new Module[Template.ModuleCount]; // only array initialization, because the actual modules come from the preperation
+            
             PrimaryWeapons = WeaponBase.FromTemplate(Body, shipTemplate.PrimaryWeaponBases);
             SecondaryWeapons = WeaponBase.FromTemplate(Body, shipTemplate.SecondaryWeaponBases);
 
@@ -87,6 +85,11 @@ namespace StarrockGame.Entities
             fuelCostPerSecond[MovementType.Brake] = Engines[MovementType.Brake].Sum(e => e.FuelPerSeconds);
             fuelCostPerSecond[MovementType.RotateLeft] = Engines[MovementType.RotateLeft].Sum(e => e.FuelPerSeconds);
             fuelCostPerSecond[MovementType.RotateRight] = Engines[MovementType.RotateRight].Sum(e => e.FuelPerSeconds);
+        }
+
+        public void SetModules(params ModuleTemplate[] modules)
+        {
+            Modules = Module.FromTemplate(this, modules);
         }
 
         public override void Destroy()

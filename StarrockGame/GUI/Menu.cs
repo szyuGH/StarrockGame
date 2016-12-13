@@ -15,15 +15,18 @@ namespace StarrockGame.GUI
         public SpriteFont Font { get; set; }
 
         public int SelectedIndex { get; set; }
+        public bool IsActive { get; set; }
+        public static bool IgnoreNextInput;
 
-        private Action cancel;
+        protected Action Cancel;
 
         public Menu(SpriteFont font, Action onCancel)
         {
             Font = font;
             Elements = new List<GUIElement>();
             SelectedIndex = -1;
-            cancel = onCancel;
+            Cancel = onCancel;
+            IsActive = true;
         }
 
         public void Dispose()
@@ -33,24 +36,30 @@ namespace StarrockGame.GUI
 
         public virtual void Update(GameTime gameTime)
         {
-            if (Input.Device.MenuDown())
+            if (IsActive && !IgnoreNextInput)
             {
-                SelectNext();
-            } else if (Input.Device.MenuUp())
-            {
-                SelectPrevious();
+                if (Input.Device.MenuDown())
+                {
+                    SelectNext();
+                }
+                else if (Input.Device.MenuUp())
+                {
+                    SelectPrevious();
+                }
+                if (SelectedIndex != -1 && Elements[SelectedIndex] is ISelectable && Input.Device.MenuSelect())
+                {
+                    IgnoreNextInput = true;
+                    (Elements[SelectedIndex] as ISelectable).OnSelect();
+                }
+                else if (Input.Device.MenuCancel())
+                {
+                    IgnoreNextInput = true;
+                    Cancel?.Invoke();
+                }
             }
-            if (SelectedIndex != -1 && Elements[SelectedIndex] is ISelectable && Input.Device.MenuSelect())
-            {
-                (Elements[SelectedIndex] as ISelectable).OnSelect();
-            } else if (Input.Device.MenuCancel())
-            {
-                cancel?.Invoke();
-            }
-
             for (int i=0;i<Elements.Count;i++)
             {
-                Elements[i].Update(gameTime, i == SelectedIndex);
+                Elements[i].Update(gameTime, i == SelectedIndex && IsActive);
             }
         }
 
@@ -64,34 +73,39 @@ namespace StarrockGame.GUI
 
         public void SelectNext()
         {
-            if (SelectedIndex == -1)
+            if (Elements.Count > 0)
             {
-                SelectedIndex = 0;
-            }
-            else if (Elements.Count > 1)
-            {
-                SelectedIndex += 1;
-                if (SelectedIndex == Elements.Count)
+                if (SelectedIndex == -1)
+                {
                     SelectedIndex = 0;
-
-                if (!(Elements[SelectedIndex] is ISelectable))
+                }
+                else if (Elements.Count > 1)
+                {
+                    SelectedIndex += 1;
+                    if (SelectedIndex == Elements.Count)
+                        SelectedIndex = 0;
+                }
+                if (!(Elements[SelectedIndex] is ISelectable) || !Elements[SelectedIndex].Active)
                     SelectNext();
             }
         }
 
         public void SelectPrevious()
         {
-            if (SelectedIndex == -1)
+            if (Elements.Count > 0)
             {
-                SelectedIndex = Elements.Count - 1;
-            }
-            else if (Elements.Count > 1)
-            {
-                SelectedIndex -= 1;
                 if (SelectedIndex == -1)
-                    SelectedIndex = Elements.Count-1;
+                {
+                    SelectedIndex = Elements.Count - 1;
+                }
+                else if (Elements.Count > 1)
+                {
+                    SelectedIndex -= 1;
+                    if (SelectedIndex == -1)
+                        SelectedIndex = Elements.Count - 1;
 
-                if (!(Elements[SelectedIndex] is ISelectable))
+                }
+                if (!(Elements[SelectedIndex] is ISelectable) || !Elements[SelectedIndex].Active)
                     SelectPrevious();
             }
         }

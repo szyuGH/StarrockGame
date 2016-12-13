@@ -12,6 +12,7 @@ using FarseerPhysics.Collision.Shapes;
 using StarrockGame.Caching;
 using GPart;
 using StarrockGame.ParticleSystems;
+using StarrockGame.GUI;
 
 namespace StarrockGame
 {
@@ -83,6 +84,7 @@ namespace StarrockGame
             SceneManager.Update(gameTime);
 
             base.Update(gameTime);
+            Menu.IgnoreNextInput = false;
         }
 
         /// <summary>

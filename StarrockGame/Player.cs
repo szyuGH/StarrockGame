@@ -96,6 +96,10 @@ namespace StarrockGame
             Save();
         }
 
+        public List<T> GetTemplates<T>() where T : AbstractTemplate
+        {
+            return templates.Where(t => t is T).Cast<T>().ToList();
+        }
 
         #region setup Multiton
         const int MAX_PLAYER_INSTANCES = 1;

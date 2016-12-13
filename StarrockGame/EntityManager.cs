@@ -43,11 +43,19 @@ namespace StarrockGame
             where B : IController
         {
 
-            Entity entity = entities.Find(e => e is T && e.IsAlive == false);
+            Entity entity = entities.Find(e => e is T && e.IsAlive == false && e.Template.File.Equals(type));
             if (entity == null)
             {
                 entity = (Entity)Activator.CreateInstance(typeof(T), World, type);
                 entities.Add(entity);
+            }
+            // TODO: add random modules if not player controller
+            if (typeof(B) == typeof(PlayerController))
+            {
+                (entity as Spaceship).SetModules(SessionManager.ModuleTemplates.ToArray());
+            } else
+            {
+
             }
             entity.Initialize<B>(pos, rot, initialVelocity, initialAngularVelocity);
             if (typeof(B) == typeof(PlayerController))

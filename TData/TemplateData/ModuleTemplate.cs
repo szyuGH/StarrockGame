@@ -10,6 +10,6 @@ namespace TData.TemplateData
     public class ModuleTemplate : AbstractTemplate
     {
         public ModuleEffectData[] ModuleEffects;
-        public float Price;
+        public int Price;
     }
 }

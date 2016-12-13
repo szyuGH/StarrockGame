@@ -32,7 +32,7 @@ namespace StarrockGame.Entities
             set { _structure = MathHelper.Clamp(value, 0, Template.Structure); }
         }
 
-        public bool IsAlive { get { return Structure > 0; } }
+        public bool IsAlive { get; private set; }
         public Vector2 Direction {
             get { return new Vector2((float)Math.Cos(Body.Rotation), (float)Math.Sin(Body.Rotation)); }
         }
@@ -70,8 +70,10 @@ namespace StarrockGame.Entities
             Body.AngularVelocity = initialAngularVelocity;
             Body.Mass = Template.Mass;
             Body.Restitution = 0.5f;
+            Body.Inertia = Template.Inertia;
 
             Structure = Template.Structure;
+            IsAlive = true;
         }
         
 
@@ -119,7 +121,6 @@ namespace StarrockGame.Entities
             Body.AngularDamping = 2;
             Body.LinearDamping = 2;
             Body.Restitution = 0.2F;
-            Body.Inertia = 10;
             Body.UserData = this;
 
             Body.OnCollision += Body_OnCollision;
@@ -174,6 +175,7 @@ namespace StarrockGame.Entities
         {
             Structure = 0;
             Body.Enabled = false;
+            IsAlive = false;
         }
 
         protected virtual bool Body_OnCollision(Fixture fixtureA, Fixture fixtureB, Contact contact)
@@ -183,7 +185,12 @@ namespace StarrockGame.Entities
             {
                 return false;
             }
+            else if (fixtureB.Body.UserData is WeaponEntity && (fixtureB.Body.UserData as WeaponEntity).EmitterBody == Body)
+            {
+                return false;
+            }
 
+            (fixtureA.Body.UserData as Entity).Structure = 0;
             return true;
         }
         

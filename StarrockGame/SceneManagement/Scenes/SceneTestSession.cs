@@ -19,11 +19,12 @@ namespace StarrockGame.SceneManagement.Scenes
     public class SceneTestSession : Scene
     {
         Spaceship ship, ship2;
-        Asteroid asteroid;
         Wreckage wreckage;
         Camera2D cam;
         IngameInterface ingameInterface;
         float asteroidSpawnTimer = 4;
+        Background bg;
+
         
 
         public SceneTestSession(Game1 game) : base(game)
@@ -34,9 +35,8 @@ namespace StarrockGame.SceneManagement.Scenes
         {
             EntityManager.Clear();
             ship = EntityManager.Add<Spaceship, PlayerController>("Spaceship", new Vector2(900, 350), (float)Math.PI * -.5f, Vector2.Zero);
-            //ship2 = EntityManager.Add<Spaceship, HaulerController>("Spaceship", new Vector2(400, 100), (float)Math.PI*.5f, Vector2.Zero);
+            ship2 = EntityManager.Add<Spaceship, NoController>("BS_Caine", new Vector2(400, 100), (float)Math.PI * .5f, Vector2.Zero);
             wreckage = EntityManager.Add<Wreckage, NoController>("Wreckage",new Vector2(900, 500), 0, Vector2.Zero);
-            asteroid = EntityManager.Add<Asteroid, NoController>("Asteroid", new Vector2(300, 500), 0, MathHelper.ToRadians(-90f).ToVector2()*1, 1);
 
             cam = new Camera2D(Device);
             cam.TrackingBody = ship.Body;
@@ -46,6 +46,8 @@ namespace StarrockGame.SceneManagement.Scenes
 
             Line.Initialize(Device);
             EntityManager.Border = new GameBorder(EntityManager.World, Device, 2000, 2000);
+
+            bg = new Background();
         }
 
         public override void Update(GameTime gameTime)
@@ -69,21 +71,20 @@ namespace StarrockGame.SceneManagement.Scenes
         {
             base.Render(gameTime);
 
-            EntityManager.Border.Render(SpriteBatch, gameTime, cam);
+            bg.Render(SpriteBatch, gameTime, cam);
+
 
             SpriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, null, null, null, null, cam.Translation);
+            
             EntityManager.Render(SpriteBatch, gameTime);
             SpriteBatch.End();
 
             SpriteBatch.Begin();
             ingameInterface.Render(SpriteBatch);
-            SpriteBatch.DrawString(Cache.LoadFont("MenuFont"), EntityManager.GetAllEntities(null, -1).Count.ToString(), new Vector2(10, 50), Color.White);
-            
-            SpriteBatch.DrawString(Cache.LoadFont("MenuFont"), Vector2.DistanceSquared(ship.Body.Position, wreckage.Body.Position).ToString(), new Vector2(10, 70), Color.White);
-            
             SpriteBatch.End();
 
             Particles.SetCamera(cam.Translation, cam.Projection);
+            EntityManager.Border.Render(SpriteBatch, gameTime, cam);
         }
 
 

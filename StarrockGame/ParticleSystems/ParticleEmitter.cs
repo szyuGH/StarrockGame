@@ -95,7 +95,7 @@ namespace StarrockGame.ParticleSystems
                         timeToSpend -= timeBetweenParticles;
 
                         // Create the particle.
-                        particleSystem.AddParticle(emitPosition, velocity * propulsionPower);
+                        particleSystem.AddParticle(emitPosition, velocity * propulsionPower * 0.25f);
                     }
 
                     if (ResetEmittingState)

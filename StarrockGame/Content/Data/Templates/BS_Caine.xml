@@ -1,58 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.SpaceshipTemplate">
-    <Name>TestName</Name>
-	<File>Spaceship</File>
-    <TextureName>TestShip</TextureName>
-    <Structure>300.0</Structure>
-    <Mass>20.0</Mass>
+    <Name>BS Caine</Name>
+	<File>BS_Caine</File>
+    <TextureName>BS Caine</TextureName>
+    <Structure>2500.0</Structure>
+    <Mass>2400.0</Mass>
     <Size>1.0</Size>
-    <Inertia>10.0</Inertia>
-	<Fuel>200.0</Fuel>
-    <Energy>250.0</Energy>
-    <ShieldCapacity>100.0</ShieldCapacity>
-    <ScavengePower>10</ScavengePower>
-	<ScavengeRange>140</ScavengeRange>
-    <ShieldReplenishCostPerSecond>5</ShieldReplenishCostPerSecond>
-	<ShieldReplenishValuePerSecond>5</ShieldReplenishValuePerSecond>
+    <Inertia>1000.0</Inertia>
+	<Fuel>2900.0</Fuel>
+    <Energy>1500.0</Energy>
+    <ShieldCapacity>2000.0</ShieldCapacity>
+    <ScavengePower>50</ScavengePower>
+	<ScavengeRange>240</ScavengeRange>
+    <ShieldReplenishCostPerSecond>50</ShieldReplenishCostPerSecond>
+	<ShieldReplenishValuePerSecond>50</ShieldReplenishValuePerSecond>
     <EnergyRecoveryPerSecond>0</EnergyRecoveryPerSecond>
     <ShieldRecoveryPerSecond>0</ShieldRecoveryPerSecond>
     <FuelRecoveryperSecond>0</FuelRecoveryperSecond>
-    <ModuleCount>3</ModuleCount>
+    <ModuleCount>5</ModuleCount>
     <Engines>
 		<Item>
 			<Direction>1</Direction>
-			<LocalPosition>-50 -7</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>1</FuelCostPerSecond>
-			<ParticlesPerSecond>100</ParticlesPerSecond>
+			<LocalPosition>-123 -22</LocalPosition>
+			<PropulsionPower>1800</PropulsionPower>
+			<FuelCostPerSecond>60</FuelCostPerSecond>
+			<ParticlesPerSecond>160</ParticlesPerSecond>
 		</Item>
 		<Item>
 			<Direction>1</Direction>
-			<LocalPosition>-50 7</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>1</FuelCostPerSecond>
-			<ParticlesPerSecond>100</ParticlesPerSecond>
+			<LocalPosition>-123 22</LocalPosition>
+			<PropulsionPower>1800</PropulsionPower>
+			<FuelCostPerSecond>60</FuelCostPerSecond>
+			<ParticlesPerSecond>160</ParticlesPerSecond>
 		</Item>
 		<Item>
 			<Direction>2</Direction>
-			<LocalPosition>45 0</LocalPosition>
-			<PropulsionPower>100</PropulsionPower>
-			<FuelCostPerSecond>1</FuelCostPerSecond>
+			<LocalPosition>37 0</LocalPosition>
+			<PropulsionPower>1000</PropulsionPower>
+			<FuelCostPerSecond>40</FuelCostPerSecond>
 			<ParticlesPerSecond>100</ParticlesPerSecond>
 		</Item>
 		<Item>
 			<Direction>4</Direction>
-			<LocalPosition>-45 -17</LocalPosition>
-			<PropulsionPower>35</PropulsionPower>
-			<FuelCostPerSecond>0.5</FuelCostPerSecond>
+			<LocalPosition>155 19</LocalPosition>
+			<PropulsionPower>650</PropulsionPower>
+			<FuelCostPerSecond>5</FuelCostPerSecond>
 			<ParticlesPerSecond>100</ParticlesPerSecond>
 		</Item>
 		<Item>
 			<Direction>8</Direction>
-			<LocalPosition>-45 17</LocalPosition>
-			<PropulsionPower>35</PropulsionPower>
-			<FuelCostPerSecond>0.5</FuelCostPerSecond>
+			<LocalPosition>155 -19</LocalPosition>
+			<PropulsionPower>650</PropulsionPower>
+			<FuelCostPerSecond>5</FuelCostPerSecond>
 			<ParticlesPerSecond>100</ParticlesPerSecond>
 		</Item>
 	</Engines>
@@ -82,6 +82,6 @@
 			</Item>
 		</Bases>
 	</SecondaryWeaponBases>
-	<RadarRange>50</RadarRange>
+	<RadarRange>500</RadarRange>
   </Asset>
 </XnaContent>

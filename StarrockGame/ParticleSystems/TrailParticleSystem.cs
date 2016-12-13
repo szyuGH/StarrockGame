@@ -21,7 +21,7 @@ namespace StarrockGame.ParticleSystems
             settings.TextureName = "Graphics/Particles/Particle";
             settings.EffectName = "Effects/ParticleEffect";
 
-            settings.MaxParticles = 3000;
+            settings.MaxParticles = 10000;
 
             settings.Duration = TimeSpan.FromSeconds(3);
 

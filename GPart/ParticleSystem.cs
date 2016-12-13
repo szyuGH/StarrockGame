@@ -531,7 +531,7 @@ namespace GPart
             // Fill in the particle vertex structure.
             for (int i = 0; i < 4; i++)
             {
-                particles[firstFreeParticle * 4 + i].Position = new Vector3(position, 0);
+                particles[firstFreeParticle * 4 + i].Position = new Vector3(position, -1);
                 particles[firstFreeParticle * 4 + i].Velocity = new Vector3(velocity, 0);
                 particles[firstFreeParticle * 4 + i].Random = randomValues;
                 particles[firstFreeParticle * 4 + i].Time = currentTime;

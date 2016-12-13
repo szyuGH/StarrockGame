@@ -231,3 +231,32 @@
 /processorParam:TextureFormat=Color
 /build:Graphics/tractor_beam_atlas.png
 
+#begin Graphics/starfield.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Graphics/starfield.png
+
+#begin Graphics/starfield2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Graphics/starfield2.png
+
+#begin Data/Templates/BS_Caine.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/BS_Caine.xml
+

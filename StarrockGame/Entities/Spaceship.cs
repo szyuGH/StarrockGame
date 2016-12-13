@@ -89,6 +89,10 @@ namespace StarrockGame.Entities
             fuelCostPerSecond[MovementType.RotateRight] = Engines[MovementType.RotateRight].Sum(e => e.FuelPerSeconds);
         }
 
+        public override void Destroy()
+        {
+            base.Destroy();
+        }
 
         public override void Update(GameTime gameTime)
         {

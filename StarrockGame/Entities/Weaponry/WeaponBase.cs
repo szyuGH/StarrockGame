@@ -58,13 +58,16 @@ namespace StarrockGame.Entities.Weaponry
             }
         }
 
-        public void Fire()
+        public float Fire()
         {
             if (CanShoot)
             {
                 DoFire();
                 cooldown = WeaponTemplate.Cooldown;
+                return WeaponTemplate.EnergyCost;
+                
             }
+            return 0;
         }
         protected abstract void DoFire();
 

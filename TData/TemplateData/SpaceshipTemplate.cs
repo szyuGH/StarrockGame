@@ -18,7 +18,7 @@ namespace TData.TemplateData
         public float ShieldReplenishValuePerSecond;
         public float EnergyRecoveryPerSecond;
         public float ShieldRecoveryPerSecond;
-        public float FuelRecoveryperSecond;
+        public float FuelRecoveryPerSecond;
         public int ModuleCount;
         public EngineData[] Engines;
         public WeaponBaseData PrimaryWeaponBases;

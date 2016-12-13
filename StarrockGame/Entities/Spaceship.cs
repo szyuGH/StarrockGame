@@ -56,6 +56,8 @@ namespace StarrockGame.Entities
         public WeaponBase[] SecondaryWeapons { get; private set; }
         public Dictionary<MovementType, List<Engine>> Engines { get; private set; } // will be used to emit particles based on the moving direction
 
+        public float DamageAmplifier { get; set; } = 1;
+
         public Spaceship(World world, string type)
             :base(world, type)
         {
@@ -110,7 +112,7 @@ namespace StarrockGame.Entities
 
             foreach (WeaponBase pwb in PrimaryWeapons) pwb.Update(gameTime);
             foreach (WeaponBase swb in SecondaryWeapons) swb.Update(gameTime);
-            //Update Modules, Weapons and Engines
+            
 
             Scavenging.Update(gameTime);
             UpdatePerSecond(elapsed);
@@ -129,7 +131,7 @@ namespace StarrockGame.Entities
         {
             Energy += shipTemplate.EnergyRecoveryPerSecond * elapsed;
             ShieldCapacity += shipTemplate.ShieldRecoveryPerSecond * elapsed;
-            Fuel += shipTemplate.FuelRecoveryperSecond * elapsed;
+            Fuel += shipTemplate.FuelRecoveryPerSecond * elapsed;
         }
 
         public override void Render(SpriteBatch spriteBatch, GameTime gameTime)

@@ -17,7 +17,7 @@
 	<ShieldReplenishValuePerSecond>5</ShieldReplenishValuePerSecond>
     <EnergyRecoveryPerSecond>0</EnergyRecoveryPerSecond>
     <ShieldRecoveryPerSecond>0</ShieldRecoveryPerSecond>
-    <FuelRecoveryperSecond>0</FuelRecoveryperSecond>
+    <FuelRecoveryPerSecond>0</FuelRecoveryPerSecond>
     <ModuleCount>3</ModuleCount>
     <Engines>
 		<Item>

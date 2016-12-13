@@ -24,18 +24,48 @@ namespace StarrockGame.Entities
             // TODO: add other types
             foreach (ModuleEffectData effect in Template.ModuleEffects)
             {
-                switch ((ModuleEffectType)effect.Buff)
-                {
-                    case ModuleEffectType.StructureCapacity:
-                        (Ship.Template as SpaceshipTemplate).Structure *= effect.Buff;
-                        break;
-                }
-                switch ((ModuleEffectType)effect.Debuff)
-                {
-                    case ModuleEffectType.StructureCapacity:
-                        (Ship.Template as SpaceshipTemplate).Structure *= effect.Debuff;
-                        break;
-                }
+                ApplyEffect((ModuleEffectType)effect.BuffType, effect.Buff);
+                ApplyEffect((ModuleEffectType)effect.DebuffType, effect.Debuff);
+            }
+        }
+
+        private void ApplyEffect(ModuleEffectType type, float amp)
+        {
+            switch (type)
+            {
+                case ModuleEffectType.StructureCapacity:
+                    (Ship.Template as SpaceshipTemplate).Structure *= amp;
+                    break;
+                case ModuleEffectType.FuelCapacity:
+                    (Ship.Template as SpaceshipTemplate).Fuel *= amp;
+                    break;
+                case ModuleEffectType.EnergyCapacity:
+                    (Ship.Template as SpaceshipTemplate).Energy *= amp;
+                    break;
+                case ModuleEffectType.ShieldCapacity:
+                    (Ship.Template as SpaceshipTemplate).ShieldCapacity *= amp;
+                    break;
+                case ModuleEffectType.RadarRange:
+                    (Ship.Template as SpaceshipTemplate).RadarRange *= amp;
+                    break;
+                case ModuleEffectType.ScavengePower:
+                    (Ship.Template as SpaceshipTemplate).ScavengePower *= amp;
+                    break;
+                case ModuleEffectType.ScavengeRange:
+                    (Ship.Template as SpaceshipTemplate).ScavengeRange *= amp;
+                    break;
+                case ModuleEffectType.EnergyRecoveryPerSecond:
+                    (Ship.Template as SpaceshipTemplate).EnergyRecoveryPerSecond *= amp;
+                    break;
+                case ModuleEffectType.FuelRecoveryPerSecond:
+                    (Ship.Template as SpaceshipTemplate).FuelRecoveryPerSecond *= amp;
+                    break;
+                case ModuleEffectType.ShieldRecoveryPerSecond:
+                    (Ship.Template as SpaceshipTemplate).ShieldRecoveryPerSecond *= amp;
+                    break;
+                case ModuleEffectType.Damage:
+                    Ship.DamageAmplifier *= amp;
+                    break;
             }
         }
 

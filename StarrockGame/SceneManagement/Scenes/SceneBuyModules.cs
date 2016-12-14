@@ -45,8 +45,8 @@ namespace StarrockGame.SceneManagement.Scenes
                 moduleMenu.AddButtonLabel(moduleTemplates[i].Name, Color.White, OnModuleSelected);
             }
 
-            new ButtonLabel(menu, "Select Modules", new Vector2(Device.Viewport.Width * .5f, Device.Viewport.Height - 40 - 4 * font.LineSpacing), 1, Color.White, OnBuyModules);
-            new ButtonLabel(menu, "Start Session", new Vector2(Device.Viewport.Width * .5f, Device.Viewport.Height - 40 - 2 * font.LineSpacing), 1, Color.White, OnBuyModules);
+            new ButtonLabel(menu, "Select Modules", new Vector2(Device.Viewport.Width * .5f, Device.Viewport.Height - 40 - 3 * font.LineSpacing), 1, Color.White, OnBuyModules) { Active = moduleTemplates.Count > 0 };
+            new ButtonLabel(menu, "Start Session", new Vector2(Device.Viewport.Width * .5f, Device.Viewport.Height - 40 - 2 * font.LineSpacing), 1, Color.White, OnStartSession);
             new ButtonLabel(menu, "Back", new Vector2(Device.Viewport.Width * .5f, Device.Viewport.Height - 40 - 1 * font.LineSpacing), 1, Color.White, () => { SceneManager.Return(); });
             new Label(menu, "", new Vector2(10, 10), 1, Color.White, 0) { CaptionMonitor = () => { return "Credits: " + Player.Get().Credits; } };
         }

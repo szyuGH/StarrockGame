@@ -28,8 +28,9 @@ namespace StarrockGame.SceneManagement.Scenes
             float size = 1;
 
             // for testing issues
+#if DEBUG
             new ButtonLabel(menu, "Test Session", screenCenter + new Vector2(0, -1 * font.LineSpacing), size, Color.White, () => { SceneManager.Call<SceneTestSession>(); });
-
+#endif
             new ButtonLabel(menu, "New Session", screenCenter + new Vector2(0, 0 * font.LineSpacing), size, Color.White, OnNewSession);
             new ButtonLabel(menu, "Leaderboard", screenCenter + new Vector2(0, 1 * font.LineSpacing), size, Color.White, OnLeaderboard);
             new ButtonLabel(menu, "Controls", screenCenter + new Vector2(0, 2 * font.LineSpacing), size, Color.White, OnControls);

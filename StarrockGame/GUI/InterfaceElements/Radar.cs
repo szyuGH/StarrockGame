@@ -62,22 +62,22 @@ namespace StarrockGame.GUI
 
                     if (Difficulty == SessionDifficulty.Easy && entity.GetType() == typeof(Asteroid))
                     {
-                        DrawRadarDot(batch, radarCenter + relativePosition, Color.Gray * .5f);
+                        DrawRadarDot(batch, radarCenter + relativePosition, Color.Gray * .85f);
                     }
                     else if (entity.GetType() == typeof(Spaceship))
                     {
                         if ((entity as Spaceship).IsPlayer)
                         {
-                            DrawRadarDot(batch, radarCenter, Color.Green * .5f);
+                            DrawRadarDot(batch, radarCenter, Color.Green * .85f);
                         }
                         else if (Difficulty == SessionDifficulty.Easy || Difficulty == SessionDifficulty.Medium)
                         {
-                            DrawRadarDot(batch, radarCenter + relativePosition, Color.Red * .5f);
+                            DrawRadarDot(batch, radarCenter + relativePosition, Color.Red * .85f);
                         }
                     }
                     else if (entity.GetType() == typeof(Wreckage))
                     {
-                        DrawRadarDot(batch, radarCenter + relativePosition, Color.Yellow * .5f);
+                        DrawRadarDot(batch, radarCenter + relativePosition, Color.Yellow * .85f);
                     }
                 }
             }

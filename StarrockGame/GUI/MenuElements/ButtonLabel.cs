@@ -87,7 +87,7 @@ namespace StarrockGame.GUI
         private void CalculateCenter()
         {
             Vector2 measure = Menu.Font.MeasureString(_caption);
-            center = new Vector2((Alignment * .5f) * measure.X, 0);
+            center = new Vector2((Alignment * .5f) * measure.X, measure.Y*.5f);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace StarrockGame.GUI
     {
         public Vector2 Position { get; private set; }
         public float Size { get; private set; }
-        public Color Color { get; private set; }
+        public Color Color { get; set; }
         public Menu Menu { get; private set; }
         public object Tag;
         public bool Active = true;

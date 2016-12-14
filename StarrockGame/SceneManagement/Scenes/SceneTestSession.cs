@@ -55,6 +55,11 @@ namespace StarrockGame.SceneManagement.Scenes
 
         public override void Update(GameTime gameTime)
         {
+            if (ship.IsAlive == false)
+            {
+                SceneManager.CallPopup<PopupGameover>();
+            }
+
             SessionManager.ElapsedTime += gameTime.ElapsedGameTime;
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             asteroidSpawnTimer -= elapsed;

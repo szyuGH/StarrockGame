@@ -101,6 +101,7 @@
     <Compile Include="GUI\MenuElements\ButtonImage.cs" />
     <Compile Include="Line.cs" />
     <Compile Include="SceneManagement\Popup.cs" />
+    <Compile Include="SceneManagement\Popups\PopupGameover.cs" />
     <Compile Include="SceneManagement\Popups\PopupPause.cs" />
     <Compile Include="SceneManagement\Scenes\SceneBuyModules.cs" />
     <Compile Include="SceneManagement\Scenes\SceneOptions.cs" />
@@ -131,7 +132,6 @@
     <Compile Include="SceneManagement\SceneState.cs" />
     <Compile Include="SceneManagement\Scenes\SceneControls.cs" />
     <Compile Include="SceneManagement\Scenes\SceneLeaderboard.cs" />
-    <Compile Include="SceneManagement\Scenes\ScenePause.cs" />
     <Compile Include="SceneManagement\Scenes\ScenePrepareSession.cs" />
     <Compile Include="SceneManagement\Scenes\SceneSession.cs" />
     <Compile Include="SceneManagement\Scenes\SceneIntro.cs" />

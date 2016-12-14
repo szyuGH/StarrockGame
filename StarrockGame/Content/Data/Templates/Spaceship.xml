@@ -4,6 +4,7 @@
     <Name>TestName</Name>
 	<File>Spaceship</File>
     <TextureName>TestShip</TextureName>
+	<Score>75</Score>
     <Structure>300.0</Structure>
     <Mass>20.0</Mass>
     <Size>1.0</Size>

@@ -4,6 +4,7 @@
     <Name>TestWreckage</Name>
 	<File>Wreckage</File>
     <TextureName>TestShipWreckage</TextureName>
+	<Score>50</Score>
     <Structure>40.0</Structure>
     <Mass>20.0</Mass>
     <Size>1.0</Size>

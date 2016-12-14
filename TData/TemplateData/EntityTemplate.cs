@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,9 @@ namespace TData.TemplateData
     public class EntityTemplate : AbstractTemplate
     {
         //Name for the Picture
-        public String TextureName;        
+        public String TextureName;
+        [ContentSerializerAttribute(Optional = true)]
+        public int Score;
         public float Structure;
         public float Mass;        
         public float Size;

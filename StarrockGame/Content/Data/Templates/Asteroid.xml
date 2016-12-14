@@ -4,6 +4,7 @@
 	<Name>TestAsteroid</Name>
 	<File>Asteroid</File>
     <TextureName>Asteroid1</TextureName>
+	<Score>200</Score>
     <Structure>300.0</Structure>
     <Mass>600.0</Mass>
     <Size>1.0</Size>

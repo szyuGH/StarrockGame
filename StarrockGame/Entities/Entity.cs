@@ -176,6 +176,10 @@ namespace StarrockGame.Entities
             Structure = 0;
             Body.Enabled = false;
             IsAlive = false;
+            if (!(Controller is PlayerController))
+            {
+                SessionManager.Score += Template.Score;
+            }
         }
 
         protected virtual bool Body_OnCollision(Fixture fixtureA, Fixture fixtureB, Contact contact)

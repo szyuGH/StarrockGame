@@ -4,6 +4,7 @@
     <Name>BS Caine</Name>
 	<File>BS_Caine</File>
     <TextureName>BS Caine</TextureName>
+	<Score>150</Score>
     <Structure>2500.0</Structure>
     <Mass>2400.0</Mass>
     <Size>1.0</Size>

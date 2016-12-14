@@ -49,12 +49,12 @@ namespace StarrockGame.Caching
 
         public static SoundEffect LoadSe(string name)
         {
-            return content.Load<SoundEffect>(string.Format("{0}/se/{1}", locator.AudioContent, name));
+            return content.Load<SoundEffect>(string.Format("{0}/SE/{1}", locator.AudioContent, name));
         }
 
         public static SoundEffect LoadBgm(string name)
         {
-            return content.Load<SoundEffect>(string.Format("{0}/bgm/{1}", locator.AudioContent, name));
+            return content.Load<SoundEffect>(string.Format("{0}/BGM/{1}", locator.AudioContent, name));
         }
 
         public static SpriteFont LoadFont(string name)

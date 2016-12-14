@@ -277,3 +277,27 @@
 /processor:PassThroughProcessor
 /build:Data/Templates/BS_CaineWreckage.xml
 
+#begin Audio/SE/Cancel.m4a
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SE/Cancel.m4a
+
+#begin Audio/SE/Cursor.m4a
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SE/Cursor.m4a
+
+#begin Audio/SE/Decision.m4a
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SE/Decision.m4a
+
+#begin Audio/SE/Engine.m4a
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SE/Engine.m4a
+

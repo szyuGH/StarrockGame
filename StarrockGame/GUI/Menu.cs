@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using StarrockGame.Audio;
 using StarrockGame.InputManagement;
 using System;
 using System.Collections.Generic;
@@ -40,21 +41,28 @@ namespace StarrockGame.GUI
             {
                 if (Input.Device.MenuDown())
                 {
+                    Sound.Instance.PlaySe("Cursor");
                     SelectNext();
                 }
                 else if (Input.Device.MenuUp())
                 {
+                    Sound.Instance.PlaySe("Cursor");
                     SelectPrevious();
                 }
                 if (SelectedIndex != -1 && Elements[SelectedIndex] is ISelectable && Input.Device.MenuSelect())
                 {
+                    Sound.Instance.PlaySe("Decision");
                     IgnoreNextInput = true;
                     (Elements[SelectedIndex] as ISelectable).OnSelect();
                 }
                 else if (Input.Device.MenuCancel())
                 {
-                    IgnoreNextInput = true;
-                    Cancel?.Invoke();
+                    if (Cancel != null)
+                    {
+                        Sound.Instance.PlaySe("Cancel");
+                        IgnoreNextInput = true;
+                        Cancel.Invoke();
+                    }
                 }
             }
             for (int i=0;i<Elements.Count;i++)

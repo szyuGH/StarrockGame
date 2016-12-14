@@ -173,12 +173,12 @@ namespace StarrockGame.Entities
 
         }
 
-        public virtual void Destroy()
+        public virtual void Destroy(bool ignoreScore=false)
         {
             Structure = 0;
             Body.Enabled = false;
             IsAlive = false;
-            if (!(Controller is PlayerController))
+            if (!(Controller is PlayerController) && !ignoreScore)
             {
                 SessionManager.Score += Template.Score;
             }

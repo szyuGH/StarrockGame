@@ -1,6 +1,7 @@
 ﻿using FarseerPhysics;
 using FarseerPhysics.Dynamics;
 using Microsoft.Xna.Framework;
+using StarrockGame.Audio;
 using StarrockGame.Caching;
 using System;
 using System.Collections.Generic;
@@ -62,6 +63,7 @@ namespace StarrockGame.Entities.Weaponry
         {
             if (CanShoot && energy > WeaponTemplate.EnergyCost)
             {
+                Sound.Instance.PlaySe(WeaponTemplate.SoundFile);
                 DoFire();
                 cooldown = WeaponTemplate.Cooldown;
                 return WeaponTemplate.EnergyCost;

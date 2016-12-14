@@ -12,6 +12,7 @@ using StarrockGame.AI;
 using FarseerPhysics;
 using StarrockGame.GUI;
 using StarrockGame.Entities.Weaponry;
+using StarrockGame.Audio;
 
 namespace StarrockGame.Entities
 {
@@ -94,20 +95,21 @@ namespace StarrockGame.Entities
             Modules = Module.FromTemplate(this, modules);
         }
 
-        public override void Destroy()
+        public override void Destroy(bool ignoreScore=false)
         {
             Vector2 position = Body.Position;
             float rotation = Body.Rotation;
+            Sound.Instance.PlaySe("Explosion1");
             
             base.Destroy();
             if(!IsPlayer)
             {
-                turnIntoWreckage(ConvertUnits.ToDisplayUnits(position),rotation);
+                TurnIntoWreckage(ConvertUnits.ToDisplayUnits(position),rotation);
             }
             
         }
 
-        public void turnIntoWreckage(Vector2 position, float rotation)
+        public void TurnIntoWreckage(Vector2 position, float rotation)
         {            
             string wreckagename = shipTemplate.Name + "Wreckage";
             EntityManager.Add<Wreckage, NoController>(wreckagename, position, rotation, Vector2.Zero);

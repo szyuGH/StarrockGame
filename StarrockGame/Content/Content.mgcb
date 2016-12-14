@@ -295,9 +295,21 @@
 /processorParam:Quality=Best
 /build:Audio/SE/Decision.m4a
 
-#begin Audio/SE/Engine.m4a
+#begin Audio/SE/LaserGun.mp3
 /importer:Mp3Importer
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/SE/Engine.m4a
+/build:Audio/SE/LaserGun.mp3
+
+#begin Audio/SE/Thruster.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SE/Thruster.mp3
+
+#begin Audio/SE/Explosion1.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SE/Explosion1.mp3
 

@@ -25,7 +25,7 @@ namespace StarrockGame.GUI
         private SessionDifficulty difficulty;
 
         private Label scoreLabel;
-        private Label creditsLabel;
+        //private Label creditsLabel;
         private Label timeLabel;
 
         private bool showingStats;

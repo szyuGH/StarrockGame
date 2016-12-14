@@ -12,6 +12,7 @@
     <EnergyCost>5.0</EnergyCost>
     <Damage>10.0</Damage>
 	<Cooldown>1</Cooldown>
+	<SoundFile>LaserGun</SoundFile>
 	<Velocity>10</Velocity>
   </Asset>
 </XnaContent>

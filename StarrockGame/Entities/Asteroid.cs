@@ -39,7 +39,7 @@ namespace StarrockGame.Entities
 
             if (Vector2.DistanceSquared(EntityManager.Border.Center, Body.Position) > EntityManager.Border.Width * 1.5f)
             {
-                Destroy();
+                Destroy(true);
             }
         }
     }

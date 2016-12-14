@@ -13,5 +13,6 @@ namespace TData.TemplateData
         public float EnergyCost;
         public float Damage;
         public float Cooldown;
+        public string SoundFile;
     }
 }

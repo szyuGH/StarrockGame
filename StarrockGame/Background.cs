@@ -13,12 +13,10 @@ namespace StarrockGame
     {
         private Texture2D backTex = Cache.LoadGraphic("starfield");
         private Texture2D frontTex = Cache.LoadGraphic("starfield2");
-
-        private float elapsed;
+        
 
         public Background()
         {
-
         }
         
 

@@ -51,6 +51,7 @@ namespace StarrockGame.SceneManagement.Scenes
 
             bg = new Background();
             SessionManager.ElapsedTime = TimeSpan.FromSeconds(0);
+            SessionManager.Score = 0;
         }
 
         public override void Update(GameTime gameTime)

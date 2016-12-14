@@ -1,6 +1,9 @@
 ﻿using FarseerPhysics.Dynamics;
 using GPart;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using StarrockGame.Audio;
+using StarrockGame.Caching;
 using StarrockGame.ParticleSystems;
 using System;
 using System.Collections.Generic;
@@ -22,6 +25,8 @@ namespace StarrockGame.Entities
 
         private ParticleEmitter emitter;
 
+        private SoundEffectInstance sound;
+
 
         public Engine(Body body, Vector2 localPos, MovementType dir, float power, float fps, float pps)
         {
@@ -32,10 +37,19 @@ namespace StarrockGame.Entities
 
             emitter = new ParticleEmitter(Particles.Get<TrailParticleSystem>(), pps, body, LocalPosition, GetRelativeAngle(dir), power * EmittingFactor(dir));
             emitter.ResetEmittingState = true;
+
+            sound = Cache.LoadSe("Thruster").CreateInstance();
         }
 
         public void Update(GameTime gameTime)
         {
+            if (emitter.Emitting)
+            {
+                sound.Play();
+            } else if (sound.State == SoundState.Playing)
+            {
+                sound.Stop();
+            }
             emitter.Update(gameTime);
         }
 

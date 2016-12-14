@@ -225,7 +225,7 @@ namespace StarrockGame.Entities
         {
             foreach (WeaponBase pwb in PrimaryWeapons)
             {
-               Energy -= pwb.Fire();
+               Energy -= pwb.Fire(Energy);
             }
         }
 
@@ -233,7 +233,7 @@ namespace StarrockGame.Entities
         {
             foreach (WeaponBase swb in SecondaryWeapons)
             {
-                Energy -= swb.Fire();
+                Energy -= swb.Fire(Energy);
             }
         }
 

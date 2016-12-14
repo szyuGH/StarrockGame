@@ -58,9 +58,9 @@ namespace StarrockGame.Entities.Weaponry
             }
         }
 
-        public float Fire()
+        public float Fire(float energy)
         {
-            if (CanShoot)
+            if (CanShoot && energy > WeaponTemplate.EnergyCost)
             {
                 DoFire();
                 cooldown = WeaponTemplate.Cooldown;

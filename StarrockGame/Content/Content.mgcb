@@ -260,3 +260,20 @@
 /processor:PassThroughProcessor
 /build:Data/Templates/BS_Caine.xml
 
+#begin Graphics/BS CaineWreckage.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Graphics/BS CaineWreckage.png
+
+#begin Data/Templates/BS_CaineWreckage.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/BS_CaineWreckage.xml
+

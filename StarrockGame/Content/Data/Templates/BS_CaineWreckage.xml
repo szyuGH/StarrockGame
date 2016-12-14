@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="TData.TemplateData.WreckageTemplate">
+    <Name>BS_CaineWreckage</Name>
+    <File>BS_CaineWreckage</File>
+    <TextureName>BS CaineWreckage</TextureName>
+    <Score>50</Score>
+    <Structure>40.0</Structure>
+    <Mass>20.0</Mass>
+    <Size>1.0</Size>
+    <Inertia>0.0</Inertia>
+    <MinFuel>5</MinFuel>
+    <MaxFuel>100</MaxFuel>
+    <MinEnergy>5</MinEnergy>
+    <MaxEnergy>100</MaxEnergy>
+    <MinStructure>5</MinStructure>
+    <MaxStructure>100</MaxStructure>
+  </Asset>
+</XnaContent>

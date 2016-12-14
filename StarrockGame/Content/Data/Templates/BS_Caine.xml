@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.SpaceshipTemplate">
-    <Name>BS Caine</Name>
+    <Name>BS_Caine</Name>
 	<File>BS_Caine</File>
     <TextureName>BS Caine</TextureName>
 	<Score>150</Score>

@@ -46,10 +46,12 @@ namespace StarrockGame.Entities
 
         protected float DrawOrder = 1;
 
-
+        private World _world;
+        public World World { get; private set; }
 
         public Entity(World world, string type)
         {
+            World = world;
             Type = type;
             Template = LoadTemplate(type);
             Graphic = Cache.LoadGraphic(Template.TextureName);

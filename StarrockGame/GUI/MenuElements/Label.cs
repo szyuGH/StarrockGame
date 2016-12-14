@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
+using StarrockGame.Caching;
 
 namespace StarrockGame.GUI
 {
@@ -54,13 +55,13 @@ namespace StarrockGame.GUI
             {
                 Caption = CaptionMonitor();
             }
-            batch.DrawString(Menu.Font, Caption, Position, Color, 0, center, Size, SpriteEffects.None, 1);
+            batch.DrawString(Menu != null ? Menu.Font : Cache.LoadFont("GameFont"), Caption, Position, Color, 0, center, Size, SpriteEffects.None, 1);
         }
 
 
         private void CalculateCenter()
         {
-            Vector2 measure = Menu.Font.MeasureString(_caption);
+            Vector2 measure = (Menu != null ? Menu.Font : Cache.LoadFont("GameFont")).MeasureString(_caption);
             center = new Vector2((Alignment * .5f) * measure.X, 0);
         }
     }

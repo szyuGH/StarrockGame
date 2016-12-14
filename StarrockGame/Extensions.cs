@@ -24,5 +24,20 @@ namespace StarrockGame
                 default: throw new Exception("Failed to retrieve Vector2 for index " + index);
             }
         }
+
+        public static T Remove<T>(this Stack<T> stack, T element)
+        {
+            T obj = stack.Pop();
+            if (obj.Equals(element))
+            {
+                return obj;
+            }
+            else
+            {
+                T toReturn = stack.Remove(element);
+                stack.Push(obj);
+                return toReturn;
+            }
+        }
     }
 }

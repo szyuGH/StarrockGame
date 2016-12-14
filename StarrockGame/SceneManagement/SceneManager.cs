@@ -12,6 +12,7 @@ namespace StarrockGame.SceneManagement
     {
         private static Game1 game;
         private static Stack<Scene> sceneStack;
+        private static Stack<Popup> popupStack;
         private static Scene currentScene;
         public static Scene NextScene { get; private set;}
         public static RenderTarget2D SceneRenderTarget;
@@ -23,6 +24,7 @@ namespace StarrockGame.SceneManagement
             game = g;
             SceneRenderTarget = new RenderTarget2D(g.GraphicsDevice, g.GraphicsDevice.Viewport.Width, g.GraphicsDevice.Viewport.Height);
             sceneStack = new Stack<Scene>();
+            popupStack = new Stack<Popup>();
             Call<T>();
         }
 
@@ -32,6 +34,8 @@ namespace StarrockGame.SceneManagement
             sceneStack = null;
             currentScene = null;
             NextScene = null;
+            popupStack.Clear();
+            popupStack = null;
         }
 
         /// <summary>
@@ -40,38 +44,46 @@ namespace StarrockGame.SceneManagement
         /// <param name="gameTime"></param>
         public static void Update(GameTime gameTime)
         {
-            // if there is no current scene, the game cannot run and will be exited
-            if (currentScene != null)
+            if (popupStack.Count > 0)
             {
-                // call the corresponding update method of the current scene based on the state
-                switch (currentScene.State)
+                popupStack.Peek().Update(gameTime);
+            }
+            else
+            {
+                // if there is no current scene, the game cannot run and will be exited
+                if (currentScene != null)
                 {
-                    case SceneState.FadingIn:
-                        currentScene.UpdateFade(gameTime);
-                        break;
-                    case SceneState.FadingOut:
-                        currentScene.UpdateFade(gameTime);
-                        // if fadeout is complete, set the next scene
-                        if (currentScene.State == SceneState.Closed)
-                        {
-                            if (returning)
+                    // call the corresponding update method of the current scene based on the state
+                    switch (currentScene.State)
+                    {
+                        case SceneState.FadingIn:
+                            currentScene.UpdateFade(gameTime);
+                            break;
+                        case SceneState.FadingOut:
+                            currentScene.UpdateFade(gameTime);
+                            // if fadeout is complete, set the next scene
+                            if (currentScene.State == SceneState.Closed)
                             {
-                                currentScene.Dispose();
-                                currentScene = null;
+                                if (returning)
+                                {
+                                    currentScene.Dispose();
+                                    currentScene = null;
+                                }
+                                currentScene = NextScene;
+                                currentScene.State = SceneState.FadingIn;
+                                NextScene = null;
+                                returning = false;
                             }
-                            currentScene = NextScene;
-                            currentScene.State = SceneState.FadingIn;
-                            NextScene = null;
-                            returning = false;
-                        }
-                        break;
-                    default:
-                        currentScene.Update(gameTime);
-                        break;
+                            break;
+                        default:
+                            currentScene.Update(gameTime);
+                            break;
+                    }
                 }
-            } else
-            {
-                Exit();
+                else
+                {
+                    Exit();
+                }
             }
         }
 
@@ -84,6 +96,14 @@ namespace StarrockGame.SceneManagement
                 currentScene.RenderFade(gameTime);
             else
                 currentScene.Render(gameTime);
+
+            if (popupStack.Count > 0)
+            {
+                foreach (Popup popup in popupStack)
+                {
+                    popup.Render(gameTime);
+                }
+            }
         }
 
         /// <summary>
@@ -103,6 +123,17 @@ namespace StarrockGame.SceneManagement
                 currentScene = (Scene)Activator.CreateInstance(typeof(T), game);
                 currentScene.State = SceneState.FadingIn;
             }
+        }
+
+        public static void CallPopup<T>() where T : Popup
+        {
+            Popup popup = (Popup)Activator.CreateInstance(typeof(T), game);
+            popupStack.Push(popup);
+        }
+
+        public static void ClosePopup(Popup popup)
+        {
+            popupStack.Remove(popup);
         }
 
         /// <summary>

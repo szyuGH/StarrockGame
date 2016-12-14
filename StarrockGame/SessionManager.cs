@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,5 +14,6 @@ namespace StarrockGame
         internal static SpaceshipTemplate UsedShipTemplate { get; set; }
         internal static float Score { get; set; }
         internal static List<ModuleTemplate> ModuleTemplates { get; set; } = new List<ModuleTemplate>();
+        internal static TimeSpan ElapsedTime;
     }
 }

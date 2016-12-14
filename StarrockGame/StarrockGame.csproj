@@ -100,6 +100,8 @@
     <Compile Include="GUI\MatrixMenu.cs" />
     <Compile Include="GUI\MenuElements\ButtonImage.cs" />
     <Compile Include="Line.cs" />
+    <Compile Include="SceneManagement\Popup.cs" />
+    <Compile Include="SceneManagement\Popups\PopupPause.cs" />
     <Compile Include="SceneManagement\Scenes\SceneBuyModules.cs" />
     <Compile Include="SceneManagement\Scenes\SceneOptions.cs" />
     <Compile Include="SceneManagement\Scenes\SceneSelectResolution.cs" />

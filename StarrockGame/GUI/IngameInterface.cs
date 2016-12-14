@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StarrockGame.Entities;
+using StarrockGame.InputManagement;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,6 +23,12 @@ namespace StarrockGame.GUI
         private Radar radar;
 
         private SessionDifficulty difficulty;
+
+        private Label scoreLabel;
+        private Label creditsLabel;
+        private Label timeLabel;
+
+        private bool showingStats;
 
         public IngameInterface(GraphicsDevice device, Spaceship entity, SessionDifficulty difficulty=SessionDifficulty.Easy)
         {
@@ -46,6 +53,10 @@ namespace StarrockGame.GUI
 
             if (difficulty != SessionDifficulty.Lost)
                 radar = new Radar(entity, 0, new Rectangle(X_OFFSET,device.Viewport.Height - RADAR_SIZE - Y_OFFSET,RADAR_SIZE,RADAR_SIZE));
+
+            timeLabel = new Label(null, "", new Vector2(X_OFFSET, radar.Bounding.Y - 3 * 24), 1, Color.White, 0) { Visible = false, CaptionMonitor = () => { return string.Format("Elapsed Time: {0:hh\\:mm\\:ss}", SessionManager.ElapsedTime); } };
+            scoreLabel = new Label(null, "", new Vector2(X_OFFSET, radar.Bounding.Y - 2 * 24), 1, Color.White, 0) { Visible = false, CaptionMonitor = () => { return string.Format("Score: {0}", SessionManager.Score); } };
+            //creditsLabel = new Label(null, "", new Vector2(), 1, Color.White, 2) { Visible = false, CaptionMonitor = () => { return string.Format("Credits: {0}", CREDITS); } };
         }
 
         public void Update()
@@ -59,6 +70,8 @@ namespace StarrockGame.GUI
 
             if (Ship.Scavenging.Active)
                 scavengeGauge.Value = Ship.Scavenging.Progress;
+
+            showingStats = Input.Device.ShowingStats();
         }
 
         public void Render(SpriteBatch batch)
@@ -72,6 +85,13 @@ namespace StarrockGame.GUI
             if (Ship.Scavenging.Active)
             {
                 scavengeGauge.Render(batch);
+            }
+
+            if (showingStats)
+            {
+                timeLabel.Render(batch);
+                scoreLabel.Render(batch);
+                //creditsLabel.Render(batch);
             }
         }
     }

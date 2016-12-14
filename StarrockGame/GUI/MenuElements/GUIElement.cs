@@ -15,21 +15,24 @@ namespace StarrockGame.GUI
         public Color Color { get; private set; }
         public Menu Menu { get; private set; }
         public object Tag;
-        public bool Active;
+        public bool Active = true;
+        public bool Visible = true;
 
         public GUIElement(Menu menu, Vector2 position, float size, Color color)
         {
-            Menu = menu;
-            Menu += this;
-
+            if (menu != null)
+            {
+                Menu = menu;
+                Menu += this;
+            }
             Position = position;
             Size = size;
             Color = color;
-            Active = true;
         }
         ~GUIElement()
         {
-            Menu -= this;
+            if (Menu != null)
+                Menu -= this;
         }
 
         public abstract void Update(GameTime gameTime, bool selected);

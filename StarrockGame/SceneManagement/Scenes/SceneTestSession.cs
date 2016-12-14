@@ -13,6 +13,8 @@ using StarrockGame.Caching;
 using FarseerPhysics;
 using StarrockGame.GUI;
 using System;
+using StarrockGame.InputManagement;
+using StarrockGame.SceneManagement.Popups;
 
 namespace StarrockGame.SceneManagement.Scenes
 {
@@ -48,10 +50,12 @@ namespace StarrockGame.SceneManagement.Scenes
             EntityManager.Border = new GameBorder(EntityManager.World, Device, 2000, 2000);
 
             bg = new Background();
+            SessionManager.ElapsedTime = TimeSpan.FromSeconds(0);
         }
 
         public override void Update(GameTime gameTime)
         {
+            SessionManager.ElapsedTime += gameTime.ElapsedGameTime;
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             asteroidSpawnTimer -= elapsed;
             if (asteroidSpawnTimer <= 0)
@@ -61,6 +65,10 @@ namespace StarrockGame.SceneManagement.Scenes
                 SpawnAsteroid();
             }
             
+            if (Input.Device.OpenMenu())
+            {
+                SceneManager.CallPopup<PopupPause>();
+            }
 
             EntityManager.Update(gameTime);
             cam.Update();

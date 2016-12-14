@@ -1,0 +1,12 @@
+draw border in radar
+add blueprints for modules + ships
+add blueprints to wreckages
+add more ships(including enemies) + wreckages (images+xml)
+death causes wreckages to spawn
+collision damages instead of killing -> calculations
+session ends when destroyed
+spawn random enemies based on game difficulty
+score calculations (different points for looting & destroying different enemies)
+credit calculated by score
+
+documentation

@@ -1,0 +1,18 @@
+Position:
+-linear from a position described in the xml file
+
+Direction:
+-Laser: towards a centered point in front of the ship
+-LaserBullet, Rocket: in ship direction
+-Mines: No direction
+-Missile: towards the nearest target
+
+Speed:
+-Laser: speed of light
+-LaserBullet: particle of a specific length, current ship speed + factor in the xml file
+-Rocket: current ship speed + factor in the xml file
+-Missile: current ship speed + acceleration of the projectile in the xml file
+-Mines: 0 (dropped at ship location)
+
+Hierachie:
+LaserBullet, Rocket, Mines, Missile : Entity

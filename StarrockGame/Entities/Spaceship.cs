@@ -96,18 +96,21 @@ namespace StarrockGame.Entities
 
         public override void Destroy()
         {
+            Vector2 position = Body.Position;
+            float rotation = Body.Rotation;
+            
             base.Destroy();
             if(!IsPlayer)
             {
-                turnIntoWreckage();
+                turnIntoWreckage(ConvertUnits.ToDisplayUnits(position),rotation);
             }
             
         }
 
-        public void turnIntoWreckage()
+        public void turnIntoWreckage(Vector2 position, float rotation)
         {            
             string wreckagename = shipTemplate.Name + "Wreckage";
-            EntityManager.Add<Wreckage, NoController>(wreckagename, Body.Position, 0F, Vector2.Zero);
+            EntityManager.Add<Wreckage, NoController>(wreckagename, position, rotation, Vector2.Zero);
         }
 
         public override void Update(GameTime gameTime)

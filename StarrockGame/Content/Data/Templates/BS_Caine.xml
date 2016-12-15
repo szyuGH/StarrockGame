@@ -84,5 +84,6 @@
 		</Bases>
 	</SecondaryWeaponBases>
 	<RadarRange>500</RadarRange>
+	<Price>200</Price>
   </Asset>
 </XnaContent>

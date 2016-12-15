@@ -24,5 +24,6 @@ namespace TData.TemplateData
         public WeaponBaseData PrimaryWeaponBases;
         public WeaponBaseData SecondaryWeaponBases;
         public float RadarRange;
+        public int Price;
     }
 }

@@ -15,5 +15,16 @@ namespace StarrockGame
         internal static float Score { get; set; }
         internal static List<ModuleTemplate> ModuleTemplates { get; set; } = new List<ModuleTemplate>();
         internal static TimeSpan ElapsedTime;
+
+        internal static SpaceshipTemplate LastUsedShipTemplate { get; private set; }
+
+        public static void Reset()
+        {
+            ElapsedTime = TimeSpan.FromSeconds(0);
+            LastUsedShipTemplate = UsedShipTemplate;
+            UsedShipTemplate = null;
+            Score = 0;
+            ModuleTemplates.Clear();
+        }
     }
 }

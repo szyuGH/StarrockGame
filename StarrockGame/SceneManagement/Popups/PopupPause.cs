@@ -48,6 +48,7 @@ namespace StarrockGame.SceneManagement.Popups
         {
             Close();
             SceneManager.Set<SceneTitle>();
+            SessionManager.Reset();
         }
     }
 }

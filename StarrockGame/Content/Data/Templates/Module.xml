@@ -5,10 +5,8 @@
 	<File>Module</File>
     <ModuleEffects>
 		<Item>
-			<BuffType>1</BuffType>
-			<Buff>2.0</Buff>
-			<DebuffType>0</DebuffType>
-			<Debuff>0</Debuff>
+			<EffectType>1</EffectType>
+			<Value>2.0</Value>
 		</Item>
 	</ModuleEffects>
     <Price>10</Price>

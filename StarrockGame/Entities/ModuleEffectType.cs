@@ -8,16 +8,17 @@ namespace StarrockGame.Entities
 {
     public enum ModuleEffectType : int
     {
-        EnergyRecoveryPerSecond,
-        ShieldRecoveryPerSecond,
-        FuelRecoveryPerSecond,
-        Damage,
-        ScavengePower,
-        ScavengeRange,
-        RadarRange,
-        StructureCapacity,
-        EnergyCapacity,
-        ShieldCapacity,
-        FuelCapacity
+        None=-1,
+        EnergyRecoveryPerSecond=0,
+        ShieldRecoveryPerSecond=1,
+        FuelRecoveryPerSecond=2,
+        Damage=3,
+        ScavengePower=4,
+        ScavengeRange=5,
+        RadarRange=6,
+        StructureCapacity=7,
+        EnergyCapacity=8,
+        ShieldCapacity=9,
+        FuelCapacity=10
     }
 }

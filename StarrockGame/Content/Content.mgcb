@@ -313,3 +313,9 @@
 /processorParam:Quality=Best
 /build:Audio/SE/Explosion1.mp3
 
+#begin Fonts/StatsFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:Fonts/StatsFont.spritefont
+

@@ -9,10 +9,8 @@ namespace TData.TemplateData
     [Serializable]
     public struct ModuleEffectData
     {
-        public int BuffType;
-        public float Buff;
-        public int DebuffType;
-        public float Debuff;
+        public int EffectType;
+        public float Value;
         
     }
 }

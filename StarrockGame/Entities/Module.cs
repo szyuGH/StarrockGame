@@ -21,11 +21,9 @@ namespace StarrockGame.Entities
 
         private void ApplyModule()
         {
-            // TODO: add other types
             foreach (ModuleEffectData effect in Template.ModuleEffects)
             {
-                ApplyEffect((ModuleEffectType)effect.BuffType, effect.Buff);
-                ApplyEffect((ModuleEffectType)effect.DebuffType, effect.Debuff);
+                ApplyEffect((ModuleEffectType)effect.EffectType, effect.Value);
             }
         }
 

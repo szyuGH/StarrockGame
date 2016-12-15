@@ -18,6 +18,7 @@ namespace StarrockGame.GUI
         public int SelectedIndex { get; set; }
         public bool IsActive { get; set; }
         public static bool IgnoreNextInput;
+        public bool NotSelectable;
 
         protected Action Cancel;
 
@@ -81,7 +82,7 @@ namespace StarrockGame.GUI
 
         public void SelectNext()
         {
-            if (Elements.Count > 0)
+            if (!NotSelectable && Elements.Count > 0)
             {
                 if (SelectedIndex == -1)
                 {
@@ -100,7 +101,7 @@ namespace StarrockGame.GUI
 
         public void SelectPrevious()
         {
-            if (Elements.Count > 0)
+            if (!NotSelectable && Elements.Count > 0)
             {
                 if (SelectedIndex == -1)
                 {

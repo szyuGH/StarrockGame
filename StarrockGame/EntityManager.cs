@@ -53,13 +53,14 @@ namespace StarrockGame
             if (typeof(B) == typeof(PlayerController))
             {
                 (entity as Spaceship).SetModules(SessionManager.ModuleTemplates.ToArray());
+                PlayerShip = entity;
             } else
             {
 
             }
             entity.Initialize<B>(pos, rot, initialVelocity, initialAngularVelocity);
-            if (typeof(B) == typeof(PlayerController))
-                PlayerShip = entity;
+            
+                
             return entity as T;
         }
 

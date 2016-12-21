@@ -152,7 +152,7 @@ namespace StarrockGame.SceneManagement.Scenes
                 }
                 else
                 {
-                    Sound.Instance.PlaySe("BuyFailed");
+                    Sound.Instance.PlaySe("Fail");
                 }
             }
         }

@@ -319,3 +319,21 @@
 /processorParam:TextureFormat=Compressed
 /build:Fonts/StatsFont.spritefont
 
+#begin Audio/SE/Buy.m4a
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SE/Buy.m4a
+
+#begin Audio/SE/Fail.m4a
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SE/Fail.m4a
+
+#begin Audio/SE/Sell.m4a
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SE/Sell.m4a
+

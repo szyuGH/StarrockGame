@@ -37,6 +37,8 @@ namespace StarrockGame.SceneManagement.Scenes
 
         public override void Initialize()
         {
+            unlockedModules = Player.Get().GetTemplates<ModuleTemplate>();
+
             CreateMenu();
             CreateModuleMenu();
             CreateStatsMenu();
@@ -57,7 +59,6 @@ namespace StarrockGame.SceneManagement.Scenes
         private void CreateModuleMenu()
         {
             SpriteFont font = Cache.LoadFont("MenuFont");
-            unlockedModules = Player.Get().GetTemplates<ModuleTemplate>();
 
             moduleMenu = new MatrixMenu(font, new Vector2(150, 100), Device.Viewport.Width / TILE_WIDTH_REAL, TILE_WIDTH, TILE_HEIGHT, TILE_SPACE, OnBuyModulesCancel);
             moduleMenu.IsActive = false;
@@ -127,7 +128,7 @@ namespace StarrockGame.SceneManagement.Scenes
                 SessionManager.ModuleTemplates.Add(mt);
             }else
             {
-                Sound.Instance.PlaySe("BuyFailed");
+                Sound.Instance.PlaySe("Fail");
             }
         }
 

@@ -12,12 +12,17 @@ namespace StarrockGame
 {
     public class Camera2D
     {
+        public const float MIN_ZOOM = 0.5f;
+        public const float MAX_ZOOM = 1;
+
         private GraphicsDevice _device;
 
         
         private Vector2 _position;
         private float _rotation;
         private Body _trackingBody;
+        private float _zoom = 1;
+
         public Vector2 _translateCenter;
 
         public Vector2 Position
@@ -39,6 +44,15 @@ namespace StarrockGame
             set
             {
                 _trackingBody = value;
+                Update();
+            }
+        }
+        public float Zoom
+        {
+            get { return _zoom; }
+            set
+            {
+                _zoom = MathHelper.Clamp(value, MIN_ZOOM, MAX_ZOOM);
             }
         }
 
@@ -49,7 +63,7 @@ namespace StarrockGame
             get
             {
                 return Matrix.CreateTranslation(-Position.X, -Position.Y, 0)
-                    * Matrix.CreateScale(1, 1, 1)
+                    * Matrix.CreateScale(Zoom, Zoom, Zoom)
                     * Matrix.CreateRotationZ(_rotation)
                     * Matrix.CreateTranslation(_translateCenter.X, _translateCenter.Y, 0);
             }

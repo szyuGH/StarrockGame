@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.LaserBulletTemplate">
-    <Checksum>218224798</Checksum>
+    <Checksum>140342668</Checksum>
     <Name>BlasterCannon</Name>
     <File>CannonTest</File>
     <TextureName>CannonTest</TextureName>

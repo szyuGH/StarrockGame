@@ -1,0 +1,51 @@
+
+#----------------------------- Global Properties ----------------------------#
+
+/outputDir:bin/$(Platform)
+/intermediateDir:obj/$(Platform)
+/platform:Windows
+/config:
+/profile:HiDef
+/compress:False
+
+#-------------------------------- References --------------------------------#
+
+/reference:..\..\TData\bin\Debug\TData.dll
+
+#---------------------------------- Content ---------------------------------#
+
+#begin Templates/Asteroid.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Templates/Asteroid.xml
+
+#begin Templates/BS_Caine.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Templates/BS_Caine.xml
+
+#begin Templates/BS_CaineWreckage.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Templates/BS_CaineWreckage.xml
+
+#begin Templates/CannonTest.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Templates/CannonTest.xml
+
+#begin Templates/Module.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Templates/Module.xml
+
+#begin Templates/Spaceship.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Templates/Spaceship.xml
+
+#begin Templates/Wreckage.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Templates/Wreckage.xml
+

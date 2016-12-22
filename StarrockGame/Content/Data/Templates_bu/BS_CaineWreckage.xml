@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.WreckageTemplate">
-    <Checksum>220681549</Checksum>
-    <Name>TestWreckage</Name>
-    <File>Wreckage</File>
-    <TextureName>TestShipWreckage</TextureName>
+    <Checksum>159315061</Checksum>
+    <Name>BS_CaineWreckage</Name>
+    <File>BS_CaineWreckage</File>
+    <TextureName>BS CaineWreckage</TextureName>
     <Score>50</Score>
     <Structure>40</Structure>
     <Mass>20</Mass>

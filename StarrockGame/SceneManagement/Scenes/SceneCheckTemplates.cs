@@ -120,23 +120,22 @@ namespace StarrockGame.SceneManagement.Scenes
 
         private bool CheckCurrentTemplate()
         {
-            XmlSerializer xmlserializer = new XmlSerializer(currentTemplate.GetType());
-            MemoryStream ms = new MemoryStream();
-            ms.Position = 0;
-            xmlserializer.Serialize(ms, currentTemplate);
-            ms.Position = 0;
-            StreamReader sr = new StreamReader(ms);
-            string xmlString = sr.ReadToEnd();
-            ms.Dispose();
-            sr.Dispose();
-            
+            int toCheck = currentTemplate.Checksum;
+            string formatted = null;
+            using (MemoryStream ms = new MemoryStream() { Position = 0 })
+            {
+                XmlSerializer ser = new XmlSerializer(currentTemplate.GetType());
+                currentTemplate.Checksum = 7;
+                ser.Serialize(ms, currentTemplate);
+                ms.Position = 0;
+                using (StreamReader sr = new StreamReader(ms))
+                {
+                    formatted = sr.ReadToEnd().Replace("\r\n", "");
+                }
 
-            XDocument doc = XDocument.Parse(xmlString);
-            doc.Descendants("Checksum").Remove();
-            doc.Descendants(currentTemplate.GetType().Name).First().RemoveAttributes();
-            string xml = doc.ToString();
-            int checksum = GenerateHashCode(xml);
-            return currentTemplate.Checksum == checksum;
+            }
+            int checksum = GenerateHashCode(formatted);
+            return toCheck == checksum;
         }
 
         private int GenerateHashCode(string s)

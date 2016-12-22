@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPart", "GPart\GPart.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THC", "THC\THC.csproj", "{7BA8A2B0-5583-48F7-B707-0FF77FF1B01E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSC", "CSC\CSC.csproj", "{0C739D92-B4F8-4697-AC45-4476B2AC98A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,14 @@ Global
 		{7BA8A2B0-5583-48F7-B707-0FF77FF1B01E}.Release|x64.Build.0 = Release|Any CPU
 		{7BA8A2B0-5583-48F7-B707-0FF77FF1B01E}.Release|x86.ActiveCfg = Release|Any CPU
 		{7BA8A2B0-5583-48F7-B707-0FF77FF1B01E}.Release|x86.Build.0 = Release|Any CPU
+		{0C739D92-B4F8-4697-AC45-4476B2AC98A7}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0C739D92-B4F8-4697-AC45-4476B2AC98A7}.Debug|x64.ActiveCfg = Debug|x86
+		{0C739D92-B4F8-4697-AC45-4476B2AC98A7}.Debug|x86.ActiveCfg = Debug|x86
+		{0C739D92-B4F8-4697-AC45-4476B2AC98A7}.Debug|x86.Build.0 = Debug|x86
+		{0C739D92-B4F8-4697-AC45-4476B2AC98A7}.Release|Any CPU.ActiveCfg = Release|x86
+		{0C739D92-B4F8-4697-AC45-4476B2AC98A7}.Release|x64.ActiveCfg = Release|x86
+		{0C739D92-B4F8-4697-AC45-4476B2AC98A7}.Release|x86.ActiveCfg = Release|x86
+		{0C739D92-B4F8-4697-AC45-4476B2AC98A7}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

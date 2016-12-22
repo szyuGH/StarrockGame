@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.AsteroidTemplate">
-    <Checksum>150287709</Checksum>
+    <Checksum>90906241</Checksum>
     <Name>TestAsteroid</Name>
     <File>Asteroid</File>
     <TextureName>Asteroid1</TextureName>

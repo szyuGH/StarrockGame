@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.LaserBulletTemplate">
+    <Checksum>140342668</Checksum>
     <Name>BlasterCannon</Name>
-	<File>CannonTest</File>
-	<TextureName>CannonTest</TextureName>
-	<Structure>1</Structure>
-	<Mass>1</Mass>
-	<Size>0.25</Size>
-	<Inertia>0</Inertia>
+    <File>CannonTest</File>
+    <TextureName>CannonTest</TextureName>
+    <Structure>1</Structure>
+    <Mass>1</Mass>
+    <Size>0.25</Size>
+    <Inertia>0</Inertia>
     <WeaponType>0</WeaponType>
-    <EnergyCost>5.0</EnergyCost>
-    <Damage>10.0</Damage>
-	<Cooldown>1</Cooldown>
-	<SoundFile>LaserGun</SoundFile>
-	<Velocity>10</Velocity>
+    <EnergyCost>5</EnergyCost>
+    <Damage>10</Damage>
+    <Cooldown>1</Cooldown>
+    <SoundFile>LaserGun</SoundFile>
+    <Velocity>10</Velocity>
   </Asset>
 </XnaContent>

@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.ModuleTemplate">
+    <Checksum>115485058</Checksum>
     <Name>Fuelbooster</Name>
-	<File>Module</File>
+    <File>Module</File>
     <ModuleEffects>
-		<Item>
-			<EffectType>10</EffectType>
-			<Value>2.0</Value>
-		</Item>
-	</ModuleEffects>
+      <Item>
+        <EffectType>10</EffectType>
+        <Value>2</Value>
+      </Item>
+    </ModuleEffects>
     <Price>10</Price>
   </Asset>
 </XnaContent>

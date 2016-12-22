@@ -27,6 +27,7 @@ namespace StarrockGame.GUI
             }
         }
         public float MaxValue { get; private set; }
+        public bool Full { get { return Value == MaxValue; } }
 
         public int BorderStrength = 2;
 

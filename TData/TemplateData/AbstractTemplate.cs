@@ -9,6 +9,7 @@ namespace TData.TemplateData
     [Serializable]
     public abstract class AbstractTemplate
     {
+        public int Checksum;
         public string Name;
         public string File; // the same as the file the xml is in
 

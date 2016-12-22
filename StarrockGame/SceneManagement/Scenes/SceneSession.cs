@@ -46,15 +46,14 @@ namespace StarrockGame.SceneManagement.Scenes
             {
                 SceneManager.CallPopup<PopupGameover>();
             }
-            SessionManager.ElapsedTime += gameTime.ElapsedGameTime;
-            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
             if (Input.Device.OpenMenu())
             {
                 SceneManager.CallPopup<PopupPause>();
             }
 
+            SessionManager.Update(gameTime);
             EntityManager.Update(gameTime);
+
             cam.Update();
             ingameInterface.Update();
         }

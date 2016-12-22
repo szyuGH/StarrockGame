@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -25,6 +26,11 @@ namespace StarrockGame
             UsedShipTemplate = null;
             Score = 0;
             ModuleTemplates.Clear();
+        }
+
+        internal static void Update(GameTime gameTime)
+        {
+            ElapsedTime += gameTime.ElapsedGameTime;
         }
     }
 }

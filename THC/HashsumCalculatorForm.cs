@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TData.TemplateData;
 
 namespace THC
 {
@@ -48,9 +49,9 @@ namespace THC
 
         private void btn_Calculate_Click(object sender, EventArgs e)
         {
-            foreach (Template template in lb_Templates.SelectedItems)
+            foreach (Template template in lb_Templates.Items)
             {
-                template.Calculate();
+                template.CalculateTest();
             }
             lb_Templates.ClearSelected();
         }

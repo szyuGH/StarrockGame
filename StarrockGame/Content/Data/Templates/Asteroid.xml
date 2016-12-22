@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.AsteroidTemplate">
-	<Name>TestAsteroid</Name>
-	<File>Asteroid</File>
+    <Checksum>90906241</Checksum>
+    <Name>TestAsteroid</Name>
+    <File>Asteroid</File>
     <TextureName>Asteroid1</TextureName>
-	<Score>200</Score>
-    <Structure>300.0</Structure>
-    <Mass>600.0</Mass>
-    <Size>1.0</Size>
-    <Inertia>0.0</Inertia>
+    <Score>200</Score>
+    <Structure>300</Structure>
+    <Mass>600</Mass>
+    <Size>1</Size>
+    <Inertia>0</Inertia>
     <MinSpeed>0.7</MinSpeed>
     <MaxSpeed>4</MaxSpeed>
   </Asset>

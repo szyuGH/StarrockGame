@@ -1,19 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.WreckageTemplate">
+    <Checksum>152856463</Checksum>
     <Name>TestWreckage</Name>
-	<File>Wreckage</File>
+    <File>Wreckage</File>
     <TextureName>TestShipWreckage</TextureName>
-	<Score>50</Score>
-    <Structure>40.0</Structure>
-    <Mass>20.0</Mass>
-    <Size>1.0</Size>
-    <Inertia>0.0</Inertia>
-	<MinFuel>5</MinFuel>
+    <Score>50</Score>
+    <Structure>40</Structure>
+    <Mass>20</Mass>
+    <Size>1</Size>
+    <Inertia>0</Inertia>
+    <MinFuel>5</MinFuel>
     <MaxFuel>100</MaxFuel>
     <MinEnergy>5</MinEnergy>
     <MaxEnergy>100</MaxEnergy>
-	<MinStructure>5</MinStructure>
+    <MinStructure>5</MinStructure>
     <MaxStructure>100</MaxStructure>
   </Asset>
 </XnaContent>

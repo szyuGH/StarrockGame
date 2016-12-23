@@ -32,5 +32,22 @@ namespace StarrockGame
         {
             ElapsedTime += gameTime.ElapsedGameTime;
         }
+
+
+
+        private static void SpawnAsteroids()
+        {
+
+        }
+
+        private static void SpawnEnemyShips()
+        {
+
+        }
+
+        private static void SpawnBoss()
+        {
+
+        }
     }
 }

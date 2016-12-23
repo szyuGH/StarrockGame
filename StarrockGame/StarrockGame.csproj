@@ -63,6 +63,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AI\DestroyerController.cs" />
     <Compile Include="AI\HaulerController.cs" />
     <Compile Include="AI\HomingController.cs" />
     <Compile Include="AI\IController.cs" />

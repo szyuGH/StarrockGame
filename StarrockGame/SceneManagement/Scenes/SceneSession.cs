@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TData.TemplateData;
 
 namespace StarrockGame.SceneManagement.Scenes
 {
@@ -34,6 +35,7 @@ namespace StarrockGame.SceneManagement.Scenes
 
             cam = new Camera2D(Device);
             cam.TrackingBody = EntityManager.PlayerShip.Body;
+            cam.Zoom = (EntityManager.PlayerShip.Template as SpaceshipTemplate).CameraZoom;
             
 
             ingameInterface = new IngameInterface(Game.GraphicsDevice, EntityManager.PlayerShip as Spaceship);
@@ -73,7 +75,7 @@ namespace StarrockGame.SceneManagement.Scenes
             ingameInterface.Render(SpriteBatch);
             SpriteBatch.End();
 
-            Particles.SetCamera(cam.Translation, cam.Projection);
+            Particles.SetCamera(cam.Translation, cam.Projection, cam.Zoom);
             EntityManager.Border.Render(SpriteBatch, gameTime, cam);
         }
     }

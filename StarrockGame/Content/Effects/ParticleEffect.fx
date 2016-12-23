@@ -22,6 +22,7 @@ float DurationRandomness;
 float EndVelocity;
 float4 MinColor;
 float4 MaxColor;
+float Zoom;
 
 
 // These float2 parameters describe the min and max of a range.
@@ -90,7 +91,7 @@ float4 ComputeParticlePosition(float3 position, float3 velocity,
 		(endVelocity - startVelocity) * normalizedAge *
 		normalizedAge / 2;
 
-	position += normalize(velocity) * velocityIntegral * Duration;
+	position += normalize(velocity) * velocityIntegral * Duration * Zoom;
 
 	// Apply the camera view and projection transforms.
 	return mul(mul(float4(position.x, position.y, position.z, 1), View), Projection);
@@ -105,7 +106,7 @@ float ComputeParticleSize(float randomValue, float normalizedAge)
 	float endSize = lerp(EndSize.x, EndSize.y, randomValue);
 
 	// Compute the actual size based on the age of the particle.
-	float size = lerp(startSize, endSize, normalizedAge);
+	float size = lerp(startSize, endSize, normalizedAge) * Zoom;
 
 	// Project the size into screen coordinates.
 	return size * Projection._m11;

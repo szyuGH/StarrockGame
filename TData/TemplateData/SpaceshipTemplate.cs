@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework.Content;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,5 +26,7 @@ namespace TData.TemplateData
         public WeaponBaseData SecondaryWeaponBases;
         public float RadarRange;
         public int Price;
+        [ContentSerializerAttribute(Optional = true)]
+        public float CameraZoom=1f;
     }
 }

@@ -46,6 +46,7 @@ namespace StarrockGame.SceneManagement.Scenes
             cam = new Camera2D(Device);
             cam.TrackingBody = ship.Body;
             cam.Update();
+            
 
             ingameInterface = new IngameInterface(Game.GraphicsDevice, ship);
 
@@ -100,7 +101,7 @@ namespace StarrockGame.SceneManagement.Scenes
             ingameInterface.Render(SpriteBatch);
             SpriteBatch.End();
 
-            Particles.SetCamera(cam.Translation, cam.Projection);
+            Particles.SetCamera(cam.Translation, cam.Projection, cam.Zoom);
             EntityManager.Border.Render(SpriteBatch, gameTime, cam);
         }
 

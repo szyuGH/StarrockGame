@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.SpaceshipTemplate">
-    <Checksum>447748177</Checksum>
+    <Checksum>533383892</Checksum>
     <Name>BS_Caine</Name>
     <File>BS_Caine</File>
     <TextureName>BS Caine</TextureName>
@@ -86,5 +86,6 @@
     </SecondaryWeaponBases>
     <RadarRange>500</RadarRange>
     <Price>200</Price>
+    <CameraZoom>0.6</CameraZoom>
   </Asset>
 </XnaContent>

@@ -19,7 +19,7 @@ namespace CSC
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        private string location = @"..\..\..\..\Content\Templates\";
+        private string location = @"..\..\..\..\Content\";
 
         public Game1()
         {
@@ -49,9 +49,9 @@ namespace CSC
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            foreach (string file in Directory.EnumerateFiles("Content/Templates").Select(f => Path.GetFileNameWithoutExtension(f)))
+            foreach (string file in Directory.EnumerateFiles("Content").Select(f => Path.GetFileNameWithoutExtension(f)))
             {
-                AbstractTemplate template = Content.Load<AbstractTemplate>("Templates/" + file);
+                AbstractTemplate template = Content.Load<AbstractTemplate>("" + file);
                 string formatted = null;
                 using (MemoryStream ms = new MemoryStream() { Position = 0 })
                 {

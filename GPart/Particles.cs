@@ -29,10 +29,11 @@ namespace GPart
             return system as T;
         }
 
-        public static void SetCamera(Matrix view, Matrix projection)
+        public static void SetCamera(Matrix view, Matrix projection, float zoom=1f)
         {
             foreach (ParticleSystem system in systems.Values)
             {
+                system?.SetZoom(zoom);
                 system?.SetCamera(view, projection);
             }
         }

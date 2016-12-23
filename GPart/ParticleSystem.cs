@@ -540,6 +540,10 @@ namespace GPart
             firstFreeParticle = nextFreeParticle;
         }
 
+        public void SetZoom(float zoom)
+        {
+            particleEffect.Parameters["Zoom"].SetValue(zoom);
+        }
 
         #endregion
     }

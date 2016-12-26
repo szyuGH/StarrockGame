@@ -17,7 +17,7 @@ namespace StarrockGame.Entities
 
         public LaserBullet(World world, string type) : base(world, type)
         {
-            
+            Body.IsBullet = true;
         }
 
         public override void Initialize<T>(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)

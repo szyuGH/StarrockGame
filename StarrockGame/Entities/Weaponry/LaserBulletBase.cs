@@ -12,10 +12,10 @@ namespace StarrockGame.Entities.Weaponry
 {
     public class LaserBulletBase : WeaponBase
     {
-        public LaserBulletBase(Body body, WeaponBaseData baseTemplate, WeaponTemplate weaponTemplate, Vector2 localPosition, float localAngle) 
-            : base(body, baseTemplate, weaponTemplate, localPosition, localAngle)
+        public LaserBulletBase(Entity parent, WeaponBaseData baseTemplate, WeaponTemplate weaponTemplate, Vector2 localPosition, float localAngle) 
+            : base(parent, baseTemplate, weaponTemplate, localPosition, localAngle)
         {
-            Body.IsBullet = true;
+            
         }
 
         protected override void DoFire()
@@ -23,8 +23,8 @@ namespace StarrockGame.Entities.Weaponry
             if (CanShoot)
             {
                 WeaponTransform transform = Transform;
-                LaserBullet lb = EntityManager.Add<LaserBullet, NoController>(BaseTemplate.WeaponType, transform.Position, transform.Angle, transform.Direction);
-                lb.EmitterBody = Body;
+                LaserBullet lb = EntityManager.Add<LaserBullet, HomingController>(BaseTemplate.WeaponType, transform.Position, transform.Angle, transform.Direction);
+                lb.EmitterBody = Parent.Body;
             }
         }
     }

@@ -18,7 +18,7 @@ namespace StarrockGame.Entities.Weaponry
         private float localAngle;
         private float cooldown;
 
-        protected Body Body { get; private set; }
+        protected Entity Parent { get; private set; }
         protected WeaponBaseData BaseTemplate { get; private set; }
         protected WeaponTemplate WeaponTemplate { get; private set; }
 
@@ -29,22 +29,22 @@ namespace StarrockGame.Entities.Weaponry
         /// </summary>
         protected WeaponTransform Transform { get
             {
-                Matrix trMatrix = Matrix.CreateTranslation(new Vector3(-ConvertUnits.ToDisplayUnits(Body.Position), 0))
+                Matrix trMatrix = Matrix.CreateTranslation(new Vector3(-ConvertUnits.ToDisplayUnits(Parent.Body.Position), 0))
                         * Matrix.CreateTranslation(new Vector3(localPosition, 0))
-                        * Matrix.CreateRotationZ(Body.Rotation)
-                        * Matrix.CreateTranslation(new Vector3(ConvertUnits.ToDisplayUnits(Body.Position), 0));
-                Vector2 emitPosition = Vector2.Transform(ConvertUnits.ToDisplayUnits(Body.Position), trMatrix);
+                        * Matrix.CreateRotationZ(Parent.Body.Rotation)
+                        * Matrix.CreateTranslation(new Vector3(ConvertUnits.ToDisplayUnits(Parent.Body.Position), 0));
+                Vector2 emitPosition = Vector2.Transform(ConvertUnits.ToDisplayUnits(Parent.Body.Position), trMatrix);
 
-                float rot = MathHelper.WrapAngle(Body.Rotation + localAngle);
+                float rot = MathHelper.WrapAngle(Parent.Body.Rotation + localAngle);
                 Vector2 dir = new Vector2((float)Math.Cos(rot), (float)Math.Sin(rot));
 
                 return new WeaponTransform(emitPosition, rot, dir);
             }
         }
 
-        public WeaponBase(Body body, WeaponBaseData baseTemplate, WeaponTemplate weaponTemplate, Vector2 localPosition, float localAngle)
+        public WeaponBase(Entity parent, WeaponBaseData baseTemplate, WeaponTemplate weaponTemplate, Vector2 localPosition, float localAngle)
         {
-            this.Body = body;
+            this.Parent = parent;
             this.BaseTemplate = baseTemplate;
             this.WeaponTemplate = weaponTemplate;
             this.localPosition = localPosition;
@@ -75,7 +75,7 @@ namespace StarrockGame.Entities.Weaponry
 
 
 
-        internal static WeaponBase[] FromTemplate(Body body, WeaponBaseData data)
+        internal static WeaponBase[] FromTemplate(Entity parent, WeaponBaseData data)
         {
             // preload weapon template to define type
             WeaponTemplate wt = Cache.LoadTemplate<WeaponTemplate>(data.WeaponType);
@@ -84,7 +84,7 @@ namespace StarrockGame.Entities.Weaponry
             for (int i = 0; i < bases.Length; i++)
             {
                 bases[i] = (WeaponBase)Activator.CreateInstance(SelectWeaponClass((WeaponType)wt.WeaponType),
-                    body, data, wt, data.Bases[i].LocalPosition, data.Bases[i].LocalAngle);
+                    parent, data, wt, data.Bases[i].LocalPosition, data.Bases[i].LocalAngle);
             }
             return bases;
         }
@@ -96,7 +96,7 @@ namespace StarrockGame.Entities.Weaponry
                 case WeaponType.LaserBullet: return typeof(LaserBulletBase);
                 case WeaponType.LaserBeam: return null;
                 case WeaponType.Rocket: return null;
-                case WeaponType.Missile: return null;
+                case WeaponType.Missile: return typeof(HomingMissileBase);
                 case WeaponType.Mine: return null;
             }
             throw new Exception("Weapon Type \"" + type.ToString() + "\" not defined!");

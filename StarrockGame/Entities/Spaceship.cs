@@ -80,10 +80,10 @@ namespace StarrockGame.Entities
             RadarRange = shipTemplate.RadarRange;
             Scavenging.Reset();
             
-            PrimaryWeapons = WeaponBase.FromTemplate(Body, shipTemplate.PrimaryWeaponBases);
-            SecondaryWeapons = WeaponBase.FromTemplate(Body, shipTemplate.SecondaryWeaponBases);
+            PrimaryWeapons = WeaponBase.FromTemplate(this, shipTemplate.PrimaryWeaponBases);
+            SecondaryWeapons = WeaponBase.FromTemplate(this, shipTemplate.SecondaryWeaponBases);
 
-            Engines = Engine.FromTemplate(Body, shipTemplate.Engines);
+            Engines = Engine.FromTemplate(Body, shipTemplate.Size, shipTemplate.Engines);
             fuelCostPerSecond[MovementType.Forward] = Engines[MovementType.Forward].Sum(e => e.FuelPerSeconds);
             fuelCostPerSecond[MovementType.Brake] = Engines[MovementType.Brake].Sum(e => e.FuelPerSeconds);
             fuelCostPerSecond[MovementType.RotateLeft] = Engines[MovementType.RotateLeft].Sum(e => e.FuelPerSeconds);

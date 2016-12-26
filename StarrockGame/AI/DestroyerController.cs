@@ -17,7 +17,9 @@ namespace StarrockGame.AI
             Spaceship ship = entity as Spaceship;
 
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            Entity target = EntityManager.PlayerShip;
+            Entity target = entity.Target;
+            if (target == null)
+                return;
             float distanceSquared = Vector2.DistanceSquared(target.Body.Position, entity.Body.Position);
             const float minDistanceSquard = 7;
 

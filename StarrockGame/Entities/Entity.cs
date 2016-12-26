@@ -49,6 +49,8 @@ namespace StarrockGame.Entities
         private World _world;
         public World World { get; private set; }
 
+        public Entity Target;
+
         public Entity(World world, string type)
         {
             World = world;

@@ -14,3 +14,13 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin Spaceship.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Spaceship.xml
+
+#begin HomingMissileTest.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:HomingMissileTest.xml
+

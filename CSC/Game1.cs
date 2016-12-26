@@ -49,7 +49,8 @@ namespace CSC
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            foreach (string file in Directory.EnumerateFiles("Content").Select(f => Path.GetFileNameWithoutExtension(f)))
+            List<string> files = Directory.EnumerateFiles("Content").Select(f => Path.GetFileNameWithoutExtension(f)).ToList();
+            foreach (string file in files)
             {
                 AbstractTemplate template = Content.Load<AbstractTemplate>("" + file);
                 string formatted = null;

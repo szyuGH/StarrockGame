@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="TData.TemplateData.HomingMissileTemplate">
+    <Checksum>485753746</Checksum>
+    <Name>HomingMissile</Name>
+    <File>HomingMissileTest</File>
+    <TextureName>HomingMissileTest</TextureName>
+    <Structure>1</Structure>
+    <Mass>1</Mass>
+    <Size>0.15</Size>
+    <Inertia>0</Inertia>
+    <WeaponType>0</WeaponType>
+    <EnergyCost>5</EnergyCost>
+    <Damage>10</Damage>
+    <Cooldown>1</Cooldown>
+    <SoundFile>LaserGun</SoundFile>
+    <ExplosionRange>10</ExplosionRange>
+    <Fuel>50</Fuel>
+    <Engines>
+      <Item>
+        <Direction>0</Direction>
+        <LocalPosition>-25 0</LocalPosition>
+        <PropulsionPower>1</PropulsionPower>
+        <FuelCostPerSecond>5</FuelCostPerSecond>
+        <ParticlesPerSecond>5</ParticlesPerSecond>
+      </Item>
+    </Engines>
+  </Asset>
+</XnaContent>

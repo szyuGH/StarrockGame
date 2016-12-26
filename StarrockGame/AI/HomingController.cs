@@ -13,7 +13,9 @@ namespace StarrockGame.AI
         public void Act(Entity entity, GameTime gameTime)
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            Entity target = EntityManager.PlayerShip;
+            Entity target = entity.Target;
+            if (target == null)
+                return;
 
             // calculate the direction this entity needs to be turning to
             Vector2 targetDir = target.Body.Position - entity.Body.Position;

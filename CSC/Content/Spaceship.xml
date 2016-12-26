@@ -1,60 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.SpaceshipTemplate">
-    <Checksum>624023116</Checksum>
-    <Name>BS_Caine</Name>
-    <File>BS_Caine</File>
-    <TextureName>BS Caine</TextureName>
-    <Score>150</Score>
-    <Structure>2500</Structure>
-    <Mass>2400</Mass>
+    <Checksum>489479512</Checksum>
+    <Name>TestName</Name>
+    <File>Spaceship</File>
+    <TextureName>TestShip</TextureName>
+    <Score>75</Score>
+    <Structure>300</Structure>
+    <Mass>20</Mass>
     <Size>1</Size>
-    <Inertia>1000</Inertia>
-    <Fuel>2900</Fuel>
-    <Energy>1500</Energy>
-    <ShieldCapacity>2000</ShieldCapacity>
-    <ScavengePower>50</ScavengePower>
-    <ScavengeRange>240</ScavengeRange>
-    <ShieldReplenishCostPerSecond>50</ShieldReplenishCostPerSecond>
-    <ShieldReplenishValuePerSecond>50</ShieldReplenishValuePerSecond>
+    <Inertia>10</Inertia>
+    <Fuel>200</Fuel>
+    <Energy>250</Energy>
+    <ShieldCapacity>100</ShieldCapacity>
+    <ScavengePower>10</ScavengePower>
+    <ScavengeRange>140</ScavengeRange>
+    <ShieldReplenishCostPerSecond>5</ShieldReplenishCostPerSecond>
+    <ShieldReplenishValuePerSecond>5</ShieldReplenishValuePerSecond>
     <EnergyRecoveryPerSecond>0</EnergyRecoveryPerSecond>
     <ShieldRecoveryPerSecond>0</ShieldRecoveryPerSecond>
     <FuelRecoveryPerSecond>0</FuelRecoveryPerSecond>
-    <ModuleCount>5</ModuleCount>
+    <ModuleCount>3</ModuleCount>
     <Engines>
       <Item>
         <Direction>1</Direction>
-        <LocalPosition>-123 -22</LocalPosition>
-        <PropulsionPower>1800</PropulsionPower>
-        <FuelCostPerSecond>60</FuelCostPerSecond>
-        <ParticlesPerSecond>160</ParticlesPerSecond>
+        <LocalPosition>-50 -7</LocalPosition>
+        <PropulsionPower>100</PropulsionPower>
+        <FuelCostPerSecond>1</FuelCostPerSecond>
+        <ParticlesPerSecond>100</ParticlesPerSecond>
       </Item>
       <Item>
         <Direction>1</Direction>
-        <LocalPosition>-123 22</LocalPosition>
-        <PropulsionPower>1800</PropulsionPower>
-        <FuelCostPerSecond>60</FuelCostPerSecond>
-        <ParticlesPerSecond>160</ParticlesPerSecond>
+        <LocalPosition>-50 7</LocalPosition>
+        <PropulsionPower>100</PropulsionPower>
+        <FuelCostPerSecond>1</FuelCostPerSecond>
+        <ParticlesPerSecond>100</ParticlesPerSecond>
       </Item>
       <Item>
         <Direction>2</Direction>
-        <LocalPosition>37 0</LocalPosition>
-        <PropulsionPower>1000</PropulsionPower>
-        <FuelCostPerSecond>40</FuelCostPerSecond>
+        <LocalPosition>45 0</LocalPosition>
+        <PropulsionPower>100</PropulsionPower>
+        <FuelCostPerSecond>1</FuelCostPerSecond>
         <ParticlesPerSecond>100</ParticlesPerSecond>
       </Item>
       <Item>
         <Direction>4</Direction>
-        <LocalPosition>155 19</LocalPosition>
-        <PropulsionPower>650</PropulsionPower>
-        <FuelCostPerSecond>5</FuelCostPerSecond>
+        <LocalPosition>-45 -17</LocalPosition>
+        <PropulsionPower>35</PropulsionPower>
+        <FuelCostPerSecond>0.5</FuelCostPerSecond>
         <ParticlesPerSecond>100</ParticlesPerSecond>
       </Item>
       <Item>
         <Direction>8</Direction>
-        <LocalPosition>155 -19</LocalPosition>
-        <PropulsionPower>650</PropulsionPower>
-        <FuelCostPerSecond>5</FuelCostPerSecond>
+        <LocalPosition>-45 17</LocalPosition>
+        <PropulsionPower>35</PropulsionPower>
+        <FuelCostPerSecond>0.5</FuelCostPerSecond>
         <ParticlesPerSecond>100</ParticlesPerSecond>
       </Item>
     </Engines>
@@ -72,7 +72,7 @@
       </Bases>
     </PrimaryWeaponBases>
     <SecondaryWeaponBases>
-      <WeaponType>CannonTest</WeaponType>
+      <WeaponType>HomingMissileTest</WeaponType>
       <Bases>
         <Item>
           <LocalPosition>20 -30</LocalPosition>
@@ -84,7 +84,7 @@
         </Item>
       </Bases>
     </SecondaryWeaponBases>
-    <RadarRange>500</RadarRange>
-    <Price>200</Price>
+    <RadarRange>50</RadarRange>
+    <Price>0</Price>
   </Asset>
 </XnaContent>

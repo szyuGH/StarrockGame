@@ -28,7 +28,7 @@ namespace StarrockGame.Entities
         private SoundEffectInstance sound;
 
 
-        public Engine(Body body, Vector2 localPos, MovementType dir, float power, float fps, float pps)
+        public Engine(Body body, Vector2 localPos, MovementType dir, float power, float fps, float pps, float size=1f)
         {
             Direction = dir;
             PropulsionPower = power;
@@ -77,7 +77,7 @@ namespace StarrockGame.Entities
             return 0;
         }
 
-        internal static Dictionary<MovementType, List<Engine>> FromTemplate(Body body, EngineData[] engines)
+        internal static Dictionary<MovementType, List<Engine>> FromTemplate(Body body, float size, EngineData[] engines)
         {
             Dictionary<MovementType, List<Engine>> res = new Dictionary<MovementType, List<Engine>>();
             res[MovementType.Forward] = new List<Engine>();
@@ -87,8 +87,11 @@ namespace StarrockGame.Entities
 
             foreach (EngineData data in engines)
             {
-                res[(MovementType)data.Direction].Add(
-                    new Engine(body, data.LocalPosition, (MovementType)data.Direction, data.PropulsionPower, data.FuelCostPerSecond, data.ParticlesPerSecond));
+                MovementType mtype = (MovementType)data.Direction;
+                if (!res.ContainsKey(mtype))
+                    res[mtype] = new List<Engine>();
+                res[mtype].Add(
+                    new Engine(body, data.LocalPosition, mtype, data.PropulsionPower, data.FuelCostPerSecond, data.ParticlesPerSecond, size));
             }
             return res;
         }

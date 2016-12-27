@@ -95,7 +95,7 @@ namespace StarrockGame.Entities.Weaponry
             {
                 case WeaponType.LaserBullet: return typeof(LaserBulletBase);
                 case WeaponType.LaserBeam: return null;
-                case WeaponType.Rocket: return null;
+                case WeaponType.Rocket: return typeof(RocketBase);
                 case WeaponType.Missile: return typeof(HomingMissileBase);
                 case WeaponType.Mine: return null;
             }

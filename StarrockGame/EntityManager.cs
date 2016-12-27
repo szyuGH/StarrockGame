@@ -54,9 +54,9 @@ namespace StarrockGame
             {
                 (entity as Spaceship).SetModules(SessionManager.ModuleTemplates.ToArray());
                 PlayerShip = entity;
-            } else
+            } else if (typeof(T) == typeof(Spaceship))
             {
-
+                entity.Target = PlayerShip;
             }
             entity.Initialize<B>(pos, rot, initialVelocity, initialAngularVelocity);
             

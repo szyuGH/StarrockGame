@@ -28,6 +28,7 @@
         <PropulsionPower>1800</PropulsionPower>
         <FuelCostPerSecond>60</FuelCostPerSecond>
         <ParticlesPerSecond>160</ParticlesPerSecond>
+		<ParticleSize>1</ParticleSize>
       </Item>
       <Item>
         <Direction>1</Direction>
@@ -35,6 +36,7 @@
         <PropulsionPower>1800</PropulsionPower>
         <FuelCostPerSecond>60</FuelCostPerSecond>
         <ParticlesPerSecond>160</ParticlesPerSecond>
+		<ParticleSize>1</ParticleSize>
       </Item>
       <Item>
         <Direction>2</Direction>
@@ -42,6 +44,7 @@
         <PropulsionPower>1000</PropulsionPower>
         <FuelCostPerSecond>40</FuelCostPerSecond>
         <ParticlesPerSecond>100</ParticlesPerSecond>
+		<ParticleSize>1</ParticleSize>
       </Item>
       <Item>
         <Direction>4</Direction>
@@ -49,6 +52,7 @@
         <PropulsionPower>650</PropulsionPower>
         <FuelCostPerSecond>5</FuelCostPerSecond>
         <ParticlesPerSecond>100</ParticlesPerSecond>
+		<ParticleSize>1</ParticleSize>
       </Item>
       <Item>
         <Direction>8</Direction>
@@ -56,6 +60,7 @@
         <PropulsionPower>650</PropulsionPower>
         <FuelCostPerSecond>5</FuelCostPerSecond>
         <ParticlesPerSecond>100</ParticlesPerSecond>
+		<ParticleSize>1</ParticleSize>
       </Item>
     </Engines>
     <PrimaryWeaponBases>

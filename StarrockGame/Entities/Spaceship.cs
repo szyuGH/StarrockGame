@@ -83,7 +83,7 @@ namespace StarrockGame.Entities
             PrimaryWeapons = WeaponBase.FromTemplate(this, shipTemplate.PrimaryWeaponBases);
             SecondaryWeapons = WeaponBase.FromTemplate(this, shipTemplate.SecondaryWeaponBases);
 
-            Engines = Engine.FromTemplate(Body, shipTemplate.Size, shipTemplate.Engines);
+            Engines = Engine.FromTemplate(Body, shipTemplate.Engines);
             fuelCostPerSecond[MovementType.Forward] = Engines[MovementType.Forward].Sum(e => e.FuelPerSeconds);
             fuelCostPerSecond[MovementType.Brake] = Engines[MovementType.Brake].Sum(e => e.FuelPerSeconds);
             fuelCostPerSecond[MovementType.RotateLeft] = Engines[MovementType.RotateLeft].Sum(e => e.FuelPerSeconds);

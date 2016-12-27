@@ -38,7 +38,8 @@ namespace StarrockGame.SceneManagement.Scenes
 
             if (timer >= INTRO_TIME || Input.Device.MenuSelect())
             {
-                SceneManager.Set<SceneCheckTemplates>();
+                //SceneManager.Set<SceneCheckTemplates>();
+                SceneManager.Set<SceneTitle>();
             }
         }
         

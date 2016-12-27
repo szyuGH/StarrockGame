@@ -22,9 +22,9 @@ namespace StarrockGame.Entities.Weaponry
             if (CanShoot)
             {
                 WeaponTransform transform = Transform;
-                HomingMissile hm = EntityManager.Add<HomingMissile, NoController>(BaseTemplate.WeaponType, transform.Position, transform.Angle, transform.Direction);
+                HomingMissile hm = EntityManager.Add<HomingMissile, HomingController>(BaseTemplate.WeaponType, transform.Position, transform.Angle, transform.Direction);
                 hm.EmitterBody = Parent.Body;
-                hm.Target = Parent.Target?.Body; 
+                hm.Target = Parent.Target; 
                 // TODO: determine target (how do we determine an enemy target?
                 
             }

@@ -26,6 +26,8 @@ namespace GPart
         // The time (in seconds) at which this particle was created.
         public float Time;
 
+        public float Size;
+
 
         public static readonly VertexDeclaration VertexDeclaration = new VertexDeclaration
         (
@@ -38,9 +40,11 @@ namespace GPart
           new VertexElement(32, VertexElementFormat.Color,
                                  VertexElementUsage.Color, 0),
           new VertexElement(36, VertexElementFormat.Single,
-                                 VertexElementUsage.TextureCoordinate, 0)
+                                 VertexElementUsage.TextureCoordinate, 0),
+          new VertexElement(40, VertexElementFormat.Single,
+                                VertexElementUsage.TextureCoordinate, 1)
         );
 
-        public const int SizeInBytes = 40;
+        public const int SizeInBytes = 44;
     }
 }

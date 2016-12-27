@@ -28,14 +28,14 @@ namespace StarrockGame.Entities
         private SoundEffectInstance sound;
 
 
-        public Engine(Body body, Vector2 localPos, MovementType dir, float power, float fps, float pps, float size=1f)
+        public Engine(Body body, Vector2 localPos, MovementType dir, float power, float fps, float pps, float psize=1)
         {
             Direction = dir;
             PropulsionPower = power;
             FuelPerSeconds = fps;
             LocalPosition = localPos;
 
-            emitter = new ParticleEmitter(Particles.Get<TrailParticleSystem>(), pps, body, LocalPosition, GetRelativeAngle(dir), power * EmittingFactor(dir));
+            emitter = new ParticleEmitter(Particles.Get<TrailParticleSystem>(), pps, body, LocalPosition, GetRelativeAngle(dir), power * EmittingFactor(dir), psize);
             emitter.ResetEmittingState = true;
 
             sound = Cache.LoadSe("Thruster").CreateInstance();
@@ -77,7 +77,7 @@ namespace StarrockGame.Entities
             return 0;
         }
 
-        internal static Dictionary<MovementType, List<Engine>> FromTemplate(Body body, float size, EngineData[] engines)
+        internal static Dictionary<MovementType, List<Engine>> FromTemplate(Body body, EngineData[] engines)
         {
             Dictionary<MovementType, List<Engine>> res = new Dictionary<MovementType, List<Engine>>();
             res[MovementType.Forward] = new List<Engine>();
@@ -91,7 +91,7 @@ namespace StarrockGame.Entities
                 if (!res.ContainsKey(mtype))
                     res[mtype] = new List<Engine>();
                 res[mtype].Add(
-                    new Engine(body, data.LocalPosition, mtype, data.PropulsionPower, data.FuelCostPerSecond, data.ParticlesPerSecond, size));
+                    new Engine(body, data.LocalPosition, mtype, data.PropulsionPower, data.FuelCostPerSecond, data.ParticlesPerSecond, data.ParticleSize));
             }
             return res;
         }

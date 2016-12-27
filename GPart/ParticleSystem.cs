@@ -479,7 +479,7 @@ namespace GPart
         /// <summary>
         /// Adds a new particle to the system.
         /// </summary>
-        public void AddParticle(Vector2 position, Vector2 velocity)
+        public void AddParticle(Vector2 position, Vector2 velocity, float size = 1)
         {
             // Figure out where in the circular queue to allocate the new particle.
             int nextFreeParticle = firstFreeParticle + 1;
@@ -535,6 +535,7 @@ namespace GPart
                 particles[firstFreeParticle * 4 + i].Velocity = new Vector3(velocity, 0);
                 particles[firstFreeParticle * 4 + i].Random = randomValues;
                 particles[firstFreeParticle * 4 + i].Time = currentTime;
+                particles[firstFreeParticle * 4 + i].Size = size;
             }
 
             firstFreeParticle = nextFreeParticle;

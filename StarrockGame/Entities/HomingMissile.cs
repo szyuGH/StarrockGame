@@ -12,7 +12,6 @@ namespace StarrockGame.Entities
 {
     public class HomingMissile : WeaponEntity
     {
-        public Body Target { get; set; }
         public Dictionary<MovementType, List<Engine>> Engines { get; private set; } // will be used to emit particles based on the moving direction
         private float _fuel;
         public float Fuel
@@ -37,7 +36,7 @@ namespace StarrockGame.Entities
             Fuel = (Template as HomingMissileTemplate).Fuel;
             ExplosionRange = (Template as HomingMissileTemplate).ExplosionRange;
 
-            Engines = Engine.FromTemplate(Body, (Template as HomingMissileTemplate).Size, (Template as HomingMissileTemplate).Engines);
+            Engines = Engine.FromTemplate(Body, (Template as HomingMissileTemplate).Engines);
             fuelCostPerSecond[MovementType.Forward] = Engines[MovementType.Forward].Sum(e => e.FuelPerSeconds);
             fuelCostPerSecond[MovementType.Brake] = Engines[MovementType.Brake].Sum(e => e.FuelPerSeconds);
             fuelCostPerSecond[MovementType.RotateLeft] = Engines[MovementType.RotateLeft].Sum(e => e.FuelPerSeconds);

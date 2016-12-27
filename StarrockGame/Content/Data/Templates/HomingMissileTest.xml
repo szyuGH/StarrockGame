@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.HomingMissileTemplate">
-    <Checksum>485755543</Checksum>
+    <Checksum>1119184597</Checksum>
     <Name>HomingMissile</Name>
     <File>HomingMissileTest</File>
     <TextureName>HomingMissileTest</TextureName>
     <Structure>1</Structure>
     <Mass>1</Mass>
     <Size>0.15</Size>
-    <Inertia>0</Inertia>
+    <Inertia>1</Inertia>
     <WeaponType>3</WeaponType>
     <EnergyCost>5</EnergyCost>
     <Damage>10</Damage>
@@ -18,11 +18,28 @@
     <Fuel>50</Fuel>
     <Engines>
       <Item>
-        <Direction>0</Direction>
+        <Direction>1</Direction>
         <LocalPosition>-25 0</LocalPosition>
-        <PropulsionPower>1</PropulsionPower>
-        <FuelCostPerSecond>5</FuelCostPerSecond>
+        <PropulsionPower>4</PropulsionPower>
+        <FuelCostPerSecond>1</FuelCostPerSecond>
+        <ParticlesPerSecond>50</ParticlesPerSecond>
+		<ParticleSize>0.55</ParticleSize>
+      </Item>
+      <Item>
+        <Direction>4</Direction>
+        <LocalPosition>-25 0</LocalPosition>
+        <PropulsionPower>3</PropulsionPower>
+        <FuelCostPerSecond>1</FuelCostPerSecond>
         <ParticlesPerSecond>5</ParticlesPerSecond>
+		<ParticleSize>0.35</ParticleSize>
+      </Item>
+      <Item>
+        <Direction>8</Direction>
+        <LocalPosition>-25 0</LocalPosition>
+        <PropulsionPower>3</PropulsionPower>
+        <FuelCostPerSecond>1</FuelCostPerSecond>
+        <ParticlesPerSecond>5</ParticlesPerSecond>
+		<ParticleSize>0.35</ParticleSize>
       </Item>
     </Engines>
   </Asset>

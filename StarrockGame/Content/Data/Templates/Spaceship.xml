@@ -28,6 +28,7 @@
         <PropulsionPower>100</PropulsionPower>
         <FuelCostPerSecond>1</FuelCostPerSecond>
         <ParticlesPerSecond>100</ParticlesPerSecond>
+		<ParticleSize>1</ParticleSize>
       </Item>
       <Item>
         <Direction>1</Direction>
@@ -35,6 +36,7 @@
         <PropulsionPower>100</PropulsionPower>
         <FuelCostPerSecond>1</FuelCostPerSecond>
         <ParticlesPerSecond>100</ParticlesPerSecond>
+		<ParticleSize>1</ParticleSize>
       </Item>
       <Item>
         <Direction>2</Direction>
@@ -42,6 +44,7 @@
         <PropulsionPower>100</PropulsionPower>
         <FuelCostPerSecond>1</FuelCostPerSecond>
         <ParticlesPerSecond>100</ParticlesPerSecond>
+		<ParticleSize>1</ParticleSize>
       </Item>
       <Item>
         <Direction>4</Direction>
@@ -49,6 +52,7 @@
         <PropulsionPower>35</PropulsionPower>
         <FuelCostPerSecond>0.5</FuelCostPerSecond>
         <ParticlesPerSecond>100</ParticlesPerSecond>
+		<ParticleSize>1</ParticleSize>
       </Item>
       <Item>
         <Direction>8</Direction>
@@ -56,10 +60,11 @@
         <PropulsionPower>35</PropulsionPower>
         <FuelCostPerSecond>0.5</FuelCostPerSecond>
         <ParticlesPerSecond>100</ParticlesPerSecond>
+		<ParticleSize>1</ParticleSize>
       </Item>
     </Engines>
     <PrimaryWeaponBases>
-      <WeaponType>CannonTest</WeaponType>
+      <WeaponType>RocketTest</WeaponType>
       <Bases>
         <Item>
           <LocalPosition>20 -30</LocalPosition>

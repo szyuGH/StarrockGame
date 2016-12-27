@@ -23,6 +23,7 @@ namespace StarrockGame.ParticleSystems
         float relativeAngle;
         float propulsionPower;
         Vector2 localPosition;
+        float psize;
 
         public bool Emitting { get; set; }
         public bool ResetEmittingState = false;
@@ -36,13 +37,14 @@ namespace StarrockGame.ParticleSystems
         /// Constructs a new particle emitter object.
         /// </summary>
         public ParticleEmitter(ParticleSystem particleSystem,
-                               float particlesPerSecond, Body body, Vector2 localPosition, float relativeAngle, float propulsionPower)
+                               float particlesPerSecond, Body body, Vector2 localPosition, float relativeAngle, float propulsionPower, float psize=1)
         {
             this.particleSystem = particleSystem;
             this.body = body;
             this.relativeAngle = relativeAngle;
             this.propulsionPower = propulsionPower;
             this.localPosition = localPosition;
+            this.psize = psize;
 
             timeBetweenParticles = 1.0f / particlesPerSecond;
         }
@@ -95,7 +97,7 @@ namespace StarrockGame.ParticleSystems
                         timeToSpend -= timeBetweenParticles;
 
                         // Create the particle.
-                        particleSystem.AddParticle(emitPosition, velocity * propulsionPower * 0.25f);
+                        particleSystem.AddParticle(emitPosition, velocity * propulsionPower * 0.25f, psize);
                     }
 
                     if (ResetEmittingState)

@@ -1,0 +1,26 @@
+Damage Calculations:
+
+- Weapons will be destroyed on Contact (except laser beam)
+- Asteroids will be destroyed on Contact
+- Ship
+	- Asteroid
+		Damage will be calculated based on both bodies' velocities and masses
+		
+	- Ship
+		Damage will be calculated based on both bodies' velocities and masses
+		
+	- Weapon
+		Shield will only be damaged by laser weapons
+		Structure will be damaged by lasers, when shield is 0
+		Structure will be damaged by all other weapons
+		Damage is based on the weapons damage
+		
+	- Border
+		Damage will be calculated based on the ships velocity in relation to the normale of the border and the ship's mass
+		
+		
+*
+(For next iteration)
+- Border doesnt stop an entity but decelerates it or puts a force back to the center.
+- Rockets, Missiles and Mines explode, damaging everything in explosion range.
+*

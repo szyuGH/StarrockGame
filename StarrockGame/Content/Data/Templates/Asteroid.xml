@@ -7,7 +7,7 @@
     <TextureName>Asteroid1</TextureName>
     <Score>200</Score>
     <Structure>300</Structure>
-    <Mass>600</Mass>
+    <Mass>9000</Mass>
     <Size>1</Size>
     <Inertia>0</Inertia>
     <MinSpeed>0.7</MinSpeed>

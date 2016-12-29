@@ -18,6 +18,8 @@ namespace StarrockGame.Entities
         {
             Body.AngularDamping = 0;
             Body.LinearDamping = 0;
+            Body.CollisionCategories = Category.Cat1;
+            Body.CollidesWith = Category.Cat1 | Category.Cat2 | Category.Cat3 | Category.Cat4 | Category.Cat5;
         }
 
         public override void Initialize<T>(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
@@ -41,6 +43,11 @@ namespace StarrockGame.Entities
             {
                 Destroy(true);
             }
+        }
+
+        protected override void HandleCollisionResponse(Body with)
+        {
+            Structure = 0;
         }
     }
 }

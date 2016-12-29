@@ -126,7 +126,7 @@ namespace StarrockGame.Entities
             Body.LinearDamping = 2;
             Body.Restitution = 0.2F;
             Body.UserData = this;
-
+            Body.CollisionCategories = Category.None;
             Body.OnCollision += Body_OnCollision;
             Body.Enabled = false;
         }
@@ -170,13 +170,11 @@ namespace StarrockGame.Entities
             Body.ApplyTorque(val * elapsed * 50);
         }
 
-        public virtual void ApplyDamage()
-        {
-
-        }
-
         public virtual void Destroy(bool ignoreScore=false)
         {
+            if (!IsAlive)
+                return;
+
             Structure = 0;
             Body.Enabled = false;
             IsAlive = false;
@@ -186,21 +184,17 @@ namespace StarrockGame.Entities
             }
         }
 
-        protected virtual bool Body_OnCollision(Fixture fixtureA, Fixture fixtureB, Contact contact)
+        private bool Body_OnCollision(Fixture fixtureA, Fixture fixtureB, Contact contact)
         {
-            if (fixtureA.Body.UserData is GameBorder && !((fixtureB.Body.UserData as Entity).Controller is PlayerController) 
-                || fixtureB.Body.UserData is GameBorder && !((fixtureA.Body.UserData as Entity).Controller is PlayerController))
-            {
-                return false;
-            }
-            else if (fixtureB.Body.UserData is WeaponEntity && (fixtureB.Body.UserData as WeaponEntity).EmitterBody == Body)
-            {
-                return false;
-            }
-
-            (fixtureA.Body.UserData as Entity).Structure = 0;
+            // apply collision response in form of applying damage
+            HandleCollisionResponse(fixtureB.Body);
             return true;
         }
-        
+
+        /// <summary>
+        /// Handles the collision with another entity. Here damage will be calculated.
+        /// </summary>
+        /// <param name="with">other entity</param>
+        protected abstract void HandleCollisionResponse(Body with);
     }
 }

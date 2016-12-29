@@ -7,9 +7,9 @@
     <TextureName>TestShip</TextureName>
     <Score>75</Score>
     <Structure>300</Structure>
-    <Mass>20</Mass>
+    <Mass>900</Mass>
     <Size>1</Size>
-    <Inertia>10</Inertia>
+    <Inertia>20</Inertia>
     <Fuel>200</Fuel>
     <Energy>250</Energy>
     <ShieldCapacity>100</ShieldCapacity>
@@ -25,7 +25,7 @@
       <Item>
         <Direction>1</Direction>
         <LocalPosition>-50 -7</LocalPosition>
-        <PropulsionPower>100</PropulsionPower>
+        <PropulsionPower>2000</PropulsionPower>
         <FuelCostPerSecond>1</FuelCostPerSecond>
         <ParticlesPerSecond>100</ParticlesPerSecond>
 		<ParticleSize>1</ParticleSize>
@@ -33,7 +33,7 @@
       <Item>
         <Direction>1</Direction>
         <LocalPosition>-50 7</LocalPosition>
-        <PropulsionPower>100</PropulsionPower>
+        <PropulsionPower>2000</PropulsionPower>
         <FuelCostPerSecond>1</FuelCostPerSecond>
         <ParticlesPerSecond>100</ParticlesPerSecond>
 		<ParticleSize>1</ParticleSize>
@@ -41,7 +41,7 @@
       <Item>
         <Direction>2</Direction>
         <LocalPosition>45 0</LocalPosition>
-        <PropulsionPower>100</PropulsionPower>
+        <PropulsionPower>1600</PropulsionPower>
         <FuelCostPerSecond>1</FuelCostPerSecond>
         <ParticlesPerSecond>100</ParticlesPerSecond>
 		<ParticleSize>1</ParticleSize>

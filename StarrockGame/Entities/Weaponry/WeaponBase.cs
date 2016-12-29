@@ -59,7 +59,7 @@ namespace StarrockGame.Entities.Weaponry
             }
         }
 
-        public virtual float Fire(float energy)
+        public float Fire(float energy)
         {
             if (CanShoot && energy > WeaponTemplate.EnergyCost)
             {

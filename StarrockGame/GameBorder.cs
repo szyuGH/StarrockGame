@@ -57,7 +57,8 @@ namespace StarrockGame
             }*/
             _anchor = BodyFactory.CreateLoopShape(world, borders);
             _anchor.UserData = this;
-
+            _anchor.CollisionCategories = Category.Cat6;
+            _anchor.CollidesWith = Category.Cat2;
 
 
             _lines = new List<Line>();

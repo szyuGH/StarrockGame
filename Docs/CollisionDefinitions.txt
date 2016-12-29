@@ -1,0 +1,46 @@
+Entity			Short	CollisionCategory	CollidesWith
+---------------------------------------------------------------------------------------------
+Asteroid 		- A		- Cat1				- A | P | E | W(P) | W(E)
+Player 			- P		- Cat2				- A | E | W(E) | B
+Enemy 			- E		- Cat3				- A | P | E(?) | W(P)
+Weapon (Pl) 	- W(P)	- Cat4				- A | E
+Weapon (En) 	- W(E)	- Cat5				- A | P
+Border 			- B		- Cat6				- P
+Wreckage 		- L		- Cat None			- 
+
+A	P	E	W(P)	W(E)	B	L
+
+A - A 		= ?
+A - P 		= Y
+A - E 		= Y
+A - W(P) 	= Y
+A - W(E) 	= Y
+A - B 		= N
+A - L 		= N
+
+P - P		= -
+P - E 		= Y
+P - W(P) 	= N
+P - W(E)	= Y
+P - B 		= Y
+P - L 		= N
+
+E - E		= N (?)
+E - W(P)	= Y
+E - W(E)	= N
+E - B		= N
+E - L		= N
+
+W(P) - W(P) = N
+W(P) - W(E) = N
+W(P) - B	= N
+W(P) - L	= N
+
+W(E) - W(E) = N
+W(E) - B	= N
+W(E) - L	= N
+
+B - B		= -
+B - L		= N
+
+L - L		= -

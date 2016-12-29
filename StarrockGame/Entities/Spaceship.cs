@@ -88,6 +88,17 @@ namespace StarrockGame.Entities
             fuelCostPerSecond[MovementType.Brake] = Engines[MovementType.Brake].Sum(e => e.FuelPerSeconds);
             fuelCostPerSecond[MovementType.RotateLeft] = Engines[MovementType.RotateLeft].Sum(e => e.FuelPerSeconds);
             fuelCostPerSecond[MovementType.RotateRight] = Engines[MovementType.RotateRight].Sum(e => e.FuelPerSeconds);
+
+            // set collision categories
+            if (IsPlayer)
+            {
+                Body.CollisionCategories = Category.Cat2;
+                Body.CollidesWith = Category.Cat1 | Category.Cat3 | Category.Cat5 | Category.Cat6;
+            } else
+            {
+                Body.CollisionCategories = Category.Cat3;
+                Body.CollidesWith = Category.Cat1 | Category.Cat2 | Category.Cat4;
+            }
         }
 
         public void SetModules(params ModuleTemplate[] modules)
@@ -260,6 +271,34 @@ namespace StarrockGame.Entities
             Structure += Scavenging.Target.GainStructure;
             Scavenging.Target.Destroy();
             Scavenging.Reset();
+        }
+
+        protected override void HandleCollisionResponse(Body with)
+        {
+            float structureDmg=0;
+            float shieldDmg=0;
+            if (with.UserData is WeaponEntity)
+            {
+                float dmg = (with.UserData as WeaponEntity).Damage * ((with.UserData as WeaponEntity).EmitterBody.UserData as Spaceship).DamageAmplifier;
+                structureDmg = Math.Max(0, dmg - ShieldCapacity);
+                
+                
+            } else if (with.UserData is GameBorder)
+            {
+
+            }
+            else // Spaceship or Asteroid
+            {
+                Entity e = with.UserData as Entity;
+                float velAvg = ((e.Body.LinearVelocity + Body.LinearVelocity) * 1.5f).LengthSquared();
+                float massAvg = (e.Body.Mass + Body.Mass) * 1.5f;
+
+                structureDmg = (float)Math.Sqrt(velAvg * massAvg) * .4f;
+            }
+
+            if (ShieldCapacity > 0)
+                ShieldCapacity -= shieldDmg;
+            Structure -= structureDmg;
         }
     }
 }

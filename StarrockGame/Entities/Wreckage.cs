@@ -40,5 +40,9 @@ namespace StarrockGame.Entities
             GainFuel = MathHelper.Lerp(wtd.MinFuel, wtd.MaxFuel, (float)Program.Random.NextDouble());
             GainStructure = MathHelper.Lerp(wtd.MinStructure, wtd.MaxStructure, (float)Program.Random.NextDouble());
         }
+
+        protected override void HandleCollisionResponse(Body with)
+        {
+        }
     }
 }

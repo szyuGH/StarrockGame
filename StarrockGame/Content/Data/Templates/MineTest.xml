@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="TData.TemplateData.MineTemplate">
+    <Checksum>1119184597</Checksum>
+    <Name>MineTest</Name>
+    <File>MineTest</File>
+    <TextureName>MineTest</TextureName>
+    <Structure>1</Structure>
+    <Mass>10</Mass>
+    <Size>0.45</Size>
+    <Inertia>3</Inertia>
+    <WeaponType>4</WeaponType>
+    <EnergyCost>5</EnergyCost>
+    <Damage>10</Damage>
+    <Cooldown>0.35</Cooldown>
+    <SoundFile>LaserGun</SoundFile>
+    <ExplosionRange>10</ExplosionRange>
+	<LinearDampening>1</LinearDampening>
+  </Asset>
+</XnaContent>

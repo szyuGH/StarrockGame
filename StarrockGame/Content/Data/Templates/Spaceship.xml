@@ -77,14 +77,10 @@
       </Bases>
     </PrimaryWeaponBases>
     <SecondaryWeaponBases>
-      <WeaponType>HomingMissileTest</WeaponType>
+      <WeaponType>MineTest</WeaponType>
       <Bases>
         <Item>
-          <LocalPosition>20 -30</LocalPosition>
-          <LocalAngle>0</LocalAngle>
-        </Item>
-        <Item>
-          <LocalPosition>20 30</LocalPosition>
+          <LocalPosition>-48 0</LocalPosition>
           <LocalAngle>0</LocalAngle>
         </Item>
       </Bases>

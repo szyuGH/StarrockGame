@@ -59,7 +59,7 @@ namespace StarrockGame.Entities.Weaponry
             }
         }
 
-        public float Fire(float energy)
+        public virtual float Fire(float energy)
         {
             if (CanShoot && energy > WeaponTemplate.EnergyCost)
             {
@@ -94,10 +94,10 @@ namespace StarrockGame.Entities.Weaponry
             switch (type)
             {
                 case WeaponType.LaserBullet: return typeof(LaserBulletBase);
-                case WeaponType.LaserBeam: return null;
+                //case WeaponType.LaserBeam: return typeof(LaserBeamBase);
                 case WeaponType.Rocket: return typeof(RocketBase);
                 case WeaponType.Missile: return typeof(HomingMissileBase);
-                case WeaponType.Mine: return null;
+                case WeaponType.Mine: return typeof(MineBase);
             }
             throw new Exception("Weapon Type \"" + type.ToString() + "\" not defined!");
         }

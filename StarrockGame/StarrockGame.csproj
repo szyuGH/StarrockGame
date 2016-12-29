@@ -82,6 +82,7 @@
     <Compile Include="Entities\Asteroid.cs" />
     <Compile Include="Entities\Engine.cs" />
     <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\Mine.cs" />
     <Compile Include="Entities\Rocket.cs" />
     <Compile Include="Entities\HomingMissile.cs" />
     <Compile Include="Entities\LaserBullet.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Entities\Scavenging.cs" />
     <Compile Include="Entities\Spaceship.cs" />
     <Compile Include="Entities\WeaponEntity.cs" />
+    <Compile Include="Entities\Weaponry\MineBase.cs" />
     <Compile Include="Entities\Weaponry\RocketBase.cs" />
     <Compile Include="Entities\Weaponry\HomingMissileBase.cs" />
     <Compile Include="Entities\Weaponry\LaserBulletBase.cs" />

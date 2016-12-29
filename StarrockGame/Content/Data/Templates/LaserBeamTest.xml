@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="TData.TemplateData.MineTemplate">
+    <Checksum>1119184597</Checksum>
+    <Name>LaserBeamTest</Name>
+    <File>LaserBeamTest</File>
+    <TextureName>LaserBeamTest</TextureName>
+    <Structure>1</Structure>
+    <Mass>0</Mass>
+    <Size>0.45</Size>
+    <Inertia>3</Inertia>
+    <WeaponType>1</WeaponType>
+    <EnergyCost>5</EnergyCost>
+    <Damage>10</Damage>
+    <Cooldown>0</Cooldown>
+    <SoundFile>LaserGun</SoundFile>
+    <Range>50</Range>
+  </Asset>
+</XnaContent>

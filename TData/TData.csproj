@@ -49,6 +49,7 @@
     <Compile Include="TemplateData\AsteroidTemplate.cs" />
     <Compile Include="TemplateData\EngineData.cs" />
     <Compile Include="TemplateData\EntityTemplate.cs" />
+    <Compile Include="TemplateData\MineTemplate.cs" />
     <Compile Include="TemplateData\RocketTemplate.cs" />
     <Compile Include="TemplateData\HomingMissileTemplate.cs" />
     <Compile Include="TemplateData\LaserBulletTemplate.cs" />

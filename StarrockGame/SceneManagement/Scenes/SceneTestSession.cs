@@ -39,7 +39,7 @@ namespace StarrockGame.SceneManagement.Scenes
             SessionManager.Reset();
             SessionManager.ModuleTemplates.Add(Cache.LoadTemplate<ModuleTemplate>("Module"));
             EntityManager.Clear();
-            ship = EntityManager.Add<Spaceship, PlayerController>("Spaceship", new Vector2(900, 350), (float)Math.PI * -.5f, Vector2.Zero);
+            ship = EntityManager.Add<Spaceship, PlayerController>("Spaceship", new Vector2(0, 0), (float)Math.PI * -.5f, Vector2.Zero);
             ship2 = EntityManager.Add<Spaceship, NoController>("BS_Caine", new Vector2(400, 100), (float)Math.PI * .5f, Vector2.Zero);
             wreckage = EntityManager.Add<Wreckage, NoController>("Wreckage",new Vector2(900, 500), 0, Vector2.Zero);
             ship.Target = ship2;

@@ -9,6 +9,7 @@
     <Mass>1</Mass>
     <Size>0.15</Size>
     <Inertia>1</Inertia>
+	<ExplosionSize>1</ExplosionSize>
     <WeaponType>3</WeaponType>
     <EnergyCost>5</EnergyCost>
     <Damage>10</Damage>

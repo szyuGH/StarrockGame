@@ -45,6 +45,7 @@ namespace StarrockGame
             Input.Initialize();
             Cache.Initialize(Content, null, new StarrockCacheLoader());
             Particles.Add<TrailParticleSystem>(this);
+            Particles.Add<ExplosionParticleSystem>(this);
             Player.Get();
 
             base.Initialize();
@@ -85,6 +86,8 @@ namespace StarrockGame
 
             base.Update(gameTime);
             Menu.IgnoreNextInput = false;
+
+            //Particles.Emit<TrailParticleSystem>(Vector2.Zero, Vector2.Zero);
         }
 
         /// <summary>

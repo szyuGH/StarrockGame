@@ -10,6 +10,7 @@
     <Mass>9000</Mass>
     <Size>1</Size>
     <Inertia>0</Inertia>
+	<ExplosionSize>1</ExplosionSize>
     <MinSpeed>0.7</MinSpeed>
     <MaxSpeed>4</MaxSpeed>
   </Asset>

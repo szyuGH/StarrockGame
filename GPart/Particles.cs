@@ -38,9 +38,9 @@ namespace GPart
             }
         }
 
-        public static void Emit<T>(Vector2 position, Vector2 velocity) where T : ParticleSystem
+        public static void Emit<T>(Vector2 position, Vector2 velocity, float size = 1f) where T : ParticleSystem
         {
-            systems[typeof(T)]?.AddParticle(position, velocity);
+            systems[typeof(T)]?.AddParticle(position, velocity, size);
         }
     }
 }

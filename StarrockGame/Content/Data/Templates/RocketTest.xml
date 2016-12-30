@@ -9,9 +9,10 @@
     <Mass>1</Mass>
     <Size>0.15</Size>
     <Inertia>1</Inertia>
+	<ExplosionSize>1</ExplosionSize>
     <WeaponType>2</WeaponType>
     <EnergyCost>5</EnergyCost>
-    <Damage>10</Damage>
+    <Damage>50</Damage>
     <Cooldown>0.35</Cooldown>
     <SoundFile>LaserGun</SoundFile>
     <ExplosionRange>10</ExplosionRange>

@@ -20,6 +20,6 @@ namespace TData.TemplateData
         public float Mass;        
         public float Size;
         public float Inertia;
-       
+        public float ExplosionSize;
     }
 }

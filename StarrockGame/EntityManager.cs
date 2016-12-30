@@ -77,5 +77,10 @@ namespace StarrockGame
             else
                 return entities.Where(e => e.IsAlive && Vector2.DistanceSquared(enquirer.Body.Position, e.Body.Position) <= range * range).ToList();
         }
+
+        public static void AddExplosion()
+        {
+
+        }
     }
 }

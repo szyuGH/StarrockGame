@@ -6,10 +6,11 @@
     <File>BS_Caine</File>
     <TextureName>BS Caine</TextureName>
     <Score>150</Score>
-    <Structure>2500</Structure>
+    <Structure>500</Structure>
     <Mass>2400</Mass>
     <Size>1</Size>
     <Inertia>1000</Inertia>
+	<ExplosionSize>10</ExplosionSize>
     <Fuel>2900</Fuel>
     <Energy>1500</Energy>
     <ShieldCapacity>2000</ShieldCapacity>

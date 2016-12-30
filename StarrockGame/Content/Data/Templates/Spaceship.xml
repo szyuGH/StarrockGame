@@ -10,6 +10,7 @@
     <Mass>900</Mass>
     <Size>1</Size>
     <Inertia>20</Inertia>
+	<ExplosionSize>3</ExplosionSize>
     <Fuel>200</Fuel>
     <Energy>250</Energy>
     <ShieldCapacity>100</ShieldCapacity>

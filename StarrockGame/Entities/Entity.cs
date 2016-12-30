@@ -16,6 +16,8 @@ using FarseerPhysics.Dynamics.Contacts;
 using StarrockGame.Caching;
 using StarrockGame.AI;
 using TData.TemplateData;
+using GPart;
+using StarrockGame.ParticleSystems;
 
 namespace StarrockGame.Entities
 {
@@ -181,6 +183,10 @@ namespace StarrockGame.Entities
             if (!(Controller is PlayerController) && !ignoreScore)
             {
                 SessionManager.Score += Template.Score;
+            }
+            if (Template.ExplosionSize > 0)
+            {
+                Particles.Emit<ExplosionParticleSystem>(ConvertUnits.ToDisplayUnits(Body.Position), Direction, Template.ExplosionSize);
             }
         }
 

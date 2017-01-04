@@ -24,12 +24,13 @@ namespace StarrockGame.Entities
         public bool Emitting { get { return emitter.Emitting; } set { emitter.Emitting = value; } }
 
         private ParticleEmitter emitter;
-
-        private SoundEffectInstance sound;
-
+        
+        private Body body;
+        SoundEmitter soundEmitter;
 
         public Engine(Body body, Vector2 localPos, MovementType dir, float power, float fps, float pps, float psize=1)
         {
+            this.body = body;
             Direction = dir;
             PropulsionPower = power;
             FuelPerSeconds = fps;
@@ -38,18 +39,18 @@ namespace StarrockGame.Entities
             emitter = new ParticleEmitter(Particles.Get<TrailParticleSystem>(), pps, body, LocalPosition, GetRelativeAngle(dir), power * EmittingFactor(dir), psize);
             emitter.ResetEmittingState = true;
 
-            sound = Cache.LoadSe("Thruster").CreateInstance();
+            //sound = Cache.LoadSe("Thruster").CreateInstance();
+            soundEmitter = new SoundEmitter(Cache.LoadSe("Thruster"), body);
+        }
+
+        public void Deinit()
+        {
+            soundEmitter.Stop();
         }
 
         public void Update(GameTime gameTime)
         {
-            if (emitter.Emitting)
-            {
-                sound.Play();
-            } else if (sound.State == SoundState.Playing)
-            {
-                sound.Stop();
-            }
+            soundEmitter.Update(emitter.Emitting);
             emitter.Update(gameTime);
         }
 

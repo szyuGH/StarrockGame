@@ -7,6 +7,7 @@ using FarseerPhysics.Dynamics;
 using TData.TemplateData;
 using StarrockGame.Caching;
 using Microsoft.Xna.Framework;
+using StarrockGame.Audio;
 
 namespace StarrockGame.Entities
 {
@@ -47,6 +48,8 @@ namespace StarrockGame.Entities
 
         public override void Update(GameTime gameTime)
         {
+            if (!IsAlive)
+                return;
             base.Update(gameTime);
             Accelerate(1, (float)gameTime.ElapsedGameTime.TotalSeconds);
             Engine.Update(gameTime);
@@ -65,6 +68,13 @@ namespace StarrockGame.Entities
                 }
             }
         }
-        
+
+
+        public override void Destroy(bool ignoreScore = false)
+        {
+            base.Destroy(ignoreScore);
+            Engine.Deinit();
+            Sound.Instance.PlaySe("Explosion1", 1 - MathHelper.Clamp(Vector2.Distance(EntityManager.PlayerShip.Body.Position, Body.Position) / SoundEmitter.MAX_RANGE, 0, 1));
+        }
     }
 }

@@ -1,0 +1,22 @@
+Asteroids:
+- spawn interval
+- spawn count
+- spawn interval changes over time
+- spawn count changes over time
+- difficulty influence
+
+
+Enemies:
+- spawn interval
+- spawn count
+- enemy type spawn
+- spawn interval changes over time
+- spawn count changes over time
+- difficulty influence
+
+
+Boss:
+- spawn over time?
+- spawn after x killed enemies?
+- chance to spawn instead of enemies?
+- difficulty influence

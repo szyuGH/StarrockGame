@@ -55,6 +55,7 @@
     <Compile Include="TemplateData\LaserBulletTemplate.cs" />
     <Compile Include="TemplateData\ModuleEffectData.cs" />
     <Compile Include="TemplateData\ModuleTemplate.cs" />
+    <Compile Include="TemplateData\SessionData.cs" />
     <Compile Include="TemplateData\SpaceshipTemplate.cs" />
     <Compile Include="TemplateData\AbstractTemplate.cs" />
     <Compile Include="TemplateData\WeaponBaseData.cs" />

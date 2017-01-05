@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using StarrockGame.Caching;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,6 +19,13 @@ namespace StarrockGame
         internal static TimeSpan ElapsedTime;
 
         internal static SpaceshipTemplate LastUsedShipTemplate { get; private set; }
+
+        private static SessionData data;
+
+        public static void Initialize()
+        {
+            data = Cache.LoadTemplate<SessionData>("SessionData");
+        }
 
         public static void Reset()
         {

@@ -63,7 +63,7 @@ namespace StarrockGame.Entities.Weaponry
         {
             if (CanShoot && energy > WeaponTemplate.EnergyCost)
             {
-                Sound.Instance.PlaySe(WeaponTemplate.SoundFile, 1 - MathHelper.Clamp(Vector2.Distance(EntityManager.PlayerShip.Body.Position, Parent.Body.Position) / SoundEmitter.MAX_RANGE, 0, 1));
+                Sound.Instance.PlaySpatialSe(WeaponTemplate.SoundFile, Parent.Body.Position);
                 DoFire();
                 cooldown = WeaponTemplate.Cooldown;
                 return WeaponTemplate.EnergyCost;

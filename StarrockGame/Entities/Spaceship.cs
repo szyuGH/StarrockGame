@@ -110,8 +110,6 @@ namespace StarrockGame.Entities
         {
             Vector2 position = Body.Position;
             float rotation = Body.Rotation;
-            Sound.Instance.PlaySe("Explosion1", 1 - MathHelper.Clamp(Vector2.Distance(EntityManager.PlayerShip.Body.Position, Body.Position) / SoundEmitter.MAX_RANGE, 0, 1));
-            
             base.Destroy();
             if(!IsPlayer)
             {

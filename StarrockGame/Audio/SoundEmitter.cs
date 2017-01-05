@@ -33,10 +33,6 @@ namespace StarrockGame.Audio
             effectInstance = effect.CreateInstance();
             this.emitter = emitter;
         }
-        ~SoundEmitter()
-        {
-            effectInstance.Dispose();
-        }
 
         public void Update(bool emitting)
         {

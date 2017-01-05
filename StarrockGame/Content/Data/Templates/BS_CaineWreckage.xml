@@ -10,7 +10,7 @@
     <Mass>20</Mass>
     <Size>1</Size>
     <Inertia>0</Inertia>
-	<ExplosionSize>1</ExplosionSize>
+	<ExplosionSize>0</ExplosionSize>
     <MinFuel>5</MinFuel>
     <MaxFuel>100</MaxFuel>
     <MinEnergy>5</MinEnergy>

@@ -18,6 +18,7 @@ using StarrockGame.AI;
 using TData.TemplateData;
 using GPart;
 using StarrockGame.ParticleSystems;
+using StarrockGame.Audio;
 
 namespace StarrockGame.Entities
 {
@@ -187,6 +188,7 @@ namespace StarrockGame.Entities
             if (Template.ExplosionSize > 0)
             {
                 Particles.Emit<ExplosionParticleSystem>(ConvertUnits.ToDisplayUnits(Body.Position), Direction, Template.ExplosionSize);
+                Sound.Instance.PlaySpatialSe("Explosion1", Body.Position);
             }
         }
 

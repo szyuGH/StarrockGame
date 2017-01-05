@@ -69,7 +69,6 @@ namespace StarrockGame.Entities
         public override void Destroy(bool ignoreScore = false)
         {
             base.Destroy(ignoreScore);
-            Sound.Instance.PlaySe("Explosion1", 1 - MathHelper.Clamp(Vector2.Distance(EntityManager.PlayerShip.Body.Position, Body.Position) / SoundEmitter.MAX_RANGE, 0, 1));
         }
 
 

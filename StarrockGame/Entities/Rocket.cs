@@ -74,7 +74,6 @@ namespace StarrockGame.Entities
         {
             base.Destroy(ignoreScore);
             Engine.Deinit();
-            Sound.Instance.PlaySe("Explosion1", 1 - MathHelper.Clamp(Vector2.Distance(EntityManager.PlayerShip.Body.Position, Body.Position) / SoundEmitter.MAX_RANGE, 0, 1));
         }
     }
 }

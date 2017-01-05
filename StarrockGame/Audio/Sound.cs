@@ -115,7 +115,12 @@ namespace StarrockGame.Audio
             se.Play();
         }
 
-        
+        public void PlaySpatialSe(string name, Vector2 position)
+        {
+            float dis = Vector2.Distance(position, EntityManager.PlayerShip.Body.Position);
+
+            PlaySe(name, 1 - MathHelper.Clamp(dis / SoundEmitter.MAX_RANGE, 0, 1), 0, 0);
+        }
 
 
         public enum FadingType

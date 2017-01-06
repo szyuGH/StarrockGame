@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="TData.TemplateData.SessionData">
+	<Spawns>
+		<Item>
+			<Difficulty>0</Difficulty>
+			<EstimatedDuration>10</EstimatedDuration>
+			<EnemySpawnCountMin>3</EnemySpawnCountMin>
+			<EnemySpawnCountMax>5</EnemySpawnCountMax>
+			<EnemySpawnTimerMin>10</EnemySpawnTimerMin>
+			<EnemySpawnTimerMax>6</EnemySpawnTimerMax>
+			
+			<AsteroidSpawnCountMin>3</AsteroidSpawnCountMin>
+			<AsteroidSpawnCountMax>5</AsteroidSpawnCountMax>
+			<AsteroidSpawnTimerMin>10</AsteroidSpawnTimerMin>
+			<AsteroidSpawnTimerMax>4</AsteroidSpawnTimerMax>
+		</Item>
+		<Item>
+			<Difficulty>1</Difficulty>
+			<EstimatedDuration>7</EstimatedDuration>
+			<EnemySpawnCountMin>3</EnemySpawnCountMin>
+			<EnemySpawnCountMax>6</EnemySpawnCountMax>
+			<EnemySpawnTimerMin>10</EnemySpawnTimerMin>
+			<EnemySpawnTimerMax>6</EnemySpawnTimerMax>
+			
+			<AsteroidSpawnCountMin>4</AsteroidSpawnCountMin>
+			<AsteroidSpawnCountMax>6</AsteroidSpawnCountMax>
+			<AsteroidSpawnTimerMin>10</AsteroidSpawnTimerMin>
+			<AsteroidSpawnTimerMax>3</AsteroidSpawnTimerMax>
+		</Item>
+		<Item>
+			<Difficulty>2</Difficulty>
+			<EstimatedDuration>5</EstimatedDuration>
+			<EnemySpawnCountMin>3</EnemySpawnCountMin>
+			<EnemySpawnCountMax>7</EnemySpawnCountMax>
+			<EnemySpawnTimerMin>10</EnemySpawnTimerMin>
+			<EnemySpawnTimerMax>5</EnemySpawnTimerMax>
+			
+			<AsteroidSpawnCountMin>5</AsteroidSpawnCountMin>
+			<AsteroidSpawnCountMax>8</AsteroidSpawnCountMax>
+			<AsteroidSpawnTimerMin>9</AsteroidSpawnTimerMin>
+			<AsteroidSpawnTimerMax>3</AsteroidSpawnTimerMax>
+		</Item>
+		<Item>
+			<Difficulty>3</Difficulty>
+			<EstimatedDuration>3</EstimatedDuration>
+			<EnemySpawnCountMin>3</EnemySpawnCountMin>
+			<EnemySpawnCountMax>8</EnemySpawnCountMax>
+			<EnemySpawnTimerMin>10</EnemySpawnTimerMin>
+			<EnemySpawnTimerMax>5</EnemySpawnTimerMax>
+			
+			<AsteroidSpawnCountMin>5</AsteroidSpawnCountMin>
+			<AsteroidSpawnCountMax>9</AsteroidSpawnCountMax>
+			<AsteroidSpawnTimerMin>8</AsteroidSpawnTimerMin>
+			<AsteroidSpawnTimerMax>2</AsteroidSpawnTimerMax>
+		</Item>
+	</Spawns>
+	
+	<Enemies>
+		<Item>
+			<Type>Spaceship</Type>
+			<Chance>75</Chance>
+		</Item>
+		<Item>
+			<Type>BS_Caine</Type>
+			<Chance>20</Chance>
+		</Item>
+	</Enemies>
+  </Asset>
+ </XnaContent>

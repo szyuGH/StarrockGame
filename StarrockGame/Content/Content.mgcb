@@ -400,3 +400,8 @@
 /processorParam:TextureFormat=Color
 /build:Graphics/Particles/explosion.png
 
+#begin Data/Templates/Sessions.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/Sessions.xml
+

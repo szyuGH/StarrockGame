@@ -21,10 +21,16 @@ namespace StarrockGame
         internal static SpaceshipTemplate LastUsedShipTemplate { get; private set; }
 
         private static SessionData data;
+        private static float spawnRatio;
+
+        private static float asteroidSpawnTimer;
+        private static float enemySpawnTimer;
+
+        private static SpawnData spawn { get { return data.Spawns[(int)Difficulty]; } }
 
         public static void Initialize()
         {
-            data = Cache.LoadTemplate<SessionData>("SessionData");
+            data = Cache.LoadTemplate<SessionData>("Sessions");
         }
 
         public static void Reset()
@@ -38,11 +44,25 @@ namespace StarrockGame
 
         internal static void Update(GameTime gameTime)
         {
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             ElapsedTime += gameTime.ElapsedGameTime;
+            if (spawnRatio < 1)
+            {
+                spawnRatio = (float)ElapsedTime.TotalSeconds / data.Spawns[(int)Difficulty].EstimatedDuration;
+                if (spawnRatio > 1)
+                    spawnRatio = 1;
+            }
+
+            asteroidSpawnTimer += elapsed;
+            enemySpawnTimer += elapsed;
+
+            SpawnAsteroids();
+            SpawnEnemyShips();
+            SpawnBoss();
         }
 
 
-
+        
         private static void SpawnAsteroids()
         {
 
@@ -50,12 +70,24 @@ namespace StarrockGame
 
         private static void SpawnEnemyShips()
         {
-
+            if (enemySpawnTimer >= currentEnemySpawnTime)
+            {
+                // TODO: spawn
+                enemySpawnTimer -= currentEnemySpawnTime;
+            }
         }
 
         private static void SpawnBoss()
         {
 
+        }
+
+
+
+
+        private static float currentEnemySpawnTime
+        {
+            get { return MathHelper.Lerp(spawn.EnemySpawnTimerMin, spawn.EnemySpawnTimerMax, spawnRatio); }
         }
     }
 }

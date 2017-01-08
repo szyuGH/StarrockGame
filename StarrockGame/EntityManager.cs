@@ -38,29 +38,44 @@ namespace StarrockGame
             }
         }
 
-        public static T Add<T, B>(string type, Vector2 pos, float rot, Vector2 initialVelocity, float initialAngularVelocity = 0)
+        public static T Add<T, B>(string type, Vector2 pos, float rot, Vector2 initialVelocity, float initialAngularVelocity = 0, bool player = false)
             where T : Entity
             where B : IController
         {
 
+            Entity entity = FindFreeEntity<T>(type, player);
+            entity.Initialize<B>(pos, rot, initialVelocity, initialAngularVelocity);
+            
+                
+            return entity as T;
+        }
+
+        public static T Add<T>(string type, Vector2 pos, float rot, Vector2 initialVelocity, float initialAngularVelocity = 0, bool player=false)
+            where T : Entity
+        {
+            Entity entity = FindFreeEntity<T>(type, player);
+            entity.Initialize(pos, rot, initialVelocity, initialAngularVelocity);
+            return entity as T;
+        }
+
+        private static T FindFreeEntity<T>(string type, bool player = false)
+            where T : Entity
+        {
             Entity entity = entities.Find(e => e is T && e.IsAlive == false && e.Template.File.Equals(type));
             if (entity == null)
             {
                 entity = (Entity)Activator.CreateInstance(typeof(T), World, type);
                 entities.Add(entity);
             }
-            // TODO: add random modules if not player controller
-            if (typeof(B) == typeof(PlayerController))
+            if (player)
             {
                 (entity as Spaceship).SetModules(SessionManager.ModuleTemplates.ToArray());
                 PlayerShip = entity;
-            } else if (typeof(T) == typeof(Spaceship))
+            }
+            else if (typeof(T) == typeof(Spaceship))
             {
                 entity.Target = PlayerShip;
             }
-            entity.Initialize<B>(pos, rot, initialVelocity, initialAngularVelocity);
-            
-                
             return entity as T;
         }
 

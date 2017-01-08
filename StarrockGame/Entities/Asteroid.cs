@@ -18,16 +18,20 @@ namespace StarrockGame.Entities
         {
             Body.AngularDamping = 0;
             Body.LinearDamping = 0;
-            Body.CollisionCategories = Category.Cat1;
-            Body.CollidesWith = Category.Cat1 | Category.Cat2 | Category.Cat3 | Category.Cat4 | Category.Cat5;
         }
 
-        public override void Initialize<T>(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
+        public override void Initialize(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
         {
             float velocityMultiplier = MathHelper.Lerp((Template as AsteroidTemplate).MinSpeed, (Template as AsteroidTemplate).MaxSpeed, (float)Program.Random.NextDouble());
-            base.Initialize<T>(position, rotation,
+            base.Initialize(position, rotation,
                 initialVelocity * velocityMultiplier,
                 initialAngularVelocity);
+        }
+
+        protected override void SetCollisionGroup()
+        {
+            Body.CollisionCategories = Category.Cat1;
+            Body.CollidesWith = Category.Cat1 | Category.Cat2 | Category.Cat3 | Category.Cat4 | Category.Cat5;
         }
 
         protected override EntityTemplate LoadTemplate(string type)

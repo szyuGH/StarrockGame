@@ -5,6 +5,7 @@
     <Name>HomingMissile</Name>
     <File>HomingMissileTest</File>
     <TextureName>HomingMissileTest</TextureName>
+	<DefaultController>StarrockGame.AI.HomingController</DefaultController>
     <Structure>1</Structure>
     <Mass>1</Mass>
     <Size>0.15</Size>

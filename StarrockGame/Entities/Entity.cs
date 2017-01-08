@@ -68,7 +68,15 @@ namespace StarrockGame.Entities
         public virtual void Initialize<T>(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
             where T : IController
         {
+            Initialize(position, rotation, initialVelocity, initialAngularVelocity);
             Controller = Activator.CreateInstance<T>();
+            SetCollisionGroup();
+        }
+
+        public virtual void Initialize(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
+        {
+            Controller = (IController)Activator.CreateInstance(System.Type.GetType(Template.DefaultController));
+            SetCollisionGroup();
 
             Body.Enabled = true;
             Body.Position = ConvertUnits.ToSimUnits(position);
@@ -82,7 +90,9 @@ namespace StarrockGame.Entities
             Structure = Template.Structure;
             IsAlive = true;
         }
-        
+
+        protected abstract void SetCollisionGroup();
+
 
         private void CreateBody(World world)
         {

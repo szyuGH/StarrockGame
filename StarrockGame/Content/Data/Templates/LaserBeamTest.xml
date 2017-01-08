@@ -5,6 +5,7 @@
     <Name>LaserBeamTest</Name>
     <File>LaserBeamTest</File>
     <TextureName>LaserBeamTest</TextureName>
+	<DefaultController>StarrockGame.AI.NoController</DefaultController>
     <Structure>1</Structure>
     <Mass>0</Mass>
     <Size>0.45</Size>

@@ -5,6 +5,7 @@
     <Name>TestWreckage</Name>
     <File>Wreckage</File>
     <TextureName>TestShipWreckage</TextureName>
+	<DefaultController>StarrockGame.AI.NoController</DefaultController>
     <Score>50</Score>
     <Structure>40</Structure>
     <Mass>20</Mass>

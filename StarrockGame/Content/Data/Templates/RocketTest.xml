@@ -5,6 +5,7 @@
     <Name>Rocket</Name>
     <File>RocketTest</File>
     <TextureName>RocketTest</TextureName>
+	<DefaultController>StarrockGame.AI.NoController</DefaultController>
     <Structure>1</Structure>
     <Mass>1</Mass>
     <Size>0.15</Size>

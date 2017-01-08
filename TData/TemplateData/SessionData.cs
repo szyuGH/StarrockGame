@@ -20,6 +20,7 @@ namespace TData.TemplateData
         public int Difficulty;
         public float EstimatedDuration;
 
+        public float BossSpawnChance;
         public int EnemySpawnCountMin;
         public int EnemySpawnCountMax;
 

@@ -19,8 +19,12 @@ namespace StarrockGame.Entities
         public Wreckage(World world, string type) : base(world, type)
         {
             DrawOrder = 0;
-            Body.CollisionCategories = Category.None;
             Center = new Vector2(Graphic.Width * .5f, Graphic.Height * .5f);
+        }
+
+        protected override void SetCollisionGroup()
+        {
+            Body.CollisionCategories = Category.None;
         }
 
         protected override EntityTemplate LoadTemplate(string type)
@@ -28,9 +32,9 @@ namespace StarrockGame.Entities
             return Cache.LoadTemplate<WreckageTemplate>(type);
         }
 
-        public override void Initialize<T>(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
+        public override void Initialize(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
         {
-            base.Initialize<T>(position, rotation, initialVelocity, initialAngularVelocity);
+            base.Initialize(position, rotation, initialVelocity, initialAngularVelocity);
             // TODO: calculate scavenge time based on resources
             float time = 5;
             this.ScavengeTime = time;

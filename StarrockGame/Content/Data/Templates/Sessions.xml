@@ -5,6 +5,7 @@
 		<Item>
 			<Difficulty>0</Difficulty>
 			<EstimatedDuration>10</EstimatedDuration>
+			<BossSpawnChance>5</BossSpawnChance>
 			<EnemySpawnCountMin>3</EnemySpawnCountMin>
 			<EnemySpawnCountMax>5</EnemySpawnCountMax>
 			<EnemySpawnTimerMin>10</EnemySpawnTimerMin>
@@ -18,6 +19,7 @@
 		<Item>
 			<Difficulty>1</Difficulty>
 			<EstimatedDuration>7</EstimatedDuration>
+			<BossSpawnChance>7</BossSpawnChance>
 			<EnemySpawnCountMin>3</EnemySpawnCountMin>
 			<EnemySpawnCountMax>6</EnemySpawnCountMax>
 			<EnemySpawnTimerMin>10</EnemySpawnTimerMin>
@@ -31,6 +33,7 @@
 		<Item>
 			<Difficulty>2</Difficulty>
 			<EstimatedDuration>5</EstimatedDuration>
+			<BossSpawnChance>10</BossSpawnChance>
 			<EnemySpawnCountMin>3</EnemySpawnCountMin>
 			<EnemySpawnCountMax>7</EnemySpawnCountMax>
 			<EnemySpawnTimerMin>10</EnemySpawnTimerMin>
@@ -44,6 +47,7 @@
 		<Item>
 			<Difficulty>3</Difficulty>
 			<EstimatedDuration>3</EstimatedDuration>
+			<BossSpawnChance>12</BossSpawnChance>
 			<EnemySpawnCountMin>3</EnemySpawnCountMin>
 			<EnemySpawnCountMax>8</EnemySpawnCountMax>
 			<EnemySpawnTimerMin>10</EnemySpawnTimerMin>

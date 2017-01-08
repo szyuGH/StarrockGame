@@ -5,6 +5,7 @@
     <Name>MineTest</Name>
     <File>MineTest</File>
     <TextureName>MineTest</TextureName>
+	<DefaultController>StarrockGame.AI.NoController</DefaultController>
     <Structure>1</Structure>
     <Mass>10</Mass>
     <Size>0.45</Size>

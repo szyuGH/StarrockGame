@@ -5,6 +5,7 @@
     <Name>TestAsteroid</Name>
     <File>Asteroid</File>
     <TextureName>Asteroid1</TextureName>
+	<DefaultController>StarrockGame.AI.NoController</DefaultController>
     <Score>200</Score>
     <Structure>300</Structure>
     <Mass>9000</Mass>

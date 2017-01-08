@@ -5,6 +5,7 @@
     <Name>BS_Caine</Name>
     <File>BS_Caine</File>
     <TextureName>BS Caine</TextureName>
+	<DefaultController>StarrockGame.AI.DestroyerController</DefaultController>
     <Score>150</Score>
     <Structure>500</Structure>
     <Mass>2400</Mass>
@@ -93,5 +94,8 @@
     <RadarRange>500</RadarRange>
     <Price>200</Price>
     <CameraZoom>0.6</CameraZoom>
+	<SpawnTime>6</SpawnTime>
+	<SpawnSize>1.5</SpawnSize>
+	<SpawnColor>FF2D571B</SpawnColor>
   </Asset>
 </XnaContent>

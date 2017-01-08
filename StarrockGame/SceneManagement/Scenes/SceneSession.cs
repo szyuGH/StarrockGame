@@ -31,7 +31,7 @@ namespace StarrockGame.SceneManagement.Scenes
 
             Line.Initialize(Device);
             EntityManager.Border = new GameBorder(EntityManager.World, Device, 2000, 2000);
-            EntityManager.Add<Spaceship, PlayerController>(SessionManager.UsedShipTemplate.File, new Vector2(), 0, Vector2.Zero, 0);
+            EntityManager.Add<Spaceship, PlayerController>(SessionManager.UsedShipTemplate.File, new Vector2(), 0, Vector2.Zero, 0, true);
 
             cam = new Camera2D(Device);
             cam.TrackingBody = EntityManager.PlayerShip.Body;

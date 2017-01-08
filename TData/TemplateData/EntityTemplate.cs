@@ -13,7 +13,8 @@ namespace TData.TemplateData
     public class EntityTemplate : AbstractTemplate
     {
         //Name for the Picture
-        public String TextureName;
+        public string TextureName;
+        public string DefaultController;
         [ContentSerializerAttribute(Optional = true)]
         public int Score;
         public float Structure;

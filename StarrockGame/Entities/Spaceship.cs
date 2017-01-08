@@ -18,8 +18,12 @@ namespace StarrockGame.Entities
 {
     public class Spaceship : Entity
     {
+        public static Texture2D SpawnTexture;
+
         private SpaceshipTemplate shipTemplate { get { return Template as SpaceshipTemplate; } }
         private Dictionary<MovementType, float> fuelCostPerSecond;
+        private float spawnTimer;
+        private float spawnSize;
 
         private float _shieldCapacity;
         public float ShieldCapacity
@@ -46,7 +50,7 @@ namespace StarrockGame.Entities
 
         public bool IsPlayer
         {
-            get { return (this.Controller.GetType() == typeof(PlayerController)); }
+            get { return ( Controller != null && Controller.GetType() == typeof(PlayerController)); }
         }
 
         public Scavenging Scavenging;
@@ -71,9 +75,9 @@ namespace StarrockGame.Entities
             return Cache.LoadTemplate<SpaceshipTemplate>(type);
         }
 
-        public override void Initialize<T>(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
+        public override void Initialize(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
         {
-            base.Initialize<T>(position, rotation, initialVelocity, initialAngularVelocity);
+            base.Initialize(position, rotation, initialVelocity, initialAngularVelocity);
             ShieldCapacity = shipTemplate.ShieldCapacity;
             Energy = shipTemplate.Energy;
             Fuel = shipTemplate.Fuel;
@@ -89,12 +93,17 @@ namespace StarrockGame.Entities
             fuelCostPerSecond[MovementType.RotateLeft] = Engines[MovementType.RotateLeft].Sum(e => e.FuelPerSeconds);
             fuelCostPerSecond[MovementType.RotateRight] = Engines[MovementType.RotateRight].Sum(e => e.FuelPerSeconds);
 
-            // set collision categories
+            spawnTimer = shipTemplate.SpawnTime;
+        }
+
+        protected override void SetCollisionGroup()
+        {
             if (IsPlayer)
             {
                 Body.CollisionCategories = Category.Cat2;
                 Body.CollidesWith = Category.Cat1 | Category.Cat3 | Category.Cat5 | Category.Cat6;
-            } else
+            }
+            else
             {
                 Body.CollisionCategories = Category.Cat3;
                 Body.CollidesWith = Category.Cat1 | Category.Cat2 | Category.Cat4;
@@ -127,6 +136,13 @@ namespace StarrockGame.Entities
         public override void Update(GameTime gameTime)
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (spawnTimer > -1)
+            {
+                spawnTimer -= elapsed;
+                if (spawnTimer < -1)
+                    spawnTimer = -1;
+                return;
+            }
             base.Update(gameTime);
 
 
@@ -161,8 +177,40 @@ namespace StarrockGame.Entities
 
         public override void Render(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            base.Render(spriteBatch, gameTime);
-            Scavenging.Render(spriteBatch, gameTime);
+            if (spawnTimer != -1)
+            {
+                float spawnRatio;
+                if (spawnTimer >= 0)
+                    spawnRatio = 1 - spawnTimer / shipTemplate.SpawnTime;
+                else
+                    spawnRatio = (spawnTimer+1) / 1f;
+                spriteBatch.Draw(SpawnTexture, 
+                    ConvertUnits.ToDisplayUnits(Body.Position)-(Graphic.Width*.5f)*Direction, null, shipTemplate.SpawnColor,
+                    spawnTimer * 8, 
+                    new Vector2(SpawnTexture.Bounds.Center.X, SpawnTexture.Bounds.Center.Y),
+                    shipTemplate.SpawnSize * spawnRatio,
+                    SpriteEffects.None, 0.5f);
+                if (spawnRatio >= 0.5f || spawnTimer < 0)
+                {
+                    if (spawnTimer < 0)
+                        spawnRatio = 1;
+                    int drw = (int)((spawnRatio - 0.5f) * 2 * Graphic.Width);
+                    spriteBatch.Draw(Graphic,
+                        ConvertUnits.ToDisplayUnits(Body.Position),
+                        new Rectangle(Graphic.Width-drw, 0,drw , Graphic.Height),
+                        Color.White,
+                        Body.Rotation,
+                        Center,
+                        Scale,
+                        SpriteEffects.None,
+                        DrawOrder);
+                }
+            }
+            else
+            {
+                base.Render(spriteBatch, gameTime);
+                Scavenging.Render(spriteBatch, gameTime);
+            }
         }
 
 

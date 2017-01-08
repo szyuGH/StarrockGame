@@ -5,6 +5,7 @@
     <Name>TestName</Name>
     <File>Spaceship</File>
     <TextureName>TestShip</TextureName>
+	<DefaultController>StarrockGame.AI.DestroyerController</DefaultController>
     <Score>75</Score>
     <Structure>300</Structure>
     <Mass>900</Mass>
@@ -88,5 +89,8 @@
     </SecondaryWeaponBases>
     <RadarRange>50</RadarRange>
     <Price>0</Price>
+	<SpawnTime>4</SpawnTime>
+	<SpawnSize>1</SpawnSize>
+	<SpawnColor>FFBDB76B</SpawnColor>
   </Asset>
 </XnaContent>

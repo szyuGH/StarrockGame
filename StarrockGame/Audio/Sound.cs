@@ -119,7 +119,7 @@ namespace StarrockGame.Audio
         {
             float dis = Vector2.Distance(position, EntityManager.PlayerShip.Body.Position);
 
-            PlaySe(name, 1 - MathHelper.Clamp(dis / SoundEmitter.MAX_RANGE, 0, 1), 0, 0);
+            PlaySe(name, 1 - MathHelper.Clamp((dis * dis) / (SoundEmitter.MAX_RANGE * 2), 0, 1), 0, 0);
         }
 
 

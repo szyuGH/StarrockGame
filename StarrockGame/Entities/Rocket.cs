@@ -29,9 +29,9 @@ namespace StarrockGame.Entities
             Body.IsBullet = true;
         }
 
-        public override void Initialize<T>(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
+        public override void Initialize(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
         {
-            base.Initialize<T>(position, rotation, initialVelocity, initialAngularVelocity);
+            base.Initialize(position, rotation, initialVelocity, initialAngularVelocity);
             RocketTemplate tmp = (Template as RocketTemplate);
 
             Fuel = tmp.Fuel;

@@ -19,7 +19,7 @@ namespace StarrockGame.Entities
             get { return _emitterBody; }
             set {
                 _emitterBody = value;
-                ResetCollisionCategory();
+                SetCollisionGroup();
             }
         }
 
@@ -31,14 +31,18 @@ namespace StarrockGame.Entities
             Body.AngularDamping = 0;
         }
 
-        public override void Initialize<T>(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
+        public override void Initialize(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
         {
-            base.Initialize<T>(position, rotation, initialVelocity, initialAngularVelocity);
+            base.Initialize(position, rotation, initialVelocity, initialAngularVelocity);
         }
 
-        private void ResetCollisionCategory()
+        protected override void SetCollisionGroup()
         {
-            if ((EmitterBody.UserData as Entity).Controller is PlayerController)
+            if (EmitterBody == null)
+            {
+                Body.CollisionCategories = Category.None;
+            }
+            else if ((EmitterBody.UserData as Entity).Controller is PlayerController)
             {
                 Body.CollisionCategories = Category.Cat4;
                 Body.CollidesWith = Category.Cat1 | Category.Cat3;

@@ -47,6 +47,7 @@ namespace StarrockGame
             Particles.Add<TrailParticleSystem>(this);
             Particles.Add<ExplosionParticleSystem>(this);
             Player.Get();
+            Spaceship.SpawnTexture = Cache.LoadGraphic("Spawn");
 
             SessionManager.Initialize();
             base.Initialize();

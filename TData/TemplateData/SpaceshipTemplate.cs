@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,5 +29,8 @@ namespace TData.TemplateData
         public int Price;
         [ContentSerializerAttribute(Optional = true)]
         public float CameraZoom=1f;
+        public float SpawnTime;
+        public float SpawnSize;
+        public Color SpawnColor;
     }
 }

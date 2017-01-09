@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="TData.TemplateData.SpaceshipTemplate">
+    <Checksum>533383892</Checksum>
+    <Name>Havoc</Name>
+    <File>Havoc</File>
+    <TextureName>Havoc</TextureName>
+	<DefaultController>StarrockGame.AI.DestroyerController</DefaultController>
+    <Score>80</Score>
+    <Structure>320</Structure>
+    <Mass>1000</Mass>
+    <Size>1</Size>
+    <Inertia>700</Inertia>
+	<ExplosionSize>10</ExplosionSize>
+    <Fuel>2200</Fuel>
+    <Energy>1600</Energy>
+    <ShieldCapacity>1200</ShieldCapacity>
+    <ScavengePower>40</ScavengePower>
+    <ScavengeRange>200</ScavengeRange>
+    <ShieldReplenishCostPerSecond>30</ShieldReplenishCostPerSecond>
+    <ShieldReplenishValuePerSecond>30</ShieldReplenishValuePerSecond>
+    <EnergyRecoveryPerSecond>0</EnergyRecoveryPerSecond>
+    <ShieldRecoveryPerSecond>0</ShieldRecoveryPerSecond>
+    <FuelRecoveryPerSecond>0</FuelRecoveryPerSecond>
+    <ModuleCount>4</ModuleCount>
+    <Engines>
+      <Item>
+        <Direction>1</Direction>
+        <LocalPosition>-75 31</LocalPosition>
+        <PropulsionPower>2500</PropulsionPower>
+        <FuelCostPerSecond>60</FuelCostPerSecond>
+        <ParticlesPerSecond>160</ParticlesPerSecond>
+		<ParticleSize>1</ParticleSize>
+      </Item>
+      <Item>
+        <Direction>1</Direction>
+        <LocalPosition>-75 -31</LocalPosition>
+        <PropulsionPower>2500</PropulsionPower>
+        <FuelCostPerSecond>60</FuelCostPerSecond>
+        <ParticlesPerSecond>160</ParticlesPerSecond>
+		<ParticleSize>1</ParticleSize>
+      </Item>
+      <Item>
+        <Direction>2</Direction>
+        <LocalPosition>90 0</LocalPosition>
+        <PropulsionPower>1500</PropulsionPower>
+        <FuelCostPerSecond>40</FuelCostPerSecond>
+        <ParticlesPerSecond>100</ParticlesPerSecond>
+		<ParticleSize>1</ParticleSize>
+      </Item>
+      <Item>
+        <Direction>4</Direction>
+        <LocalPosition>-70 45</LocalPosition>
+        <PropulsionPower>1800</PropulsionPower>
+        <FuelCostPerSecond>5</FuelCostPerSecond>
+        <ParticlesPerSecond>100</ParticlesPerSecond>
+		<ParticleSize>1</ParticleSize>
+      </Item>
+      <Item>
+        <Direction>8</Direction>
+        <LocalPosition>-70 -45</LocalPosition>
+        <PropulsionPower>1800</PropulsionPower>
+        <FuelCostPerSecond>5</FuelCostPerSecond>
+        <ParticlesPerSecond>100</ParticlesPerSecond>
+		<ParticleSize>1</ParticleSize>
+      </Item>
+    </Engines>
+    <PrimaryWeaponBases>
+      <WeaponType>CannonTest</WeaponType>
+      <Bases>
+        <Item>
+          <LocalPosition>20 -30</LocalPosition>
+          <LocalAngle>0</LocalAngle>
+        </Item>
+        <Item>
+          <LocalPosition>20 30</LocalPosition>
+          <LocalAngle>0</LocalAngle>
+        </Item>
+      </Bases>
+    </PrimaryWeaponBases>
+    <SecondaryWeaponBases>
+      <WeaponType>CannonTest</WeaponType>
+      <Bases>
+        <Item>
+          <LocalPosition>20 -30</LocalPosition>
+          <LocalAngle>0</LocalAngle>
+        </Item>
+        <Item>
+          <LocalPosition>20 30</LocalPosition>
+          <LocalAngle>0</LocalAngle>
+        </Item>
+      </Bases>
+    </SecondaryWeaponBases>
+    <RadarRange>500</RadarRange>
+    <Price>2000</Price>
+    <CameraZoom>0.6</CameraZoom>
+	<SpawnTime>4</SpawnTime>
+	<SpawnSize>1.5</SpawnSize>
+	<SpawnColor>FF5A571B</SpawnColor>
+  </Asset>
+</XnaContent>

@@ -422,3 +422,18 @@
 /processor:PassThroughProcessor
 /build:Data/Templates/Gnome.xml
 
+#begin Data/Templates/Hunter.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/Hunter.xml
+
+#begin Data/Templates/Havoc.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/Havoc.xml
+
+#begin Data/Templates/Ancus.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/Ancus.xml
+

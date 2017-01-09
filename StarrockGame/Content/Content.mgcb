@@ -417,3 +417,8 @@
 /processorParam:TextureFormat=Color
 /build:Graphics/Spawn.png
 
+#begin Data/Templates/Gnome.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/Gnome.xml
+

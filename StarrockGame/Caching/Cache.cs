@@ -6,11 +6,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using TData;
+using TData.TemplateData;
 
 namespace StarrockGame.Caching
 {
     public static class Cache
     {
+        internal static Dictionary<TemplateType, List<string>> Templates;
+
         private static ContentManager content;
         private static IContentLocator locator;
 
@@ -19,6 +23,30 @@ namespace StarrockGame.Caching
             content = con;
             locator = loc ?? new DefaultContentLocator();
             loader?.Preload(content);
+            Templates = new Dictionary<TemplateType, List<string>>();
+            foreach (TemplateType tt in Enum.GetValues(typeof(TemplateType)))
+            {
+                Templates[(TemplateType)tt] = new List<string>();
+            }
+            // MOCK TEMPLATE LOAD
+            IEnumerable<string> files = from fullFileName
+                    in Directory.EnumerateFiles(@"Content\Data\Templates")
+                    select Path.GetFileNameWithoutExtension(fullFileName);
+            foreach (string s in files)
+            {
+                try
+                {
+                    AbstractTemplate at = LoadTemplate<AbstractTemplate>(s);
+                    if (at is SpaceshipTemplate)
+                        Templates[TemplateType.Spaceship].Add(s);
+                    else if (at is ModuleTemplate)
+                        Templates[TemplateType.Module].Add(s);
+                }
+                catch (Exception)
+                {
+
+                }
+            }
         }
 
         public static void Dispose()

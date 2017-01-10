@@ -39,6 +39,12 @@ namespace StarrockGame.SceneManagement.Scenes
             CreateMenu();
             CreateShipMenu();
             CreateStatsMenu();
+
+            if (SessionManager.UsedShipTemplate != null)
+            {
+                shipMenu.SelectedIndex = unlockedShips.IndexOf(SessionManager.UsedShipTemplate);
+                continueButton.Active = true;
+            }
         }
 
         private void CreateMenu()
@@ -50,7 +56,7 @@ namespace StarrockGame.SceneManagement.Scenes
             new ButtonLabel(menu, "Select Ship", menuPos + new Vector2(0, font.LineSpacing * 0), 1, Color.White, OnSelectShip);
             new ButtonLabel(menu, "", menuPos + new Vector2(0, font.LineSpacing * 1), 1, Color.White, OnDifficultySelect) { CaptionMonitor = () => { return "Difficulty: " + SessionManager.Difficulty.ToString(); } };
             continueButton = new ButtonLabel(menu, "Continue", menuPos + new Vector2(0, font.LineSpacing * 2), 1, Color.White, OnBuyModules) { Active = false };
-            new ButtonLabel(menu, "Back", menuPos + new Vector2(0, font.LineSpacing * 3), 1, Color.White, () => { SceneManager.Return(); });
+            new ButtonLabel(menu, "Back", menuPos + new Vector2(0, font.LineSpacing * 3), 1, Color.White, () => { OnMenuBack(); });
 
             new Label(menu, "", new Vector2(10, 10), 1, Color.White, 0) { CaptionMonitor = () => { return "Credits: " + Player.Get().Credits; } };
         }
@@ -160,6 +166,16 @@ namespace StarrockGame.SceneManagement.Scenes
         private void OnBuyModules()
         {
             SceneManager.Call<SceneBuyModules>();
+        }
+
+        private void OnMenuBack()
+        {
+            if (SessionManager.UsedShipTemplate != null)
+            {
+                Player.Get().Credits += SessionManager.UsedShipTemplate.Price;
+                SessionManager.Reset();
+            }
+            SceneManager.Return();
         }
     }
 }

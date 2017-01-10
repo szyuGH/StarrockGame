@@ -116,6 +116,12 @@ namespace StarrockGame.SceneManagement.Scenes
             lastSelected = moduleMenu.SelectedIndex;
             moduleMenu.SelectedIndex = -1;
             menu.IsActive = true;
+
+            while (SessionManager.ModuleTemplates.Count > 0)
+            {
+                Player.Get().Credits += SessionManager.ModuleTemplates[0].Price;
+                SessionManager.ModuleTemplates.RemoveAt(0);
+            }
         }
 
         private void OnModuleSelected()

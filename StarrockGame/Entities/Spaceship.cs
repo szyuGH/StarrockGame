@@ -24,7 +24,6 @@ namespace StarrockGame.Entities
         private Dictionary<MovementType, float> fuelCostPerSecond;
         private float spawnTimer;
         private float spawnSize;
-        public Player Player;
 
         private float _shieldCapacity;
         public float ShieldCapacity
@@ -316,9 +315,44 @@ namespace StarrockGame.Entities
             Energy += Scavenging.Target.GainEnergy;
             Fuel += Scavenging.Target.GainFuel;
             Structure += Scavenging.Target.GainStructure;
-            //Player.UnlockTemplates(Scavenging.Target.SpaceshipBlueprint.Name); //Player initialisieren
+            checkBlueprints();
             Scavenging.Target.Destroy();
             Scavenging.Reset();
+        }
+
+        private void checkBlueprints()
+        {
+            String spaceshipName = Scavenging.Target.SpaceshipBlueprint.Name;
+            String moduleName = Scavenging.Target.ModuleBlueprint.Name;
+            if (spaceshipName == null && moduleName == null)
+            {
+                return;
+            }
+            else if (spaceshipName != null && moduleName != null)
+            {
+                
+                unlockModule();
+                unlockSpaceship();
+
+            }
+            else if (spaceshipName == null && moduleName != null)
+            {
+                unlockModule();
+            }
+            else
+            {
+                unlockSpaceship();
+            }
+        }
+
+        private void unlockSpaceship()
+        {
+            Player.Get().UnlockTemplates(Scavenging.Target.SpaceshipBlueprint.Name);
+        }
+
+        private void unlockModule()
+        {
+            Player.Get().UnlockTemplates(Scavenging.Target.ModuleBlueprint.Name);
         }
 
         protected override void HandleCollisionResponse(Body with)

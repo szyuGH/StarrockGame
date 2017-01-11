@@ -15,17 +15,19 @@ namespace StarrockGame
         public Blueprint(TemplateType type)
         { 
             chooseBlueprint(type);
-            Name = "Hunter";
         }
 
+        //Selects a random ship from all available ones, uses the dropchance to calculate if the blueprint contains the ship or not
         private void chooseBlueprint(TemplateType type)
-        {
-            //Zwischen modules und spaceships unterscheiden
-            Dictionary<TemplateType, List<string>> templates = new Dictionary<TemplateType, List<string>>();
-            templates = Cache.Templates;
+        { 
+            List<Tuple<string, float>> templates = Cache.Templates[type];
             Random rand = new Random();
-            var k = templates.Keys.ToList()[rand.Next(templates.Count)];
-            //select dropchance des elements, -> rand im bereich [0;1] , if rand > dropchance -> Name = select name
+            var k = templates[rand.Next(templates.Count)];
+
+            if (k.Item2 > rand.NextDouble())
+            {
+                Name = k.Item1;
+            }
         }
     }
 }

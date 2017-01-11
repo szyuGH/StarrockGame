@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="TData.TemplateData.WreckageTemplate">
+    <Checksum>12345678</Checksum>
+    <Name>GnomeWreckage</Name>
+    <File>GnomeWreckage</File>
+    <TextureName>GnomeWreckage</TextureName>
+	<DefaultController>StarrockGame.AI.NoController</DefaultController>
+    <Score>20</Score>
+    <Structure>40</Structure>
+    <Mass>20</Mass>
+    <Size>1</Size>
+    <Inertia>0</Inertia>
+	<ExplosionSize>0</ExplosionSize>
+    <MinFuel>1</MinFuel>
+    <MaxFuel>50</MaxFuel>
+    <MinEnergy>1</MinEnergy>
+    <MaxEnergy>50</MaxEnergy>
+    <MinStructure>1</MinStructure>
+    <MaxStructure>50</MaxStructure>
+  </Asset>
+</XnaContent>

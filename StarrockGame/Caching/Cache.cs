@@ -13,7 +13,7 @@ namespace StarrockGame.Caching
 {
     public static class Cache
     {
-        internal static Dictionary<TemplateType, List<string>> Templates;
+        internal static Dictionary<TemplateType, List<Tuple<string,float>>> Templates;
 
         private static ContentManager content;
         private static IContentLocator locator;
@@ -23,10 +23,10 @@ namespace StarrockGame.Caching
             content = con;
             locator = loc ?? new DefaultContentLocator();
             loader?.Preload(content);
-            Templates = new Dictionary<TemplateType, List<string>>();
+            Templates = new Dictionary<TemplateType, List<Tuple<string, float>>>();
             foreach (TemplateType tt in Enum.GetValues(typeof(TemplateType)))
             {
-                Templates[(TemplateType)tt] = new List<string>();
+                Templates[(TemplateType)tt] = new List<Tuple<string,float>> ();
             }
             // MOCK TEMPLATE LOAD
             IEnumerable<string> files = from fullFileName
@@ -38,9 +38,9 @@ namespace StarrockGame.Caching
                 {
                     AbstractTemplate at = LoadTemplate<AbstractTemplate>(s);
                     if (at is SpaceshipTemplate)
-                        Templates[TemplateType.Spaceship].Add(s);
+                        Templates[TemplateType.Spaceship].Add(new Tuple<string, float>(s,(at as SpaceshipTemplate).DropChance));
                     else if (at is ModuleTemplate)
-                        Templates[TemplateType.Module].Add(s);
+                        Templates[TemplateType.Module].Add(new Tuple<string, float>(s, (at as ModuleTemplate).DropChance));
                 }
                 catch (Exception)
                 {

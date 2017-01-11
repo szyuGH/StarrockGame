@@ -437,3 +437,23 @@
 /processor:PassThroughProcessor
 /build:Data/Templates/SpaceshipWreckage.xml
 
+#begin Data/Templates/AncusWreckage.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/AncusWreckage.xml
+
+#begin Data/Templates/HavocWreckage.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/HavocWreckage.xml
+
+#begin Data/Templates/HunterWreckage.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/HunterWreckage.xml
+
+#begin Data/Templates/GnomeWreckage.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/GnomeWreckage.xml
+

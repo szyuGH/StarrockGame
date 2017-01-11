@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="TData.TemplateData.WreckageTemplate">
+    <Checksum>228295197</Checksum>
+    <Name>HavocWreckage</Name>
+    <File>HavocWreckage</File>
+    <TextureName>HavocWreckage</TextureName>
+	<DefaultController>StarrockGame.AI.NoController</DefaultController>
+    <Score>50</Score>
+    <Structure>40</Structure>
+    <Mass>20</Mass>
+    <Size>1</Size>
+    <Inertia>0</Inertia>
+	<ExplosionSize>0</ExplosionSize>
+    <MinFuel>20</MinFuel>
+    <MaxFuel>150</MaxFuel>
+    <MinEnergy>20</MinEnergy>
+    <MaxEnergy>150</MaxEnergy>
+    <MinStructure>20</MinStructure>
+    <MaxStructure>150</MaxStructure>
+  </Asset>
+</XnaContent>

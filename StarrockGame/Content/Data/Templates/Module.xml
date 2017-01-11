@@ -11,5 +11,6 @@
       </Item>
     </ModuleEffects>
     <Price>10</Price>
+	<DropChance>1</DropChance>
   </Asset>
 </XnaContent>

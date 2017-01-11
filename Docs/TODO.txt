@@ -1,8 +1,6 @@
 draw border in radar
-menu for unlocking ships
 spawn random enemies based on game difficulty
 credits calculated by score
 save credits & ships in session
-wreckage xml für fehlende schiffe
 
 documentation

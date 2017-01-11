@@ -11,5 +11,6 @@ namespace TData.TemplateData
     {
         public ModuleEffectData[] ModuleEffects;
         public int Price;
+        public float DropChance;
     }
 }

@@ -191,7 +191,10 @@ namespace StarrockGame.Entities
             Structure = 0;
             Body.Enabled = false;
             IsAlive = false;
-            if (!(Controller is PlayerController) && !ignoreScore)
+            if (!(Controller is PlayerController) && !(this is WeaponEntity) 
+                && Vector2.DistanceSquared(
+                    Body.Position, EntityManager.PlayerShip.Body.Position) <= (EntityManager.PlayerShip.Template as SpaceshipTemplate).RadarRange * (EntityManager.PlayerShip.Template as SpaceshipTemplate).RadarRange
+                && !ignoreScore)
             {
                 SessionManager.Score += Template.Score;
             }

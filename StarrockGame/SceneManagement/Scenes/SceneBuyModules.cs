@@ -52,7 +52,7 @@ namespace StarrockGame.SceneManagement.Scenes
             Vector2 menuPos = new Vector2(100 + Device.Viewport.Width * .5f, Device.Viewport.Height - 40 - 4 * font.LineSpacing);
             new ButtonLabel(menu, "Select Modules", menuPos + new Vector2(0, font.LineSpacing * 0), 1, Color.White, OnBuyModules) { Active = unlockedModules.Count > 0 };
             new ButtonLabel(menu, "Start Session", menuPos + new Vector2(0, font.LineSpacing * 1), 1, Color.White, OnStartSession);
-            new ButtonLabel(menu, "Back", menuPos + new Vector2(0, font.LineSpacing * 2), 1, Color.White, () => { SceneManager.Return(); });
+            new ButtonLabel(menu, "Back", menuPos + new Vector2(0, font.LineSpacing * 2), 1, Color.White, () => { OnMenuBack(); });
             new Label(menu, "", new Vector2(10, 10), 1, Color.White, 0) { CaptionMonitor = () => { return "Credits: " + Player.Get().Credits; } };
         }
 
@@ -116,12 +116,6 @@ namespace StarrockGame.SceneManagement.Scenes
             lastSelected = moduleMenu.SelectedIndex;
             moduleMenu.SelectedIndex = -1;
             menu.IsActive = true;
-
-            while (SessionManager.ModuleTemplates.Count > 0)
-            {
-                Player.Get().Credits += SessionManager.ModuleTemplates[0].Price;
-                SessionManager.ModuleTemplates.RemoveAt(0);
-            }
         }
 
         private void OnModuleSelected()
@@ -152,6 +146,16 @@ namespace StarrockGame.SceneManagement.Scenes
         {
             SessionManager.Score = 0;
             SceneManager.Call<SceneSession>();
+        }
+
+        private void OnMenuBack()
+        {
+            while (SessionManager.ModuleTemplates.Count > 0)
+            {
+                Player.Get().Credits += SessionManager.ModuleTemplates[0].Price;
+                SessionManager.ModuleTemplates.RemoveAt(0);
+            }
+            SceneManager.Return();
         }
     }
 }

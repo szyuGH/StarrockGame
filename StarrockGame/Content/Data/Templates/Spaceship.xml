@@ -2,9 +2,9 @@
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.SpaceshipTemplate">
     <Checksum>489479512</Checksum>
-    <Name>TestName</Name>
+    <Name>Spaceship</Name>
     <File>Spaceship</File>
-    <TextureName>TestShip</TextureName>
+    <TextureName>Spaceship</TextureName>
 	<DefaultController>StarrockGame.AI.DestroyerController</DefaultController>
     <Score>75</Score>
     <Structure>300</Structure>
@@ -92,5 +92,6 @@
 	<SpawnTime>4</SpawnTime>
 	<SpawnSize>1</SpawnSize>
 	<SpawnColor>FFBDB76B</SpawnColor>
+	<DropChance>0</DropChance>
   </Asset>
 </XnaContent>

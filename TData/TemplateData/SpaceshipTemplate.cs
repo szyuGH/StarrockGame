@@ -32,5 +32,6 @@ namespace TData.TemplateData
         public float SpawnTime;
         public float SpawnSize;
         public Color SpawnColor;
+        public float DropChance;
     }
 }

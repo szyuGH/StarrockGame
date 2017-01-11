@@ -6,6 +6,7 @@ using FarseerPhysics.Dynamics;
 using TData.TemplateData;
 using StarrockGame.Caching;
 using Microsoft.Xna.Framework;
+using TData;
 
 namespace StarrockGame.Entities
 {
@@ -15,11 +16,14 @@ namespace StarrockGame.Entities
         public float GainEnergy { get; private set; }
         public float GainFuel { get; private set; }
         public float GainStructure { get; private set; }
+        public Blueprint SpaceshipBlueprint;
+        public Blueprint ModuleBlueprint;
 
         public Wreckage(World world, string type) : base(world, type)
         {
             DrawOrder = 0;
             Center = new Vector2(Graphic.Width * .5f, Graphic.Height * .5f);
+            
         }
 
         protected override void SetCollisionGroup()
@@ -43,6 +47,8 @@ namespace StarrockGame.Entities
             GainEnergy = MathHelper.Lerp(wtd.MinEnergy, wtd.MaxEnergy, (float)Program.Random.NextDouble());
             GainFuel = MathHelper.Lerp(wtd.MinFuel, wtd.MaxFuel, (float)Program.Random.NextDouble());
             GainStructure = MathHelper.Lerp(wtd.MinStructure, wtd.MaxStructure, (float)Program.Random.NextDouble());
+            SpaceshipBlueprint = new Blueprint(TemplateType.Spaceship);
+            ModuleBlueprint = new Blueprint(TemplateType.Module);
         }
 
         protected override void HandleCollisionResponse(Body with)

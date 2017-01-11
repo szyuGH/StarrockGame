@@ -24,6 +24,7 @@ namespace StarrockGame.Entities
         private Dictionary<MovementType, float> fuelCostPerSecond;
         private float spawnTimer;
         private float spawnSize;
+        public Player Player;
 
         private float _shieldCapacity;
         public float ShieldCapacity
@@ -315,6 +316,7 @@ namespace StarrockGame.Entities
             Energy += Scavenging.Target.GainEnergy;
             Fuel += Scavenging.Target.GainFuel;
             Structure += Scavenging.Target.GainStructure;
+            //Player.UnlockTemplates(Scavenging.Target.SpaceshipBlueprint.Name); //Player initialisieren
             Scavenging.Target.Destroy();
             Scavenging.Reset();
         }

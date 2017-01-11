@@ -75,6 +75,7 @@
     <Compile Include="Audio\StarrockSound.cs" />
     <Compile Include="Audio\Sound.cs" />
     <Compile Include="Background.cs" />
+    <Compile Include="Blueprint.cs" />
     <Compile Include="Caching\Cache.cs" />
     <Compile Include="Caching\DefaultContentLocator.cs" />
     <Compile Include="Caching\ICacheLoader.cs" />

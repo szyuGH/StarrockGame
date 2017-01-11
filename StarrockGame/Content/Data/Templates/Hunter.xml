@@ -97,5 +97,6 @@
 	<SpawnTime>4</SpawnTime>
 	<SpawnSize>1.5</SpawnSize>
 	<SpawnColor>F35D571B</SpawnColor>
+	<DropChance>0.01</DropChance>
   </Asset>
 </XnaContent>

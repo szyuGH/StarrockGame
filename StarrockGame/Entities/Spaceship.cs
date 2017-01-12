@@ -315,12 +315,12 @@ namespace StarrockGame.Entities
             Energy += Scavenging.Target.GainEnergy;
             Fuel += Scavenging.Target.GainFuel;
             Structure += Scavenging.Target.GainStructure;
-            checkBlueprints();
+            CheckBlueprints();
             Scavenging.Target.Destroy();
             Scavenging.Reset();
         }
 
-        private void checkBlueprints()
+        private void CheckBlueprints()
         {
             String spaceshipName = Scavenging.Target.SpaceshipBlueprint.Name;
             String moduleName = Scavenging.Target.ModuleBlueprint.Name;
@@ -331,28 +331,36 @@ namespace StarrockGame.Entities
             else if (spaceshipName != null && moduleName != null)
             {
                 
-                unlockModule();
-                unlockSpaceship();
+                UnlockModule();
+                UnlockSpaceship();
 
             }
             else if (spaceshipName == null && moduleName != null)
             {
-                unlockModule();
+                UnlockModule();
             }
             else
             {
-                unlockSpaceship();
+                UnlockSpaceship();
             }
         }
 
-        private void unlockSpaceship()
+        private void UnlockSpaceship()
         {
-            Player.Get().UnlockTemplates(Scavenging.Target.SpaceshipBlueprint.Name);
+            string bp = Scavenging.Target.SpaceshipBlueprint.Name;
+            if (Player.Get().UnlockTemplates(bp))
+            {
+                SessionManager.AddBlueprint(bp);
+            }
         }
 
-        private void unlockModule()
+        private void UnlockModule()
         {
-            Player.Get().UnlockTemplates(Scavenging.Target.ModuleBlueprint.Name);
+            string bp = Scavenging.Target.ModuleBlueprint.Name;
+            if (Player.Get().UnlockTemplates(bp))
+            {
+                SessionManager.AddBlueprint(bp);
+            }
         }
 
         protected override void HandleCollisionResponse(Body with)

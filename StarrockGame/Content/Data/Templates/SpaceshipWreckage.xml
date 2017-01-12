@@ -4,7 +4,7 @@
     <Checksum>220681549</Checksum>
     <Name>TestWreckage</Name>
     <File>Wreckage</File>
-    <TextureName>TestShipWreckage</TextureName>
+    <TextureName>SpaceshipWreckage</TextureName>
 	<DefaultController>StarrockGame.AI.NoController</DefaultController>
     <Score>50</Score>
     <Structure>40</Structure>

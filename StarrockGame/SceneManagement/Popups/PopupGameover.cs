@@ -34,6 +34,11 @@ namespace StarrockGame.SceneManagement.Popups
 
             gameoverLabel = new Label(menu, "Game Over", screenCenter, 3, Color.White);
             new ButtonLabel(menu, "Accept Death", screenCenter + new Vector2(0, font.LineSpacing * 2.5f), 1, Color.White, OnReturnToTitle);
+            new ButtonLabel(menu, string.Format("Show found blueprints ({0})", SessionManager.FoundBlueprints.Count),
+                screenCenter + new Vector2(0,  font.LineSpacing * 4f), 1, Color.White, OnShowFoundBlueprints)
+            {
+                Active = SessionManager.FoundBlueprints.Count > 0
+            };
 
             new Label(menu, "Statistics", screenCenter - new Vector2(60, font.LineSpacing * 5), 1, Color.LightSlateGray, 0);
             new Label(menu, "", screenCenter - new Vector2(60, font.LineSpacing * 4), 1, Color.White, 0) { CaptionMonitor = () => { return string.Format("Elapsed Time: {0:hh\\:mm\\:ss}", SessionManager.ElapsedTime); } };
@@ -82,8 +87,13 @@ namespace StarrockGame.SceneManagement.Popups
         private void OnReturnToTitle()
         {
             Close();
-            SceneManager.Set<SceneTitle>();
+            SceneManager.ReturnUntil<ScenePrepareSession>();
             SessionManager.Reset();
+        }
+
+        private void OnShowFoundBlueprints()
+        {
+            SceneManager.CallPopup<PopupFoundBlueprints>();
         }
     }
 }

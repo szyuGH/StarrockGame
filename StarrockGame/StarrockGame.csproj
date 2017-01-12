@@ -111,6 +111,7 @@
     <Compile Include="Line.cs" />
     <Compile Include="ParticleSystems\ExplosionParticleSystem.cs" />
     <Compile Include="SceneManagement\Popup.cs" />
+    <Compile Include="SceneManagement\Popups\PopupFoundBlueprints.cs" />
     <Compile Include="SceneManagement\Popups\PopupGameover.cs" />
     <Compile Include="SceneManagement\Popups\PopupPause.cs" />
     <Compile Include="SceneManagement\Scenes\SceneBuyModules.cs" />

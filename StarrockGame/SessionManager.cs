@@ -31,7 +31,6 @@ namespace StarrockGame
         internal static float Score { get; set; }
         internal static List<ModuleTemplate> ModuleTemplates { get; set; } = new List<ModuleTemplate>();
         internal static TimeSpan ElapsedTime;
-
         internal static SpaceshipTemplate LastUsedShipTemplate { get; private set; }
 
         private static SessionData data;
@@ -42,6 +41,8 @@ namespace StarrockGame
 
         private static SpawnData spawn { get { return data.Spawns[(int)Difficulty]; } }
         private static float estimatedDuration;
+
+        internal static List<string> FoundBlueprints { get; private set; } = new List<string>();
 
         public static void Initialize()
         {
@@ -56,6 +57,7 @@ namespace StarrockGame
             UsedShipTemplate = null;
             Score = 0;
             ModuleTemplates.Clear();
+            FoundBlueprints.Clear();
         }
 
         internal static void Update(GameTime gameTime)
@@ -77,7 +79,11 @@ namespace StarrockGame
             SpawnBoss();
         }
 
-
+        internal static void AddBlueprint(string bp)
+        {
+            if (!FoundBlueprints.Contains(bp))
+                FoundBlueprints.Add(bp);
+        }
         
         private static void SpawnAsteroids()
         {

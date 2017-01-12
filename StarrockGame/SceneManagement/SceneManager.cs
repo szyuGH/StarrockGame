@@ -99,12 +99,14 @@ namespace StarrockGame.SceneManagement
 
             if (popupStack.Count > 0)
             {
-                foreach (Popup popup in popupStack)
+                foreach (Popup popup in popupStack.Reverse())
                 {
                     popup.Render(gameTime);
                 }
             }
         }
+
+        
 
         /// <summary>
         /// Call a new scene and push the current scene to the stack
@@ -165,6 +167,26 @@ namespace StarrockGame.SceneManagement
                 NextScene.Initialize();
                 returning = true;
             }
+        }
+
+        /// <summary>
+        /// Returns until a certain scene
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        internal static void ReturnUntil<T>()
+        {
+            while (!(NextScene is T))
+            {
+                NextScene = sceneStack.Pop();
+                if (NextScene == null)
+                {
+                    Exit();
+                    return;
+                }
+            }
+            currentScene.State = SceneState.FadingOut;
+            NextScene.Initialize();
+            returning = true;
         }
 
         /// <summary>

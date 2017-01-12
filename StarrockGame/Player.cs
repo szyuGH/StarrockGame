@@ -84,17 +84,17 @@ namespace StarrockGame
             }
         }
 
-        public void UnlockTemplates(params string[] templates)
+        public bool UnlockTemplates(string t)
         {
-            foreach (string template in templates)
+            AbstractTemplate data = Cache.LoadTemplate<AbstractTemplate>(t);
+            if (!this.templates.Contains(data))
             {
-                AbstractTemplate data = Cache.LoadTemplate<AbstractTemplate>(template);
-                if (!this.templates.Contains(data))
-                {
-                    this.templates.Add(data);
-                }
+                this.templates.Add(data);
             }
+            else
+                return false;
             Save();
+            return true;
         }
 
         public List<T> GetTemplates<T>() where T : AbstractTemplate

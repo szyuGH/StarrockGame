@@ -82,7 +82,7 @@ namespace StarrockGame.GUI
 
         public void SelectNext()
         {
-            if (!NotSelectable && Elements.Count > 0)
+            if (!NotSelectable && Elements.Where(e => e is ISelectable).Count() > 0)
             {
                 if (SelectedIndex == -1)
                 {
@@ -101,7 +101,7 @@ namespace StarrockGame.GUI
 
         public void SelectPrevious()
         {
-            if (!NotSelectable && Elements.Count > 0)
+            if (!NotSelectable && Elements.Where(e => e is ISelectable).Count() > 0)
             {
                 if (SelectedIndex == -1)
                 {

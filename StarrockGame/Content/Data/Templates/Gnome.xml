@@ -85,7 +85,7 @@
     </SecondaryWeaponBases>
     <RadarRange>500</RadarRange>
     <Price>200</Price>
-    <CameraZoom>0.6</CameraZoom>
+    <CameraZoom>1.0</CameraZoom>
 	<SpawnTime>6</SpawnTime>
 	<SpawnSize>1.5</SpawnSize>
 	<SpawnColor>FF2D131B</SpawnColor>

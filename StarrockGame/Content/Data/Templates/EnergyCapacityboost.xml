@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="TData.TemplateData.ModuleTemplate">
+    <Checksum>126942743</Checksum>
+    <Name>EnergyCapacitybooster</Name>
+    <File>EnergyCapacityboost</File>
+    <ModuleEffects>
+      <Item>
+        <EffectType>8</EffectType>
+        <Value>2</Value>
+      </Item>
+    </ModuleEffects>
+    <Price>10</Price>
+	<DropChance>0.05</DropChance>
+  </Asset>
+</XnaContent>

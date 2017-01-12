@@ -87,7 +87,7 @@ namespace StarrockGame.SceneManagement.Popups
         private void OnReturnToTitle()
         {
             Close();
-            SceneManager.ReturnUntil<ScenePrepareSession>();
+            SceneManager.ReturnUntil<SceneTitle>();
             SessionManager.Reset();
         }
 

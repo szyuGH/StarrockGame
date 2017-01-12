@@ -67,11 +67,6 @@
 /processor:PassThroughProcessor
 /build:Data/Templates/Asteroid.xml
 
-#begin Data/Templates/Module.xml
-/importer:XmlImporter
-/processor:PassThroughProcessor
-/build:Data/Templates/Module.xml
-
 #begin Data/Templates/Spaceship.xml
 /importer:XmlImporter
 /processor:PassThroughProcessor
@@ -456,4 +451,64 @@
 /importer:XmlImporter
 /processor:PassThroughProcessor
 /build:Data/Templates/GnomeWreckage.xml
+
+#begin Data/Templates/AdvFuelCapacityboost.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/AdvFuelCapacityboost.xml
+
+#begin Data/Templates/Damageboost.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/Damageboost.xml
+
+#begin Data/Templates/EnergyCapacityboost.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/EnergyCapacityboost.xml
+
+#begin Data/Templates/EnergyRecovery.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/EnergyRecovery.xml
+
+#begin Data/Templates/FuelCapacityboost.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/FuelCapacityboost.xml
+
+#begin Data/Templates/FuelRecovery.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/FuelRecovery.xml
+
+#begin Data/Templates/RadarRangeboost.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/RadarRangeboost.xml
+
+#begin Data/Templates/ScavengePowerboost.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/ScavengePowerboost.xml
+
+#begin Data/Templates/ScavengeRangeboost.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/ScavengeRangeboost.xml
+
+#begin Data/Templates/ShieldCapacityboost.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/ShieldCapacityboost.xml
+
+#begin Data/Templates/ShieldRecovery.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/ShieldRecovery.xml
+
+#begin Data/Templates/StructureCapacityboost.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/StructureCapacityboost.xml
 

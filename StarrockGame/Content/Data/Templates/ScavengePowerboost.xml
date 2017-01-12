@@ -2,15 +2,15 @@
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.ModuleTemplate">
     <Checksum>126942743</Checksum>
-    <Name>Fuelbooster</Name>
-    <File>Module</File>
+    <Name>ScavengePowerbooster</Name>
+    <File>ScavengePowerboost</File>
     <ModuleEffects>
       <Item>
-        <EffectType>10</EffectType>
+        <EffectType>4</EffectType>
         <Value>2</Value>
       </Item>
     </ModuleEffects>
     <Price>10</Price>
-	<DropChance>1</DropChance>
+	<DropChance>0.05</DropChance>
   </Asset>
 </XnaContent>

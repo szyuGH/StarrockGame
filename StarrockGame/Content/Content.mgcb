@@ -512,3 +512,9 @@
 /processor:PassThroughProcessor
 /build:Data/Templates/StructureCapacityboost.xml
 
+#begin Effects/OutlineEffect.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Effects/OutlineEffect.fx
+

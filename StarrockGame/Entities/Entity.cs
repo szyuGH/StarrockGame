@@ -47,12 +47,14 @@ namespace StarrockGame.Entities
         protected Vector2 Center { get; set; }
         protected float Scale { get; private set; }
 
-        protected float DrawOrder = 1;
+        public float DrawOrder = 1;
 
         private World _world;
         public World World { get; private set; }
 
         public Entity Target;
+
+        protected virtual Color OutlineColor { get { return Color.Gray; } }
 
         public Entity(World world, string type)
         {
@@ -155,8 +157,10 @@ namespace StarrockGame.Entities
             
         }
 
-        public virtual void Render(SpriteBatch spriteBatch, GameTime gameTime)
+        public virtual void Render(SpriteBatch spriteBatch, GameTime gameTime, EffectParameterCollection effectParams)
         {
+            effectParams["TexDim"].SetValue(new Vector2(Graphic.Width, Graphic.Height));
+            effectParams["OutlineColor"].SetValue(OutlineColor.ToVector4());
             spriteBatch.Draw(Graphic,
                 ConvertUnits.ToDisplayUnits(Body.Position),
                 null,

@@ -44,6 +44,7 @@ namespace StarrockGame
         {
             Input.Initialize();
             Cache.Initialize(Content, null, new StarrockCacheLoader());
+            EntityManager.Initialize();
             Particles.Add<TrailParticleSystem>(this);
             Particles.Add<ExplosionParticleSystem>(this);
             Player.Get();

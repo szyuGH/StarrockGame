@@ -25,8 +25,17 @@ namespace StarrockGame.Entities
 
         public float Damage { get { return (Template as WeaponTemplate).Damage; } }
 
+        protected override Color OutlineColor
+        {
+            get
+            {
+                return EmitterBody == null ? Color.Transparent : ((EmitterBody.UserData as Entity).Controller is PlayerController ? Color.Green : Color.Red);
+            }
+        }
+
         public WeaponEntity(World world, string type) : base(world, type)
         {
+            DrawOrder = 0.9f;
             Body.LinearDamping = 0;
             Body.AngularDamping = 0;
         }

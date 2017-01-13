@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StarrockGame.AI;
+using StarrockGame.Caching;
 using StarrockGame.Entities;
 using System;
 using System.Collections.Generic;
@@ -13,10 +14,21 @@ namespace StarrockGame
 {
     public static class EntityManager
     {
-        private static List<Entity> entities = new List<Entity>();
-        public static readonly World World = new World(Vector2.Zero);
+        private static List<Entity> entities;
+        public static World World;
         public static Entity PlayerShip { get; private set; }
         public static GameBorder Border;
+
+        public static Effect OutlineEffect;
+        private static EffectParameterCollection outlineParams;
+
+        public static void Initialize()
+        {
+            entities = new List<Entity>();
+            World = new World(Vector2.Zero);
+            OutlineEffect = Cache.LoadEffect("OutlineEffect");
+            outlineParams = OutlineEffect.Parameters;
+        }
 
         public static void Update(GameTime gameTime)
         {
@@ -32,9 +44,9 @@ namespace StarrockGame
 
         public static void Render(SpriteBatch batch, GameTime gameTime)
         {
-            foreach (Entity e in entities.Where(e => e.IsAlive))
+            foreach (Entity e in entities.Where(e => e.IsAlive).OrderBy(e => e.DrawOrder))
             {
-                e.Render(batch, gameTime);
+                e.Render(batch, gameTime, outlineParams);
             }
         }
 

@@ -16,6 +16,7 @@ namespace StarrockGame.Entities
         public Asteroid(World world, string type)
             :base(world, type)
         {
+            DrawOrder = 0.5f;
             Body.AngularDamping = 0;
             Body.LinearDamping = 0;
         }

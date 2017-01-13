@@ -63,9 +63,18 @@ namespace StarrockGame.Entities
 
         public float DamageAmplifier { get; set; } = 1;
 
+        protected override Color OutlineColor
+        {
+            get
+            {
+                return Controller is PlayerController ? Color.Green : Color.Red;
+            }
+        }
+
         public Spaceship(World world, string type)
             :base(world, type)
         {
+            DrawOrder = 1;
             Scavenging = new Scavenging(this, ConvertUnits.ToSimUnits(shipTemplate.ScavengeRange), OnScavengeSuccess);
             fuelCostPerSecond = new Dictionary<MovementType, float>();
         }
@@ -175,10 +184,13 @@ namespace StarrockGame.Entities
             Fuel += shipTemplate.FuelRecoveryPerSecond * elapsed;
         }
 
-        public override void Render(SpriteBatch spriteBatch, GameTime gameTime)
+        public override void Render(SpriteBatch spriteBatch, GameTime gameTime, EffectParameterCollection effectParams)
         {
             if (spawnTimer != -1)
             {
+                effectParams["TexDim"].SetValue(new Vector2(Graphic.Width, Graphic.Height));
+                effectParams["OutlineColor"].SetValue(OutlineColor.ToVector4());
+
                 float spawnRatio;
                 if (spawnTimer >= 0)
                     spawnRatio = 1 - spawnTimer / shipTemplate.SpawnTime;
@@ -208,7 +220,7 @@ namespace StarrockGame.Entities
             }
             else
             {
-                base.Render(spriteBatch, gameTime);
+                base.Render(spriteBatch, gameTime, effectParams);
                 Scavenging.Render(spriteBatch, gameTime);
             }
         }

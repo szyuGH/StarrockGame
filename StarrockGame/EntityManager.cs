@@ -84,9 +84,9 @@ namespace StarrockGame
                 (entity as Spaceship).SetModules(SessionManager.ModuleTemplates.ToArray());
                 PlayerShip = entity;
             }
-            else if (typeof(T) == typeof(Spaceship))
+            else if (typeof(T) == typeof(WeaponEntity))
             {
-                entity.Target = PlayerShip;
+                entity.Target = ((entity as WeaponEntity).EmitterBody.UserData as Entity).Target;
             }
             return entity as T;
         }

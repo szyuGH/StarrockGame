@@ -7,35 +7,65 @@ using Microsoft.Xna.Framework;
 using StarrockGame.Entities;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Collision;
+using FarseerPhysics;
+using StarrockGame.Audio;
 
 namespace StarrockGame.AI
 {
-    public class DestroyerController : IController
+    public class DestroyerController : AbstractController
     {
-        public void Act(Entity entity, GameTime gameTime)
+
+        private int waypointIndex = -1;
+        private Vector2 targetPos;
+
+        public override void Act(Entity entity, GameTime gameTime)
         {
             Spaceship ship = entity as Spaceship;
 
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             Entity target = entity.Target;
-            if (target == null)
+            
+            if (target != null)
+            {
+                targetPos = target.Body.Position;
+            }
+            else if (waypointIndex == -1)
+            {
+                float wpx = Program.Random.NextFloat(-EntityManager.Border.Width * .5f, EntityManager.Border.Width * .5f);
+                float wpy = Program.Random.NextFloat(-EntityManager.Border.Height * .5f, EntityManager.Border.Height * .5f);
+                targetPos = ConvertUnits.ToSimUnits(new Vector2(wpx, wpy));
+                waypointIndex = 0;
+            }
+            float distanceSquared = Vector2.DistanceSquared(targetPos, entity.Body.Position);
+            const float minDistanceSquared = 10;
+            if (target == null && Vector2.DistanceSquared(EntityManager.PlayerShip.Body.Position, entity.Body.Position) <= ConvertUnits.ToSimUnits(ship.RadarRange * ship.RadarRange))
+            {
+                entity.Target = EntityManager.PlayerShip;
+                targetPos = EntityManager.PlayerShip.Body.Position;
+                waypointIndex = -1;
+                Sound.Instance.PlaySe("Spotted");
+            } // one could put the out of range path here, where the entity loses the target
+            else if (distanceSquared <= minDistanceSquared * minDistanceSquared)
+            {
+                waypointIndex = -1;
                 return;
-            float distanceSquared = Vector2.DistanceSquared(target.Body.Position, entity.Body.Position);
-            const float minDistanceSquard = 7;
+            }
+
 
             // calculate the direction this entity needs to be turning to
-            Vector2 targetPos = target.Body.Position;
+
             Vector2 targetDir;
-            if (distanceSquared <= minDistanceSquard)
+            if (target != null && distanceSquared <= minDistanceSquared * minDistanceSquared)
             {
                 ship.Decelerate(1, elapsed);
                 targetDir = entity.Body.Position - targetPos;
-            } else
+            }
+            else
             {
                 targetDir = targetPos - entity.Body.Position;
             }
 
-            
+
             // get the rotation difference
             float targetRotation = (float)(Math.Atan2(targetDir.Y, targetDir.X));
             float curRot = (float)(Math.Atan2(entity.Direction.Y, entity.Direction.X));
@@ -55,7 +85,7 @@ namespace StarrockGame.AI
             else
             {
                 entity.Accelerate(1, elapsed);
-                if (Math.Abs(rotDif) < MathHelper.ToRadians(5))
+                if (target != null && Math.Abs(rotDif) < MathHelper.ToRadians(5))
                 {
                     ship.FirePrimary();
                     ship.FireSecondary();
@@ -67,6 +97,7 @@ namespace StarrockGame.AI
                 entity.Rotate(Math.Max(rotDif, -1), elapsed);
             else if (rotDif > 0)
                 entity.Rotate(Math.Min(rotDif, 1), elapsed);
+
 
         }
     }

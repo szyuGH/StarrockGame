@@ -518,3 +518,9 @@
 /processorParam:DebugMode=Auto
 /build:Effects/OutlineEffect.fx
 
+#begin Audio/SE/Spotted.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SE/Spotted.mp3
+

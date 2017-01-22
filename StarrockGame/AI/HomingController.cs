@@ -8,9 +8,9 @@ using StarrockGame.Entities;
 
 namespace StarrockGame.AI
 {
-    public class HomingController : IController
+    public class HomingController : AbstractController
     {
-        public void Act(Entity entity, GameTime gameTime)
+        public override void Act(Entity entity, GameTime gameTime)
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             Entity target = entity.Target;

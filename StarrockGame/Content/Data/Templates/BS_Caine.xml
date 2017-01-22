@@ -12,7 +12,7 @@
     <Size>1</Size>
     <Inertia>1000</Inertia>
 	<ExplosionSize>10</ExplosionSize>
-    <Fuel>2900</Fuel>
+    <Fuel>290000</Fuel>
     <Energy>1500</Energy>
     <ShieldCapacity>2000</ShieldCapacity>
     <ScavengePower>50</ScavengePower>
@@ -91,7 +91,7 @@
         </Item>
       </Bases>
     </SecondaryWeaponBases>
-    <RadarRange>500</RadarRange>
+    <RadarRange>90</RadarRange>
     <Price>200</Price>
     <CameraZoom>0.6</CameraZoom>
 	<SpawnTime>6</SpawnTime>

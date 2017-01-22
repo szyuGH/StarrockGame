@@ -8,11 +8,11 @@ using StarrockGame.Entities;
 
 namespace StarrockGame.AI
 {
-    public class HaulerController : IController
+    public class HaulerController : AbstractController
     {
         private Wreckage target;
 
-        public void Act(Entity entity, GameTime gameTime)
+        public override void Act(Entity entity, GameTime gameTime)
         {
             Spaceship ship = entity as Spaceship;
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;

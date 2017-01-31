@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="TData.TemplateData.LaserBulletTemplate">
+    <Checksum>218224798</Checksum>
+    <Name>BlasterCannon</Name>
+    <File>CannonTest</File>
+    <TextureName>CannonTest</TextureName>
+	<DefaultController>StarrockGame.AI.NoController</DefaultController>
+    <Structure>1</Structure>
+    <Mass>1</Mass>
+    <Size>0.3</Size>
+    <Inertia>0</Inertia>
+	<ExplosionSize>1.5</ExplosionSize>
+    <WeaponType>0</WeaponType>
+    <EnergyCost>15</EnergyCost>
+    <Damage>50</Damage>
+    <Cooldown>1</Cooldown>
+    <SoundFile>LaserGun</SoundFile>
+    <Velocity>12</Velocity>
+  </Asset>
+</XnaContent>

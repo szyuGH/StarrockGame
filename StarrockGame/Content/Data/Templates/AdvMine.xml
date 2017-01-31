@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="TData.TemplateData.MineTemplate">
+    <Checksum>1119184597</Checksum>
+    <Name>AdvMine</Name>
+    <File>AdvMine</File>
+    <TextureName>MineTest</TextureName>
+	<DefaultController>StarrockGame.AI.NoController</DefaultController>
+    <Structure>1</Structure>
+    <Mass>10</Mass>
+    <Size>0.6</Size>
+    <Inertia>3</Inertia>
+	<ExplosionSize>1</ExplosionSize>
+    <WeaponType>4</WeaponType>
+    <EnergyCost>5</EnergyCost>
+    <Damage>100</Damage>
+    <Cooldown>0.5</Cooldown>
+    <SoundFile>LaserGun</SoundFile>
+    <ExplosionRange>35</ExplosionRange>
+	<LinearDampening>1</LinearDampening>
+  </Asset>
+</XnaContent>

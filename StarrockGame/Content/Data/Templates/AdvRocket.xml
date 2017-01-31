@@ -2,22 +2,22 @@
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.RocketTemplate">
     <Checksum>1119184597</Checksum>
-    <Name>Rocket</Name>
-    <File>RocketTest</File>
+    <Name>AdvRocket</Name>
+    <File>AdvRocket</File>
     <TextureName>RocketTest</TextureName>
 	<DefaultController>StarrockGame.AI.NoController</DefaultController>
     <Structure>1</Structure>
     <Mass>1</Mass>
-    <Size>0.15</Size>
+    <Size>0.2</Size>
     <Inertia>1</Inertia>
 	<ExplosionSize>1</ExplosionSize>
     <WeaponType>2</WeaponType>
     <EnergyCost>5</EnergyCost>
-    <Damage>25</Damage>
-    <Cooldown>0.35</Cooldown>
+    <Damage>75</Damage>
+    <Cooldown>0.75</Cooldown>
     <SoundFile>LaserGun</SoundFile>
-    <ExplosionRange>10</ExplosionRange>
-    <Fuel>50</Fuel>
+    <ExplosionRange>20</ExplosionRange>
+    <Fuel>150</Fuel>
     <Engine>
         <Direction>1</Direction>
         <LocalPosition>-32 0</LocalPosition>

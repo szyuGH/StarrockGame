@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="TData.TemplateData.MineTemplate">
+    <Checksum>1119184597</Checksum>
+    <Name>AdvLaserBeam</Name>
+    <File>AdvLaserBeam</File>
+    <TextureName>LaserBeamTest</TextureName>
+	<DefaultController>StarrockGame.AI.NoController</DefaultController>
+    <Structure>1</Structure>
+    <Mass>0</Mass>
+    <Size>0.5</Size>
+    <Inertia>3</Inertia>
+	<ExplosionSize>1</ExplosionSize>
+    <WeaponType>1</WeaponType>
+    <EnergyCost>8</EnergyCost>
+    <Damage>25</Damage>
+    <Cooldown>0</Cooldown>
+    <SoundFile>LaserGun</SoundFile>
+    <Range>150</Range>
+  </Asset>
+</XnaContent>

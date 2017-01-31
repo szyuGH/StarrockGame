@@ -524,3 +524,23 @@
 /processorParam:Quality=Best
 /build:Audio/SE/Spotted.mp3
 
+#begin Data/Templates/AdvCannon.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/AdvCannon.xml
+
+#begin Data/Templates/AdvHomingMissle.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/AdvHomingMissle.xml
+
+#begin Data/Templates/AdvMine.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/AdvMine.xml
+
+#begin Data/Templates/AdvRocket.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/AdvRocket.xml
+

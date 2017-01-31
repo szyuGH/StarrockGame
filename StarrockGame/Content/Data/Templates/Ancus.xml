@@ -66,7 +66,7 @@
       </Item>
     </Engines>
     <PrimaryWeaponBases>
-      <WeaponType>CannonTest</WeaponType>
+      <WeaponType>AdvHomingMissle</WeaponType>
       <Bases>
         <Item>
           <LocalPosition>20 -30</LocalPosition>
@@ -79,7 +79,7 @@
       </Bases>
     </PrimaryWeaponBases>
     <SecondaryWeaponBases>
-      <WeaponType>CannonTest</WeaponType>
+      <WeaponType>AdvMine</WeaponType>
       <Bases>
         <Item>
           <LocalPosition>20 -30</LocalPosition>

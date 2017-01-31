@@ -7,13 +7,13 @@
     <TextureName>Gnome</TextureName>
 	<DefaultController>StarrockGame.AI.DestroyerController</DefaultController>
     <Score>50</Score>
-    <Structure>100</Structure>
+    <Structure>800</Structure>
     <Mass>80</Mass>
     <Size>1</Size>
     <Inertia>20</Inertia>
 	<ExplosionSize>2</ExplosionSize>
     <Fuel>150</Fuel>
-    <Energy>100</Energy>
+    <Energy>500</Energy>
     <ShieldCapacity>100</ShieldCapacity>
     <ScavengePower>5</ScavengePower>
     <ScavengeRange>75</ScavengeRange>
@@ -58,7 +58,7 @@
 		 </Item>
     </Engines>
     <PrimaryWeaponBases>
-      <WeaponType>CannonTest</WeaponType>
+      <WeaponType>AdvCannon</WeaponType>
       <Bases>
         <Item>
           <LocalPosition>20 -30</LocalPosition>
@@ -71,7 +71,7 @@
       </Bases>
     </PrimaryWeaponBases>
     <SecondaryWeaponBases>
-      <WeaponType>CannonTest</WeaponType>
+      <WeaponType>AdvMine</WeaponType>
       <Bases>
         <Item>
           <LocalPosition>20 -30</LocalPosition>

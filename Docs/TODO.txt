@@ -1,6 +1,4 @@
-draw border in radar
-spawn random enemies based on game difficulty
-credits calculated by score
-save credits & ships in session
+spawn random enemies & bosses based on game difficulty
+display moduleslots & moduleeffect at buyscene
 
 documentation

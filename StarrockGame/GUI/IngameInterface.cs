@@ -52,10 +52,10 @@ namespace StarrockGame.GUI
             scavengeGauge = new Gauge(1f,                         new Rectangle((device.Viewport.Width - SCAVENGE_WIDTH) / 2, device.Viewport.Height/2+ 80, SCAVENGE_WIDTH, SCAVENGE_HEIGHT), Color.Azure);
 
             if (difficulty != SessionDifficulty.Lost)
-                radar = new Radar(entity, 0, new Rectangle(X_OFFSET,device.Viewport.Height - RADAR_SIZE - Y_OFFSET,RADAR_SIZE,RADAR_SIZE));
+                radar = new Radar(entity, difficulty, new Rectangle(X_OFFSET,device.Viewport.Height - RADAR_SIZE - Y_OFFSET,RADAR_SIZE,RADAR_SIZE));
 
-            timeLabel = new Label(null, "", new Vector2(X_OFFSET, radar.Bounding.Y - 3 * 24), 1, Color.White, 0) { Visible = false, CaptionMonitor = () => { return string.Format("Elapsed Time: {0:hh\\:mm\\:ss}", SessionManager.ElapsedTime); } };
-            scoreLabel = new Label(null, "", new Vector2(X_OFFSET, radar.Bounding.Y - 2 * 24), 1, Color.White, 0) { Visible = false, CaptionMonitor = () => { return string.Format("Score: {0}", SessionManager.Score); } };
+            timeLabel = new Label(null, "", new Vector2(X_OFFSET, radar?.Bounding.Y ??  device.Viewport.Height - 3 * 24), 1, Color.White, 0) { Visible = false, CaptionMonitor = () => { return string.Format("Elapsed Time: {0:hh\\:mm\\:ss}", SessionManager.ElapsedTime); } };
+            scoreLabel = new Label(null, "", new Vector2(X_OFFSET, radar?.Bounding.Y ??  device.Viewport.Height - 2 * 24), 1, Color.White, 0) { Visible = false, CaptionMonitor = () => { return string.Format("Score: {0}", SessionManager.Score); } };
             //creditsLabel = new Label(null, "", new Vector2(), 1, Color.White, 2) { Visible = false, CaptionMonitor = () => { return string.Format("Credits: {0}", CREDITS); } };
         }
 

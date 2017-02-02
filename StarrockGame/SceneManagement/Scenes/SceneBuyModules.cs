@@ -42,6 +42,7 @@ namespace StarrockGame.SceneManagement.Scenes
             CreateMenu();
             CreateModuleMenu();
             CreateStatsMenu();
+            
         }
 
         private void CreateMenu()
@@ -79,17 +80,29 @@ namespace StarrockGame.SceneManagement.Scenes
             statsMenu.NotSelectable = true;
 
             Vector2 statsPosition = new Vector2(20, Device.Viewport.Height - statsFont.LineSpacing * 7);
-            new Label(statsMenu, "Ship Stats", statsPosition, 1, Color.White, 0);
-            new Label(statsMenu, "", statsPosition + new Vector2(0, statsFont.LineSpacing * 1), 1, Color.White, 0) { CaptionMonitor = () => { return string.Format("Ship Name: {0}", (currentTemplate == null ? "" : currentTemplate.Name)); } };
-            new Label(statsMenu, "", statsPosition + new Vector2(0, statsFont.LineSpacing * 2), 1, Color.White, 0) { CaptionMonitor = () => { return string.Format("Price: {0}", (currentTemplate == null ? "" : currentTemplate.Price.ToString())); } };
+            new Label(statsMenu, "Modules:", statsPosition, 1, Color.White, 0);
+            for (int i= 0; i < SessionManager.UsedShipTemplate.ModuleCount; i++)
+            {
+                Label l = new Label(statsMenu, "", statsPosition + new Vector2(0, statsFont.LineSpacing * (i+1)), 1, Color.White, 0) { Tag = i };
+                l.CaptionMonitor = () => GetModuleName((int)l.Tag);
+            }
+            
             
             // TODO: display effects
+        }
+        private string GetModuleName(int slot)
+        {
+            if (SessionManager.ModuleTemplates.Count >= slot + 1 && SessionManager.ModuleTemplates[slot] != null)
+                return SessionManager.ModuleTemplates[slot].Name;
+            else
+                return "---";
         }
 
         public override void Update(GameTime gameTime)
         {
             menu.Update(gameTime);
             moduleMenu.Update(gameTime);
+            statsMenu.Update(gameTime);
 
             if (Input.Device.FirePrimary())
             {
@@ -103,6 +116,7 @@ namespace StarrockGame.SceneManagement.Scenes
             SpriteBatch.Begin();
             menu.Render(SpriteBatch);
             moduleMenu.Render(SpriteBatch);
+            statsMenu.Render(SpriteBatch);
             SpriteBatch.End();
         }
 

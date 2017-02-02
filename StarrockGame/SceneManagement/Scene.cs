@@ -14,7 +14,7 @@ namespace StarrockGame.SceneManagement
         protected virtual Color ClearColor { get { return Color.Black; } }
 
         public SceneState State;
-        protected float FadeSpeed = 0.75f; // in seconds
+        protected float FadeSpeed = 0.25f; // in seconds
         protected float FadeProgress = 0f; // set this to a negative value to stay in "black screen" for a short time until fadein starts
 
         protected SpriteBatch SpriteBatch;

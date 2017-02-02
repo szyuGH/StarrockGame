@@ -82,7 +82,7 @@ namespace StarrockGame.SceneManagement.Scenes
             statsMenu.NotSelectable = true;
 
             Vector2 statsPosition = new Vector2(20, Device.Viewport.Height - statsFont.LineSpacing * 7);
-            new Label(statsMenu, "Ship Stats", statsPosition, 1, Color.White, 0);
+            new Label(statsMenu, "Ship Stats:", statsPosition, 1, Color.White, 0);
             new Label(statsMenu, "", statsPosition + new Vector2(0, statsFont.LineSpacing * 1), 1, Color.White, 0) { CaptionMonitor = () => { return string.Format("Ship Name: {0}", (currentTemplate == null ? "" : currentTemplate.Name)); } };
             new Label(statsMenu, "", statsPosition + new Vector2(0, statsFont.LineSpacing * 2), 1, Color.White, 0) { CaptionMonitor = () => { return string.Format("Price: {0}", (currentTemplate == null ? "" : currentTemplate.Price.ToString())); } };
             new Label(statsMenu, "", statsPosition + new Vector2(0, statsFont.LineSpacing * 3), 1, Color.White, 0) { CaptionMonitor = () => { return string.Format("Module Count: {0}", (currentTemplate == null ? "" : currentTemplate.ModuleCount.ToString())); } };

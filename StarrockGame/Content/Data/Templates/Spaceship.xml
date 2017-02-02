@@ -13,7 +13,7 @@
     <Inertia>20</Inertia>
 	<ExplosionSize>3</ExplosionSize>
     <Fuel>200</Fuel>
-    <Energy>250</Energy>
+    <Energy>500</Energy>
     <ShieldCapacity>100</ShieldCapacity>
     <ScavengePower>10</ScavengePower>
     <ScavengeRange>140</ScavengeRange>

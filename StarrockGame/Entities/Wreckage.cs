@@ -39,9 +39,6 @@ namespace StarrockGame.Entities
         public override void Initialize(Vector2 position, float rotation, Vector2 initialVelocity, float initialAngularVelocity = 0)
         {
             base.Initialize(position, rotation, initialVelocity, initialAngularVelocity);
-            // TODO: calculate scavenge time based on resources
-            float time = 5;
-            this.ScavengeTime = time;
 
             WreckageTemplate wtd = Template as WreckageTemplate;
             GainEnergy = MathHelper.Lerp(wtd.MinEnergy, wtd.MaxEnergy, (float)Program.Random.NextDouble());
@@ -49,6 +46,7 @@ namespace StarrockGame.Entities
             GainStructure = MathHelper.Lerp(wtd.MinStructure, wtd.MaxStructure, (float)Program.Random.NextDouble());
             SpaceshipBlueprint = new Blueprint(TemplateType.Spaceship);
             ModuleBlueprint = new Blueprint(TemplateType.Module);
+            this.ScavengeTime = (GainEnergy + GainEnergy + GainStructure) / 100;
         }
 
         protected override void HandleCollisionResponse(Body with)

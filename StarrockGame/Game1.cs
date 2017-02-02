@@ -65,7 +65,6 @@ namespace StarrockGame
             
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            // TODO: use this.Content to load your game content here
             
         }
 
@@ -75,7 +74,7 @@ namespace StarrockGame
         /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
+
         }
 
         /// <summary>

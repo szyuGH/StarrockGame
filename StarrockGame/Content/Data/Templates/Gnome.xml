@@ -12,9 +12,9 @@
     <Size>1</Size>
     <Inertia>20</Inertia>
 	<ExplosionSize>2</ExplosionSize>
-    <Fuel>150</Fuel>
-    <Energy>500</Energy>
-    <ShieldCapacity>100</ShieldCapacity>
+    <Fuel>200</Fuel>
+    <Energy>1000</Energy>
+    <ShieldCapacity>200</ShieldCapacity>
     <ScavengePower>5</ScavengePower>
     <ScavengeRange>75</ScavengeRange>
     <ShieldReplenishCostPerSecond>4</ShieldReplenishCostPerSecond>

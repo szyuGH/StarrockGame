@@ -6,8 +6,8 @@
     <File>Ancus</File>
     <TextureName>Ancus</TextureName>
 	<DefaultController>StarrockGame.AI.DestroyerController</DefaultController>
-    <Score>80</Score>
-    <Structure>600</Structure>
+    <Score>250</Score>
+    <Structure>2500</Structure>
     <Mass>2000</Mass>
     <Size>1</Size>
     <Inertia>1200</Inertia>

@@ -6,15 +6,15 @@
     <File>Hunter</File>
     <TextureName>Hunter</TextureName>
 	<DefaultController>StarrockGame.AI.DestroyerController</DefaultController>
-    <Score>80</Score>
-    <Structure>320</Structure>
+    <Score>200</Score>
+    <Structure>1600</Structure>
     <Mass>1000</Mass>
     <Size>1</Size>
     <Inertia>700</Inertia>
 	<ExplosionSize>10</ExplosionSize>
     <Fuel>2200</Fuel>
-    <Energy>1600</Energy>
-    <ShieldCapacity>1200</ShieldCapacity>
+    <Energy>5000</Energy>
+    <ShieldCapacity>1000</ShieldCapacity>
     <ScavengePower>40</ScavengePower>
     <ScavengeRange>200</ScavengeRange>
     <ShieldReplenishCostPerSecond>30</ShieldReplenishCostPerSecond>

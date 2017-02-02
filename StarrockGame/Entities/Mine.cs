@@ -12,7 +12,12 @@ namespace StarrockGame.Entities
 {
     public class Mine : WeaponEntity
     {
+        const float EXISTENCE_TIME = 25;
+
+        private float existenceTimer;
+
         public float ExplosionRange;
+
 
         public Mine(World world, string type) 
             : base(world, type)
@@ -27,11 +32,22 @@ namespace StarrockGame.Entities
             
             ExplosionRange = tmp.ExplosionRange;
             Body.LinearDamping = tmp.LinearDampening;
+
+            existenceTimer = EXISTENCE_TIME;
         }
 
         protected override EntityTemplate LoadTemplate(string type)
         {
             return Cache.LoadTemplate<MineTemplate>(type);
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+
+            existenceTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (existenceTimer <= 0)
+                Destroy(false);
         }
     }
 }

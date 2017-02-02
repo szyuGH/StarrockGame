@@ -48,6 +48,7 @@ namespace StarrockGame.SceneManagement.Scenes
         {
             SpriteFont font = Cache.LoadFont("MenuFont");
             menu = new Menu(font, () => { SceneManager.Return(); });
+            menu.SelectedIndex = -1;
 
             Vector2 menuPos = new Vector2(100 + Device.Viewport.Width * .5f, Device.Viewport.Height - 40 - 4 * font.LineSpacing);
             new ButtonLabel(menu, "Select Modules", menuPos + new Vector2(0, font.LineSpacing * 0), 1, Color.White, OnBuyModules) { Active = unlockedModules.Count > 0 };

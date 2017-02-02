@@ -99,6 +99,8 @@ namespace StarrockGame
 
         public static List<Entity> GetAllEntities(Entity enquirer, float range=-1)
         {
+            if (enquirer == null)
+                return entities;
             if (range == -1)
                 return entities.Where(e => e.IsAlive).ToList();
             else

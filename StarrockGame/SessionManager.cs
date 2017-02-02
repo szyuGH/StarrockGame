@@ -58,6 +58,9 @@ namespace StarrockGame
             Score = 0;
             ModuleTemplates.Clear();
             FoundBlueprints.Clear();
+
+            enemySpawnTimer = 0;
+            asteroidSpawnTimer = 0;
         }
 
         internal static void Update(GameTime gameTime)
@@ -76,7 +79,6 @@ namespace StarrockGame
 
             SpawnAsteroids();
             SpawnEnemyShips();
-            SpawnBoss();
         }
 
         internal static void AddBlueprint(string bp)

@@ -45,7 +45,7 @@ namespace StarrockGame.AI
                 waypointIndex = -1;
                 Sound.Instance.PlaySe("Spotted");
             } // one could put the out of range path here, where the entity loses the target
-            else if (distanceSquared <= minDistanceSquared * minDistanceSquared)
+            else if (waypointIndex != -1 && distanceSquared <= minDistanceSquared * minDistanceSquared)
             {
                 waypointIndex = -1;
                 return;
@@ -55,10 +55,11 @@ namespace StarrockGame.AI
             // calculate the direction this entity needs to be turning to
 
             Vector2 targetDir;
-            if (target != null && distanceSquared <= minDistanceSquared * minDistanceSquared)
+            if (target != null && distanceSquared <= minDistanceSquared)
             {
-                ship.Decelerate(1, elapsed);
-                targetDir = entity.Body.Position - targetPos;
+                ship.Decelerate(2, elapsed);
+                //targetDir = entity.Body.Position - targetPos;
+                targetDir = targetPos - entity.Body.Position;
             }
             else
             {
@@ -85,7 +86,7 @@ namespace StarrockGame.AI
             else
             {
                 entity.Accelerate(1, elapsed);
-                if (target != null && Math.Abs(rotDif) < MathHelper.ToRadians(5))
+                if (target != null && Math.Abs(rotDif) < MathHelper.ToRadians(10))
                 {
                     ship.FirePrimary();
                     ship.FireSecondary();

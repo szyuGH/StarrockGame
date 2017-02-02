@@ -45,6 +45,8 @@ namespace StarrockGame.SceneManagement.Scenes
                 shipMenu.SelectedIndex = unlockedShips.IndexOf(SessionManager.UsedShipTemplate);
                 continueButton.Active = true;
             }
+            else
+                shipMenu.SelectedIndex = -1;
         }
 
         private void CreateMenu()

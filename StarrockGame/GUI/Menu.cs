@@ -26,7 +26,7 @@ namespace StarrockGame.GUI
         {
             Font = font;
             Elements = new List<GUIElement>();
-            SelectedIndex = -1;
+            SelectedIndex = 0;
             Cancel = onCancel;
             IsActive = true;
         }

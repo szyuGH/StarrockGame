@@ -54,8 +54,8 @@ namespace StarrockGame.GUI
             if (difficulty != SessionDifficulty.Lost)
                 radar = new Radar(entity, difficulty, new Rectangle(X_OFFSET,device.Viewport.Height - RADAR_SIZE - Y_OFFSET,RADAR_SIZE,RADAR_SIZE));
 
-            timeLabel = new Label(null, "", new Vector2(X_OFFSET, radar?.Bounding.Y ??  device.Viewport.Height - 3 * 24), 1, Color.White, 0) { Visible = false, CaptionMonitor = () => { return string.Format("Elapsed Time: {0:hh\\:mm\\:ss}", SessionManager.ElapsedTime); } };
-            scoreLabel = new Label(null, "", new Vector2(X_OFFSET, radar?.Bounding.Y ??  device.Viewport.Height - 2 * 24), 1, Color.White, 0) { Visible = false, CaptionMonitor = () => { return string.Format("Score: {0}", SessionManager.Score); } };
+            timeLabel = new Label(null, "", new Vector2(X_OFFSET, (radar?.Bounding.Y ??  device.Viewport.Height) - 3 * 24), 1, Color.White, 0) { Visible = false, CaptionMonitor = () => { return string.Format("Elapsed Time: {0:hh\\:mm\\:ss}", SessionManager.ElapsedTime); } };
+            scoreLabel = new Label(null, "", new Vector2(X_OFFSET, (radar?.Bounding.Y ??  device.Viewport.Height) - 2 * 24), 1, Color.White, 0) { Visible = false, CaptionMonitor = () => { return string.Format("Score: {0}", SessionManager.Score); } };
             //creditsLabel = new Label(null, "", new Vector2(), 1, Color.White, 2) { Visible = false, CaptionMonitor = () => { return string.Format("Credits: {0}", CREDITS); } };
         }
 

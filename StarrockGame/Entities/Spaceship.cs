@@ -402,7 +402,7 @@ namespace StarrockGame.Entities
                 
             } else if (with.UserData is GameBorder)
             {
-                // TODO: add collision response to gameborder
+              
             }
             else // Spaceship or Asteroid
             {

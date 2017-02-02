@@ -1,6 +1,8 @@
 ﻿using FarseerPhysics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using StarrockGame.Audio;
 using StarrockGame.Caching;
 using System;
 using System.Collections.Generic;
@@ -23,6 +25,7 @@ namespace StarrockGame.Entities
         public float Range { get; private set; }
 
         private Action onSuccessAction;
+        private SoundEmitter soundEmitter;
 
         public Scavenging(Spaceship ship, float range, Action onSuccessAction)
         {
@@ -31,6 +34,8 @@ namespace StarrockGame.Entities
             this.onSuccessAction = onSuccessAction;
 
             scavengeAtlas = new AnimatedTexture("tractor_beam_atlas", new Vector2(0, 16), 4, 1);
+            soundEmitter = new SoundEmitter(Cache.LoadSe("scavengebeam"), ship.Body);
+            soundEmitter.Pitch = 1;
         }
 
         public void Reset()
@@ -46,6 +51,7 @@ namespace StarrockGame.Entities
                 if (Vector2.DistanceSquared(ship.Body.Position, Target.Body.Position) > Range * Range)
                 {
                     Reset();
+                    soundEmitter.Stop();
                 }
                 else
                 {
@@ -55,7 +61,9 @@ namespace StarrockGame.Entities
                         progressTimer = Target.ScavengeTime;
                         onSuccessAction?.Invoke();
                     }
+                    soundEmitter.Update(true);
                 }
+                
             }
         }
 

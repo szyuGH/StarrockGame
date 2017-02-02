@@ -544,3 +544,9 @@
 /processor:PassThroughProcessor
 /build:Data/Templates/AdvRocket.xml
 
+#begin Audio/SE/scavengebeam.m4a
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SE/scavengebeam.m4a
+

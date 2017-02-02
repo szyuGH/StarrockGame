@@ -9,9 +9,11 @@ namespace TData.TemplateData
     [Serializable]
     public struct ModuleEffectData
     {
-        static readonly string[] VTS = { "Structure", "Fuel", "Energy", "Shield",
-            "Radar Range", "Scavenge Power", "Scavenge Range",
-            "ERpS", "FRpS", "SRpS", "Damage" };
+        static readonly string[] VTS = {
+            "ERpS", "SRpS", "FRpS", "Damage",
+            "Scavenge Power", "Scavenge Range", "Radar Range",
+            "Structure", "Energy Capacity", "Shield Capacity", "Fuel Capacity"
+    };
 
         public int EffectType;
         public float Value;

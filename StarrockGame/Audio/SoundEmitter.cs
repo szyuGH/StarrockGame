@@ -26,7 +26,9 @@ namespace StarrockGame.Audio
                 effectInstance.IsLooped = value;
             }
         }
-        
+
+        public float Pan { set { effectInstance.Pan = value; } }
+        public float Pitch { set { effectInstance.Pitch = value; } }
 
         public SoundEmitter(SoundEffect effect, Body emitter)
         {

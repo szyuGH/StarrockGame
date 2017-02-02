@@ -86,16 +86,31 @@ namespace StarrockGame.SceneManagement.Scenes
                 Label l = new Label(statsMenu, "", statsPosition + new Vector2(0, statsFont.LineSpacing * (i+1)), 1, Color.White, 0) { Tag = i };
                 l.CaptionMonitor = () => GetModuleName((int)l.Tag);
             }
-            
-            
-            // TODO: display effects
+
+
+            for (int i = 0; i < 8; i++)
+            {
+                Label meLabel = new Label(statsMenu, "", statsPosition + new Vector2(150, statsFont.LineSpacing * i), 1, Color.White, 0) { Tag = i };
+                meLabel.CaptionMonitor = () => GetModuleEffectString((int)meLabel.Tag);
+            }
         }
+
         private string GetModuleName(int slot)
         {
             if (SessionManager.ModuleTemplates.Count >= slot + 1 && SessionManager.ModuleTemplates[slot] != null)
                 return SessionManager.ModuleTemplates[slot].Name;
             else
                 return "---";
+        }
+
+        private string GetModuleEffectString(int i)
+        {
+            if (currentTemplate?.ModuleEffects.Length >= i + 1)
+            {
+                return currentTemplate.ModuleEffects[i].ToString();
+            }
+            else
+                return "";
         }
 
         public override void Update(GameTime gameTime)

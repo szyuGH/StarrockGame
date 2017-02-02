@@ -7,13 +7,13 @@
     <TextureName>BS Caine</TextureName>
 	<DefaultController>StarrockGame.AI.DestroyerController</DefaultController>
     <Score>150</Score>
-    <Structure>500</Structure>
+    <Structure>1500</Structure>
     <Mass>2400</Mass>
     <Size>1</Size>
     <Inertia>1000</Inertia>
 	<ExplosionSize>10</ExplosionSize>
-    <Fuel>290000</Fuel>
-    <Energy>1500</Energy>
+    <Fuel>2500</Fuel>
+    <Energy>3000</Energy>
     <ShieldCapacity>2000</ShieldCapacity>
     <ScavengePower>50</ScavengePower>
     <ScavengeRange>240</ScavengeRange>

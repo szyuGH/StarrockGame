@@ -13,7 +13,7 @@
 	<ExplosionSize>1</ExplosionSize>
     <WeaponType>4</WeaponType>
     <EnergyCost>5</EnergyCost>
-    <Damage>10</Damage>
+    <Damage>30</Damage>
     <Cooldown>0.35</Cooldown>
     <SoundFile>LaserGun</SoundFile>
     <ExplosionRange>10</ExplosionRange>

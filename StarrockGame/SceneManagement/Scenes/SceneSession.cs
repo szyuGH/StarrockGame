@@ -38,7 +38,7 @@ namespace StarrockGame.SceneManagement.Scenes
             cam.Zoom = (EntityManager.PlayerShip.Template as SpaceshipTemplate).CameraZoom;
             
 
-            ingameInterface = new IngameInterface(Game.GraphicsDevice, EntityManager.PlayerShip as Spaceship);
+            ingameInterface = new IngameInterface(Game.GraphicsDevice, EntityManager.PlayerShip as Spaceship, SessionManager.Difficulty);
             bg = new Background();
         }
 

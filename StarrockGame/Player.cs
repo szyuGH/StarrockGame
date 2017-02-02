@@ -60,7 +60,6 @@ namespace StarrockGame
                 }
 
                 this.Credits = data.Credits;
-                this.Credits = 10000;
                 this.Name = data.PlayerName;
                 this.templates = new List<AbstractTemplate>(data.UnlockedTemplates.Select(s => Cache.LoadTemplate<AbstractTemplate>(s)));
             }

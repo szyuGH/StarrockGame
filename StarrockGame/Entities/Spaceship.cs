@@ -18,12 +18,15 @@ namespace StarrockGame.Entities
 {
     public class Spaceship : Entity
     {
+        const float FUEL_DESTRUCTION_TIME = 4;
+
         public static Texture2D SpawnTexture;
 
         private SpaceshipTemplate shipTemplate { get { return Template as SpaceshipTemplate; } }
         private Dictionary<MovementType, float> fuelCostPerSecond;
         private float spawnTimer;
         private float spawnSize;
+        private float fuelDestructionTimer;
 
         private float _shieldCapacity;
         public float ShieldCapacity
@@ -103,6 +106,7 @@ namespace StarrockGame.Entities
             fuelCostPerSecond[MovementType.RotateRight] = Engines[MovementType.RotateRight].Sum(e => e.FuelPerSeconds);
 
             spawnTimer = shipTemplate.SpawnTime;
+            fuelDestructionTimer = 0;
         }
 
         protected override void SetCollisionGroup()
@@ -174,6 +178,13 @@ namespace StarrockGame.Entities
                     Energy -= cost;
                     ShieldCapacity += shipTemplate.ShieldReplenishValuePerSecond * elapsed;
                 }
+            }
+
+            if (Fuel <= fuelCostPerSecond[MovementType.Forward])
+            {
+                fuelDestructionTimer += elapsed;
+                if (fuelDestructionTimer >= FUEL_DESTRUCTION_TIME)
+                    Destroy(IsPlayer);
             }
         }
 

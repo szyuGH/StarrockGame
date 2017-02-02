@@ -45,7 +45,7 @@ namespace StarrockGame.SceneManagement.Scenes
             ship.Target = ship2;
 
             cam = new Camera2D(Device);
-            cam.TrackingBody = ship2.Body;
+            cam.TrackingBody = ship.Body;
             cam.Update();
             
 

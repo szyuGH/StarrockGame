@@ -12,6 +12,7 @@ namespace TData.TemplateData
 
         public SpawnData[] Spawns;
         public SessionEnemyData[] Enemies;
+        public float[] CreditsMultiplier;
     }
 
     [Serializable]

@@ -201,6 +201,7 @@ namespace StarrockGame.Entities
                 && !ignoreScore)
             {
                 SessionManager.Score += Template.Score;
+                Player.Get().Credits += (int)(Template.Score * SessionManager.CreditsMultiplier);
             }
             if (Template.ExplosionSize > 0)
             {

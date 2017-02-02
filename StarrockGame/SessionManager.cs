@@ -232,6 +232,6 @@ namespace StarrockGame
             get { return MathHelper.Lerp(spawn.EnemySpawnCountMin, spawn.EnemySpawnCountMax, spawnRatio); }
         }
 
-        
+        internal static float CreditsMultiplier { get { return data.CreditsMultiplier[(int)Difficulty]; } }
     }
 }

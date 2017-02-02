@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.SessionData">
+	<SessionCosts>0 1000 5000 10000</SessionCosts>
+	
 	<Spawns>
 		<Item>
 			<Difficulty>0</Difficulty>
@@ -63,10 +65,26 @@
 	<Enemies>
 		<Item>
 			<Type>Spaceship</Type>
-			<Chance>75</Chance>
+			<Chance>50</Chance>
+		</Item>
+		<Item>
+			<Type>Gnome</Type>
+			<Chance>40</Chance>
 		</Item>
 		<Item>
 			<Type>BS_Caine</Type>
+			<Chance>20</Chance>
+		</Item>
+		<Item>
+			<Type>Havoc</Type>
+			<Chance>20</Chance>
+		</Item>
+		<Item>
+			<Type>Hunter</Type>
+			<Chance>20</Chance>
+		</Item>
+		<Item>
+			<Type>Ancus</Type>
 			<Chance>20</Chance>
 		</Item>
 	</Enemies>

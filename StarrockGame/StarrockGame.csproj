@@ -118,6 +118,7 @@
     <Compile Include="SceneManagement\Scenes\SceneBuyModules.cs" />
     <Compile Include="SceneManagement\Scenes\SceneCheckTemplates.cs" />
     <Compile Include="SceneManagement\Scenes\SceneOptions.cs" />
+    <Compile Include="SceneManagement\Scenes\SceneSelectDifficulty.cs" />
     <Compile Include="SceneManagement\Scenes\SceneSelectResolution.cs" />
     <Compile Include="SessionDifficulty.cs" />
     <Compile Include="GUI\MenuElements\ButtonLabel.cs" />

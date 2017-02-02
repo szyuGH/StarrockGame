@@ -89,7 +89,7 @@ namespace StarrockGame.AI
                 if (target != null && Math.Abs(rotDif) < MathHelper.ToRadians(10))
                 {
                     ship.FirePrimary();
-                    ship.FireSecondary();
+                    //ship.FireSecondary();
                 }
             }
 

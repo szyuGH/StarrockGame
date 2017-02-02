@@ -56,11 +56,10 @@ namespace StarrockGame.SceneManagement.Scenes
 
             Vector2 menuPos = new Vector2(100 + Device.Viewport.Width * .5f, Device.Viewport.Height - 40 - 4 * font.LineSpacing);
             new ButtonLabel(menu, "Select Ship", menuPos + new Vector2(0, font.LineSpacing * 0), 1, Color.White, OnSelectShip);
-            new ButtonLabel(menu, "", menuPos + new Vector2(0, font.LineSpacing * 1), 1, Color.White, OnDifficultySelect) { CaptionMonitor = () => { return "Difficulty: " + SessionManager.Difficulty.ToString(); } };
-            continueButton = new ButtonLabel(menu, "Continue", menuPos + new Vector2(0, font.LineSpacing * 2), 1, Color.White, OnBuyModules) { Active = false };
-            new ButtonLabel(menu, "Back", menuPos + new Vector2(0, font.LineSpacing * 3), 1, Color.White, () => { OnMenuBack(); });
+            continueButton = new ButtonLabel(menu, "Next", menuPos + new Vector2(0, font.LineSpacing * 1), 1, Color.White, OnBuyModules) { Active = false };
+            new ButtonLabel(menu, "Back", menuPos + new Vector2(0, font.LineSpacing * 2), 1, Color.White, () => { OnMenuBack(); });
 
-            new Label(menu, "", new Vector2(10, 10), 1, Color.White, 0) { CaptionMonitor = () => { return "Credits: " + Player.Get().Credits; } };
+            new Label(menu, "", new Vector2(20, 40), 1, Color.White, 0) { CaptionMonitor = () => { return string.Format("Credits: {0} C", Player.Get().Credits); } };
         }
 
         private void CreateShipMenu()
@@ -116,14 +115,7 @@ namespace StarrockGame.SceneManagement.Scenes
             SpriteBatch.End();
         }
 
-        private void OnDifficultySelect()
-        {
-            if (SessionManager.Difficulty == SessionDifficulty.Lost)
-                SessionManager.Difficulty = SessionDifficulty.Easy;
-            else
-                SessionManager.Difficulty++;
-            
-        }
+        
 
         private void OnSelectShip()
         {

@@ -16,7 +16,7 @@ namespace StarrockGame.SceneManagement.Scenes
 
         public SceneTitle(Game1 game) : base(game)
         {
-            
+            Player.Get().Save();
         }
 
         public override void Initialize()
@@ -36,6 +36,8 @@ namespace StarrockGame.SceneManagement.Scenes
             new ButtonLabel(menu, "Controls", screenCenter + new Vector2(0, 2 * font.LineSpacing), size, Color.White, OnControls);
             new ButtonLabel(menu, "Options", screenCenter + new Vector2(0, 3 * font.LineSpacing), size, Color.White, OnOptions);
             new ButtonLabel(menu, "Exit", screenCenter + new Vector2(0, 4 * font.LineSpacing), size, Color.White, OnExit);
+
+            new Label(menu, "", new Vector2(20, 40), 1, Color.White, 0) { CaptionMonitor = () => { return string.Format("Credits: {0} C", Player.Get().Credits); } };
         }
 
         public override void Update(GameTime gameTime)

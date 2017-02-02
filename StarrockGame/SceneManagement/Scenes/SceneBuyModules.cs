@@ -47,14 +47,15 @@ namespace StarrockGame.SceneManagement.Scenes
         private void CreateMenu()
         {
             SpriteFont font = Cache.LoadFont("MenuFont");
-            menu = new Menu(font, () => { SceneManager.Return(); });
-            menu.SelectedIndex = -1;
+            menu = new Menu(font, () => { OnMenuBack(); });
 
             Vector2 menuPos = new Vector2(100 + Device.Viewport.Width * .5f, Device.Viewport.Height - 40 - 4 * font.LineSpacing);
             new ButtonLabel(menu, "Select Modules", menuPos + new Vector2(0, font.LineSpacing * 0), 1, Color.White, OnBuyModules) { Active = unlockedModules.Count > 0 };
-            new ButtonLabel(menu, "Start Session", menuPos + new Vector2(0, font.LineSpacing * 1), 1, Color.White, OnStartSession);
+            new ButtonLabel(menu, "Next", menuPos + new Vector2(0, font.LineSpacing * 1), 1, Color.White, OnSelectDifficulty);
             new ButtonLabel(menu, "Back", menuPos + new Vector2(0, font.LineSpacing * 2), 1, Color.White, () => { OnMenuBack(); });
-            new Label(menu, "", new Vector2(10, 10), 1, Color.White, 0) { CaptionMonitor = () => { return "Credits: " + Player.Get().Credits; } };
+            new Label(menu, "", new Vector2(20, 40), 1, Color.White, 0) { CaptionMonitor = () => { return string.Format("Credits: {0} C", Player.Get().Credits); } };
+
+            menu.SelectNext();
         }
 
         private void CreateModuleMenu()
@@ -63,6 +64,7 @@ namespace StarrockGame.SceneManagement.Scenes
 
             moduleMenu = new MatrixMenu(font, new Vector2(150, 100), Device.Viewport.Width / TILE_WIDTH_REAL, TILE_WIDTH, TILE_HEIGHT, TILE_SPACE, OnBuyModulesCancel);
             moduleMenu.IsActive = false;
+            moduleMenu.SelectedIndex = -1;
 
             for (int i = 0; i < unlockedModules.Count; i++)
             {
@@ -143,10 +145,9 @@ namespace StarrockGame.SceneManagement.Scenes
             }
         }
 
-        private void OnStartSession()
+        private void OnSelectDifficulty()
         {
-            SessionManager.Score = 0;
-            SceneManager.Call<SceneSession>();
+            SceneManager.Call<SceneSelectDifficulty>();
         }
 
         private void OnMenuBack()

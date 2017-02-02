@@ -9,7 +9,7 @@ namespace TData.TemplateData
     [Serializable]
     public class SessionData
     {
-
+        public int[] SessionCosts;
         public SpawnData[] Spawns;
         public SessionEnemyData[] Enemies;
         public float[] CreditsMultiplier;

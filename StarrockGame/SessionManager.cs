@@ -210,6 +210,7 @@ namespace StarrockGame
 
             rot = (float)Math.Atan2(EntityManager.Border.Center.Y - pos.Y, EntityManager.Border.Center.X - pos.X);
             type = data.Enemies.Select(d => d.Type).OrderBy(t => Guid.NewGuid()).First();
+            // TODO: Spawnchance berücksichtigen
         }
 
         private static float currentAsteroidSpawnTime
@@ -233,5 +234,6 @@ namespace StarrockGame
         }
 
         internal static float CreditsMultiplier { get { return data.CreditsMultiplier[(int)Difficulty]; } }
+        internal static int SessionCost { get { return data.SessionCosts[(int)Difficulty]; } }
     }
 }

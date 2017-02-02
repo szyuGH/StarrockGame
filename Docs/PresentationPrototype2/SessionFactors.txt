@@ -16,7 +16,7 @@ Enemies:
 
 
 Boss:
-- spawn over time?
-- spawn after x killed enemies?
-- chance to spawn instead of enemies?
-- difficulty influence
+- has a chance to spawn in each enemy wave
+
+
+Sessions do now cost Credits based on the difficulty selected

@@ -25,12 +25,12 @@ namespace StarrockGame.SceneManagement.Scenes
             menu = new Menu(font, () => { OnMenuBack(); });
 
             Vector2 menuPos = new Vector2(100 + Device.Viewport.Width * .5f, Device.Viewport.Height * .5f + 4 * font.LineSpacing);
-            new ButtonLabel(menu, "", menuPos + new Vector2(0, font.LineSpacing * 0), 1, Color.White, OnDifficultySelect) {
+            new ButtonLabel(menu, "Start", menuPos + new Vector2(0, font.LineSpacing * 0), 1, Color.White, OnSessionStart);
+            new ButtonLabel(menu, "", menuPos + new Vector2(0, font.LineSpacing * 1), 1, Color.White, OnDifficultySelect) {
                 CaptionMonitor = () => {
                     return string.Format("Difficulty: {0} ({1} C)", SessionManager.Difficulty.ToString(), SessionManager.SessionCost);
                 }
             };
-            new ButtonLabel(menu, "Start", menuPos + new Vector2(0, font.LineSpacing * 1), 1, Color.White, OnSessionStart);
             new ButtonLabel(menu, "Back", menuPos + new Vector2(0, font.LineSpacing * 2), 1, Color.White, OnMenuBack);
 
             new Label(menu, "", new Vector2(20, 40), 1, Color.White, 0) { CaptionMonitor = () => { return string.Format("Credits: {0} C", Player.Get().Credits); } };

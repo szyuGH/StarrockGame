@@ -56,8 +56,15 @@ namespace StarrockGame.GUI.MenuElements
                 borderTex.SetData(new Color[] { Color.White });
             }
 
-            // TODO: calculate aspect ratio of image and scale image, so it isn't blurred
-            batch.Draw(Texture, new Rectangle((int)Position.X, (int)Position.Y, Width, Height - (int)(Menu.Font.LineSpacing*.5f)), Color.White);
+            float hx = Position.X + Width * .5f;
+            float hy = Position.Y + Height * .5f;
+            float cx = Texture.Width * .5f;
+            float cy = Texture.Height * .5f;
+            float ratio = Texture.Width > Texture.Height ?
+                (Texture.Width > Width ? (float)Width / Texture.Width : 1f)
+                :
+                (Texture.Height > Height ? (float)Height / Texture.Height : 1f);
+            batch.Draw(Texture, new Vector2(hx, hy), null, Color.White, 0, new Vector2(cx, cy), ratio * 0.9f, SpriteEffects.None, 1);
             batch.DrawString(Menu.Font, Caption, Position+new Vector2(Width*.5f, Height + 2 - (int)(Menu.Font.LineSpacing * .5f)), Color, 0, center, 0.5f, SpriteEffects.None, 1);
             // draw border if selected
             if (IsSelected)

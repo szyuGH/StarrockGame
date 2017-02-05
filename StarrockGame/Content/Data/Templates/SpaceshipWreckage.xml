@@ -2,8 +2,8 @@
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.WreckageTemplate">
     <Checksum>220681549</Checksum>
-    <Name>TestWreckage</Name>
-    <File>Wreckage</File>
+    <Name>SpaceshipWreckage</Name>
+    <File>SpaceshipWreckage</File>
     <TextureName>SpaceshipWreckage</TextureName>
 	<DefaultController>StarrockGame.AI.NoController</DefaultController>
     <Score>50</Score>

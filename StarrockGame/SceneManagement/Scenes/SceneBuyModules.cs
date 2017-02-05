@@ -27,6 +27,7 @@ namespace StarrockGame.SceneManagement.Scenes
         private MatrixMenu moduleMenu;
         private List<ModuleTemplate> unlockedModules;
         private int lastSelected = 0;
+        private int creditsToGo;
 
         private ModuleTemplate currentTemplate { get { return moduleMenu.SelectedIndex == -1 ? null : unlockedModules[moduleMenu.SelectedIndex]; } }
 
@@ -37,6 +38,7 @@ namespace StarrockGame.SceneManagement.Scenes
 
         public override void Initialize()
         {
+            creditsToGo = Player.Get().Credits;
             unlockedModules = Player.Get().GetTemplates<ModuleTemplate>();
 
             CreateMenu();
@@ -54,7 +56,7 @@ namespace StarrockGame.SceneManagement.Scenes
             new ButtonLabel(menu, "Select Modules", menuPos + new Vector2(0, font.LineSpacing * 0), 1, Color.White, OnBuyModules) { Active = unlockedModules.Count > 0 };
             new ButtonLabel(menu, "Next", menuPos + new Vector2(0, font.LineSpacing * 1), 1, Color.White, OnSelectDifficulty);
             new ButtonLabel(menu, "Back", menuPos + new Vector2(0, font.LineSpacing * 2), 1, Color.White, () => { OnMenuBack(); });
-            new Label(menu, "", new Vector2(20, 40), 1, Color.White, 0) { CaptionMonitor = () => { return string.Format("Credits: {0} C", Player.Get().Credits); } };
+            new Label(menu, "", new Vector2(20, 40), 1, Color.White, 0) { CaptionMonitor = () => { return string.Format("Credits: {0} C", creditsToGo); } };
 
             menu.SelectNext();
         }
@@ -122,6 +124,10 @@ namespace StarrockGame.SceneManagement.Scenes
             if (Input.Device.FirePrimary())
             {
                 RemoveLastModule();
+            }
+            if (creditsToGo != Player.Get().Credits)
+            {
+                creditsToGo = (int)MathHelper.Lerp(creditsToGo, Player.Get().Credits, (float)creditsToGo / Player.Get().Credits);
             }
         }
 

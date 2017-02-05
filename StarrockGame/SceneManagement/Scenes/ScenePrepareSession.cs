@@ -30,12 +30,16 @@ namespace StarrockGame.SceneManagement.Scenes
 
         private SpaceshipTemplate currentTemplate { get { return shipMenu.SelectedIndex == -1 ? null : unlockedShips[shipMenu.SelectedIndex]; } }
 
+        private int creditsToGo;
+
         public ScenePrepareSession(Game1 game) : base(game)
         {
         }
 
         public override void Initialize()
         {
+            creditsToGo = Player.Get().Credits;
+
             CreateMenu();
             CreateShipMenu();
             CreateStatsMenu();
@@ -59,7 +63,7 @@ namespace StarrockGame.SceneManagement.Scenes
             continueButton = new ButtonLabel(menu, "Next", menuPos + new Vector2(0, font.LineSpacing * 1), 1, Color.White, OnBuyModules) { Active = false };
             new ButtonLabel(menu, "Back", menuPos + new Vector2(0, font.LineSpacing * 2), 1, Color.White, () => { OnMenuBack(); });
 
-            new Label(menu, "", new Vector2(20, 40), 1, Color.White, 0) { CaptionMonitor = () => { return string.Format("Credits: {0} C", Player.Get().Credits); } };
+            new Label(menu, "", new Vector2(20, 40), 1, Color.White, 0) { CaptionMonitor = () => { return string.Format("Credits: {0} C", creditsToGo); } };
         }
 
         private void CreateShipMenu()
@@ -97,11 +101,15 @@ namespace StarrockGame.SceneManagement.Scenes
         }
 
         public override void Update(GameTime gameTime)
-        {
-
+        { 
             shipMenu.Update(gameTime);
             menu.Update(gameTime);
             statsMenu.Update(gameTime);
+
+            if (creditsToGo != Player.Get().Credits)
+            {
+                creditsToGo = (int)MathHelper.Lerp(creditsToGo, Player.Get().Credits, (float)creditsToGo / Player.Get().Credits);
+            }
         }
 
         public override void Render(GameTime gameTime)

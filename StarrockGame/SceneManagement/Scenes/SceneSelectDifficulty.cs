@@ -14,6 +14,7 @@ namespace StarrockGame.SceneManagement.Scenes
     public class SceneSelectDifficulty : Scene
     {
         private Menu menu;
+        private int creditsToGo;
 
         public SceneSelectDifficulty(Game1 game) : base(game)
         {
@@ -21,6 +22,8 @@ namespace StarrockGame.SceneManagement.Scenes
 
         public override void Initialize()
         {
+            creditsToGo = Player.Get().Credits;
+
             SpriteFont font = Cache.LoadFont("MenuFont");
             menu = new Menu(font, () => { OnMenuBack(); });
 
@@ -33,7 +36,7 @@ namespace StarrockGame.SceneManagement.Scenes
             };
             new ButtonLabel(menu, "Back", menuPos + new Vector2(0, font.LineSpacing * 2), 1, Color.White, OnMenuBack);
 
-            new Label(menu, "", new Vector2(20, 40), 1, Color.White, 0) { CaptionMonitor = () => { return string.Format("Credits: {0} C", Player.Get().Credits); } };
+            new Label(menu, "", new Vector2(20, 40), 1, Color.White, 0) { CaptionMonitor = () => { return string.Format("Credits: {0} C", creditsToGo); } };
         }
 
         public override void Update(GameTime gameTime)

@@ -12,6 +12,8 @@ namespace StarrockGame
     { 
         public string Name;
 
+        readonly string[] Exclusions = new string[]{ "Amaterasu" };
+
         public Blueprint(TemplateType type)
         { 
             chooseBlueprint(type);
@@ -19,8 +21,8 @@ namespace StarrockGame
 
         //Selects a random ship from all available ones, uses the dropchance to calculate if the blueprint contains the ship or not
         private void chooseBlueprint(TemplateType type)
-        { 
-            List<Tuple<string, float>> templates = Cache.Templates[type];
+        {
+            List<Tuple<string, float>> templates = Cache.Templates[type].Where(t => !Exclusions.Contains(t.Item1)).ToList();
             Random rand = new Random();
             var k = templates[rand.Next(templates.Count)];
 

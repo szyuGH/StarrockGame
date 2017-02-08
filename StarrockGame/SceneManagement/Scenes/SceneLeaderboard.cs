@@ -4,6 +4,7 @@ using MySql.Data.MySqlClient;
 using StarrockGame.Caching;
 using StarrockGame.GUI;
 using StarrockGame.InputManagement;
+using StarrockGame.SceneManagement.Popups;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -17,11 +18,15 @@ namespace StarrockGame.SceneManagement.Scenes
     {
         const float RETRIEVE_INTERVAL = 10; // in seconds
 
+        internal const string ConnectionString = "SERVER=sql7.freesqldatabase.com;DATABASE=sql7148244;UID=sql7148244;PASSWORD=ImvNHhy7Ld;";
+            
+
         
         Table table;
         Menu menu;
         Label returnLabel;
         Label changeDiffLabel;
+        bool initialized;
 
         private SessionDifficulty currentDifficulty = SessionDifficulty.Easy;
 
@@ -40,8 +45,9 @@ namespace StarrockGame.SceneManagement.Scenes
 
         public SceneLeaderboard(Game1 game) : base(game)
         {
-            
         }
+
+        
 
         public override void Initialize()
         {
@@ -77,10 +83,15 @@ namespace StarrockGame.SceneManagement.Scenes
                 1,
                 Color.White, 0);
             changeDiffLabel.CaptionMonitor = () => { return ChangeDifficultyText; };
+
+            initialized = true;
         }
 
         public override void Update(GameTime gameTime)
         {
+            if (!initialized)
+                return;
+
             if (Input.Device.MenuCancel())
             {
                 SceneManager.Return();
@@ -118,21 +129,16 @@ namespace StarrockGame.SceneManagement.Scenes
             base.Render(gameTime);
             
             SpriteBatch.Begin();
-            table.Render(SpriteBatch);
-            menu.Render(SpriteBatch);
+            table?.Render(SpriteBatch);
+            menu?.Render(SpriteBatch);
             SpriteBatch.End();
         }
 
         private List<Dictionary<string, string>> RetrieveLeaderboard(SessionDifficulty difficulty)
         {
             List<Dictionary<string, string>> result = new List<Dictionary<string, string>>();
-
-            string connectionString = string.Format("SERVER={0};DATABASE={1};UID={2};PASSWORD={3};",
-                "sql7.freesqldatabase.com",
-                "sql7148244",
-                "sql7148244",
-                "ImvNHhy7Ld");
-            MySqlConnection connection = new MySqlConnection(connectionString);
+            
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
 
             MySqlCommand command = connection.CreateCommand();
             command.CommandText = string.Format("SELECT * FROM leaderboard where difficulty={0} order by score desc, time desc", (int)difficulty);

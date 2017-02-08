@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MySql.Data.MySqlClient;
 using StarrockGame.Caching;
 using StarrockGame.GUI;
+using StarrockGame.SceneManagement.Popups;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,7 +63,23 @@ namespace StarrockGame.SceneManagement.Scenes
 
         private void OnLeaderboard()
         {
-            SceneManager.Call<SceneLeaderboard>();
+            if (CheckConnection())
+                SceneManager.Call<SceneLeaderboard>();
+        }
+
+        private bool CheckConnection()
+        {
+            MySqlConnection connection = new MySqlConnection(SceneLeaderboard.ConnectionString);
+            try
+            {
+                connection.Open();
+                return true;
+            }
+            catch (Exception)
+            {
+                SceneManager.CallPopup<PopupNoLBConnection>();
+            }
+            return false;
         }
 
         private void OnControls()

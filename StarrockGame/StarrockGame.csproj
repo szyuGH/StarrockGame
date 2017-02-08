@@ -115,6 +115,7 @@
     <Compile Include="SceneManagement\Popups\PopupFoundBlueprints.cs" />
     <Compile Include="SceneManagement\Popups\PopupGameover.cs" />
     <Compile Include="SceneManagement\Popups\PopupPause.cs" />
+    <Compile Include="SceneManagement\Popups\PopupNoLBConnection.cs" />
     <Compile Include="SceneManagement\Scenes\SceneBuyModules.cs" />
     <Compile Include="SceneManagement\Scenes\SceneCheckTemplates.cs" />
     <Compile Include="SceneManagement\Scenes\SceneOptions.cs" />

@@ -83,6 +83,7 @@
     <Compile Include="Caching\ICacheLoader.cs" />
     <Compile Include="Caching\StarrockCacheLoader.cs" />
     <Compile Include="Camera2D.cs" />
+    <Compile Include="Dao.cs" />
     <Compile Include="Entities\Asteroid.cs" />
     <Compile Include="Entities\Engine.cs" />
     <Compile Include="Entities\Entity.cs" />

@@ -62,7 +62,7 @@ namespace StarrockGame.SceneManagement.Scenes
                 .AddColumn("Difficulty", 160)
                 .AddColumn("Time", 130)
                 .AddColumn("Score", 130);
-            table.Data = RetrieveLeaderboard(currentDifficulty);
+            table.Data = Dao.RetrieveLeaderboard(currentDifficulty);
 
             int cx = (Device.Viewport.Width - table.Bounding.Width) / 2;
             int cy = (Device.Viewport.Height - table.RealHeight) / 2;
@@ -119,7 +119,7 @@ namespace StarrockGame.SceneManagement.Scenes
 
             if (retrieveTimer <= 0)
             {
-                table.Data = RetrieveLeaderboard(currentDifficulty);
+                table.Data = Dao.RetrieveLeaderboard(currentDifficulty);
                 retrieveTimer = RETRIEVE_INTERVAL;
             }
         }
@@ -133,39 +133,6 @@ namespace StarrockGame.SceneManagement.Scenes
             menu?.Render(SpriteBatch);
             SpriteBatch.End();
         }
-
-        private List<Dictionary<string, string>> RetrieveLeaderboard(SessionDifficulty difficulty)
-        {
-            List<Dictionary<string, string>> result = new List<Dictionary<string, string>>();
-            
-            MySqlConnection connection = new MySqlConnection(ConnectionString);
-
-            MySqlCommand command = connection.CreateCommand();
-            command.CommandText = string.Format("SELECT * FROM leaderboard where difficulty={0} order by score desc, time desc", (int)difficulty);
-            MySqlDataReader Reader;
-            connection.Open();
-            Reader = command.ExecuteReader();
-            int rank = 1;
-            while (Reader.Read())
-            {
-                string playerName = Reader.GetString(0);
-                string shipName = Reader.GetString(1);
-                long durationInMS = Reader.GetInt64(3);
-                int score = Reader.GetInt32(4);
-
-                result.Add(new Dictionary<string, string>() {
-                    { "Rank", rank.ToString() },
-                    { "Name", playerName },
-                    { "Ship", shipName },
-                    { "Difficulty", (difficulty).ToString() },
-                    { "Time", string.Format("{0:hh\\:mm\\:ss}",TimeSpan.FromMilliseconds(durationInMS)) },
-                    { "Score", score.ToString() },
-
-                });
-                rank++;
-            }
-            connection.Close();
-            return result;
-        }
+        
     }
 }

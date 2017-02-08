@@ -63,23 +63,8 @@ namespace StarrockGame.SceneManagement.Scenes
 
         private void OnLeaderboard()
         {
-            if (CheckConnection())
+            if (Dao.CheckAvailability())
                 SceneManager.Call<SceneLeaderboard>();
-        }
-
-        private bool CheckConnection()
-        {
-            MySqlConnection connection = new MySqlConnection(SceneLeaderboard.ConnectionString);
-            try
-            {
-                connection.Open();
-                return true;
-            }
-            catch (Exception)
-            {
-                SceneManager.CallPopup<PopupNoLBConnection>();
-            }
-            return false;
         }
 
         private void OnControls()

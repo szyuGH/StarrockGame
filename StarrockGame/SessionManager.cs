@@ -117,7 +117,7 @@ namespace StarrockGame
                 if (Program.Random.Next(100) < spawn.BossSpawnChance)
                 {
                     SpawnBoss();
-                    enemySpawnTimer -= currentEnemySpawnTime * 2;
+                    enemySpawnTimer -= currentEnemySpawnTime * 2.5f;
                 }
                 else
                 {
@@ -140,7 +140,12 @@ namespace StarrockGame
 
         private static void SpawnBoss()
         {
-            // TODO: Spawn Boss
+            Vector2 spos;
+            float rot;
+            string type;
+            // we only have one boss atm, so no need to choose one
+            CalcEnemyShipSpawnData(out spos, out rot, out type);
+            EntityManager.Add<Spaceship>("Amaterasu", spos, rot, Vector2.Zero, 0, false);
         }
 
 

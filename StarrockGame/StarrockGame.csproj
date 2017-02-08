@@ -64,6 +64,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AI\AbstractController.cs" />
+    <Compile Include="AI\AmaterasuController.cs" />
     <Compile Include="AI\DestroyerController.cs" />
     <Compile Include="AI\HaulerController.cs" />
     <Compile Include="AI\HomingController.cs" />

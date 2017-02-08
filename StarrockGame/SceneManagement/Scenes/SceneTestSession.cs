@@ -40,7 +40,7 @@ namespace StarrockGame.SceneManagement.Scenes
             SessionManager.ModuleTemplates.Add(Cache.LoadTemplate<ModuleTemplate>("FuelCapacityboost"));
             EntityManager.Clear();
             ship = EntityManager.Add<Spaceship, PlayerController>("Spaceship", new Vector2(0, 0), (float)Math.PI * -.35f, Vector2.Zero,0, true);
-            ship2 = EntityManager.Add<Spaceship, DestroyerController>("BS_Caine", new Vector2(700, 700), (float)Math.PI * .5f, Vector2.Zero);
+            ship2 = EntityManager.Add<Spaceship, AmaterasuController>("Amaterasu", new Vector2(700, 700), (float)Math.PI * .5f, Vector2.Zero);
             wreckage = EntityManager.Add<Wreckage, NoController>("SpaceshipWreckage",new Vector2(0, 100), 0, Vector2.Zero);
             ship.Target = ship2;
 

@@ -610,3 +610,48 @@
 /processorParam:TextureFormat=Color
 /build:Graphics/logo.png
 
+#begin Data/Templates/Amaterasu.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/Amaterasu.xml
+
+#begin Data/Templates/AmaterasuWreckage.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/AmaterasuWreckage.xml
+
+#begin Graphics/Amaterasu.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Graphics/Amaterasu.png
+
+#begin Graphics/AmaterasuWreckage.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Graphics/AmaterasuWreckage.png
+
+#begin Data/Templates/AmaterasuHomingMissile.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/AmaterasuHomingMissile.xml
+
+#begin Audio/SE/MissileLaunch.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SE/MissileLaunch.mp3
+

@@ -15,7 +15,7 @@
     <EnergyCost>5</EnergyCost>
     <Damage>75</Damage>
     <Cooldown>0.75</Cooldown>
-    <SoundFile>LaserGun</SoundFile>
+    <SoundFile>MissileLaunch</SoundFile>
     <ExplosionRange>20</ExplosionRange>
     <Fuel>150</Fuel>
     <Engine>

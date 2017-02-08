@@ -2,19 +2,19 @@
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.HomingMissileTemplate">
     <Checksum>1119184597</Checksum>
-    <Name>HomingMissile</Name>
-    <File>HomingMissileTest</File>
+    <Name>AmaterasuHomingMissile</Name>
+    <File>AmaterasuHomingMissile</File>
     <TextureName>HomingMissileTest</TextureName>
 	<DefaultController>StarrockGame.AI.HomingController</DefaultController>
     <Structure>1</Structure>
     <Mass>1</Mass>
     <Size>0.15</Size>
     <Inertia>1</Inertia>
-	<ExplosionSize>1</ExplosionSize>
+	<ExplosionSize>1.5</ExplosionSize>
     <WeaponType>3</WeaponType>
-    <EnergyCost>5</EnergyCost>
-    <Damage>10</Damage>
-    <Cooldown>1</Cooldown>
+    <EnergyCost>200</EnergyCost>
+    <Damage>100</Damage>
+    <Cooldown>4</Cooldown>
     <SoundFile>MissileLaunch</SoundFile>
     <ExplosionRange>10</ExplosionRange>
     <Fuel>50</Fuel>
@@ -30,7 +30,7 @@
       <Item>
         <Direction>4</Direction>
         <LocalPosition>-25 0</LocalPosition>
-        <PropulsionPower>3</PropulsionPower>
+        <PropulsionPower>2</PropulsionPower>
         <FuelCostPerSecond>1</FuelCostPerSecond>
         <ParticlesPerSecond>5</ParticlesPerSecond>
 		<ParticleSize>0.35</ParticleSize>
@@ -38,7 +38,7 @@
       <Item>
         <Direction>8</Direction>
         <LocalPosition>-25 0</LocalPosition>
-        <PropulsionPower>3</PropulsionPower>
+        <PropulsionPower>2</PropulsionPower>
         <FuelCostPerSecond>1</FuelCostPerSecond>
         <ParticlesPerSecond>5</ParticlesPerSecond>
 		<ParticleSize>0.35</ParticleSize>

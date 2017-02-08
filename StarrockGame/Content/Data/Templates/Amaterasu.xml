@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="TData.TemplateData.SpaceshipTemplate">
+    <Checksum>533383892</Checksum>
+    <Name>Amaterasu</Name>
+    <File>Amaterasu</File>
+    <TextureName>Amaterasu</TextureName>
+	<DefaultController>StarrockGame.AI.AmaterasuController</DefaultController>
+    <Score>10000</Score>
+    <Structure>6000</Structure>
+    <Mass>400000</Mass>
+    <Size>1</Size>
+    <Inertia>850000</Inertia>
+	<ExplosionSize>30</ExplosionSize>
+    <Fuel>220000</Fuel>
+    <Energy>20000</Energy>
+    <ShieldCapacity>1000</ShieldCapacity>
+    <ScavengePower>0</ScavengePower>
+    <ScavengeRange>0</ScavengeRange>
+    <ShieldReplenishCostPerSecond>200</ShieldReplenishCostPerSecond>
+    <ShieldReplenishValuePerSecond>30</ShieldReplenishValuePerSecond>
+    <EnergyRecoveryPerSecond>0</EnergyRecoveryPerSecond>
+    <ShieldRecoveryPerSecond>0</ShieldRecoveryPerSecond>
+    <FuelRecoveryPerSecond>0</FuelRecoveryPerSecond>
+    <ModuleCount>0</ModuleCount>
+    <Engines>
+      <Item>
+        <Direction>1</Direction>
+        <LocalPosition>-380 -61</LocalPosition>
+        <PropulsionPower>255000</PropulsionPower>
+        <FuelCostPerSecond>60</FuelCostPerSecond>
+        <ParticlesPerSecond>160</ParticlesPerSecond>
+		<ParticleSize>2</ParticleSize>
+      </Item>
+      <Item>
+        <Direction>1</Direction>
+        <LocalPosition>-380 61</LocalPosition>
+        <PropulsionPower>255000</PropulsionPower>
+        <FuelCostPerSecond>60</FuelCostPerSecond>
+        <ParticlesPerSecond>160</ParticlesPerSecond>
+		<ParticleSize>2</ParticleSize>
+      </Item>
+      <Item>
+        <Direction>4</Direction>
+        <LocalPosition>189 196</LocalPosition>
+        <PropulsionPower>450000</PropulsionPower>
+        <FuelCostPerSecond>40</FuelCostPerSecond>
+        <ParticlesPerSecond>100</ParticlesPerSecond>
+		<ParticleSize>1.5</ParticleSize>
+      </Item>
+      <Item>
+        <Direction>8</Direction>
+        <LocalPosition>189 -196</LocalPosition>
+        <PropulsionPower>450000</PropulsionPower>
+        <FuelCostPerSecond>40</FuelCostPerSecond>
+        <ParticlesPerSecond>100</ParticlesPerSecond>
+		<ParticleSize>1.5</ParticleSize>
+      </Item>
+    </Engines>
+    <PrimaryWeaponBases>
+      <WeaponType>AmaterasuHomingMissile</WeaponType>
+      <Bases>
+        <Item>
+          <LocalPosition>34 -182</LocalPosition>
+          <LocalAngle>-90</LocalAngle>
+        </Item>
+        <Item>
+          <LocalPosition>90 -175</LocalPosition>
+          <LocalAngle>-90</LocalAngle>
+        </Item>
+		<Item>
+          <LocalPosition>34 182</LocalPosition>
+          <LocalAngle>90</LocalAngle>
+        </Item>
+        <Item>
+          <LocalPosition>90 175</LocalPosition>
+          <LocalAngle>90</LocalAngle>
+        </Item>
+      </Bases>
+    </PrimaryWeaponBases>
+    <SecondaryWeaponBases>
+      <WeaponType>AdvMine</WeaponType>
+      <Bases>
+        <Item>
+          <LocalPosition>20 -30</LocalPosition>
+          <LocalAngle>0</LocalAngle>
+        </Item>
+        <Item>
+          <LocalPosition>20 30</LocalPosition>
+          <LocalAngle>0</LocalAngle>
+        </Item>
+      </Bases>
+    </SecondaryWeaponBases>
+    <RadarRange>1000</RadarRange>
+    <Price>0</Price>
+    <CameraZoom>1</CameraZoom>
+	<SpawnTime>8</SpawnTime>
+	<SpawnSize>8</SpawnSize>
+	<SpawnColor>FF43561A</SpawnColor>
+	<DropChance>0</DropChance>
+  </Asset>
+</XnaContent>

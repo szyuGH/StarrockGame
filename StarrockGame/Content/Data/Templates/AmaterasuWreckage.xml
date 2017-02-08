@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="TData.TemplateData.WreckageTemplate">
+    <Checksum>228295197</Checksum>
+    <Name>AmaterasuWreckage</Name>
+    <File>AmaterasuWreckage</File>
+    <TextureName>AmaterasuWreckage</TextureName>
+	<DefaultController>StarrockGame.AI.NoController</DefaultController>
+    <Score>10000</Score>
+    <Structure>40</Structure>
+    <Mass>1</Mass>
+    <Size>1</Size>
+    <Inertia>0</Inertia>
+	<ExplosionSize>0</ExplosionSize>
+    <MinFuel>500</MinFuel>
+    <MaxFuel>3000</MaxFuel>
+    <MinEnergy>500</MinEnergy>
+    <MaxEnergy>3000</MaxEnergy>
+    <MinStructure>1000</MinStructure>
+    <MaxStructure>8000</MaxStructure>
+  </Asset>
+</XnaContent>

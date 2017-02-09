@@ -11,7 +11,7 @@ namespace StarrockGame
 {
     internal static class Dao
     {
-        private const string CONNECTION_STRING = "SERVER=sql7.freesqldatabase.com;DATABASE=sql7148244;UID=sql7148244;PASSWORD=ImvNHhy7Ld;";
+        private const string CONNECTION_STRING = "SERVER=sql11.freesqldatabase.com;DATABASE=sql11158055;UID=sql11158055;PASSWORD=Z7jiIpPeuG;";
 
         internal static bool CheckAvailability()
         {
@@ -36,14 +36,19 @@ namespace StarrockGame
                 connection = new MySqlConnection(CONNECTION_STRING);
                 MySqlCommand command = connection.CreateCommand();
                 // todo must be updated when db is up
-                command.CommandText = string.Format("INSERT INTO leaderboard () VALUES ({0}, {1}, {2}, {3}, {4})",
+                command.CommandText = string.Format("INSERT INTO leaderboard (player_name, ship_name, difficulty, time, score) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}')",
                     Player.Get().Name,
                     SessionManager.UsedShipTemplate.Name,
+                    SessionManager.Difficulty,
                     SessionManager.ElapsedTime.TotalMilliseconds,
-                    SessionManager.Score,
-                    SessionManager.Difficulty);
-            } catch (Exception)
+                    SessionManager.Score);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+
+            } catch (Exception e)
             {
+                throw e;
             }
             finally
             {

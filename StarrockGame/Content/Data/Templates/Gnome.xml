@@ -5,7 +5,7 @@
     <Name>Gnome</Name>
     <File>Gnome</File>
     <TextureName>Gnome</TextureName>
-	<DefaultController>StarrockGame.AI.DestroyerController</DefaultController>
+	<DefaultController>StarrockGame.AI.HomingController</DefaultController>
     <Score>50</Score>
     <Structure>800</Structure>
     <Mass>80</Mass>

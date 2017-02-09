@@ -82,11 +82,11 @@
       <WeaponType>AdvMine</WeaponType>
       <Bases>
         <Item>
-          <LocalPosition>20 -30</LocalPosition>
+          <LocalPosition>-220 -30</LocalPosition>
           <LocalAngle>0</LocalAngle>
         </Item>
         <Item>
-          <LocalPosition>20 30</LocalPosition>
+          <LocalPosition>-220 30</LocalPosition>
           <LocalAngle>0</LocalAngle>
         </Item>
       </Bases>

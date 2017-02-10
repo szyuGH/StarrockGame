@@ -11,7 +11,13 @@ namespace StarrockGame
 {
     public class StarrockGraphicsDeviceManager : GraphicsDeviceManager
     {
-
+        readonly string[] supportedDisplayModes = new string[] {
+            "800x600",
+            "1024x768",
+            "1280x960",
+            "1280x1024",
+            "1920x1080"
+        };
 
         public StarrockGraphicsDeviceManager(Game game, bool fullscreen=false) 
             : base(game)
@@ -25,7 +31,7 @@ namespace StarrockGame
 
         public void SetResolution(int resolutionId)
         {
-            DisplayModeCollection dmc = GetSupportedResolutions();
+            IEnumerable<DisplayMode> dmc = GetSupportedResolutions();
             DisplayMode res = dmc.ElementAt(resolutionId);
             this.PreferredBackBufferWidth = res.Width;
             this.PreferredBackBufferHeight = res.Height;
@@ -33,9 +39,10 @@ namespace StarrockGame
             SceneManager.SceneRenderTarget = new RenderTarget2D(GraphicsDevice, res.Width, res.Height);
         }
 
-        public DisplayModeCollection GetSupportedResolutions()
+        public IEnumerable<DisplayMode> GetSupportedResolutions()
         {
-            return GraphicsAdapter.DefaultAdapter.SupportedDisplayModes;
+            IEnumerable<DisplayMode> modes = GraphicsAdapter.DefaultAdapter.SupportedDisplayModes.Where(dm => dm.Format == SurfaceFormat.Color && supportedDisplayModes.Contains(string.Format("{0}x{1}", dm.Width, dm.Height)));
+            return modes;
         }
     }
 }

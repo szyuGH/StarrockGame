@@ -23,7 +23,7 @@ namespace StarrockGame.SceneManagement.Scenes
             menu = new Menu(font, () => { SceneManager.Return(); });
             float size = 1;
 
-            DisplayModeCollection dmc = Game.Graphics.GetSupportedResolutions();
+            IEnumerable<DisplayMode> dmc = Game.Graphics.GetSupportedResolutions();
             Vector2 screenCenter = new Vector2(Device.Viewport.Width, (Device.Viewport.Height - font.LineSpacing * dmc.Count())) * .5f;
 
             for (int i = 0; i < dmc.Count(); i++)

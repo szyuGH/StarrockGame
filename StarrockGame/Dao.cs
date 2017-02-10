@@ -48,7 +48,6 @@ namespace StarrockGame
 
             } catch (Exception e)
             {
-                throw e;
             }
             finally
             {

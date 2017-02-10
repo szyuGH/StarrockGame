@@ -232,10 +232,25 @@ namespace StarrockGame.Entities
             else
             {
                 base.Render(spriteBatch, gameTime, effectParams);
+                effectParams["OutlineColor"].SetValue(Color.Transparent.ToVector4());
                 Scavenging.Render(spriteBatch, gameTime);
+                if (!IsPlayer)
+                    DrawStructure(spriteBatch);
             }
         }
 
+        private void DrawStructure(SpriteBatch spriteBatch)
+        {
+            Vector2 spos = ConvertUnits.ToDisplayUnits(Body.Position) + new Vector2(-Center.X, Center.Y+12);
+            spriteBatch.Draw(Cache.LoadGraphic("pixel"),
+                new Rectangle((int)spos.X, (int)spos.Y, Graphic.Width, 12),
+                new Color(40, 2, 10, 128));
+
+            float sratio = Structure / Template.Structure;
+            spriteBatch.Draw(Cache.LoadGraphic("pixel"),
+                new Rectangle((int)spos.X, (int)spos.Y, (int)(sratio * Graphic.Width), 12),
+                new Color(140, 12, 40, 128));
+        }
 
         public override void Accelerate(float val, float elapsed)
         {

@@ -410,11 +410,11 @@ namespace StarrockGame.Entities
                 if (Body != (with.UserData as WeaponEntity).EmitterBody)
                 {
                     float dmg = (with.UserData as WeaponEntity).Damage * ((with.UserData as WeaponEntity).EmitterBody.UserData as Spaceship).DamageAmplifier;
-                    if (with.UserData is LaserBullet) // || with.UserData is LaserBeam
-                    {
+                    //if (with.UserData is LaserBullet) // || with.UserData is LaserBeam
+                    //{
                         shieldDmg = Math.Min(dmg, ShieldCapacity);
                         dmg -= shieldDmg;
-                    }
+                    //}
                     structureDmg = Math.Max(0, dmg);
                 }
             } else if (with.UserData is GameBorder)

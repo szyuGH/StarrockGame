@@ -39,8 +39,8 @@ namespace StarrockGame
                 command.CommandText = string.Format("INSERT INTO leaderboard (player_name, ship_name, difficulty, time, score) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}')",
                     Player.Get().Name,
                     SessionManager.UsedShipTemplate.Name,
-                    SessionManager.Difficulty,
-                    SessionManager.ElapsedTime.TotalMilliseconds,
+                    (int)SessionManager.Difficulty,
+                    SessionManager.ElapsedTime.Ticks,
                     SessionManager.Score);
 
                 connection.Open();
@@ -82,7 +82,7 @@ namespace StarrockGame
                     { "Name", playerName },
                     { "Ship", shipName },
                     { "Difficulty", (difficulty).ToString() },
-                    { "Time", string.Format("{0:hh\\:mm\\:ss}",TimeSpan.FromMilliseconds(durationInMS)) },
+                    { "Time", string.Format("{0:hh\\:mm\\:ss}",TimeSpan.FromTicks(durationInMS)) },
                     { "Score", score.ToString() },
 
                 });

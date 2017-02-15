@@ -49,8 +49,9 @@ namespace StarrockGame.Entities
             this.ScavengeTime = (GainEnergy + GainEnergy + GainStructure) / 100;
         }
 
-        protected override void HandleCollisionResponse(Body with)
+        protected override bool HandleCollisionResponse(Body with)
         {
+            return false;
         }
     }
 }

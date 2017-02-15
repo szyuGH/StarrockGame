@@ -50,9 +50,10 @@ namespace StarrockGame.Entities
             }
         }
 
-        protected override void HandleCollisionResponse(Body with)
+        protected override bool HandleCollisionResponse(Body with)
         {
             Structure = 0;
+            return true;
         }
     }
 }

@@ -119,7 +119,7 @@ namespace StarrockGame.Entities
             else
             {
                 Body.CollisionCategories = Category.Cat3;
-                Body.CollidesWith = Category.Cat1 | Category.Cat2 | Category.Cat4;
+                Body.CollidesWith = Category.Cat1 | Category.Cat2 | Category.Cat4 | Category.Cat5;
             }
         }
 
@@ -401,20 +401,22 @@ namespace StarrockGame.Entities
             }
         }
 
-        protected override void HandleCollisionResponse(Body with)
+        protected override bool HandleCollisionResponse(Body with)
         {
             float structureDmg=0;
             float shieldDmg=0;
             if (with.UserData is WeaponEntity)
             {
-                float dmg = (with.UserData as WeaponEntity).Damage * ((with.UserData as WeaponEntity).EmitterBody.UserData as Spaceship).DamageAmplifier;
-                if (with.UserData is LaserBullet) // || with.UserData is LaserBeam
+                if (Body != (with.UserData as WeaponEntity).EmitterBody)
                 {
-                    shieldDmg = Math.Min(dmg, ShieldCapacity);
-                    dmg -= shieldDmg;
+                    float dmg = (with.UserData as WeaponEntity).Damage * ((with.UserData as WeaponEntity).EmitterBody.UserData as Spaceship).DamageAmplifier;
+                    if (with.UserData is LaserBullet) // || with.UserData is LaserBeam
+                    {
+                        shieldDmg = Math.Min(dmg, ShieldCapacity);
+                        dmg -= shieldDmg;
+                    }
+                    structureDmg = Math.Max(0, dmg);
                 }
-                structureDmg = Math.Max(0, dmg);
-                
             } else if (with.UserData is GameBorder)
             {
               
@@ -430,6 +432,8 @@ namespace StarrockGame.Entities
             
             ShieldCapacity -= shieldDmg;
             Structure -= structureDmg;
+
+            return true;
         }
     }
 }

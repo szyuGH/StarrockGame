@@ -59,7 +59,7 @@ namespace StarrockGame.Entities
             else
             {
                 Body.CollisionCategories = Category.Cat5;
-                Body.CollidesWith = Category.Cat1 | Category.Cat2;
+                Body.CollidesWith = Category.Cat1 | Category.Cat2 | Category.Cat3;
             }
         }
 
@@ -74,9 +74,13 @@ namespace StarrockGame.Entities
         }
 
 
-        protected override void HandleCollisionResponse(Body with)
+        protected override bool HandleCollisionResponse(Body with)
         {
+            if (with.UserData is Spaceship && EmitterBody == with)
+                return false;
+
             Structure = 0;
+            return true;
         }
     }
 }

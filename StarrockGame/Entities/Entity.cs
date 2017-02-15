@@ -213,14 +213,13 @@ namespace StarrockGame.Entities
         private bool Body_OnCollision(Fixture fixtureA, Fixture fixtureB, Contact contact)
         {
             // apply collision response in form of applying damage
-            HandleCollisionResponse(fixtureB.Body);
-            return true;
+            return HandleCollisionResponse(fixtureB.Body);
         }
 
         /// <summary>
         /// Handles the collision with another entity. Here damage will be calculated.
         /// </summary>
         /// <param name="with">other entity</param>
-        protected abstract void HandleCollisionResponse(Body with);
+        protected abstract bool HandleCollisionResponse(Body with);
     }
 }

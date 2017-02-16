@@ -15,7 +15,15 @@ namespace StarrockGame.AI
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             Entity target = entity.Target;
             if (target == null)
+            {
+                if (entity is HomingMissile && ((entity as HomingMissile).EmitterBody.UserData as Spaceship).IsPlayer)
+                {
+                    IEnumerable<Entity> el = EntityManager.GetAllEntities((entity as HomingMissile), 150)
+                        .OrderBy(e => Vector2.DistanceSquared(e.Body.Position, entity.Body.Position));
+                    target = el.Where(e => e != entity).FirstOrDefault();
+                }
                 return;
+            }
 
             // calculate the direction this entity needs to be turning to
             Vector2 targetDir = target.Body.Position - entity.Body.Position;

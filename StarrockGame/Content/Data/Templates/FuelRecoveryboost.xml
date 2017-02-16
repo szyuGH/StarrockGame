@@ -6,7 +6,7 @@
     <File>FuelRecoveryboost</File>
     <ModuleEffects>
       <Item>
-        <EffectType>2</EffectType>
+        <EffectType>10</EffectType>
         <Value>2</Value>
       </Item>
     </ModuleEffects>

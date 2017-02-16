@@ -13,7 +13,7 @@
 	<ExplosionSize>1</ExplosionSize>
     <WeaponType>2</WeaponType>
     <EnergyCost>5</EnergyCost>
-    <Damage>75</Damage>
+    <Damage>150</Damage>
     <Cooldown>0.75</Cooldown>
     <SoundFile>MissileLaunch</SoundFile>
     <ExplosionRange>20</ExplosionRange>

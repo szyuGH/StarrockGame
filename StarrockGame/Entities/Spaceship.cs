@@ -247,9 +247,14 @@ namespace StarrockGame.Entities
                 new Color(40, 2, 10, 128));
 
             float sratio = Structure / Template.Structure;
+            float shieldRatio = ShieldCapacity / shipTemplate.ShieldCapacity;
             spriteBatch.Draw(Cache.LoadGraphic("pixel"),
                 new Rectangle((int)spos.X, (int)spos.Y, (int)(sratio * Graphic.Width), 12),
                 new Color(140, 12, 40, 128));
+
+            spriteBatch.Draw(Cache.LoadGraphic("pixel"),
+                new Rectangle((int)spos.X, (int)spos.Y, (int)(shieldRatio * Graphic.Width), 12),
+                new Color(40, 12, 166, 196));
         }
 
         public override void Accelerate(float val, float elapsed)

@@ -28,7 +28,7 @@ namespace StarrockGame
 
         public Game1()
         {
-            Graphics = new StarrockGraphicsDeviceManager(this, true);
+            Graphics = new StarrockGraphicsDeviceManager(this, false);
             Content.RootDirectory = "Content";
         }
 

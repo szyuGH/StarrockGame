@@ -62,9 +62,12 @@ namespace StarrockGame
                     data = (PlayerData)formatter.Deserialize(fs);
                 }
 
-                this.Credits = data.Credits;
+                this._credits = data.Credits;
                 this.Name = data.PlayerName;
-                this.templates = new List<AbstractTemplate>(data.UnlockedTemplates.Select(s => Cache.LoadTemplate<AbstractTemplate>(s)));
+                if (data.UnlockedTemplates != null)
+                    this.templates = new List<AbstractTemplate>(data.UnlockedTemplates.Select(s => Cache.LoadTemplate<AbstractTemplate>(s)));
+                else
+                    Initialize();
             }
         }
 
@@ -89,6 +92,8 @@ namespace StarrockGame
         public bool UnlockTemplates(string t)
         {
             AbstractTemplate data = Cache.LoadTemplate<AbstractTemplate>(t);
+            if (templates == null)
+                templates = new List<AbstractTemplate>();
             if (!this.templates.Contains(data))
             {
                 this.templates.Add(data);

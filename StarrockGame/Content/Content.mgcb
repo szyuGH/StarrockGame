@@ -467,20 +467,10 @@
 /processor:PassThroughProcessor
 /build:Data/Templates/EnergyCapacityboost.xml
 
-#begin Data/Templates/EnergyRecovery.xml
-/importer:XmlImporter
-/processor:PassThroughProcessor
-/build:Data/Templates/EnergyRecovery.xml
-
 #begin Data/Templates/FuelCapacityboost.xml
 /importer:XmlImporter
 /processor:PassThroughProcessor
 /build:Data/Templates/FuelCapacityboost.xml
-
-#begin Data/Templates/FuelRecovery.xml
-/importer:XmlImporter
-/processor:PassThroughProcessor
-/build:Data/Templates/FuelRecovery.xml
 
 #begin Data/Templates/RadarRangeboost.xml
 /importer:XmlImporter
@@ -501,11 +491,6 @@
 /importer:XmlImporter
 /processor:PassThroughProcessor
 /build:Data/Templates/ShieldCapacityboost.xml
-
-#begin Data/Templates/ShieldRecovery.xml
-/importer:XmlImporter
-/processor:PassThroughProcessor
-/build:Data/Templates/ShieldRecovery.xml
 
 #begin Data/Templates/StructureCapacityboost.xml
 /importer:XmlImporter
@@ -666,4 +651,19 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Graphics/pixel.png
+
+#begin Data/Templates/EnergyRecoveryboost.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/EnergyRecoveryboost.xml
+
+#begin Data/Templates/FuelRecoveryboost.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/FuelRecoveryboost.xml
+
+#begin Data/Templates/ShieldRecoveryboost.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/ShieldRecoveryboost.xml
 

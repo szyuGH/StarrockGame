@@ -55,12 +55,18 @@ namespace StarrockGame.Entities
                     (ship.Template as SpaceshipTemplate).ScavengeRange *= amp;
                     break;
                 case ModuleEffectType.EnergyRecoveryPerSecond:
+                    if ((ship.Template as SpaceshipTemplate).EnergyRecoveryPerSecond == 0)
+                        (ship.Template as SpaceshipTemplate).EnergyRecoveryPerSecond = 0.1f;
                     (ship.Template as SpaceshipTemplate).EnergyRecoveryPerSecond *= amp;
                     break;
                 case ModuleEffectType.FuelRecoveryPerSecond:
+                    if ((ship.Template as SpaceshipTemplate).FuelRecoveryPerSecond == 0)
+                        (ship.Template as SpaceshipTemplate).FuelRecoveryPerSecond = 0.1f;
                     (ship.Template as SpaceshipTemplate).FuelRecoveryPerSecond *= amp;
                     break;
                 case ModuleEffectType.ShieldRecoveryPerSecond:
+                    if ((ship.Template as SpaceshipTemplate).ShieldRecoveryPerSecond == 0)
+                        (ship.Template as SpaceshipTemplate).ShieldRecoveryPerSecond = 0.1f;
                     (ship.Template as SpaceshipTemplate).ShieldRecoveryPerSecond *= amp;
                     break;
                 case ModuleEffectType.Damage:

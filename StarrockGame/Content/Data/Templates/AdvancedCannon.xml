@@ -2,8 +2,8 @@
 <XnaContent xmlns:ns="Microsoft.Xna.Framework">
   <Asset Type="TData.TemplateData.LaserBulletTemplate">
     <Checksum>218224798</Checksum>
-    <Name>BlasterCannon</Name>
-    <File>CannonTest</File>
+    <Name>AdvancedBlasterCannon</Name>
+    <File>AdvancedCannon</File>
     <TextureName>CannonTest</TextureName>
 	<DefaultController>StarrockGame.AI.NoController</DefaultController>
     <Structure>1</Structure>

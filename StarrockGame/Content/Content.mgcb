@@ -452,11 +452,6 @@
 /processor:PassThroughProcessor
 /build:Data/Templates/GnomeWreckage.xml
 
-#begin Data/Templates/AdvFuelCapacityboost.xml
-/importer:XmlImporter
-/processor:PassThroughProcessor
-/build:Data/Templates/AdvFuelCapacityboost.xml
-
 #begin Data/Templates/Damageboost.xml
 /importer:XmlImporter
 /processor:PassThroughProcessor
@@ -508,16 +503,6 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/SE/Spotted.mp3
-
-#begin Data/Templates/AdvCannon.xml
-/importer:XmlImporter
-/processor:PassThroughProcessor
-/build:Data/Templates/AdvCannon.xml
-
-#begin Data/Templates/AdvHomingMissle.xml
-/importer:XmlImporter
-/processor:PassThroughProcessor
-/build:Data/Templates/AdvHomingMissle.xml
 
 #begin Data/Templates/AdvMine.xml
 /importer:XmlImporter
@@ -666,4 +651,19 @@
 /importer:XmlImporter
 /processor:PassThroughProcessor
 /build:Data/Templates/ShieldRecoveryboost.xml
+
+#begin Data/Templates/AdvancedCannon.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/AdvancedCannon.xml
+
+#begin Data/Templates/AdvancedFuelCapacityboost.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/AdvancedFuelCapacityboost.xml
+
+#begin Data/Templates/AdvHomingMissile.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data/Templates/AdvHomingMissile.xml
 

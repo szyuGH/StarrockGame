@@ -26,7 +26,7 @@ namespace StarrockGame
             Random rand = new Random();
             var k = templates[rand.Next(templates.Count)];
 
-            if (k.Item2 > rand.NextDouble())
+            if (k.Item2 < rand.NextDouble())
             {
                 Name = k.Item1;
             }

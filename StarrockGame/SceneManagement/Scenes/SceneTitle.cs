@@ -18,7 +18,6 @@ namespace StarrockGame.SceneManagement.Scenes
 
         public SceneTitle(Game1 game) : base(game)
         {
-            Player.Get().Save();
         }
 
         public override void Initialize()

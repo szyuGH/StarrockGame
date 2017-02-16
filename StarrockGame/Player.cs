@@ -18,7 +18,10 @@ namespace StarrockGame
         public int Credits
         {
             get { return _credits; }
-            set { _credits = value; }
+            set {
+                _credits = value;
+                Save();
+            }
         }
 
         private List<AbstractTemplate> templates;
@@ -70,7 +73,7 @@ namespace StarrockGame
             PlayerData data = new PlayerData();
             data.Credits = Credits;
             data.PlayerName = Name;
-            data.UnlockedTemplates = templates.Select(t => t.File).ToArray();
+            data.UnlockedTemplates = templates?.Select(t => t.File).ToArray();
 
             FileInfo fi = new FileInfo(filePath);
             DirectoryInfo di = fi.Directory;

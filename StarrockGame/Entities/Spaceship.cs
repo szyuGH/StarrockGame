@@ -362,25 +362,10 @@ namespace StarrockGame.Entities
         {
             String spaceshipName = Scavenging.Target.SpaceshipBlueprint.Name;
             String moduleName = Scavenging.Target.ModuleBlueprint.Name;
-            if (spaceshipName == null && moduleName == null)
-            {
-                return;
-            }
-            else if (spaceshipName != null && moduleName != null)
-            {
-                
-                UnlockModule();
+            if (spaceshipName != null)
                 UnlockSpaceship();
-
-            }
-            else if (spaceshipName == null && moduleName != null)
-            {
+            if (moduleName != null)
                 UnlockModule();
-            }
-            else
-            {
-                UnlockSpaceship();
-            }
         }
 
         private void UnlockSpaceship()

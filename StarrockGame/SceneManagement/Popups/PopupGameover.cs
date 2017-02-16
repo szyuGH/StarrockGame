@@ -87,7 +87,6 @@ namespace StarrockGame.SceneManagement.Popups
         private void OnReturnToTitle()
         {
             Dao.PushSessionData();
-            Player.Get().Save();
 
             Close();
             SceneManager.ReturnUntil<SceneTitle>();

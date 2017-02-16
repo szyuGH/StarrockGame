@@ -253,7 +253,7 @@ namespace StarrockGame.Entities
                 new Color(140, 12, 40, 128));
 
             spriteBatch.Draw(Cache.LoadGraphic("pixel"),
-                new Rectangle((int)spos.X, (int)spos.Y, (int)(shieldRatio * Graphic.Width), 12),
+                new Rectangle((int)spos.X, (int)spos.Y + 12, (int)(shieldRatio * Graphic.Width), 12),
                 new Color(40, 12, 166, 196));
         }
 

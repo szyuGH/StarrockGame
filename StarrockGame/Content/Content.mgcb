@@ -652,11 +652,6 @@
 /processor:PassThroughProcessor
 /build:Data/Templates/ShieldRecoveryboost.xml
 
-#begin Data/Templates/AdvancedCannon.xml
-/importer:XmlImporter
-/processor:PassThroughProcessor
-/build:Data/Templates/AdvancedCannon.xml
-
 #begin Data/Templates/AdvancedFuelCapacityboost.xml
 /importer:XmlImporter
 /processor:PassThroughProcessor
@@ -666,4 +661,9 @@
 /importer:XmlImporter
 /processor:PassThroughProcessor
 /build:Data/Templates/AdvHomingMissile.xml
+
+#begin Data\Templates\AdvCannon.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/build:Data\Templates\AdvCannon.xml
 
